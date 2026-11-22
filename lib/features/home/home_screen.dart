@@ -219,7 +219,9 @@ class _HeroCopy extends StatelessWidget {
         Text(
           homiziText(context, 'Search').toUpperCase(),
           style: heading.copyWith(
-            color: lift,
+            color: onHero == HomiziColors.ink
+                ? HomiziColors.brandDeepRed
+                : HomiziColors.haldiWash,
             fontSize: 12,
             letterSpacing: 1.6,
             fontWeight: FontWeight.w600,

@@ -182,9 +182,11 @@ class HomiziRoleIntro extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final p = palette ?? HomiziRoleScope.of(context);
+    // Small eyebrow type: deep red on the yellow heroes, pale haldi on the
+    // red ones (5.0:1 on red orange; full yellow would be 4.0:1).
     final lift = p.onHero == HomiziColors.ink
         ? HomiziColors.brandDeepRed
-        : HomiziColors.brandYellow;
+        : HomiziColors.haldiWash;
     return HomiziHeroBand(
       palette: p,
       padding: const EdgeInsets.fromLTRB(20, 18, 20, 44),

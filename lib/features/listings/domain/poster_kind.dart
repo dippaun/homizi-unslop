@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:homizi/core/theme/homizi_colors.dart';
+import 'package:homizi/core/theme/role_palette.dart';
 import 'package:homizi/features/discovery/domain/listing.dart';
 import 'package:homizi/ui/kit/real_life_icons.dart';
 
@@ -34,18 +34,20 @@ IconData posterKindIcon(String kind) => switch (kind) {
 };
 
 /// Wash behind the badge. Text stays ink so it stays readable.
+// v2: poster tags use the role palettes, so an owner, a PG, a broker
+// and a room sharer read the same on cards as on their own homes.
 Color posterKindWash(String kind) => switch (kind) {
-  posterPg => HomiziColors.warmWash,
-  posterBroker => HomiziColors.mist,
-  posterRoomSharer => HomiziColors.infoWash,
-  _ => HomiziColors.warningWash,
+  posterPg => HomiziRolePalette.pg.wash,
+  posterBroker => HomiziRolePalette.broker.wash,
+  posterRoomSharer => HomiziRolePalette.sharer.wash,
+  _ => HomiziRolePalette.owner.wash,
 };
 
 Color posterKindInk(String kind) => switch (kind) {
-  posterPg => HomiziColors.brandDeepRed,
-  posterBroker => HomiziColors.inkSoft,
-  posterRoomSharer => HomiziColors.info,
-  _ => HomiziColors.warning,
+  posterPg => HomiziRolePalette.pg.ink,
+  posterBroker => HomiziRolePalette.broker.ink,
+  posterRoomSharer => HomiziRolePalette.sharer.ink,
+  _ => HomiziRolePalette.owner.ink,
 };
 
 /// Value stored on `properties.listed_by`.

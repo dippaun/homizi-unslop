@@ -2,6 +2,7 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:homizi/core/theme/homizi_colors.dart';
+import 'package:homizi/core/theme/role_palette.dart';
 import 'package:homizi/ui/kit/icon_choice_chip.dart';
 import 'package:homizi/ui/kit/real_life_icons.dart';
 
@@ -37,7 +38,10 @@ class OptionTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final artColor = selected ? HomiziColors.logoOrange : HomiziColors.inkSoft;
+    // v2: tiles are white cards on cream; the selected one takes the
+    // route's role wash, accent edge and ink.
+    final palette = HomiziRoleScope.of(context);
+    final artColor = selected ? palette.ink : HomiziColors.inkSoft;
     final glyph = _choiceGlyph(label, icon);
     return Semantics(
       button: true,
@@ -46,14 +50,21 @@ class OptionTile extends StatelessWidget {
         duration: const Duration(milliseconds: 180),
         curve: Curves.easeOutCubic,
         decoration: BoxDecoration(
-          color: selected
-              ? HomiziColors.logoOrange.withValues(alpha: 0.10)
-              : HomiziColors.soft,
+          color: selected ? palette.wash : HomiziColors.white,
           borderRadius: BorderRadius.circular(16),
           border: Border.all(
-            color: selected ? HomiziColors.logoOrange : HomiziColors.clear,
-            width: 2,
+            color: selected ? palette.accent : HomiziColors.line,
+            width: selected ? 2 : 1,
           ),
+          boxShadow: [
+            BoxShadow(
+              color: selected
+                  ? palette.accent.withValues(alpha: 0.22)
+                  : HomiziColors.shadowWarm.withValues(alpha: 0.08),
+              blurRadius: selected ? 14 : 8,
+              offset: const Offset(0, 4),
+            ),
+          ],
         ),
         child: Material(
           color: HomiziColors.clear,
@@ -118,13 +129,13 @@ class OptionTile extends StatelessWidget {
                   ),
                 ),
                 if (selected)
-                  const Positioned(
+                  Positioned(
                     top: 6,
                     right: 6,
                     child: Icon(
                       Icons.check_circle,
                       size: 18,
-                      color: HomiziColors.logoOrange,
+                      color: palette.ink,
                     ),
                   ),
               ],

@@ -57,7 +57,10 @@ abstract final class HomiziColors {
 
   /// Warm sandstone hairline on cream (v2, was #EAE6E1).
   static const Color line = Color(0xFFF0DFC4);
-  static const Color mist = soft;
+
+  /// Quiet panel and input fill. Deeper cream (v2) so panels still read
+  /// on the cream page; muted text clears 5.0:1 here.
+  static const Color mist = creamDeep;
 
   /// Pale yellow for selected chips. Ink on this stays well above 4.5:1.
   static const Color accentWash = Color(0xFFFFF6D0);
