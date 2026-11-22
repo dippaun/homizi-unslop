@@ -216,10 +216,8 @@ class _SeekerCard extends ConsumerWidget {
           child: Ink(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
-              border: Border.all(color: const Color(0xFFFFD7B0)),
-              gradient: const LinearGradient(
-                colors: [Color(0xFFFFFBF6), Color(0xFFFFF1E4)],
-              ),
+              border: Border.all(color: HomiziColors.line),
+              color: HomiziColors.white,
             ),
             child: Padding(
               padding: const EdgeInsets.fromLTRB(16, 16, 16, 10),
@@ -293,14 +291,16 @@ class _EmptySeekers extends StatelessWidget {
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(24),
-        gradient: const LinearGradient(
-          colors: [Color(0xFFFFF1E4), Color(0xFFFFE0C2)],
-        ),
+        color: HomiziColors.warmWash,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Icon(Icons.person_search, color: Color(0xFF9A4B12), size: 36),
+          const Icon(
+            Icons.person_search,
+            color: HomiziColors.brandDeepRed,
+            size: 36,
+          ),
           const SizedBox(height: 8),
           Text(
             homiziText(context, title),

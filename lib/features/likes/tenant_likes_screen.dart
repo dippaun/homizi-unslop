@@ -201,8 +201,8 @@ class _LikedPane extends ConsumerWidget {
           icon: Icons.groups_outlined,
           title: 'Roommates',
           count: people.length,
-          tint: HomiziColors.homiziLavender,
-          accent: HomiziColors.homiziPurple,
+          tint: HomiziColors.warmWash,
+          accent: HomiziColors.brandDeepRed,
           emptyLine:
               'No roommate likes yet. People you mark Interested show up here.',
           children: [
@@ -286,8 +286,8 @@ class _MatchesPane extends ConsumerWidget {
           icon: Icons.groups_outlined,
           title: 'Roommates',
           count: people.length,
-          tint: HomiziColors.homiziLavender,
-          accent: HomiziColors.homiziPurple,
+          tint: HomiziColors.warmWash,
+          accent: HomiziColors.brandDeepRed,
           emptyLine:
               'No roommate matches yet. A match appears when you are both interested.',
           children: [

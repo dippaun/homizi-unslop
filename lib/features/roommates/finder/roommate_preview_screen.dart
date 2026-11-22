@@ -648,7 +648,7 @@ class _FitIcon extends StatelessWidget {
         ? (Icons.add_circle, HomiziColors.brandGolden, HomiziColors.warningWash)
         : factor.matched
         ? (Icons.check_circle, HomiziColors.success, HomiziColors.successWash)
-        : (Icons.cancel, HomiziColors.logoOrange, const Color(0xFFFFF1E8));
+        : (Icons.cancel, HomiziColors.logoOrange, HomiziColors.warmWash);
     return Tooltip(
       message: factor.detail.isEmpty ? factor.label : factor.detail,
       child: SizedBox(

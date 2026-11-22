@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:homizi/core/theme/homizi_colors.dart';
 import 'package:homizi/features/discovery/domain/listing.dart';
 import 'package:homizi/ui/kit/real_life_icons.dart';
 
@@ -34,17 +35,17 @@ IconData posterKindIcon(String kind) => switch (kind) {
 
 /// Wash behind the badge. Text stays ink so it stays readable.
 Color posterKindWash(String kind) => switch (kind) {
-  posterPg => const Color(0xFFFFE4C8),
-  posterBroker => const Color(0xFFD9F2E3),
-  posterRoomSharer => const Color(0xFFE4E0FF),
-  _ => const Color(0xFFFFF1D6),
+  posterPg => HomiziColors.warmWash,
+  posterBroker => HomiziColors.mist,
+  posterRoomSharer => HomiziColors.infoWash,
+  _ => HomiziColors.warningWash,
 };
 
 Color posterKindInk(String kind) => switch (kind) {
-  posterPg => const Color(0xFF9A4B12),
-  posterBroker => const Color(0xFF0E6B45),
-  posterRoomSharer => const Color(0xFF3D2E8C),
-  _ => const Color(0xFF8A4B08),
+  posterPg => HomiziColors.brandDeepRed,
+  posterBroker => HomiziColors.inkSoft,
+  posterRoomSharer => HomiziColors.info,
+  _ => HomiziColors.warning,
 };
 
 /// Value stored on `properties.listed_by`.

@@ -72,7 +72,7 @@ class _MapPlaceholder extends StatelessWidget {
         : 'Search a place to drop the pin';
     return ColoredBox(
       key: const Key('office-map-placeholder'),
-      color: const Color(0xFFE7F0E4),
+      color: HomiziColors.mapLand,
       child: DecoratedBox(
         decoration: BoxDecoration(
           border: Border.all(color: HomiziColors.line),
@@ -148,7 +148,7 @@ class _GridPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final road = Paint()
-      ..color = const Color(0xFFF7F4EA)
+      ..color = HomiziColors.mapPaper
       ..strokeWidth = 10;
     canvas.drawLine(
       Offset(0, size.height * 0.42),
@@ -160,7 +160,7 @@ class _GridPainter extends CustomPainter {
       Offset(size.width * 0.48, size.height),
       road,
     );
-    final park = Paint()..color = const Color(0xFFD5E8C8);
+    final park = Paint()..color = HomiziColors.mapPark;
     canvas.drawRRect(
       RRect.fromRectAndRadius(
         Rect.fromLTWH(size.width * 0.62, size.height * 0.12, 70, 48),

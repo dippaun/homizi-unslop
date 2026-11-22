@@ -356,15 +356,7 @@ class _Avatar extends StatelessWidget {
               padding: const EdgeInsets.all(4),
               decoration: const BoxDecoration(
                 shape: BoxShape.circle,
-                gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: [
-                    HomiziColors.brandYellow,
-                    HomiziColors.logoOrange,
-                    HomiziColors.brandDeepOrange,
-                  ],
-                ),
+                color: HomiziColors.logoOrange,
               ),
               child: Container(
                 padding: const EdgeInsets.all(4),
@@ -601,12 +593,7 @@ class _Actions extends StatelessWidget {
               color: HomiziColors.clear,
               child: Ink(
                 decoration: BoxDecoration(
-                  gradient: const LinearGradient(
-                    colors: [
-                      HomiziColors.logoOrange,
-                      HomiziColors.brandDeepOrange,
-                    ],
-                  ),
+                  gradient: HomiziGradients.action,
                   borderRadius: BorderRadius.circular(14),
                 ),
                 child: InkWell(

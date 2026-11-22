@@ -46,7 +46,7 @@ class _AuthCelebrationState extends ConsumerState<AuthCelebration>
     final random = math.Random(7);
     const colors = <Color>[
       HomiziColors.logoOrange,
-      HomiziColors.homiziPurple,
+      HomiziColors.brandDeepRed,
       HomiziColors.brandYellow,
       HomiziColors.brandGolden,
       HomiziColors.brandDeepOrange,
@@ -439,9 +439,7 @@ class _PrimaryButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return DecoratedBox(
       decoration: BoxDecoration(
-        gradient: const LinearGradient(
-          colors: [HomiziColors.logoOrange, HomiziColors.brandDeepOrange],
-        ),
+        gradient: HomiziGradients.action,
         borderRadius: BorderRadius.circular(14),
       ),
       child: FilledButton(
@@ -497,7 +495,7 @@ class _BlastPainter extends CustomPainter {
 
   static const _streamerColors = <Color>[
     HomiziColors.logoOrange,
-    HomiziColors.homiziPurple,
+    HomiziColors.brandDeepRed,
     HomiziColors.brandYellow,
     HomiziColors.brandGolden,
   ];

@@ -33,7 +33,7 @@ InputDecoration listingFieldDecoration(
   String? helper,
 }) {
   final accent = FlowAccentScope.active(context)
-      ? HomiziColors.homiziPurple
+      ? HomiziColors.brandDeepRed
       : HomiziColors.logoOrange;
   return InputDecoration(
     labelText: homiziText(context, label),
@@ -69,7 +69,7 @@ class ListingTitleField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final accent = FlowAccentScope.active(context)
-        ? HomiziColors.homiziPurple
+        ? HomiziColors.brandDeepRed
         : HomiziColors.logoOrange;
     return wizardAnchor(
       context,
@@ -196,7 +196,7 @@ class _HostIntentPair extends StatelessWidget {
         'Shared Space (I am an existing tenant)',
         'Looking for a flatmate / roomie',
         Icons.groups_outlined,
-        HomiziColors.homiziLavender,
+        HomiziColors.warmWash,
       ),
     ];
     return Row(
@@ -1755,13 +1755,13 @@ class _PrivateFlatNote extends StatelessWidget {
       key: const Key('listing-flat-private'),
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
       decoration: BoxDecoration(
-        color: const Color(0xFFF3ECFF),
+        color: HomiziColors.warmWash,
         borderRadius: BorderRadius.circular(14),
-        border: Border.all(color: HomiziColors.homiziPurple),
+        border: Border.all(color: HomiziColors.brandDeepRed),
       ),
       child: Row(
         children: [
-          const Icon(Icons.lock_outline, color: HomiziColors.homiziPurple),
+          const Icon(Icons.lock_outline, color: HomiziColors.brandDeepRed),
           const SizedBox(width: 8),
           Expanded(
             child: Text(

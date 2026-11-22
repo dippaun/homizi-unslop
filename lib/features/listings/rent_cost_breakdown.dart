@@ -296,9 +296,7 @@ class _CalculatingLiveState extends State<_CalculatingLive>
               height: 10,
               decoration: const BoxDecoration(
                 shape: BoxShape.circle,
-                gradient: LinearGradient(
-                  colors: [HomiziColors.brandGolden, HomiziColors.logoOrange],
-                ),
+                color: HomiziColors.logoOrange,
               ),
             ),
           ),
@@ -366,16 +364,9 @@ class _SweepBorderState extends State<_SweepBorder>
         return DecoratedBox(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(22),
-            gradient: LinearGradient(
-              begin: Alignment(-1.4 + (t * 2.8), -1),
-              end: Alignment(-0.2 + (t * 2.8), 1),
-              colors: const [
-                HomiziColors.line,
-                HomiziColors.brandGolden,
-                HomiziColors.logoOrange,
-                HomiziColors.line,
-              ],
-            ),
+            color: t == 0
+                ? HomiziColors.line
+                : Color.lerp(HomiziColors.logoOrange, HomiziColors.line, t),
           ),
           child: Padding(padding: const EdgeInsets.all(1.5), child: child),
         );

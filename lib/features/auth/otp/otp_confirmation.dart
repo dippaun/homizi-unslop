@@ -60,7 +60,7 @@ class OtpConfirmation extends StatelessWidget {
                 const SizedBox(height: HomiziSpace.xl),
                 DecoratedBox(
                   decoration: BoxDecoration(
-                    gradient: otpBadgeGradient,
+                    color: HomiziColors.logoOrange,
                     borderRadius: BorderRadius.circular(HomiziSpace.radius),
                   ),
                   child: FilledButton(

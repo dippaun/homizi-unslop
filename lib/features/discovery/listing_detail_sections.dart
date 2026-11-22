@@ -1469,7 +1469,7 @@ class _WhyIcon extends StatelessWidget {
       _WhyFit.missed => (
         Icons.cancel,
         HomiziColors.logoOrange,
-        const Color(0xFFFFF1E8),
+        HomiziColors.warmWash,
       ),
       _WhyFit.missing => (
         Icons.add_circle,
@@ -1710,11 +1710,7 @@ class _InterestButton extends StatelessWidget {
           key: const Key('interested-button'),
           onTap: onPressed,
           child: Ink(
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                colors: [HomiziColors.logoOrange, HomiziColors.brandDeepOrange],
-              ),
-            ),
+            decoration: const BoxDecoration(gradient: HomiziGradients.action),
             child: SizedBox(
               height: 48,
               child: Center(

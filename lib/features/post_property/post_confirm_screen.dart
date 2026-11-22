@@ -195,7 +195,7 @@ class PartnerSuccessScreen extends ConsumerWidget {
           const SizedBox(height: 16),
           DecoratedBox(
             decoration: BoxDecoration(
-              color: HomiziColors.homiziLavender,
+              color: HomiziColors.warmWash,
               borderRadius: BorderRadius.circular(16),
             ),
             child: Padding(

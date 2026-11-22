@@ -734,11 +734,11 @@ class _TypeTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: selected ? HomiziColors.homiziLavender : HomiziColors.white,
+      color: selected ? HomiziColors.warmWash : HomiziColors.white,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
         side: BorderSide(
-          color: selected ? HomiziColors.homiziPurple : HomiziColors.line,
+          color: selected ? HomiziColors.brandDeepRed : HomiziColors.line,
         ),
       ),
       child: InkWell(
@@ -775,7 +775,7 @@ class _TypeTile extends StatelessWidget {
               Icon(
                 selected ? Icons.radio_button_checked : Icons.radio_button_off,
                 color: selected
-                    ? HomiziColors.homiziPurple
+                    ? HomiziColors.brandDeepRed
                     : HomiziColors.muted,
               ),
             ],

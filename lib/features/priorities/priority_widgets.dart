@@ -124,9 +124,7 @@ class PriorityBadge extends StatelessWidget {
       height: 28,
       alignment: Alignment.center,
       decoration: BoxDecoration(
-        gradient: const LinearGradient(
-          colors: [HomiziColors.logoOrange, HomiziColors.brandRedOrange],
-        ),
+        color: HomiziColors.ink,
         borderRadius: BorderRadius.circular(8),
       ),
       child: Text(
@@ -311,12 +309,7 @@ class PriorityTabs extends StatelessWidget {
               child: Ink(
                 decoration: i == index
                     ? BoxDecoration(
-                        gradient: const LinearGradient(
-                          colors: [
-                            HomiziColors.logoOrange,
-                            HomiziColors.brandRedOrange,
-                          ],
-                        ),
+                        color: HomiziColors.ink,
                         borderRadius: BorderRadius.circular(14),
                       )
                     : null,
@@ -388,9 +381,7 @@ class PriorityHowItWorks extends StatelessWidget {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
             decoration: BoxDecoration(
-              gradient: const LinearGradient(
-                colors: [HomiziColors.logoOrange, HomiziColors.brandRedOrange],
-              ),
+              color: HomiziColors.ink,
               borderRadius: BorderRadius.circular(20),
             ),
             child: Text(

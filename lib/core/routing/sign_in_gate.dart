@@ -249,11 +249,7 @@ class _GateMark extends StatelessWidget {
         height: 88,
         alignment: Alignment.center,
         decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [HomiziColors.logoOrange, HomiziColors.brandRedOrange],
-          ),
+          color: HomiziColors.accentWash,
           shape: BoxShape.circle,
         ),
         child: const Icon(
@@ -281,9 +277,7 @@ class _GradientCta extends StatelessWidget {
   Widget build(BuildContext context) {
     return DecoratedBox(
       decoration: const BoxDecoration(
-        gradient: LinearGradient(
-          colors: [HomiziColors.logoOrange, HomiziColors.brandRedOrange],
-        ),
+        gradient: HomiziGradients.action,
         borderRadius: BorderRadius.all(Radius.circular(16)),
       ),
       child: Material(

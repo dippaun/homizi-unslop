@@ -340,7 +340,7 @@ class _HomiziPropertyCardState extends State<HomiziPropertyCard> {
     if (widget.data.person) {
       final photo = (widget.data.hostAvatarRef ?? photos.first.ref).trim();
       return ColoredBox(
-        color: const Color(0xFFFFF6EE),
+        color: HomiziColors.warmWash,
         child: Center(
           child: HomiziPortrait(
             photo: photo,
@@ -1047,7 +1047,7 @@ class _RoommateBadge extends StatelessWidget {
     return DecoratedBox(
       key: const Key('roommate-seeker-badge'),
       decoration: BoxDecoration(
-        color: const Color(0xFFE4E0FF),
+        color: HomiziColors.infoWash,
         borderRadius: BorderRadius.circular(999),
       ),
       child: const Padding(
@@ -1055,12 +1055,12 @@ class _RoommateBadge extends StatelessWidget {
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(Icons.groups_outlined, size: 14, color: Color(0xFF3D2E8C)),
+            Icon(Icons.groups_outlined, size: 14, color: HomiziColors.info),
             SizedBox(width: 4),
             Text(
               'Roommate',
               style: TextStyle(
-                color: Color(0xFF3D2E8C),
+                color: HomiziColors.info,
                 fontSize: 12,
                 fontWeight: FontWeight.w800,
               ),

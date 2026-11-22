@@ -280,8 +280,8 @@ class _ChatInboxScreenState extends ConsumerState<ChatInboxScreen> {
           icon: Icons.groups_outlined,
           title: 'Roommates',
           count: roommates.length,
-          tint: HomiziColors.homiziLavender,
-          accent: HomiziColors.homiziPurple,
+          tint: HomiziColors.warmWash,
+          accent: HomiziColors.brandDeepRed,
           emptyLine: searching
               ? 'No roommate chats match this search.'
               : 'No roommate chats yet. Message someone from their profile.',

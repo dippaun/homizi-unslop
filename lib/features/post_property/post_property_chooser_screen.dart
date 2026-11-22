@@ -195,11 +195,11 @@ class _ChoiceCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: selected ? HomiziColors.homiziLavender : HomiziColors.white,
+      color: selected ? HomiziColors.warmWash : HomiziColors.white,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20),
         side: BorderSide(
-          color: selected ? HomiziColors.homiziPurple : HomiziColors.line,
+          color: selected ? HomiziColors.brandDeepRed : HomiziColors.line,
           width: selected ? 1.5 : 1,
         ),
       ),
@@ -285,7 +285,7 @@ class _ChoiceCard extends StatelessWidget {
               Icon(
                 selected ? Icons.radio_button_checked : Icons.radio_button_off,
                 color: selected
-                    ? HomiziColors.homiziPurple
+                    ? HomiziColors.brandDeepRed
                     : HomiziColors.muted,
               ),
             ],

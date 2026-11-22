@@ -542,13 +542,7 @@ class _RingPainter extends CustomPainter {
       ..strokeWidth = 14;
     canvas.drawArc(rect.deflate(8), 0, math.pi * 2, false, track);
     final arc = Paint()
-      ..shader = const SweepGradient(
-        colors: [
-          HomiziColors.brandYellow,
-          HomiziColors.logoOrange,
-          HomiziColors.success,
-        ],
-      ).createShader(rect)
+      ..color = HomiziColors.success
       ..style = PaintingStyle.stroke
       ..strokeCap = StrokeCap.round
       ..strokeWidth = 14;

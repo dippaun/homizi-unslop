@@ -307,11 +307,7 @@ class _SavedTile extends StatelessWidget {
     return DecoratedBox(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(18),
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [palette.$1, HomiziColors.white],
-        ),
+        color: palette.$1,
         border: Border.all(color: palette.$2.withValues(alpha: 0.45)),
       ),
       child: Padding(
@@ -378,8 +374,8 @@ class _SavedTile extends StatelessWidget {
   const pairs = <(Color, Color)>[
     (HomiziColors.accentWash, HomiziColors.logoOrange),
     (HomiziColors.successWash, HomiziColors.success),
-    (HomiziColors.homiziLavender, HomiziColors.homiziPurple),
-    (Color(0xFFFFF1E8), HomiziColors.brandDeepOrange),
+    (HomiziColors.warmWash, HomiziColors.brandDeepRed),
+    (HomiziColors.warmWash, HomiziColors.brandDeepOrange),
   ];
   return pairs[index % pairs.length];
 }

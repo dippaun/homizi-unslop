@@ -259,11 +259,7 @@ class _MatchRingPainter extends CustomPainter {
       return;
     }
     final paint = Paint()
-      ..shader = SweepGradient(
-        startAngle: -math.pi / 2,
-        endAngle: math.pi * 1.5,
-        colors: [color.withValues(alpha: 0.45), color],
-      ).createShader(rect)
+      ..color = color
       ..style = PaintingStyle.stroke
       ..strokeWidth = stroke
       ..strokeCap = StrokeCap.round;

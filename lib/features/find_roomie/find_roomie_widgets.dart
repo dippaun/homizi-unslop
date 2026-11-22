@@ -176,11 +176,7 @@ class FindRoomieButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return DecoratedBox(
       decoration: BoxDecoration(
-        gradient: onPressed == null
-            ? null
-            : const LinearGradient(
-                colors: [HomiziColors.logoOrange, HomiziColors.brandRedOrange],
-              ),
+        gradient: onPressed == null ? null : HomiziGradients.action,
         color: onPressed == null ? HomiziColors.line : null,
         borderRadius: BorderRadius.circular(28),
       ),

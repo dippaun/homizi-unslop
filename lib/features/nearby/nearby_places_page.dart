@@ -199,7 +199,7 @@ class _Fallback extends StatelessWidget {
   Widget build(BuildContext context) {
     return ColoredBox(
       key: const Key('nearby-map-fallback'),
-      color: const Color(0xFFF4F1EA),
+      color: HomiziColors.mapBlank,
       child: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,

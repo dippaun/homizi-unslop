@@ -105,15 +105,7 @@ class _RingPainter extends CustomPainter {
     final stroke = size.width * 0.045;
     final rect = (Offset.zero & size).deflate(stroke / 2);
     final paint = Paint()
-      ..shader = SweepGradient(
-        transform: GradientRotation(turn * math.pi * 2),
-        colors: const [
-          HomiziColors.logoOrange,
-          HomiziColors.brandGolden,
-          HomiziColors.brandDeepOrange,
-          HomiziColors.logoOrange,
-        ],
-      ).createShader(rect)
+      ..color = HomiziColors.logoOrange
       ..style = PaintingStyle.stroke
       ..strokeWidth = stroke
       ..strokeCap = StrokeCap.round;

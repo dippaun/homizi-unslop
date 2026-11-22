@@ -857,12 +857,7 @@ class _TopTabs extends StatelessWidget {
             child: Ink(
               decoration: selected
                   ? BoxDecoration(
-                      gradient: const LinearGradient(
-                        colors: [
-                          HomiziColors.logoOrange,
-                          HomiziColors.brandRedOrange,
-                        ],
-                      ),
+                      color: HomiziColors.ink,
                       borderRadius: BorderRadius.circular(14),
                     )
                   : null,

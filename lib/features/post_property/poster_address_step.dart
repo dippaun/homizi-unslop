@@ -279,13 +279,13 @@ class _PosterAddressStepState extends ConsumerState<PosterAddressStep> {
           key: const Key('poster-flat-private'),
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
           decoration: BoxDecoration(
-            color: const Color(0xFFF3ECFF),
+            color: HomiziColors.warmWash,
             borderRadius: BorderRadius.circular(14),
-            border: Border.all(color: HomiziColors.homiziPurple),
+            border: Border.all(color: HomiziColors.brandDeepRed),
           ),
           child: Row(
             children: [
-              const Icon(Icons.lock_outline, color: HomiziColors.homiziPurple),
+              const Icon(Icons.lock_outline, color: HomiziColors.brandDeepRed),
               const SizedBox(width: 8),
               Expanded(
                 child: Text(

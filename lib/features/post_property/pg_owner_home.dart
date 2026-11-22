@@ -115,16 +115,16 @@ class _EmptyPg extends StatelessWidget {
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(24),
-        gradient: const LinearGradient(
-          colors: [Color(0xFFFFF1E4), Color(0xFFFFE0C2)],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-        ),
+        color: HomiziColors.warmWash,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Icon(Icons.night_shelter, color: Color(0xFF9A4B12), size: 36),
+          const Icon(
+            Icons.night_shelter,
+            color: HomiziColors.brandDeepRed,
+            size: 36,
+          ),
           const SizedBox(height: 8),
           Text(
             homiziText(context, 'Add your PG'),
@@ -182,16 +182,17 @@ class _PgCard extends StatelessWidget {
           child: Ink(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
-              border: Border.all(color: const Color(0xFFFFD7B0)),
-              gradient: const LinearGradient(
-                colors: [Color(0xFFFFFBF6), Color(0xFFFFF1E4)],
-              ),
+              border: Border.all(color: HomiziColors.line),
+              color: HomiziColors.white,
             ),
             child: Padding(
               padding: const EdgeInsets.all(16),
               child: Row(
                 children: [
-                  const Icon(Icons.night_shelter, color: Color(0xFF9A4B12)),
+                  const Icon(
+                    Icons.night_shelter,
+                    color: HomiziColors.brandDeepRed,
+                  ),
                   const SizedBox(width: 12),
                   Expanded(
                     child: Column(
@@ -242,12 +243,12 @@ class _RequestNote extends StatelessWidget {
       key: const Key('pg-requests-empty'),
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: const Color(0xFFF4F7FF),
+        color: HomiziColors.soft,
         borderRadius: BorderRadius.circular(20),
       ),
       child: Row(
         children: [
-          Icon(icon, color: HomiziColors.homiziPurple),
+          Icon(icon, color: HomiziColors.brandDeepRed),
           const SizedBox(width: 12),
           Expanded(
             child: Column(
@@ -290,11 +291,11 @@ class _RequestCard extends StatelessWidget {
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(18),
-          color: const Color(0xFFF7F3FF),
+          color: HomiziColors.soft,
         ),
         child: Row(
           children: [
-            const Icon(Icons.person, color: HomiziColors.homiziPurple),
+            const Icon(Icons.person, color: HomiziColors.brandDeepRed),
             const SizedBox(width: 12),
             Expanded(
               child: Column(

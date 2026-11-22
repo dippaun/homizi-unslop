@@ -89,7 +89,11 @@ void main() {
     expect(HomiziColors.accent, HomiziColors.brandOrange);
     expect(HomiziColors.brandYellow, const Color(0xFFFFD20A));
     expect(HomiziColors.ink, const Color(0xFF172033));
-    expect(HomiziColors.soft, const Color(0xFFF7F8FA));
+    expect(HomiziColors.soft, const Color(0xFFFAF8F5));
+    expect(
+      _contrast(HomiziColors.muted, HomiziColors.soft),
+      greaterThan(4.5),
+    );
     expect(HomiziColors.success, const Color(0xFF16803C));
     expect(HomiziColors.warning, const Color(0xFF9A6700));
     expect(HomiziColors.error, const Color(0xFFB42318));

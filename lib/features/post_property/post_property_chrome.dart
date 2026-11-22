@@ -9,15 +9,9 @@ import 'package:homizi/core/widgets/homizi_back.dart';
 import 'package:homizi/core/widgets/homizi_tab_header.dart';
 import 'package:homizi/ui/kit/kit.dart';
 
-/// Orange blended into purple for Post Property heroes.
-const postPropertyGradient = LinearGradient(
-  colors: [HomiziColors.logoOrange, HomiziColors.homiziPurple],
-);
-
-/// Continue gradient. The orange end is deep enough for white type.
-const postContinueGradient = LinearGradient(
-  colors: [HomiziColors.brandRedOrange, HomiziColors.homiziPurple],
-);
+/// Continue is the one primary action, so it keeps the brand action
+/// gradient. White type sits on the deep end.
+const postContinueGradient = HomiziGradients.action;
 
 /// Round back, centred Homizi mark, round home. One back control per page.
 class PostPropertyBar extends StatelessWidget implements PreferredSizeWidget {
@@ -288,7 +282,7 @@ class PostChip extends StatelessWidget {
   Widget build(BuildContext context) {
     return DecoratedBox(
       decoration: BoxDecoration(
-        color: HomiziColors.homiziLavender,
+        color: HomiziColors.warmWash,
         borderRadius: BorderRadius.circular(20),
       ),
       child: Padding(
@@ -322,7 +316,7 @@ class PostStepper extends StatelessWidget {
               child: Container(
                 height: 2,
                 color: i <= index
-                    ? HomiziColors.homiziPurple
+                    ? HomiziColors.brandDeepRed
                     : HomiziColors.line,
               ),
             ),
@@ -359,7 +353,7 @@ class _StepDot extends StatelessWidget {
     final fill = done
         ? HomiziColors.success
         : active
-        ? HomiziColors.homiziPurple
+        ? HomiziColors.brandDeepRed
         : HomiziColors.white;
     final ink = done || active ? HomiziColors.white : HomiziColors.muted;
     return SizedBox(
@@ -375,7 +369,7 @@ class _StepDot extends StatelessWidget {
                 color: done
                     ? HomiziColors.success
                     : active
-                    ? HomiziColors.homiziPurple
+                    ? HomiziColors.brandDeepRed
                     : HomiziColors.line,
               ),
             ),
@@ -428,7 +422,7 @@ class PostTrustPill extends StatelessWidget {
   Widget build(BuildContext context) {
     return DecoratedBox(
       decoration: BoxDecoration(
-        color: HomiziColors.homiziLavender,
+        color: HomiziColors.warmWash,
         borderRadius: BorderRadius.circular(24),
       ),
       child: Padding(
@@ -437,7 +431,7 @@ class PostTrustPill extends StatelessWidget {
           children: [
             const Icon(
               Icons.verified_user_outlined,
-              color: HomiziColors.homiziPurple,
+              color: HomiziColors.brandDeepRed,
               size: 18,
             ),
             const SizedBox(width: 8),
@@ -487,7 +481,7 @@ InputDecoration postFieldDecoration(
     border: border,
     focusedBorder: const OutlineInputBorder(
       borderRadius: BorderRadius.all(Radius.circular(16)),
-      borderSide: BorderSide(color: HomiziColors.homiziPurple, width: 2),
+      borderSide: BorderSide(color: HomiziColors.brandDeepRed, width: 2),
     ),
   );
 }
@@ -500,7 +494,7 @@ class PropertyPhotoUploadCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: HomiziColors.homiziLavender,
+      color: HomiziColors.warmWash,
       borderRadius: BorderRadius.circular(20),
       child: InkWell(
         key: const Key('post-photo-upload'),
@@ -511,7 +505,7 @@ class PropertyPhotoUploadCard extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
-            border: Border.all(color: HomiziColors.homiziPurple),
+            border: Border.all(color: HomiziColors.brandDeepRed),
           ),
           child: Column(
             children: [

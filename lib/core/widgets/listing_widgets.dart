@@ -211,17 +211,7 @@ class PhotoShimmer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const DecoratedBox(
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [
-            HomiziColors.mist,
-            HomiziColors.accentWash,
-            HomiziColors.mist,
-          ],
-        ),
-      ),
+      decoration: BoxDecoration(color: HomiziColors.mist),
       child: Center(child: HomiziMark(size: 36)),
     );
   }

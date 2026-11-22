@@ -95,9 +95,9 @@ class _RoommateDeckCardState extends State<RoommateDeckCard>
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   colors: [
-                    Color(0x00000000),
-                    Color(0x00000000),
-                    Color(0xF0172033),
+                    HomiziColors.clear,
+                    HomiziColors.clear,
+                    HomiziColors.inkScrim,
                   ],
                   stops: [0.28, 0.48, 1],
                 ),
@@ -362,7 +362,7 @@ class _LifeChip extends StatelessWidget {
   Widget build(BuildContext context) {
     return DecoratedBox(
       decoration: BoxDecoration(
-        color: HomiziColors.homiziLavender,
+        color: HomiziColors.warmWash,
         borderRadius: BorderRadius.circular(999),
       ),
       child: Padding(
@@ -370,7 +370,7 @@ class _LifeChip extends StatelessWidget {
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(_icon(label), size: 16, color: HomiziColors.homiziPurple),
+            Icon(_icon(label), size: 16, color: HomiziColors.brandDeepRed),
             const SizedBox(width: 4),
             Text(
               label,

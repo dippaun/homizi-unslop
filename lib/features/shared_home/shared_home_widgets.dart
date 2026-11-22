@@ -32,9 +32,7 @@ class ShGradientButton extends StatelessWidget {
       opacity: enabled || busy ? 1 : 0.5,
       child: DecoratedBox(
         decoration: BoxDecoration(
-          gradient: const LinearGradient(
-            colors: [HomiziColors.logoOrange, HomiziColors.brandRedOrange],
-          ),
+          gradient: HomiziGradients.action,
           borderRadius: BorderRadius.circular(16),
         ),
         child: Material(

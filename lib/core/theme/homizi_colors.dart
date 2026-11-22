@@ -22,16 +22,15 @@ abstract final class HomiziColors {
   /// White text is not used on this colour.
   static const Color logoOrange = Color(0xFFF75620);
 
-  /// Post Property flow only. Blended with [logoOrange] on primary buttons
-  /// and heroes in that flow. The rest of the app does not use it.
-  static const Color homiziPurple = Color(0xFF6A3DE8);
-
-  /// Light lavender surface for selected cards and chips in Post Property.
-  static const Color homiziLavender = Color(0xFFF3EEFF);
+  /// Warm peach wash for selected cards, info panels and empty states.
+  /// Replaces the old Post Property lavender (unslop pass 2: no purple).
+  static const Color warmWash = Color(0xFFFFF1E8);
 
   static const Color white = Color(0xFFFFFFFF);
   static const Color surface = white;
-  static const Color soft = Color(0xFFF7F8FA);
+
+  /// Warm off-white page background. Cards sit on it in white.
+  static const Color soft = Color(0xFFFAF8F5);
 
   /// Main text. About 16:1 on white.
   static const Color ink = Color(0xFF172033);
@@ -42,7 +41,8 @@ abstract final class HomiziColors {
   /// Secondary text. About 5.7:1 on white and 5.4:1 on [soft].
   static const Color muted = Color(0xFF5C677A);
 
-  static const Color line = Color(0xFFE5E7EB);
+  /// Quiet hairline, ink at about 8% on the warm page.
+  static const Color line = Color(0xFFEAE6E1);
   static const Color mist = soft;
 
   /// Pale yellow for selected chips. Ink on this stays well above 4.5:1.
@@ -59,6 +59,11 @@ abstract final class HomiziColors {
   static const Color error = Color(0xFFB42318);
   static const Color onError = white;
   static const Color errorWash = Color(0xFFFDECEC);
+
+  /// Secondary information only (room-sharer tag, info notes). Never a
+  /// primary action and never decoration.
+  static const Color info = Color(0xFF1D4E9E);
+  static const Color infoWash = Color(0xFFE8F1FF);
 
   static const Color unread = error;
 
@@ -77,6 +82,15 @@ abstract final class HomiziColors {
   static const Color whiteClear = Color(0x00FFFFFF);
   static const Color clear = Color(0x00000000);
 
+  /// Photo scrim behind names on portrait cards.
+  static const Color inkScrim = Color(0xF0172033);
+
+  /// Offline map drawing: land, paper roads and parks.
+  static const Color mapLand = Color(0xFFE7F0E4);
+  static const Color mapPaper = Color(0xFFF7F4EA);
+  static const Color mapPark = Color(0xFFD5E8C8);
+  static const Color mapBlank = Color(0xFFF4F1EA);
+
   static const Color night = Color(0xFF121212);
   static const Color nightRaised = Color(0xFF1E1E1E);
   static const Color nightHigh = Color(0xFF2A2A2A);
@@ -85,6 +99,14 @@ abstract final class HomiziColors {
   static const Color nightMuted = Color(0xFFC8C8C8);
   static const Color nightLine = Color(0xFF3A3A3A);
   static const Color nightAccentContainer = brandDarkRed;
+}
+
+/// The one gradient in the app. Orange into red, only on the primary
+/// action of a screen (Continue, Verify, Message, Interested).
+abstract final class HomiziGradients {
+  static const LinearGradient action = LinearGradient(
+    colors: [HomiziColors.logoOrange, HomiziColors.brandRedOrange],
+  );
 }
 
 /// Spacing scale. Every margin, padding, gap and fixed height sits on the

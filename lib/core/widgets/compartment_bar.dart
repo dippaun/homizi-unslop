@@ -75,14 +75,8 @@ class _CompartmentTile extends StatelessWidget {
         curve: Curves.easeOutCubic,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(18),
-          gradient: selected
-              ? const LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: [Color(0xFFFF8A4C), HomiziColors.logoOrange],
-                )
-              : null,
-          color: selected ? null : HomiziColors.white,
+
+          color: selected ? HomiziColors.logoOrange : HomiziColors.white,
           border: Border.all(
             color: selected ? HomiziColors.logoOrange : HomiziColors.line,
           ),

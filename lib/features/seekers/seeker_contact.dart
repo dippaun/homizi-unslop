@@ -146,11 +146,7 @@ class SeekerPriorityBreakdown extends StatelessWidget {
         children: [
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                colors: [HomiziColors.logoOrange, HomiziColors.brandRedOrange],
-              ),
-            ),
+            decoration: const BoxDecoration(color: HomiziColors.ink),
             child: Text(
               homiziText(
                 context,

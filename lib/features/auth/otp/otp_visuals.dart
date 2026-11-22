@@ -5,17 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:homizi/core/l10n/translate.dart';
 import 'package:homizi/core/theme/homizi_colors.dart';
 
-/// Brand gradient for the OTP badges: logo orange into vermilion.
-const otpBadgeGradient = LinearGradient(
-  begin: Alignment.topLeft,
-  end: Alignment.bottomRight,
-  colors: [
-    HomiziColors.brandOrange,
-    HomiziColors.logoOrange,
-    HomiziColors.brandVermilion,
-  ],
-);
-
 /// `65` becomes `01:05`. Used by the resend line under the code boxes.
 String otpClock(int seconds) {
   final safe = seconds < 0 ? 0 : seconds;
@@ -49,7 +38,7 @@ class OtpHeroBadge extends StatelessWidget {
             height: size,
             decoration: const BoxDecoration(
               shape: BoxShape.circle,
-              gradient: otpBadgeGradient,
+              color: HomiziColors.logoOrange,
               boxShadow: [
                 BoxShadow(
                   color: HomiziColors.shadowStrong,
@@ -393,7 +382,7 @@ class OtpVerifiedBadge extends StatelessWidget {
                       height: size,
                       decoration: const BoxDecoration(
                         shape: BoxShape.circle,
-                        gradient: otpBadgeGradient,
+                        color: HomiziColors.logoOrange,
                       ),
                       child: Icon(
                         Icons.lock_rounded,

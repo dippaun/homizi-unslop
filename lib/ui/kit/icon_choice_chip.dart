@@ -26,9 +26,9 @@ class IconChoiceChip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final post = FlowAccentScope.active(context);
-    final color = post ? HomiziColors.homiziPurple : HomiziColors.logoOrange;
+    final color = post ? HomiziColors.brandDeepRed : HomiziColors.logoOrange;
     final wash = post
-        ? HomiziColors.homiziLavender
+        ? HomiziColors.warmWash
         : HomiziColors.logoOrange.withValues(alpha: 0.10);
     final avatar = Icon(
       icon ?? iconForChoice(_labelText(label)),

@@ -1145,9 +1145,7 @@ class _GradientButton extends StatelessWidget {
       opacity: enabled || busy ? 1 : 0.5,
       child: DecoratedBox(
         decoration: BoxDecoration(
-          gradient: const LinearGradient(
-            colors: [HomiziColors.logoOrange, HomiziColors.brandRedOrange],
-          ),
+          gradient: HomiziGradients.action,
           borderRadius: BorderRadius.circular(16),
         ),
         child: Material(
@@ -1465,17 +1463,9 @@ class _ModeTab extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 6),
           decoration: BoxDecoration(
-            gradient: selected
-                ? const LinearGradient(
-                    colors: [
-                      HomiziColors.logoOrange,
-                      HomiziColors.brandRedOrange,
-                    ],
-                  )
-                : null,
-            color: selected ? null : HomiziColors.white,
+            color: selected ? HomiziColors.ink : HomiziColors.white,
             border: Border.all(
-              color: selected ? HomiziColors.logoOrange : HomiziColors.line,
+              color: selected ? HomiziColors.ink : HomiziColors.line,
             ),
             borderRadius: BorderRadius.circular(14),
           ),

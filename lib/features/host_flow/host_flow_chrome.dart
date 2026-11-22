@@ -279,14 +279,8 @@ class FlowContinueButton extends StatelessWidget {
         height: 52,
         child: DecoratedBox(
           decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [
-                HomiziColors.logoOrange,
-                onPressed == null
-                    ? HomiziColors.accentDisabled
-                    : HomiziColors.brandVermilion,
-              ],
-            ),
+            gradient: onPressed == null ? null : HomiziGradients.action,
+            color: onPressed == null ? HomiziColors.accentDisabled : null,
             borderRadius: BorderRadius.circular(16),
           ),
           child: Material(

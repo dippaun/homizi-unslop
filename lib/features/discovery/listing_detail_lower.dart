@@ -111,11 +111,7 @@ class _ListingCostCardState extends State<ListingCostCard> {
     ];
     return DecoratedBox(
       decoration: BoxDecoration(
-        gradient: const LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [Color(0xFFFFF1E8), Color(0xFFF3EEFF)],
-        ),
+        color: HomiziColors.white,
         borderRadius: BorderRadius.circular(20),
         boxShadow: const [
           BoxShadow(
@@ -184,7 +180,7 @@ class _ListingCostCardState extends State<ListingCostCard> {
                                       Icon(
                                         line.$1,
                                         size: 18,
-                                        color: HomiziColors.homiziPurple,
+                                        color: HomiziColors.brandDeepRed,
                                       ),
                                       const SizedBox(width: 8),
                                       Expanded(
@@ -309,7 +305,7 @@ List<ListingFact> listingFactTiles(Listing listing) {
         icon: Icons.stairs_outlined,
         label: 'Floor',
         value: floor,
-        tint: const Color(0xFFFFE8DC),
+        tint: HomiziColors.soft,
       ),
     );
   }
@@ -320,7 +316,7 @@ List<ListingFact> listingFactTiles(Listing listing) {
         icon: Icons.groups_outlined,
         label: 'Open to',
         value: open,
-        tint: const Color(0xFFF3EEFF),
+        tint: HomiziColors.soft,
       ),
     );
   }
@@ -330,7 +326,7 @@ List<ListingFact> listingFactTiles(Listing listing) {
         icon: Icons.chair_outlined,
         label: 'Furnishing',
         value: listing.furnishingLabel,
-        tint: const Color(0xFFFFF6D8),
+        tint: HomiziColors.soft,
       ),
     );
   }
@@ -339,7 +335,7 @@ List<ListingFact> listingFactTiles(Listing listing) {
       icon: Icons.local_parking_outlined,
       label: 'Parking',
       value: listing.parking ? 'Available' : 'No parking',
-      tint: const Color(0xFFE7F6EC),
+      tint: HomiziColors.soft,
     ),
   );
   if (listing.bhkLabel.trim().isNotEmpty) {
@@ -348,7 +344,7 @@ List<ListingFact> listingFactTiles(Listing listing) {
         icon: Icons.apartment_outlined,
         label: 'Home',
         value: listing.bhkLabel,
-        tint: const Color(0xFFE8F1FF),
+        tint: HomiziColors.soft,
       ),
     );
   }
@@ -359,7 +355,7 @@ List<ListingFact> listingFactTiles(Listing listing) {
         icon: Icons.bathtub_outlined,
         label: 'Bath',
         value: bath,
-        tint: const Color(0xFFE7F6F4),
+        tint: HomiziColors.soft,
       ),
     );
   }
@@ -370,7 +366,7 @@ List<ListingFact> listingFactTiles(Listing listing) {
         icon: Icons.square_foot,
         label: 'Area',
         value: '$area sq ft',
-        tint: const Color(0xFFFFE8DC),
+        tint: HomiziColors.soft,
       ),
     );
   }
@@ -380,7 +376,7 @@ List<ListingFact> listingFactTiles(Listing listing) {
         icon: Icons.event_outlined,
         label: 'Lease',
         value: '${listing.leaseMonths} months',
-        tint: const Color(0xFFF3EEFF),
+        tint: HomiziColors.soft,
       ),
     );
   }
@@ -515,9 +511,7 @@ class ListingPrivacyCard extends StatelessWidget {
       key: gate.showsContact ? null : const Key('contact-gate'),
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        gradient: const LinearGradient(
-          colors: [Color(0xFFFFF7F2), Color(0xFFF6F3FF)],
-        ),
+        color: HomiziColors.white,
         borderRadius: BorderRadius.circular(20),
         border: Border.all(color: HomiziColors.line),
       ),
@@ -526,7 +520,7 @@ class ListingPrivacyCard extends StatelessWidget {
         children: [
           const Row(
             children: [
-              Icon(Icons.shield_outlined, color: HomiziColors.homiziPurple),
+              Icon(Icons.shield_outlined, color: HomiziColors.brandDeepRed),
               SizedBox(width: 8),
               Icon(
                 Icons.lock_outline,
@@ -594,9 +588,7 @@ class ListingMessageButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return DecoratedBox(
       decoration: BoxDecoration(
-        gradient: const LinearGradient(
-          colors: [HomiziColors.brandRedOrange, HomiziColors.homiziPurple],
-        ),
+        gradient: HomiziGradients.action,
         borderRadius: BorderRadius.circular(16),
         boxShadow: const [
           BoxShadow(

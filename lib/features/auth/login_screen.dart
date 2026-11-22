@@ -1516,11 +1516,7 @@ class _GradientButton extends StatelessWidget {
     final enabled = onPressed != null;
     return DecoratedBox(
       decoration: BoxDecoration(
-        gradient: enabled
-            ? const LinearGradient(
-                colors: [HomiziColors.logoOrange, HomiziColors.brandDeepOrange],
-              )
-            : null,
+        gradient: enabled ? HomiziGradients.action : null,
         color: enabled ? null : HomiziColors.accentWash,
         borderRadius: BorderRadius.circular(14),
       ),

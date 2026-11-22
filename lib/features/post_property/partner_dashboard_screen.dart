@@ -198,7 +198,7 @@ class _Banner extends StatelessWidget {
     return ClipRRect(
       borderRadius: BorderRadius.circular(20),
       child: DecoratedBox(
-        decoration: const BoxDecoration(gradient: postPropertyGradient),
+        decoration: const BoxDecoration(color: HomiziColors.ink),
         child: Padding(
           padding: const EdgeInsets.all(16),
           child: Column(
@@ -255,7 +255,7 @@ class _Stat extends StatelessWidget {
     return DecoratedBox(
       key: statKey,
       decoration: BoxDecoration(
-        color: HomiziColors.homiziLavender,
+        color: HomiziColors.warmWash,
         borderRadius: BorderRadius.circular(16),
       ),
       child: Padding(
@@ -301,7 +301,7 @@ class _EnquiryTile extends StatelessWidget {
         child: Row(
           children: [
             CircleAvatar(
-              backgroundColor: HomiziColors.homiziLavender,
+              backgroundColor: HomiziColors.warmWash,
               backgroundImage: AssetImage(enquiry.avatar),
             ),
             const SizedBox(width: 12),

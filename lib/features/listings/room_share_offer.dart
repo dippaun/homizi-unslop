@@ -110,7 +110,7 @@ class RoomShareOffer extends StatelessWidget {
         DecoratedBox(
           key: const Key('share-occupant-profile'),
           decoration: BoxDecoration(
-            color: const Color(0xFFFFF6EE),
+            color: HomiziColors.warmWash,
             borderRadius: BorderRadius.circular(16),
           ),
           child: Padding(
@@ -215,11 +215,7 @@ class _EstimateCard extends StatelessWidget {
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(18),
-        gradient: const LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [Color(0xFFFFF1E4), Color(0xFFF3ECFF)],
-        ),
+        color: HomiziColors.white,
         border: Border.all(color: HomiziColors.logoOrange),
       ),
       child: Column(
@@ -277,7 +273,7 @@ class _Quote extends StatelessWidget {
         CircleAvatar(
           radius: 16,
           backgroundColor: HomiziColors.white,
-          child: Icon(icon, size: 18, color: HomiziColors.homiziPurple),
+          child: Icon(icon, size: 18, color: HomiziColors.brandDeepRed),
         ),
         const SizedBox(width: 10),
         Expanded(
