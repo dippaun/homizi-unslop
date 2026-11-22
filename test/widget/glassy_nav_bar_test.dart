@@ -4,7 +4,6 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:homizi/core/theme/homizi_colors.dart';
-import 'package:homizi/features/auth/login_skyline.dart';
 import 'package:homizi/features/shell/glassy_nav_bar.dart';
 
 List<NavigationDestination> _dests() => const [
@@ -289,22 +288,10 @@ void main() {
     expect(item.bottom, closeTo(844, 0.5));
   });
 
-  testWidgets('paints the sign-in skyline under the tabs', (tester) async {
+  testWidgets('keeps the bar quiet: no skyline under the tabs', (tester) async {
     await _pump(tester, selected: 0, onSelect: (_) {});
-    final skyline = find.byKey(const Key('nav-skyline'));
-    expect(skyline, findsOneWidget);
-    final opacity = tester.widget<Opacity>(skyline);
-    expect(opacity.opacity, lessThanOrEqualTo(0.45));
-    expect(opacity.opacity, greaterThan(0));
-    expect(
-      find.ancestor(of: skyline, matching: find.byType(IgnorePointer)),
-      findsWidgets,
-    );
-    final paint = tester.widget<CustomPaint>(
-      find.descendant(of: skyline, matching: find.byType(CustomPaint)),
-    );
-    expect(paint.painter, isA<CitySkylinePainter>());
-    expect((paint.painter! as CitySkylinePainter).reveal, 1);
+    // unslop pass 8: the skyline stays on sign-in only.
+    expect(find.byKey(const Key('nav-skyline')), findsNothing);
 
     final scrim = tester.widget<DecoratedBox>(
       find.byKey(const Key('nav-skyline-scrim')),

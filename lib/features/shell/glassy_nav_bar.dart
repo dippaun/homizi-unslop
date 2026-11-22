@@ -1,15 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:homizi/core/theme/homizi_colors.dart';
-import 'package:homizi/features/auth/login_skyline.dart';
 import 'package:homizi/features/shell/min_touch.dart';
-
-/// How strongly the sign-in skyline shows through the bar.
-///
-/// The painter's near strokes are already about 0.92 orange. At 0.4 the
-/// lines land near 0.1 alpha once the white veil below is applied, so the
-/// art stays a watermark.
-const double _skylineOpacity = 0.4;
 
 /// White veil over the icon row. Glyphs are painted above this, and the
 /// veil keeps skyline strokes out of the letter counters.
@@ -98,7 +90,6 @@ class GlassyNavigationBar extends StatelessWidget {
           child: Stack(
             fit: StackFit.expand,
             children: [
-              const IgnorePointer(child: SizedBox.expand(child: _NavSkyline())),
               IgnorePointer(child: _NavVeil(inset: inset)),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -115,28 +106,6 @@ class GlassyNavigationBar extends StatelessWidget {
                 ],
               ),
             ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class _NavSkyline extends StatelessWidget {
-  const _NavSkyline();
-
-  @override
-  Widget build(BuildContext context) {
-    return const ClipRect(
-      child: Opacity(
-        key: Key('nav-skyline'),
-        opacity: _skylineOpacity,
-        child: Align(
-          alignment: Alignment.bottomCenter,
-          child: SizedBox(
-            height: LoginSkyline.artHeight,
-            width: double.infinity,
-            child: CustomPaint(painter: CitySkylinePainter(reveal: 1)),
           ),
         ),
       ),
