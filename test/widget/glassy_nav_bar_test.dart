@@ -235,7 +235,7 @@ void main() {
     expect(find.byType(InkResponse), findsNothing);
   });
 
-  testWidgets('active tab is filled logo orange and idle ink is quieter', (
+  testWidgets('active tab is filled red orange and idle ink is quieter', (
     tester,
   ) async {
     await _pump(tester, selected: 0, accent: true, onSelect: (_) {});
@@ -245,7 +245,7 @@ void main() {
     expect(bar.accentSelected, isTrue);
 
     final active = tester.widget<Text>(find.text('Home').first);
-    expect(active.style?.color, HomiziColors.logoOrange);
+    expect(active.style?.color, HomiziColors.brandRedOrange);
     expect(active.style?.fontWeight, FontWeight.w600);
 
     final idle = tester.widget<Text>(find.text('Explore').first);
@@ -257,7 +257,7 @@ void main() {
 
     final activeIcon = IconTheme.of(tester.element(find.byIcon(Icons.home)));
     final idleIcon = IconTheme.of(tester.element(find.byIcon(Icons.search)));
-    expect(activeIcon.color, HomiziColors.logoOrange);
+    expect(activeIcon.color, HomiziColors.brandRedOrange);
     expect(activeIcon.size, GlassyNavigationBar.iconSize);
     expect(idleIcon.size, activeIcon.size);
     expect(
@@ -301,7 +301,7 @@ void main() {
     expect(gradient.colors.first.a, greaterThanOrEqualTo(0.7));
 
     final label = tester.widget<Text>(find.text('Home').first);
-    expect(label.style?.color, HomiziColors.logoOrange);
+    expect(label.style?.color, HomiziColors.brandRedOrange);
   });
 
   testWidgets('six tabs stay tappable on a 320-wide phone', (tester) async {
@@ -319,7 +319,7 @@ void main() {
       expect(item.height, greaterThanOrEqualTo(48));
     }
     final active = tester.widget<Text>(find.text('Priorities').first);
-    expect(active.style?.color, HomiziColors.logoOrange);
+    expect(active.style?.color, HomiziColors.brandRedOrange);
     expect(active.style?.fontWeight, FontWeight.w600);
   });
 

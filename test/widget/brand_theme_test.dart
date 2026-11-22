@@ -19,7 +19,7 @@ void main() {
     final theme = Theme.of(context);
     expect(theme.useMaterial3, isTrue);
     expect(theme.scaffoldBackgroundColor, HomiziColors.soft);
-    expect(theme.colorScheme.surface, HomiziColors.white);
+    expect(theme.colorScheme.surface, HomiziColors.cream);
     expect(theme.colorScheme.primary, HomiziColors.accent);
     expect(theme.colorScheme.onPrimary, HomiziColors.ink);
     expect(theme.appBarTheme.toolbarHeight, 64);

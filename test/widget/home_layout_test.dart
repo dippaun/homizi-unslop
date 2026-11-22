@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:homizi/app.dart';
-import 'package:homizi/core/theme/homizi_colors.dart';
+import 'package:homizi/core/theme/role_palette.dart';
 import 'package:homizi/features/session/session_controller.dart';
 import 'package:homizi/features/session/session_state.dart';
 
@@ -81,12 +81,14 @@ void main() {
 
     expect(find.byKey(const Key('home-card-profile')), findsNothing);
     expect(find.byKey(const Key('home-custom-section')), findsOneWidget);
-    const keys = [
-      'home-card-post',
-      'home-card-post-room',
-      'home-card-roomie',
-      'home-card-search',
-    ];
+    // v2: each tile carries the wash of the role it opens.
+    final washes = {
+      'home-card-post': HomiziRolePalette.owner.wash,
+      'home-card-post-room': HomiziRolePalette.sharer.wash,
+      'home-card-roomie': HomiziRolePalette.roommate.wash,
+      'home-card-search': HomiziRolePalette.pg.wash,
+    };
+    final keys = washes.keys;
     Size? tile;
     for (final key in keys) {
       final material = tester.widget<Material>(
@@ -97,7 +99,7 @@ void main() {
       final shape = material.shape! as RoundedRectangleBorder;
       expect(shape.side, BorderSide.none);
       expect(material.elevation, 0);
-      expect(material.color, HomiziColors.white);
+      expect(material.color, washes[key]);
       final size = tester.getSize(find.byKey(Key(key)));
       tile ??= size;
       expect(size.width, closeTo(tile.width, 0.5));

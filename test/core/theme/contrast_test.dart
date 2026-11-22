@@ -48,7 +48,8 @@ void main() {
     expect(light.useMaterial3, isTrue);
     expect(light.colorScheme.primary, HomiziColors.accent);
     expect(light.colorScheme.onPrimary, HomiziColors.ink);
-    expect(light.colorScheme.surface, HomiziColors.white);
+    // v2: surfaces are saffron cream; cards stay white on top.
+    expect(light.colorScheme.surface, HomiziColors.cream);
     expect(light.scaffoldBackgroundColor, HomiziColors.soft);
   });
 
@@ -89,7 +90,8 @@ void main() {
     expect(HomiziColors.accent, HomiziColors.brandOrange);
     expect(HomiziColors.brandYellow, const Color(0xFFFFD20A));
     expect(HomiziColors.ink, const Color(0xFF172033));
-    expect(HomiziColors.soft, const Color(0xFFFAF8F5));
+    // v2: the page is saffron cream, not grey-white.
+    expect(HomiziColors.soft, const Color(0xFFFFF8EC));
     expect(
       _contrast(HomiziColors.muted, HomiziColors.soft),
       greaterThan(4.5),
