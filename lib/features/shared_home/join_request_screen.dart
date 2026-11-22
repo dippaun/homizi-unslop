@@ -366,11 +366,11 @@ class _Option extends StatelessWidget {
             color: selected ? HomiziColors.brandOrange : HomiziColors.line,
             width: selected ? 2 : 1,
           ),
-          borderRadius: BorderRadius.circular(18),
+          borderRadius: BorderRadius.circular(16),
         ),
         child: InkWell(
           key: optionKey,
-          borderRadius: BorderRadius.circular(18),
+          borderRadius: BorderRadius.circular(16),
           onTap: enabled ? onTap : null,
           child: Padding(
             padding: const EdgeInsets.all(16),

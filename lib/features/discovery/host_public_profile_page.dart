@@ -494,7 +494,7 @@ class _NameBlock extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                 decoration: BoxDecoration(
                   color: HomiziColors.accentWash,
-                  borderRadius: BorderRadius.circular(20),
+                  borderRadius: BorderRadius.circular(16),
                 ),
                 child: Text(
                   homiziText(context, story.roleLabel),
@@ -594,11 +594,11 @@ class _Actions extends StatelessWidget {
               child: Ink(
                 decoration: BoxDecoration(
                   gradient: HomiziGradients.action,
-                  borderRadius: BorderRadius.circular(14),
+                  borderRadius: BorderRadius.circular(12),
                 ),
                 child: InkWell(
                   key: const Key('host-profile-message'),
-                  borderRadius: BorderRadius.circular(14),
+                  borderRadius: BorderRadius.circular(12),
                   onTap: onMessage,
                   child: SizedBox(
                     height: 44,
@@ -631,10 +631,10 @@ class _Actions extends StatelessWidget {
             flex: 2,
             child: Material(
               color: HomiziColors.soft,
-              borderRadius: BorderRadius.circular(14),
+              borderRadius: BorderRadius.circular(12),
               child: InkWell(
                 key: const Key('host-profile-share'),
-                borderRadius: BorderRadius.circular(14),
+                borderRadius: BorderRadius.circular(12),
                 onTap: onShare,
                 child: SizedBox(
                   height: 44,
@@ -1097,7 +1097,7 @@ class _AboutTab extends StatelessWidget {
                     ),
                     decoration: BoxDecoration(
                       color: HomiziColors.soft,
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(16),
                     ),
                     child: Text(
                       homiziText(context, language),
@@ -1253,7 +1253,7 @@ class _Verification extends ConsumerWidget {
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
             decoration: BoxDecoration(
               color: HomiziColors.successWash,
-              borderRadius: BorderRadius.circular(20),
+              borderRadius: BorderRadius.circular(16),
             ),
             child: Row(
               mainAxisSize: MainAxisSize.min,

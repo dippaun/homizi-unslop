@@ -62,7 +62,7 @@ class FlowStepPill extends StatelessWidget {
     return DecoratedBox(
       decoration: BoxDecoration(
         color: HomiziColors.accent,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(16),
       ),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
@@ -226,7 +226,7 @@ class FlowBanner extends StatelessWidget {
     return DecoratedBox(
       decoration: BoxDecoration(
         color: HomiziColors.accent,
-        borderRadius: BorderRadius.circular(28),
+        borderRadius: BorderRadius.circular(20),
       ),
       child: Padding(
         padding: const EdgeInsets.fromLTRB(20, 16, 20, 16),
@@ -349,7 +349,7 @@ class FlowContinueButton extends StatelessWidget {
 BoxDecoration flowCard({Color? color}) {
   return BoxDecoration(
     color: color ?? HomiziColors.white,
-    borderRadius: BorderRadius.circular(20),
+    borderRadius: BorderRadius.circular(16),
     boxShadow: const [
       BoxShadow(
         color: HomiziColors.shadowSoft,

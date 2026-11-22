@@ -67,34 +67,26 @@ class _CompartmentTile extends StatelessWidget {
     final ink = selected ? HomiziColors.white : HomiziColors.ink;
     final muted = selected ? HomiziColors.white : HomiziColors.muted;
     return AnimatedScale(
-      scale: selected ? 1.04 : 1,
+      scale: 1,
       duration: const Duration(milliseconds: 220),
       curve: Curves.easeOutCubic,
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 220),
         curve: Curves.easeOutCubic,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(18),
+          borderRadius: BorderRadius.circular(16),
 
           color: selected ? HomiziColors.logoOrange : HomiziColors.white,
           border: Border.all(
             color: selected ? HomiziColors.logoOrange : HomiziColors.line,
           ),
-          boxShadow: [
-            BoxShadow(
-              color: selected
-                  ? HomiziColors.logoOrange.withValues(alpha: 0.28)
-                  : HomiziColors.shadow,
-              blurRadius: selected ? 16 : 10,
-              offset: const Offset(0, 6),
-            ),
-          ],
+          boxShadow: HomiziElevation.small,
         ),
         child: Material(
           type: MaterialType.transparency,
           child: InkWell(
             key: spec.tileKey,
-            borderRadius: BorderRadius.circular(18),
+            borderRadius: BorderRadius.circular(16),
             onTap: onTap,
             child: Semantics(
               button: true,

@@ -58,7 +58,9 @@ abstract final class HomiziTheme {
         );
   }
 
-  static const _radius = BorderRadius.all(Radius.circular(14));
+  static const _radius = BorderRadius.all(
+    Radius.circular(HomiziRadius.control),
+  );
 
   static final ButtonStyle _filled =
       FilledButton.styleFrom(
@@ -228,11 +230,12 @@ abstract final class HomiziTheme {
       cardTheme: const CardThemeData(
         color: HomiziColors.white,
         surfaceTintColor: Colors.transparent,
-        shadowColor: HomiziColors.shadowStrong,
+        shadowColor: HomiziColors.shadow,
         clipBehavior: Clip.antiAlias,
-        elevation: 2,
+        elevation: 0,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(20)),
+          borderRadius: BorderRadius.all(Radius.circular(HomiziRadius.card)),
+          side: BorderSide(color: HomiziColors.line),
         ),
       ),
       filledButtonTheme: FilledButtonThemeData(style: _filled),
@@ -260,15 +263,15 @@ abstract final class HomiziTheme {
           fontWeight: FontWeight.w600,
         ),
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(16)),
+          borderRadius: BorderRadius.all(Radius.circular(HomiziRadius.control)),
           borderSide: BorderSide.none,
         ),
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(16)),
+          borderRadius: BorderRadius.all(Radius.circular(HomiziRadius.control)),
           borderSide: BorderSide.none,
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(16)),
+          borderRadius: BorderRadius.all(Radius.circular(HomiziRadius.control)),
           borderSide: BorderSide(color: HomiziColors.accent, width: 2),
         ),
       ),
@@ -291,7 +294,7 @@ abstract final class HomiziTheme {
         padding: EdgeInsets.symmetric(horizontal: 8, vertical: 2),
         side: BorderSide.none,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(20)),
+          borderRadius: BorderRadius.all(Radius.circular(HomiziRadius.chip)),
         ),
       ),
       listTileTheme: const ListTileThemeData(
@@ -399,7 +402,7 @@ abstract final class HomiziTheme {
         clipBehavior: Clip.antiAlias,
         elevation: 2,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(20)),
+          borderRadius: BorderRadius.all(Radius.circular(HomiziRadius.card)),
         ),
       ),
       filledButtonTheme: FilledButtonThemeData(style: _filled),
@@ -442,13 +445,13 @@ abstract final class HomiziType {
 /// orange wash. A solid navy focus colour used to paint the dropdown header
 /// and hide the items.
 const _menuShape = RoundedRectangleBorder(
-  borderRadius: BorderRadius.all(Radius.circular(16)),
+  borderRadius: BorderRadius.all(Radius.circular(HomiziRadius.control)),
 );
 
 const _menuStyle = MenuStyle(
   backgroundColor: WidgetStatePropertyAll(HomiziColors.white),
   surfaceTintColor: WidgetStatePropertyAll(HomiziColors.clear),
-  elevation: WidgetStatePropertyAll(6),
+  elevation: WidgetStatePropertyAll(3),
   shape: WidgetStatePropertyAll(_menuShape),
 );
 

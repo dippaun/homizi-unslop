@@ -523,7 +523,7 @@ class _MenuChip extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         decoration: BoxDecoration(
           color: HomiziColors.soft,
-          borderRadius: BorderRadius.circular(14),
+          borderRadius: BorderRadius.circular(12),
         ),
         child: Row(
           mainAxisSize: expand ? MainAxisSize.max : MainAxisSize.min,
@@ -798,10 +798,10 @@ class _SetPrioritiesBanner extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 12),
       child: Material(
         color: HomiziColors.accentWash,
-        borderRadius: BorderRadius.circular(14),
+        borderRadius: BorderRadius.circular(12),
         child: InkWell(
           key: const Key('seekers-set-priorities'),
-          borderRadius: BorderRadius.circular(14),
+          borderRadius: BorderRadius.circular(12),
           onTap: onTap,
           child: Padding(
             padding: const EdgeInsets.all(12),
@@ -853,17 +853,17 @@ class _TopTabs extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 4),
           child: Material(
             color: selected ? null : HomiziColors.soft,
-            borderRadius: BorderRadius.circular(14),
+            borderRadius: BorderRadius.circular(12),
             child: Ink(
               decoration: selected
                   ? BoxDecoration(
                       color: HomiziColors.ink,
-                      borderRadius: BorderRadius.circular(14),
+                      borderRadius: BorderRadius.circular(12),
                     )
                   : null,
               child: InkWell(
                 key: key,
-                borderRadius: BorderRadius.circular(14),
+                borderRadius: BorderRadius.circular(12),
                 onTap: () => onChanged(i),
                 child: Padding(
                   padding: const EdgeInsets.symmetric(vertical: 12),

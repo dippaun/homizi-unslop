@@ -194,7 +194,7 @@ class _RoommatePreviewScreenState extends ConsumerState<RoommatePreviewScreen> {
                                   ),
                                   decoration: BoxDecoration(
                                     color: HomiziColors.successWash,
-                                    borderRadius: BorderRadius.circular(20),
+                                    borderRadius: BorderRadius.circular(16),
                                   ),
                                   child: Text(
                                     score.percent == null
@@ -552,7 +552,7 @@ class _RoommatePreviewScreenState extends ConsumerState<RoommatePreviewScreen> {
       padding: const EdgeInsets.symmetric(horizontal: 10),
       decoration: BoxDecoration(
         color: HomiziColors.soft,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(16),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,

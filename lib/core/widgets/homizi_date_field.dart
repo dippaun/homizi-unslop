@@ -167,7 +167,7 @@ Future<DateTime?> pickHomiziDate(
               return null;
             }),
             shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(20)),
+              borderRadius: BorderRadius.all(Radius.circular(16)),
             ),
           ),
           dialogTheme: const DialogThemeData(

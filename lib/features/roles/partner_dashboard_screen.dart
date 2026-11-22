@@ -98,12 +98,12 @@ class _Card extends StatelessWidget {
     return Material(
       color: HomiziColors.white,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(16),
         side: const BorderSide(color: HomiziColors.line),
       ),
       child: InkWell(
         key: cardKey,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(16),
         onTap: onTap,
         child: Padding(
           padding: const EdgeInsets.all(16),

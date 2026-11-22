@@ -203,7 +203,7 @@ class _Highlight extends StatelessWidget {
     return DecoratedBox(
       decoration: BoxDecoration(
         color: HomiziColors.soft,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(16),
       ),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),

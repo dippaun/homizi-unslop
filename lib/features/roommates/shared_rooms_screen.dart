@@ -138,7 +138,7 @@ class _HomesList extends ConsumerWidget {
           color: HomiziColors.white,
           shape: RoundedRectangleBorder(
             side: const BorderSide(color: HomiziColors.line),
-            borderRadius: BorderRadius.circular(14),
+            borderRadius: BorderRadius.circular(12),
           ),
           child: ListTile(
             key: const Key('occ-summary'),

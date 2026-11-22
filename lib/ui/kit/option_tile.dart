@@ -57,10 +57,10 @@ class OptionTile extends StatelessWidget {
         ),
         child: Material(
           color: HomiziColors.clear,
-          borderRadius: BorderRadius.circular(14),
+          borderRadius: BorderRadius.circular(12),
           child: InkWell(
             onTap: onTap,
-            borderRadius: BorderRadius.circular(14),
+            borderRadius: BorderRadius.circular(12),
             child: Stack(
               alignment: Alignment.center,
               children: [

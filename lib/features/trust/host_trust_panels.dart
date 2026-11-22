@@ -237,7 +237,7 @@ class _RohanExample extends StatelessWidget {
     return DecoratedBox(
       decoration: BoxDecoration(
         color: HomiziColors.white,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(16),
         border: Border.all(color: HomiziColors.line),
       ),
       child: Padding(
@@ -328,7 +328,7 @@ class _ExampleCard extends StatelessWidget {
     return DecoratedBox(
       decoration: BoxDecoration(
         color: HomiziColors.white,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(16),
         border: Border.all(color: HomiziColors.line),
       ),
       child: Padding(

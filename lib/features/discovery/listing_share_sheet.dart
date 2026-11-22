@@ -151,7 +151,7 @@ class _ShareSheet extends StatelessWidget {
     return DecoratedBox(
       decoration: const BoxDecoration(
         color: HomiziColors.white,
-        borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),
       child: SafeArea(
         child: Padding(

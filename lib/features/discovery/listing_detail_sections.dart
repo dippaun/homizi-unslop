@@ -213,10 +213,10 @@ class _MatchPill extends MatchBadge {
     final tone = matchTone(match.score);
     return Material(
       color: tone.background,
-      borderRadius: BorderRadius.circular(20),
+      borderRadius: BorderRadius.circular(16),
       child: InkWell(
         onTap: onTap,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(16),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
           child: Text(
@@ -387,7 +387,7 @@ class _SpecTile extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 10),
       decoration: BoxDecoration(
         color: HomiziColors.soft,
-        borderRadius: BorderRadius.circular(14),
+        borderRadius: BorderRadius.circular(12),
       ),
       child: Column(
         children: [
@@ -1016,7 +1016,7 @@ class _NearbyPlaceRow extends StatelessWidget {
       child: DecoratedBox(
         decoration: BoxDecoration(
           color: HomiziColors.soft,
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(16),
         ),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
@@ -1324,17 +1324,17 @@ class _ListingWhyMatchState extends State<ListingWhyMatch>
     final missing = chips.where((chip) => chip.fit == _WhyFit.missing).length;
     return Material(
       color: HomiziColors.white,
-      borderRadius: BorderRadius.circular(24),
+      borderRadius: BorderRadius.circular(20),
       child: InkWell(
         key: const Key('listing-why-match'),
-        borderRadius: BorderRadius.circular(24),
+        borderRadius: BorderRadius.circular(20),
         onTap: () => showMatchBreakdown(context, match: widget.match),
         child: Semantics(
           label: widget.listing.title,
           child: Ink(
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(24),
+              borderRadius: BorderRadius.circular(20),
               border: Border.all(color: HomiziColors.line),
               boxShadow: const [
                 BoxShadow(
@@ -1704,7 +1704,7 @@ class _InterestButton extends StatelessWidget {
       opacity: onPressed == null ? 0.5 : 1,
       child: Material(
         color: HomiziColors.clear,
-        borderRadius: BorderRadius.circular(14),
+        borderRadius: BorderRadius.circular(12),
         clipBehavior: Clip.antiAlias,
         child: InkWell(
           key: const Key('interested-button'),

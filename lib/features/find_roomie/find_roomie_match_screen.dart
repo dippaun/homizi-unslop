@@ -73,7 +73,7 @@ class _Body extends ConsumerWidget {
       padding: const EdgeInsets.fromLTRB(16, 8, 16, 28),
       children: [
         ClipRRect(
-          borderRadius: BorderRadius.circular(24),
+          borderRadius: BorderRadius.circular(20),
           child: Stack(
             children: [
               FindRoomiePhoto(reference: person.photoRef, height: 280),

@@ -440,7 +440,7 @@ class _SplitScreenState extends ConsumerState<SplitScreen> {
       ),
       const SizedBox(height: 16),
       ClipRRect(
-        borderRadius: BorderRadius.circular(18),
+        borderRadius: BorderRadius.circular(16),
         child: AspectRatio(
           aspectRatio: 16 / 9,
           child: Image.asset(
@@ -697,7 +697,7 @@ class _SplitScreenState extends ConsumerState<SplitScreen> {
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
           color: HomiziColors.successWash,
-          borderRadius: BorderRadius.circular(18),
+          borderRadius: BorderRadius.circular(16),
         ),
         child: Row(
           children: [
@@ -1094,7 +1094,7 @@ class _Section extends StatelessWidget {
       color: HomiziColors.white,
       shape: RoundedRectangleBorder(
         side: const BorderSide(color: HomiziColors.line),
-        borderRadius: BorderRadius.circular(18),
+        borderRadius: BorderRadius.circular(16),
       ),
       child: Padding(
         padding: const EdgeInsets.all(16),
@@ -1220,13 +1220,13 @@ class _RoomCard extends StatelessWidget {
         border: Border.all(
           color: room.isMaster ? HomiziColors.brandOrange : HomiziColors.line,
         ),
-        borderRadius: BorderRadius.circular(18),
+        borderRadius: BorderRadius.circular(16),
       ),
       child: Column(
         children: [
           InkWell(
             key: Key('split-room-$index'),
-            borderRadius: const BorderRadius.vertical(top: Radius.circular(18)),
+            borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
             onTap: onEdit,
             child: Padding(
               padding: const EdgeInsets.fromLTRB(16, 16, 8, 6),
@@ -1458,7 +1458,7 @@ class _ModeTab extends StatelessWidget {
       button: true,
       child: InkWell(
         key: Key('split-mode-${mode.wire}'),
-        borderRadius: BorderRadius.circular(14),
+        borderRadius: BorderRadius.circular(12),
         onTap: onTap,
         child: Container(
           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 6),
@@ -1467,7 +1467,7 @@ class _ModeTab extends StatelessWidget {
             border: Border.all(
               color: selected ? HomiziColors.ink : HomiziColors.line,
             ),
-            borderRadius: BorderRadius.circular(14),
+            borderRadius: BorderRadius.circular(12),
           ),
           child: Column(
             children: [
@@ -1627,7 +1627,7 @@ class _HowItWorks extends StatelessWidget {
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         border: Border.all(color: HomiziColors.line),
-        borderRadius: BorderRadius.circular(18),
+        borderRadius: BorderRadius.circular(16),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

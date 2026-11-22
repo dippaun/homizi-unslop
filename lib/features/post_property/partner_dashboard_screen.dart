@@ -196,7 +196,7 @@ class _Banner extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderRadius.circular(20),
+      borderRadius: BorderRadius.circular(16),
       child: DecoratedBox(
         decoration: const BoxDecoration(color: HomiziColors.ink),
         child: Padding(

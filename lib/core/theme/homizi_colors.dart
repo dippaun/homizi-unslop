@@ -67,9 +67,10 @@ abstract final class HomiziColors {
 
   static const Color unread = error;
 
-  static const Color shadow = Color(0x1A172033);
-  static const Color shadowSoft = Color(0x14172033);
-  static const Color shadowStrong = Color(0x33172033);
+  /// Neutral shadows only, soft and small (unslop pass 7).
+  static const Color shadow = Color(0x12172033);
+  static const Color shadowSoft = Color(0x0D172033);
+  static const Color shadowStrong = Color(0x1F172033);
   static const Color shadowNight = Color(0x66000000);
 
   static const Color accentDisabled = Color(0x7AF47B0B);
@@ -130,10 +131,10 @@ abstract final class HomiziSpace {
   static const double card = 16;
 
   /// Control radius (buttons, inputs). Kept for older call sites.
-  static const double radius = 14;
+  static const double radius = HomiziRadius.control;
 
   /// Card radius. Kept for older call sites.
-  static const double cardRadius = 20;
+  static const double cardRadius = HomiziRadius.card;
 }
 
 /// Radius scale. Nested radius: inner = outer minus padding, never below 4.
@@ -153,4 +154,19 @@ abstract final class HomiziRadius {
 
   /// Sheets, panels, large hero blocks.
   static const double panel = 20;
+}
+
+/// Two depths on the light theme. Small things get a 1px lift; things that
+/// float (sheets, decks, sticky bars) get one soft neutral shadow.
+abstract final class HomiziElevation {
+  static const List<BoxShadow> small = [
+    BoxShadow(
+      color: HomiziColors.shadowSoft,
+      blurRadius: 2,
+      offset: Offset(0, 1),
+    ),
+  ];
+  static const List<BoxShadow> floating = [
+    BoxShadow(color: HomiziColors.shadow, blurRadius: 24, offset: Offset(0, 8)),
+  ];
 }

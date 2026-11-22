@@ -214,7 +214,7 @@ class _EstimateCard extends StatelessWidget {
       curve: Curves.easeOut,
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(18),
+        borderRadius: BorderRadius.circular(16),
         color: HomiziColors.white,
         border: Border.all(color: HomiziColors.logoOrange),
       ),

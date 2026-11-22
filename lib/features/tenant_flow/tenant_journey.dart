@@ -134,7 +134,7 @@ class _DragRow extends StatelessWidget {
       child: Material(
         color: HomiziColors.white,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(14),
+          borderRadius: BorderRadius.circular(12),
           side: const BorderSide(color: HomiziColors.line),
         ),
         child: Padding(
@@ -470,7 +470,7 @@ class _TenantDetailPageState extends State<TenantDetailPage> {
         padding: const EdgeInsets.fromLTRB(16, 4, 16, 24),
         children: [
           ClipRRect(
-            borderRadius: BorderRadius.circular(18),
+            borderRadius: BorderRadius.circular(16),
             child: SizedBox(
               height: 220,
               child: PageView.builder(
@@ -883,7 +883,7 @@ class _TenantChatPageState extends State<TenantChatPage> {
                         color: message.fromSelf
                             ? HomiziColors.accentWash
                             : HomiziColors.mist,
-                        borderRadius: BorderRadius.circular(14),
+                        borderRadius: BorderRadius.circular(12),
                       ),
                       child: Text(
                         homiziText(context, message.body),

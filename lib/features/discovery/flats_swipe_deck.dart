@@ -462,7 +462,7 @@ class _FlatsSwipeDeckState extends ConsumerState<FlatsSwipeDeck>
               child: DecoratedBox(
                 decoration: BoxDecoration(
                   color: HomiziColors.white,
-                  borderRadius: BorderRadius.all(Radius.circular(24)),
+                  borderRadius: BorderRadius.all(Radius.circular(20)),
                   border: Border.fromBorderSide(
                     BorderSide(color: HomiziColors.line),
                   ),

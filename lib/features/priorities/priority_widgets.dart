@@ -35,12 +35,12 @@ class PriorityRankRow extends StatelessWidget {
       child: Material(
         color: HomiziColors.white,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(14),
+          borderRadius: BorderRadius.circular(12),
           side: const BorderSide(color: HomiziColors.line),
         ),
         child: InkWell(
           key: Key('priority-row-$wire'),
-          borderRadius: BorderRadius.circular(14),
+          borderRadius: BorderRadius.circular(12),
           onTap: onEdit,
           child: Padding(
             padding: const EdgeInsets.fromLTRB(10, 10, 2, 10),
@@ -241,7 +241,7 @@ class _TypeCard extends StatelessWidget {
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
         color: mustHave ? HomiziColors.errorWash : HomiziColors.successWash,
-        borderRadius: BorderRadius.circular(14),
+        borderRadius: BorderRadius.circular(12),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -305,17 +305,17 @@ class PriorityTabs extends StatelessWidget {
           Expanded(
             child: Material(
               color: i == index ? null : HomiziColors.soft,
-              borderRadius: BorderRadius.circular(14),
+              borderRadius: BorderRadius.circular(12),
               child: Ink(
                 decoration: i == index
                     ? BoxDecoration(
                         color: HomiziColors.ink,
-                        borderRadius: BorderRadius.circular(14),
+                        borderRadius: BorderRadius.circular(12),
                       )
                     : null,
                 child: InkWell(
                   key: Key(labels[i].$3),
-                  borderRadius: BorderRadius.circular(14),
+                  borderRadius: BorderRadius.circular(12),
                   onTap: () => onChanged(i),
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
@@ -382,7 +382,7 @@ class PriorityHowItWorks extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
             decoration: BoxDecoration(
               color: HomiziColors.ink,
-              borderRadius: BorderRadius.circular(20),
+              borderRadius: BorderRadius.circular(16),
             ),
             child: Text(
               homiziText(context, 'How it works'),

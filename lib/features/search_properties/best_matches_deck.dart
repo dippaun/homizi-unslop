@@ -523,7 +523,7 @@ class _BestMatchesDeckState extends ConsumerState<BestMatchesDeck>
     return Padding(
       padding: const EdgeInsets.fromLTRB(12, 4, 12, 4),
       child: ClipRRect(
-        borderRadius: const BorderRadius.all(Radius.circular(24)),
+        borderRadius: const BorderRadius.all(Radius.circular(20)),
         child: Stack(
           fit: StackFit.expand,
           children: [
@@ -533,7 +533,7 @@ class _BestMatchesDeckState extends ConsumerState<BestMatchesDeck>
                 child: DecoratedBox(
                   decoration: BoxDecoration(
                     color: HomiziColors.soft,
-                    borderRadius: BorderRadius.all(Radius.circular(24)),
+                    borderRadius: BorderRadius.all(Radius.circular(20)),
                     border: Border.fromBorderSide(
                       BorderSide(color: HomiziColors.line),
                     ),
@@ -643,7 +643,7 @@ class _CardSkeleton extends StatelessWidget {
       child: DecoratedBox(
         decoration: BoxDecoration(
           color: HomiziColors.white,
-          borderRadius: BorderRadius.all(Radius.circular(24)),
+          borderRadius: BorderRadius.all(Radius.circular(20)),
           border: Border.fromBorderSide(BorderSide(color: HomiziColors.line)),
         ),
         child: Column(
@@ -652,7 +652,7 @@ class _CardSkeleton extends StatelessWidget {
             DecoratedBox(
               decoration: BoxDecoration(
                 color: HomiziColors.mist,
-                borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
+                borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
               ),
               child: SizedBox(height: 210, width: double.infinity),
             ),

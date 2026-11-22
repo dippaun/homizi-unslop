@@ -98,7 +98,7 @@ class BrokerListingIntro extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
           decoration: BoxDecoration(
             color: HomiziColors.accent,
-            borderRadius: BorderRadius.circular(18),
+            borderRadius: BorderRadius.circular(16),
           ),
           child: const Row(
             children: [
@@ -922,12 +922,12 @@ class BrokerReviewPage extends StatelessWidget {
       children: [
         ClipRRect(
           key: const Key('broker-review-card'),
-          borderRadius: BorderRadius.circular(18),
+          borderRadius: BorderRadius.circular(16),
           child: DecoratedBox(
             decoration: BoxDecoration(
               color: HomiziColors.white,
               border: Border.all(color: HomiziColors.line),
-              borderRadius: BorderRadius.circular(18),
+              borderRadius: BorderRadius.circular(16),
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

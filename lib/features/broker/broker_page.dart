@@ -56,11 +56,11 @@ class BrokerTapCard extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 12),
       color: HomiziColors.white,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(16),
         side: const BorderSide(color: HomiziColors.line),
       ),
       child: InkWell(
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(16),
         onTap: onTap,
         child: Padding(padding: const EdgeInsets.all(16), child: child),
       ),

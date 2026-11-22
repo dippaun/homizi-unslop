@@ -78,7 +78,7 @@ class _RoommateDeckCardState extends State<RoommateDeckCard>
       key: Key('roommate-open-${person.id}'),
       color: HomiziColors.ink,
       clipBehavior: Clip.antiAlias,
-      borderRadius: const BorderRadius.all(Radius.circular(28)),
+      borderRadius: const BorderRadius.all(Radius.circular(20)),
       child: InkWell(
         onTap: widget.quiet ? null : widget.onOpen,
         child: Stack(

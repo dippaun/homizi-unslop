@@ -419,7 +419,7 @@ class _PartnerFlowScreenState extends ConsumerState<PartnerFlowScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         ClipRRect(
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(16),
           child: Image.asset(
             'assets/images/home/apartment.webp',
             height: 140,

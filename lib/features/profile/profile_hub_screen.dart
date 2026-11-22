@@ -315,7 +315,7 @@ class _ProfileHubScreenState extends ConsumerState<ProfileHubScreen> {
                             clipBehavior: Clip.antiAlias,
                             shape: const RoundedRectangleBorder(
                               borderRadius: BorderRadius.vertical(
-                                top: Radius.circular(28),
+                                top: Radius.circular(20),
                               ),
                             ),
                             child: Padding(

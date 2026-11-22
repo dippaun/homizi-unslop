@@ -344,7 +344,7 @@ class _AuthCelebrationState extends ConsumerState<AuthCelebration>
                     minimumSize: const Size.fromHeight(48),
                     side: const BorderSide(color: HomiziColors.line),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(14),
+                      borderRadius: BorderRadius.circular(12),
                     ),
                   ),
                   onPressed: () => _goHome(rememberReturn: false),
@@ -443,7 +443,7 @@ class _PrimaryButton extends StatelessWidget {
     return DecoratedBox(
       decoration: BoxDecoration(
         gradient: HomiziGradients.action,
-        borderRadius: BorderRadius.circular(14),
+        borderRadius: BorderRadius.circular(12),
       ),
       child: FilledButton(
         key: buttonKey,
@@ -453,7 +453,7 @@ class _PrimaryButton extends StatelessWidget {
           shadowColor: HomiziColors.clear,
           minimumSize: const Size.fromHeight(48),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(14),
+            borderRadius: BorderRadius.circular(12),
           ),
         ),
         onPressed: onPressed,

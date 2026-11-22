@@ -105,7 +105,7 @@ class MatchBreakdownSheet extends StatelessWidget {
                 DecoratedBox(
                   decoration: BoxDecoration(
                     color: tone.background,
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(16),
                   ),
                   child: Padding(
                     padding: const EdgeInsets.symmetric(

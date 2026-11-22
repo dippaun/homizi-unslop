@@ -84,7 +84,7 @@ class FindRoomiePercent extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
       decoration: BoxDecoration(
         color: HomiziColors.success,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(16),
       ),
       child: Text(
         homiziText(context, '$percent%'),
@@ -178,15 +178,15 @@ class FindRoomieButton extends StatelessWidget {
       decoration: BoxDecoration(
         gradient: onPressed == null ? null : HomiziGradients.action,
         color: onPressed == null ? HomiziColors.line : null,
-        borderRadius: BorderRadius.circular(28),
+        borderRadius: BorderRadius.circular(20),
       ),
       child: Material(
         color: HomiziColors.clear,
-        borderRadius: BorderRadius.circular(28),
+        borderRadius: BorderRadius.circular(20),
         child: InkWell(
           key: buttonKey,
           onTap: onPressed,
-          borderRadius: BorderRadius.circular(28),
+          borderRadius: BorderRadius.circular(20),
           child: ConstrainedBox(
             constraints: const BoxConstraints(minHeight: 48, minWidth: 48),
             child: Padding(

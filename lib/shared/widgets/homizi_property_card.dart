@@ -156,7 +156,7 @@ class _HomiziPropertyCardState extends State<HomiziPropertyCard> {
     }
     return DecoratedBox(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(24),
+        borderRadius: BorderRadius.circular(20),
         boxShadow: const [
           BoxShadow(
             color: HomiziColors.shadow,
@@ -168,7 +168,7 @@ class _HomiziPropertyCardState extends State<HomiziPropertyCard> {
       child: Material(
         key: Key('property-card-${widget.data.id}'),
         color: HomiziColors.white,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         clipBehavior: Clip.antiAlias,
         child: _full(context),
       ),
@@ -459,7 +459,7 @@ class _HomiziPropertyCardState extends State<HomiziPropertyCard> {
                     ),
                     decoration: BoxDecoration(
                       color: HomiziColors.accentWash,
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(16),
                     ),
                     child: Text(
                       homiziText(context, widget.data.badge!),
@@ -545,7 +545,7 @@ class _HomiziPropertyCardState extends State<HomiziPropertyCard> {
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
             decoration: BoxDecoration(
               color: HomiziColors.successWash,
-              borderRadius: BorderRadius.circular(20),
+              borderRadius: BorderRadius.circular(16),
             ),
             child: Row(
               mainAxisSize: MainAxisSize.min,
@@ -973,7 +973,7 @@ class _HomiziPropertyCardState extends State<HomiziPropertyCard> {
               ),
               minimumSize: const Size(48, 48),
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(28),
+                borderRadius: BorderRadius.circular(20),
               ),
             ),
             icon: const Icon(Icons.close),
@@ -991,7 +991,7 @@ class _HomiziPropertyCardState extends State<HomiziPropertyCard> {
               foregroundColor: HomiziColors.ink,
               minimumSize: const Size(48, 48),
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(28),
+                borderRadius: BorderRadius.circular(20),
               ),
             ),
             icon: const Icon(Icons.favorite),
@@ -1016,7 +1016,7 @@ class _MatchBadge extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
       decoration: BoxDecoration(
         color: HomiziColors.success,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(16),
       ),
       child: Text(
         homiziText(context, '$percent% Match'),
@@ -1081,7 +1081,7 @@ class _VerifiedListing extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       decoration: BoxDecoration(
         color: HomiziColors.white,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(16),
       ),
       child: const Row(
         mainAxisSize: MainAxisSize.min,

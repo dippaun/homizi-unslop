@@ -171,10 +171,10 @@ class _SplitRentPrompt extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       color: HomiziColors.accentWash,
-      borderRadius: BorderRadius.circular(18),
+      borderRadius: BorderRadius.circular(16),
       child: InkWell(
         key: const Key('mutual-split-rent'),
-        borderRadius: BorderRadius.circular(18),
+        borderRadius: BorderRadius.circular(16),
         onTap: onTap,
         child: Padding(
           padding: const EdgeInsets.all(16),

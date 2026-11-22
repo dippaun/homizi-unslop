@@ -907,7 +907,7 @@ class _SearchPropertiesScreenState
                                 width: 1.5,
                               ),
                               shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(14),
+                                borderRadius: BorderRadius.circular(12),
                               ),
                             ),
                             onPressed: () => _open(_step - 1),
@@ -933,7 +933,7 @@ class _SearchPropertiesScreenState
                                   foregroundColor: HomiziColors.ink,
                                   minimumSize: const Size.fromHeight(52),
                                   shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(14),
+                                    borderRadius: BorderRadius.circular(12),
                                   ),
                                 ),
                                 onPressed: _busy
@@ -971,7 +971,7 @@ class _SearchPropertiesScreenState
                                   foregroundColor: HomiziColors.ink,
                                   minimumSize: const Size.fromHeight(52),
                                   shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(14),
+                                    borderRadius: BorderRadius.circular(12),
                                   ),
                                 ),
                                 onPressed: _continue,
@@ -1280,7 +1280,7 @@ class _NearbyHints extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
             decoration: BoxDecoration(
               color: HomiziColors.white,
-              borderRadius: BorderRadius.circular(20),
+              borderRadius: BorderRadius.circular(16),
             ),
             child: Row(
               mainAxisSize: MainAxisSize.min,

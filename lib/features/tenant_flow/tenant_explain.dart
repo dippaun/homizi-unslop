@@ -85,7 +85,7 @@ class TenantIntroPage extends StatelessWidget {
           ),
           const SizedBox(height: 8),
           ClipRRect(
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(16),
             child: const SizedBox(
               height: 220,
               child: ListingPhoto(
@@ -262,7 +262,7 @@ class _RankPreview extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
       decoration: BoxDecoration(
         color: HomiziColors.white,
-        borderRadius: BorderRadius.circular(14),
+        borderRadius: BorderRadius.circular(12),
         border: Border.all(color: HomiziColors.line),
       ),
       child: Row(
@@ -373,7 +373,7 @@ class TenantHowPage extends StatelessWidget {
           ),
           const SizedBox(height: 8),
           ClipRRect(
-            borderRadius: BorderRadius.circular(18),
+            borderRadius: BorderRadius.circular(16),
             child: const SizedBox(
               height: 160,
               child: ListingPhoto(

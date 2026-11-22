@@ -796,7 +796,7 @@ class _Card extends StatelessWidget {
       decoration: BoxDecoration(
         color: HomiziColors.white,
         border: Border.all(color: HomiziColors.line),
-        borderRadius: BorderRadius.circular(18),
+        borderRadius: BorderRadius.circular(16),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -903,7 +903,7 @@ class _MethodTile extends StatelessWidget {
       button: true,
       child: InkWell(
         key: tileKey,
-        borderRadius: BorderRadius.circular(18),
+        borderRadius: BorderRadius.circular(16),
         onTap: onTap,
         child: Container(
           padding: const EdgeInsets.all(16),
@@ -913,7 +913,7 @@ class _MethodTile extends StatelessWidget {
               color: selected ? HomiziColors.logoOrange : HomiziColors.line,
               width: selected ? 2 : 1,
             ),
-            borderRadius: BorderRadius.circular(18),
+            borderRadius: BorderRadius.circular(16),
           ),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -1073,7 +1073,7 @@ class _Notice extends StatelessWidget {
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
         color: wash,
-        borderRadius: BorderRadius.circular(14),
+        borderRadius: BorderRadius.circular(12),
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,

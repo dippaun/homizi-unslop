@@ -573,10 +573,10 @@ class _OccupancySearchScreenState extends ConsumerState<OccupancySearchScreen> {
               padding: const EdgeInsets.only(bottom: 10),
               child: Material(
                 color: HomiziColors.soft,
-                borderRadius: BorderRadius.circular(14),
+                borderRadius: BorderRadius.circular(12),
                 child: InkWell(
                   key: Key(row.$1),
-                  borderRadius: BorderRadius.circular(14),
+                  borderRadius: BorderRadius.circular(12),
                   onTap: () => _find(row.$6),
                   child: Padding(
                     padding: const EdgeInsets.all(10),
@@ -631,10 +631,10 @@ class _OccupancySearchScreenState extends ConsumerState<OccupancySearchScreen> {
   Widget _hostCard(BuildContext context) {
     return Material(
       color: HomiziColors.accentWash,
-      borderRadius: BorderRadius.circular(18),
+      borderRadius: BorderRadius.circular(16),
       child: InkWell(
         key: const Key('occ-post-home'),
-        borderRadius: BorderRadius.circular(18),
+        borderRadius: BorderRadius.circular(16),
         onTap: () => context.push(SharedHomePaths.host),
         child: Padding(
           padding: const EdgeInsets.all(16),

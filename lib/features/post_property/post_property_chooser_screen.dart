@@ -197,7 +197,7 @@ class _ChoiceCard extends StatelessWidget {
     return Material(
       color: selected ? HomiziColors.warmWash : HomiziColors.white,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(16),
         side: BorderSide(
           color: selected ? HomiziColors.brandDeepRed : HomiziColors.line,
           width: selected ? 1.5 : 1,
@@ -219,7 +219,7 @@ class _ChoiceCard extends StatelessWidget {
                   clipBehavior: Clip.none,
                   children: [
                     ClipRRect(
-                      borderRadius: BorderRadius.circular(14),
+                      borderRadius: BorderRadius.circular(12),
                       child: Image.asset(
                         asset,
                         width: 72,

@@ -162,7 +162,7 @@ class _PresetChip extends StatelessWidget {
           ? HomiziColors.logoOrange.withValues(alpha: 0.10)
           : HomiziColors.soft,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(16),
         side: BorderSide(
           color: selected ? HomiziColors.logoOrange : HomiziColors.clear,
           width: 1.5,
@@ -170,7 +170,7 @@ class _PresetChip extends StatelessWidget {
       ),
       child: InkWell(
         onTap: onTap,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(16),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
           child: Text(

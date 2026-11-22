@@ -238,10 +238,10 @@ class _HostIntentCard extends StatelessWidget {
           Transform.scale(scale: scale, child: child),
       child: Material(
         color: selected ? HomiziColors.logoOrange : option.$5,
-        borderRadius: BorderRadius.circular(22),
+        borderRadius: BorderRadius.circular(16),
         child: InkWell(
           key: Key('listing-intent-${option.$1}'),
-          borderRadius: BorderRadius.circular(22),
+          borderRadius: BorderRadius.circular(16),
           onTap: onTap,
           child: Padding(
             padding: const EdgeInsets.all(16),
@@ -1756,7 +1756,7 @@ class _PrivateFlatNote extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
       decoration: BoxDecoration(
         color: HomiziColors.warmWash,
-        borderRadius: BorderRadius.circular(14),
+        borderRadius: BorderRadius.circular(12),
         border: Border.all(color: HomiziColors.brandDeepRed),
       ),
       child: Row(

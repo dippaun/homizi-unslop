@@ -64,7 +64,7 @@ class RentCostBreakdown extends StatelessWidget {
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: HomiziColors.white,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(16),
         boxShadow: const [
           BoxShadow(
             color: HomiziColors.shadow,
@@ -363,7 +363,7 @@ class _SweepBorderState extends State<_SweepBorder>
         final t = _sweep.value;
         return DecoratedBox(
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(22),
+            borderRadius: BorderRadius.circular(16),
             color: t == 0
                 ? HomiziColors.line
                 : Color.lerp(HomiziColors.logoOrange, HomiziColors.line, t),

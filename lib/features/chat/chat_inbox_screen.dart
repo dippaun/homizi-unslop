@@ -216,15 +216,15 @@ class _ChatInboxScreenState extends ConsumerState<ChatInboxScreen> {
                         filled: true,
                         fillColor: HomiziColors.mist,
                         border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(24),
+                          borderRadius: BorderRadius.circular(20),
                           borderSide: BorderSide.none,
                         ),
                         enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(24),
+                          borderRadius: BorderRadius.circular(20),
                           borderSide: BorderSide.none,
                         ),
                         focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(24),
+                          borderRadius: BorderRadius.circular(20),
                           borderSide: const BorderSide(
                             color: HomiziColors.accent,
                             width: 1.5,

@@ -156,10 +156,10 @@ class _MoreScreenState extends ConsumerState<MoreScreen> {
           const SizedBox(height: 12),
           Material(
             color: HomiziColors.accentWash,
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(16),
             child: InkWell(
               key: const Key('more-banner'),
-              borderRadius: BorderRadius.circular(20),
+              borderRadius: BorderRadius.circular(16),
               onTap: () {
                 setState(() => _exampleNoted = true);
                 context.push(
@@ -322,14 +322,14 @@ class _BannerCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       color: color,
-      borderRadius: BorderRadius.circular(20),
+      borderRadius: BorderRadius.circular(16),
       child: InkWell(
         key: cardKey,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(16),
         onTap: onTap,
         child: Container(
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(16),
             border: color == HomiziColors.white
                 ? Border.all(color: HomiziColors.line)
                 : null,

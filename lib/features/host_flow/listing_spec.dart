@@ -148,7 +148,7 @@ class ListingIntroPage extends StatelessWidget {
               ),
               const SizedBox(width: 8),
               ClipRRect(
-                borderRadius: BorderRadius.circular(18),
+                borderRadius: BorderRadius.circular(16),
                 child: Image.asset(
                   'assets/images/real/apartment.webp',
                   width: 116,
@@ -655,7 +655,7 @@ class ListingReviewPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           ClipRRect(
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(16),
             child: AspectRatio(
               aspectRatio: 1.7,
               child: photo == null

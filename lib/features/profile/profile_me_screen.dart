@@ -558,7 +558,7 @@ class _ProfileMeScreenState extends ConsumerState<ProfileMeScreen> {
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
           decoration: const BoxDecoration(
             color: HomiziColors.accentWash,
-            borderRadius: BorderRadius.all(Radius.circular(20)),
+            borderRadius: BorderRadius.all(Radius.circular(16)),
           ),
           child: Text(
             homiziText(context, pgOwner ? 'PG owner' : profileRoleChip(wire)),
@@ -1999,7 +1999,7 @@ class _HabitTile extends StatelessWidget {
     return DecoratedBox(
       decoration: BoxDecoration(
         color: HomiziColors.accentWash,
-        borderRadius: BorderRadius.circular(14),
+        borderRadius: BorderRadius.circular(12),
       ),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
@@ -2059,13 +2059,13 @@ class _StatTile extends StatelessWidget {
     return InkWell(
       key: Key('$statKey-open'),
       onTap: onTap,
-      borderRadius: BorderRadius.circular(14),
+      borderRadius: BorderRadius.circular(12),
       child: DecoratedBox(
         // One quiet surface for every stat. The figure carries the
         // meaning; the icon stays muted (unslop pass 6).
         decoration: BoxDecoration(
           color: HomiziColors.white,
-          borderRadius: BorderRadius.circular(14),
+          borderRadius: BorderRadius.circular(12),
           border: Border.all(color: HomiziColors.line),
         ),
         child: Padding(

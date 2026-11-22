@@ -357,7 +357,7 @@ class ListingGallery extends StatelessWidget {
         itemExtent: width < 48 ? 48 : width * 0.86,
         itemSnapping: true,
         shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(28)),
+          borderRadius: BorderRadius.all(Radius.circular(20)),
         ),
         children: [
           for (var index = 0; index < photos.length; index++)

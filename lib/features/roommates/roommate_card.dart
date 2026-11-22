@@ -78,10 +78,10 @@ class CompatibilityChip extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       color: HomiziColors.accent,
-      borderRadius: BorderRadius.circular(18),
+      borderRadius: BorderRadius.circular(16),
       child: InkWell(
         key: Key('compatibility-chip-$seekerId'),
-        borderRadius: BorderRadius.circular(18),
+        borderRadius: BorderRadius.circular(16),
         onTap: onPressed,
         child: ConstrainedBox(
           constraints: const BoxConstraints(

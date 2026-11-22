@@ -280,7 +280,7 @@ class _PosterAddressStepState extends ConsumerState<PosterAddressStep> {
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
           decoration: BoxDecoration(
             color: HomiziColors.warmWash,
-            borderRadius: BorderRadius.circular(14),
+            borderRadius: BorderRadius.circular(12),
             border: Border.all(color: HomiziColors.brandDeepRed),
           ),
           child: Row(

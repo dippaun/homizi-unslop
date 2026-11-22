@@ -306,7 +306,7 @@ class _SavedTile extends StatelessWidget {
   Widget _filled(BuildContext context, (Color, Color) palette) {
     return DecoratedBox(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(18),
+        borderRadius: BorderRadius.circular(16),
         color: palette.$1,
         border: Border.all(color: palette.$2.withValues(alpha: 0.45)),
       ),

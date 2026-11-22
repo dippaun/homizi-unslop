@@ -165,7 +165,7 @@ class _AreaFallback extends StatelessWidget {
                       ),
                       decoration: BoxDecoration(
                         color: HomiziColors.white,
-                        borderRadius: BorderRadius.circular(20),
+                        borderRadius: BorderRadius.circular(16),
                         boxShadow: const [
                           BoxShadow(
                             color: HomiziColors.shadowSoft,

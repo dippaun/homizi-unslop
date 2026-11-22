@@ -130,7 +130,7 @@ class RoommateMatchRow extends StatelessWidget {
                           ),
                           decoration: BoxDecoration(
                             color: HomiziColors.successWash,
-                            borderRadius: BorderRadius.circular(20),
+                            borderRadius: BorderRadius.circular(16),
                           ),
                           child: Text(
                             '$percent%',

@@ -210,7 +210,7 @@ class HomiziMatchCard extends StatelessWidget {
               );
         return DecoratedBox(
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(24),
+            borderRadius: BorderRadius.circular(20),
             boxShadow: const [
               BoxShadow(
                 color: HomiziColors.shadow,
@@ -223,7 +223,7 @@ class HomiziMatchCard extends StatelessWidget {
             key: cardKey,
             color: HomiziColors.white,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(24),
+              borderRadius: BorderRadius.circular(20),
             ),
             clipBehavior: Clip.antiAlias,
             child: dragged,
@@ -618,7 +618,7 @@ class _MatchPill extends StatelessWidget {
       key: matchKey,
       decoration: BoxDecoration(
         color: fill.background,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(16),
       ),
       child: Padding(
         padding: EdgeInsets.symmetric(

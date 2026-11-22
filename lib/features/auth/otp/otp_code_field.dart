@@ -224,7 +224,7 @@ class _OtpBox extends StatelessWidget {
       height: 54,
       decoration: BoxDecoration(
         color: fill,
-        borderRadius: BorderRadius.circular(14),
+        borderRadius: BorderRadius.circular(12),
         border: Border.all(color: border, width: width),
         boxShadow: state == _BoxState.active
             ? const [

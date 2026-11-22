@@ -240,7 +240,7 @@ class _PaymentsScreenState extends ConsumerState<PaymentsScreen> {
               Material(
                 key: const Key('payments-test-banner'),
                 color: HomiziColors.accent,
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(16),
                 child: Padding(
                   padding: const EdgeInsets.all(16),
                   child: Text(

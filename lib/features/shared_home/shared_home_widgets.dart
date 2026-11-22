@@ -143,7 +143,7 @@ class ShSection extends StatelessWidget {
       color: color,
       shape: RoundedRectangleBorder(
         side: const BorderSide(color: HomiziColors.line),
-        borderRadius: BorderRadius.circular(18),
+        borderRadius: BorderRadius.circular(16),
       ),
       child: Padding(
         padding: const EdgeInsets.all(16),
@@ -194,10 +194,10 @@ class ShMatchPill extends StatelessWidget {
     final tone = matchTone(match.score);
     return Material(
       color: tone.background,
-      borderRadius: BorderRadius.circular(14),
+      borderRadius: BorderRadius.circular(12),
       child: InkWell(
         key: pillKey,
-        borderRadius: BorderRadius.circular(14),
+        borderRadius: BorderRadius.circular(12),
         onTap: () => showMatchBreakdown(context, match: match),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
@@ -303,7 +303,7 @@ class ShHomePhoto extends StatelessWidget {
         fit: StackFit.expand,
         children: [
           ClipRRect(
-            borderRadius: BorderRadius.circular(14),
+            borderRadius: BorderRadius.circular(12),
             child: ListingPhoto(
               asset: asset,
               fallbackAsset: homiziFallbackPhoto(asset ?? 'shared-home'),

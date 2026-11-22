@@ -923,7 +923,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
         foregroundColor: HomiziColors.ink,
         minimumSize: const Size.fromHeight(48),
         side: const BorderSide(color: HomiziColors.line),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       ),
       onPressed: onPressed,
       child: Text(homiziText(context, 'Send by SMS instead')),
@@ -1171,7 +1171,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
         foregroundColor: HomiziColors.ink,
         minimumSize: const Size.fromHeight(52),
         side: const BorderSide(color: HomiziColors.line),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       ),
       onPressed: !showGoogle || _busy ? null : () => unawaited(_google()),
       icon: const Text(
@@ -1342,7 +1342,7 @@ class _BrandLockup extends StatelessWidget {
             height: 72,
             decoration: BoxDecoration(
               color: HomiziColors.accentWash,
-              borderRadius: BorderRadius.circular(20),
+              borderRadius: BorderRadius.circular(16),
             ),
             alignment: Alignment.center,
             child: const HomiziSquareMark(
@@ -1377,7 +1377,7 @@ class _AuthCard extends StatelessWidget {
     return DecoratedBox(
       decoration: BoxDecoration(
         color: HomiziColors.white,
-        borderRadius: BorderRadius.circular(24),
+        borderRadius: BorderRadius.circular(20),
         border: Border.all(color: HomiziColors.line),
         boxShadow: const [
           BoxShadow(
@@ -1511,7 +1511,7 @@ class _GradientButton extends StatelessWidget {
       decoration: BoxDecoration(
         gradient: enabled ? HomiziGradients.action : null,
         color: enabled ? null : HomiziColors.accentWash,
-        borderRadius: BorderRadius.circular(14),
+        borderRadius: BorderRadius.circular(12),
       ),
       child: FilledButton(
         key: buttonKey,
@@ -1524,7 +1524,7 @@ class _GradientButton extends StatelessWidget {
           surfaceTintColor: HomiziColors.clear,
           minimumSize: const Size.fromHeight(48),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(14),
+            borderRadius: BorderRadius.circular(12),
           ),
         ),
         onPressed: onPressed,

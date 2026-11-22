@@ -259,7 +259,7 @@ class _RoommateFilterSheetState extends State<RoommateFilterSheet> {
         child: Material(
           key: const Key('roommate-filter-sheet'),
           color: HomiziColors.white,
-          borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
+          borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
           child: ListView(
             padding: EdgeInsets.fromLTRB(20, 12, 20, 16 + bottom),
             shrinkWrap: true,

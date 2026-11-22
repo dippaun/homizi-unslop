@@ -508,7 +508,7 @@ class _Tabs extends StatelessWidget {
       padding: const EdgeInsets.all(4),
       decoration: BoxDecoration(
         color: HomiziColors.white,
-        borderRadius: BorderRadius.circular(24),
+        borderRadius: BorderRadius.circular(20),
         border: Border.all(color: HomiziColors.line),
       ),
       child: SingleChildScrollView(
@@ -1028,7 +1028,7 @@ class _ChipWrap extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
             decoration: BoxDecoration(
               color: HomiziColors.successWash,
-              borderRadius: BorderRadius.circular(20),
+              borderRadius: BorderRadius.circular(16),
             ),
             child: Text(
               homiziText(context, label),
@@ -1139,7 +1139,7 @@ String _initials(String name) {
 BoxDecoration _cardDecoration() {
   return BoxDecoration(
     color: HomiziColors.white,
-    borderRadius: BorderRadius.circular(18),
+    borderRadius: BorderRadius.circular(16),
     border: Border.all(color: HomiziColors.line),
     boxShadow: const [
       BoxShadow(

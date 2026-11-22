@@ -464,15 +464,15 @@ class _DirectChatScreenState extends ConsumerState<DirectChatScreen> {
                                     vertical: 12,
                                   ),
                                   border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(24),
+                                    borderRadius: BorderRadius.circular(20),
                                     borderSide: BorderSide.none,
                                   ),
                                   enabledBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(24),
+                                    borderRadius: BorderRadius.circular(20),
                                     borderSide: BorderSide.none,
                                   ),
                                   focusedBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(24),
+                                    borderRadius: BorderRadius.circular(20),
                                     borderSide: const BorderSide(
                                       color: HomiziColors.accent,
                                       width: 1.5,
@@ -546,8 +546,8 @@ class _DirectChatScreenState extends ConsumerState<DirectChatScreen> {
             decoration: BoxDecoration(
               color: message.mine ? HomiziColors.accentWash : HomiziColors.mist,
               borderRadius: BorderRadius.only(
-                topLeft: const Radius.circular(18),
-                topRight: const Radius.circular(18),
+                topLeft: const Radius.circular(16),
+                topRight: const Radius.circular(16),
                 bottomLeft: Radius.circular(message.mine ? 18 : 4),
                 bottomRight: Radius.circular(message.mine ? 4 : 18),
               ),

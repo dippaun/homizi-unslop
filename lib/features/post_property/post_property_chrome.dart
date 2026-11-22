@@ -219,16 +219,16 @@ class PostGradientButton extends StatelessWidget {
       decoration: BoxDecoration(
         gradient: filled ? postContinueGradient : null,
         color: filled ? null : HomiziColors.mist,
-        borderRadius: BorderRadius.circular(28),
+        borderRadius: BorderRadius.circular(20),
         border: filled ? null : Border.all(color: HomiziColors.line),
       ),
       child: Material(
         color: HomiziColors.clear,
-        borderRadius: BorderRadius.circular(28),
+        borderRadius: BorderRadius.circular(20),
         child: InkWell(
           key: buttonKey,
           onTap: tappable ? onPressed : null,
-          borderRadius: BorderRadius.circular(28),
+          borderRadius: BorderRadius.circular(20),
           child: ConstrainedBox(
             constraints: const BoxConstraints(minHeight: 52),
             child: Padding(
@@ -283,7 +283,7 @@ class PostChip extends StatelessWidget {
     return DecoratedBox(
       decoration: BoxDecoration(
         color: HomiziColors.warmWash,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(16),
       ),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
@@ -423,7 +423,7 @@ class PostTrustPill extends StatelessWidget {
     return DecoratedBox(
       decoration: BoxDecoration(
         color: HomiziColors.warmWash,
-        borderRadius: BorderRadius.circular(24),
+        borderRadius: BorderRadius.circular(20),
       ),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
@@ -495,16 +495,16 @@ class PropertyPhotoUploadCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       color: HomiziColors.warmWash,
-      borderRadius: BorderRadius.circular(20),
+      borderRadius: BorderRadius.circular(16),
       child: InkWell(
         key: const Key('post-photo-upload'),
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(16),
         onTap: onTap,
         child: Container(
           width: double.infinity,
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(16),
             border: Border.all(color: HomiziColors.brandDeepRed),
           ),
           child: Column(

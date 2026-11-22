@@ -344,7 +344,7 @@ class _JoinStatusScreenState extends ConsumerState<JoinStatusScreen> {
         SizedBox(
           height: 170,
           child: ClipRRect(
-            borderRadius: BorderRadius.circular(14),
+            borderRadius: BorderRadius.circular(12),
             child: ListingPhoto(
               asset: home.listing.photoAssets.isEmpty
                   ? null

@@ -564,7 +564,7 @@ class HostSpecFlow extends StatelessWidget {
         color: HomiziColors.white,
         elevation: 1,
         shadowColor: HomiziColors.shadow,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(16),
         clipBehavior: Clip.antiAlias,
         child: Theme(
           data: Theme.of(context).copyWith(dividerColor: HomiziColors.clear),
@@ -956,7 +956,7 @@ class HostSpecFlow extends StatelessWidget {
               DecoratedBox(
                 decoration: BoxDecoration(
                   color: HomiziColors.accent,
-                  borderRadius: BorderRadius.circular(20),
+                  borderRadius: BorderRadius.circular(16),
                 ),
                 child: Padding(
                   padding: const EdgeInsets.symmetric(
@@ -1093,14 +1093,14 @@ class _RoleTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       color: selected ? tone.$3 : HomiziColors.white,
-      borderRadius: BorderRadius.circular(20),
+      borderRadius: BorderRadius.circular(16),
       child: InkWell(
         key: Key('host-role-${role.wire}'),
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(16),
         onTap: onTap,
         child: Ink(
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(16),
             border: Border.all(
               color: selected ? tone.$2 : HomiziColors.line,
               width: selected ? 2 : 1,

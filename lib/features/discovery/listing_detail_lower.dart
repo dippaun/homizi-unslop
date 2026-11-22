@@ -112,7 +112,7 @@ class _ListingCostCardState extends State<ListingCostCard> {
     return DecoratedBox(
       decoration: BoxDecoration(
         color: HomiziColors.white,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(16),
         boxShadow: const [
           BoxShadow(
             color: HomiziColors.shadow,
@@ -125,7 +125,7 @@ class _ListingCostCardState extends State<ListingCostCard> {
         color: HomiziColors.clear,
         child: InkWell(
           key: const Key('listing-cost-section'),
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(16),
           onTap: () => setState(() => _open = !_open),
           child: Padding(
             padding: const EdgeInsets.all(16),
@@ -512,7 +512,7 @@ class ListingPrivacyCard extends StatelessWidget {
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: HomiziColors.white,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(16),
         border: Border.all(color: HomiziColors.line),
       ),
       child: Column(

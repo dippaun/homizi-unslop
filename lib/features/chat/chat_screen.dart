@@ -420,15 +420,15 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
                                       vertical: 12,
                                     ),
                                     border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(24),
+                                      borderRadius: BorderRadius.circular(20),
                                       borderSide: BorderSide.none,
                                     ),
                                     enabledBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(24),
+                                      borderRadius: BorderRadius.circular(20),
                                       borderSide: BorderSide.none,
                                     ),
                                     focusedBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(24),
+                                      borderRadius: BorderRadius.circular(20),
                                       borderSide: const BorderSide(
                                         color: HomiziColors.accent,
                                         width: 1.5,
@@ -509,7 +509,7 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
             constraints: const BoxConstraints(maxWidth: 280),
             decoration: BoxDecoration(
               color: message.mine ? HomiziColors.accentWash : HomiziColors.mist,
-              borderRadius: BorderRadius.circular(18),
+              borderRadius: BorderRadius.circular(16),
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.end,

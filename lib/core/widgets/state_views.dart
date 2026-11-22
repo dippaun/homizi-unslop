@@ -137,7 +137,7 @@ class EmptyState extends StatelessWidget {
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
                   color: HomiziColors.logoOrange.withValues(alpha: 0.12),
-                  borderRadius: BorderRadius.circular(20),
+                  borderRadius: BorderRadius.circular(16),
                 ),
                 child: const Icon(
                   RealLifeIcons.house,

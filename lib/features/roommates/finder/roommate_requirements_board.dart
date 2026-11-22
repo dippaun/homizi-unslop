@@ -181,7 +181,7 @@ class _RoommateRequirementsBoardState extends State<RoommateRequirementsBoard> {
                     side: const BorderSide(color: HomiziColors.logoOrange),
                     minimumSize: const Size.fromHeight(48),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(14),
+                      borderRadius: BorderRadius.circular(12),
                     ),
                   ),
                 ),
@@ -189,7 +189,7 @@ class _RoommateRequirementsBoardState extends State<RoommateRequirementsBoard> {
                   const SizedBox(height: 12),
                   Material(
                     color: HomiziColors.accentWash,
-                    borderRadius: BorderRadius.circular(14),
+                    borderRadius: BorderRadius.circular(12),
                     child: SwitchListTile(
                       key: const Key('roommate-post-profile'),
                       contentPadding: const EdgeInsets.symmetric(
@@ -642,14 +642,14 @@ class _IconTile extends StatelessWidget {
     return Material(
       color: selected ? HomiziColors.accentWash : HomiziColors.white,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(14),
+        borderRadius: BorderRadius.circular(12),
         side: BorderSide(
           color: selected ? HomiziColors.logoOrange : HomiziColors.line,
         ),
       ),
       child: InkWell(
         key: tileKey,
-        borderRadius: BorderRadius.circular(14),
+        borderRadius: BorderRadius.circular(12),
         onTap: onTap,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),

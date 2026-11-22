@@ -212,10 +212,10 @@ class _SeekerCard extends ConsumerWidget {
         padding: const EdgeInsets.only(bottom: 10),
         child: Material(
           color: HomiziColors.white,
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(16),
           child: Ink(
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
+              borderRadius: BorderRadius.circular(16),
               border: Border.all(color: HomiziColors.line),
               color: HomiziColors.white,
             ),
@@ -290,7 +290,7 @@ class _EmptySeekers extends StatelessWidget {
       key: const Key('pg-seeker-empty'),
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(24),
+        borderRadius: BorderRadius.circular(20),
         color: HomiziColors.warmWash,
       ),
       child: Column(

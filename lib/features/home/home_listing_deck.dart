@@ -423,7 +423,7 @@ class _CaughtUp extends StatelessWidget {
         key: const Key('home-swipe-done'),
         decoration: BoxDecoration(
           color: HomiziColors.white,
-          borderRadius: BorderRadius.circular(28),
+          borderRadius: BorderRadius.circular(20),
           boxShadow: const [
             BoxShadow(
               color: HomiziColors.shadow,

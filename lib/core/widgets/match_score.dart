@@ -54,10 +54,10 @@ class MatchScoreBlock extends StatelessWidget {
     final theme = Theme.of(context);
     final pill = Material(
       color: tone.background,
-      borderRadius: BorderRadius.circular(20),
+      borderRadius: BorderRadius.circular(16),
       child: InkWell(
         onTap: onTap,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(16),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
           child: Text(

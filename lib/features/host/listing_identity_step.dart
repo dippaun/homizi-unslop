@@ -188,7 +188,7 @@ class ListingIdentityStep extends ConsumerWidget {
           color: HomiziColors.white,
           elevation: 1,
           shadowColor: HomiziColors.shadow,
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(16),
           clipBehavior: Clip.antiAlias,
           child: SwitchListTile(
             key: const Key('host-photo-toggle'),

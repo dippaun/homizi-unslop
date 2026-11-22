@@ -152,7 +152,7 @@ class _RoleCard extends StatelessWidget {
     return Material(
       color: selected ? HomiziColors.accentWash : HomiziColors.white,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(16),
         side: BorderSide(
           color: selected ? HomiziColors.logoOrange : HomiziColors.line,
           width: selected ? 2 : 1,
@@ -160,7 +160,7 @@ class _RoleCard extends StatelessWidget {
       ),
       child: InkWell(
         key: option.cardKey,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(16),
         onTap: onTap,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),

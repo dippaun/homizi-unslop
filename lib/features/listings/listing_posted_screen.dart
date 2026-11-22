@@ -48,7 +48,7 @@ class ListingPostedScreen extends StatelessWidget {
             padding: const EdgeInsets.fromLTRB(20, 16, 20, 32),
             children: [
               ClipRRect(
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(16),
                 child: Image.asset(
                   draft.photos.isEmpty
                       ? 'assets/images/real/living.webp'
