@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:homizi/core/brand/homizi_mark.dart';
+import 'package:homizi/core/brand/indian_patterns.dart';
 import 'package:homizi/core/l10n/translate.dart';
 import 'package:homizi/core/network/offline_failure.dart';
 import 'package:homizi/core/theme/homizi_colors.dart';
+import 'package:homizi/core/theme/role_palette.dart';
 import 'package:homizi/features/demo/demo_copy.dart';
 import 'package:homizi/features/demo/demo_success.dart';
 import 'package:homizi/ui/kit/real_life_icons.dart';
@@ -131,33 +133,10 @@ class EmptyState extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Container(
-                width: 64,
-                height: 64,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  color: HomiziColors.logoOrange.withValues(alpha: 0.12),
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                child: const Icon(
-                  RealLifeIcons.house,
-                  color: HomiziColors.logoOrange,
-                  size: 30,
-                ),
-              ),
+              // v2: the photo sits in a jharokha arch over a kolam, with the
+              // house icon on a role-gradient disc at its foot.
+              const _ArchedPhoto(),
               const SizedBox(height: 16),
-              ClipRRect(
-                borderRadius: BorderRadius.circular(16),
-                child: Image.asset(
-                  'assets/images/real/living.webp',
-                  height: 96,
-                  width: 160,
-                  fit: BoxFit.cover,
-                ),
-              ),
-              const SizedBox(height: 16),
-              const HomiziMark(),
-              const SizedBox(height: 12),
               Text(
                 homiziText(context, title),
                 textAlign: TextAlign.center,
@@ -298,4 +277,89 @@ class AsyncStateBody extends StatelessWidget {
       ViewStatus.ready => child,
     };
   }
+}
+
+class _ArchedPhoto extends StatelessWidget {
+  const _ArchedPhoto();
+
+  @override
+  Widget build(BuildContext context) {
+    final palette = HomiziRoleScope.of(context);
+    return SizedBox(
+      width: 200,
+      height: 168,
+      child: Stack(
+        alignment: Alignment.topCenter,
+        children: [
+          Positioned.fill(
+            child: IgnorePointer(
+              child: CustomPaint(
+                painter: KolamPainter(
+                  color: palette.ink,
+                  opacity: 0.16,
+                  gap: 26,
+                ),
+              ),
+            ),
+          ),
+          SizedBox(
+            width: 116,
+            height: 144,
+            child: CustomPaint(
+              foregroundPainter: _ArchLine(palette.accent),
+              child: ClipPath(
+                clipper: const JharokhaClipper(archFraction: 0.34),
+                child: Image.asset(
+                  'assets/images/real/living.webp',
+                  fit: BoxFit.cover,
+                  width: 116,
+                  height: 144,
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: 0,
+            child: DecoratedBox(
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                gradient: palette.heroGradient,
+                border: Border.all(color: HomiziColors.cream, width: 3),
+              ),
+              child: SizedBox(
+                width: 48,
+                height: 48,
+                child: Icon(
+                  RealLifeIcons.house,
+                  color: palette.onHero,
+                  size: 24,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _ArchLine extends CustomPainter {
+  const _ArchLine(this.color);
+
+  final Color color;
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    canvas.drawPath(
+      jharokhaPath(size, 0.34),
+      Paint()
+        ..color = color
+        ..style = PaintingStyle.stroke
+        ..strokeWidth = 2,
+    );
+  }
+
+  @override
+  bool shouldRepaint(covariant _ArchLine oldDelegate) =>
+      oldDelegate.color != color;
 }

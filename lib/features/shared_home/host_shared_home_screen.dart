@@ -7,6 +7,7 @@ import 'package:homizi/core/location/place_autocomplete_field.dart';
 import 'package:homizi/core/routing/route_paths.dart';
 import 'package:homizi/core/theme/flow_accent.dart';
 import 'package:homizi/core/theme/homizi_colors.dart';
+import 'package:homizi/core/theme/role_palette.dart';
 import 'package:homizi/core/widgets/homizi_back.dart';
 import 'package:homizi/core/widgets/state_views.dart';
 import 'package:homizi/features/owner/owner_dashboard_screen.dart';
@@ -20,7 +21,9 @@ import 'package:homizi/features/shared_home/shared_home_providers.dart';
 import 'package:homizi/features/shared_home/shared_home_repository.dart';
 import 'package:homizi/features/shared_home/shared_home_widgets.dart';
 import 'package:homizi/features/shared_home/tenant_home_intake.dart';
+import 'package:homizi/ui/kit/hero_band.dart';
 import 'package:homizi/ui/kit/kit.dart';
+import 'package:homizi/ui/kit/motion_kit.dart';
 
 const _propertyTypes = ['1 RK', '1 BHK', '2 BHK', '3 BHK', '4 BHK'];
 
@@ -142,7 +145,7 @@ class _HostSharedHomeScreenState extends ConsumerState<HostSharedHomeScreen> {
     final listings = ref.watch(ownerListingsProvider);
     final page = Scaffold(
       key: const Key('host-shared-screen'),
-      backgroundColor: HomiziColors.surface,
+      backgroundColor: HomiziColors.cream,
       appBar: widget.postChrome
           ? const PostPropertyBar()
           : AppBar(
@@ -216,7 +219,6 @@ class _HostSharedHomeScreenState extends ConsumerState<HostSharedHomeScreen> {
   }
 
   Widget _form(List<OwnerListing> rows) {
-    final text = Theme.of(context).textTheme;
     final selected = rows.any((row) => row.id == _listingId)
         ? _listingId!
         : rows.first.id;
@@ -224,15 +226,16 @@ class _HostSharedHomeScreenState extends ConsumerState<HostSharedHomeScreen> {
       key: const Key('host-shared-list'),
       padding: const EdgeInsets.fromLTRB(20, 8, 20, 32),
       children: [
-        Text(
-          homiziText(context, 'Add complete details'),
-          style: text.headlineSmall?.copyWith(fontWeight: FontWeight.w600),
-        ),
-        const SizedBox(height: 4),
-        Text(
-          homiziText(
-            context,
-            'Seekers match on the rooms that are actually free, not just BHK.',
+        HomiziStaggerIn(
+          child: HomiziRoleIntro(
+            palette: HomiziRolePalette.sharer,
+            eyebrow: homiziText(context, 'Room sharer'),
+            icon: Icons.bedroom_parent_outlined,
+            title: homiziText(context, 'Add complete details'),
+            body: homiziText(
+              context,
+              'Seekers match on the rooms that are actually free, not just BHK.',
+            ),
           ),
         ),
         const SizedBox(height: 16),
