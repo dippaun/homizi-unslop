@@ -233,6 +233,12 @@ class _FlatsSwipeDeckState extends ConsumerState<FlatsSwipeDeck>
   }
 
   Future<void> _commit(BestMatchSwipe decision) async {
+    // v2: a firm tap for interest, a light tick for skip or later.
+    if (decision == BestMatchSwipe.interested) {
+      unawaited(HapticFeedback.mediumImpact());
+    } else {
+      unawaited(HapticFeedback.selectionClick());
+    }
     final listing = _current;
     if (_busy || listing == null) {
       return;

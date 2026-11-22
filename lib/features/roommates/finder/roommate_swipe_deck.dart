@@ -168,6 +168,8 @@ class _RoommateSwipeDeckState extends State<RoommateSwipeDeck>
   }
 
   Future<void> _commit(_Move move) async {
+    // v2: a light tick as the card leaves.
+    unawaited(HapticFeedback.selectionClick());
     final person = _current;
     if (_busy || person == null) {
       return;

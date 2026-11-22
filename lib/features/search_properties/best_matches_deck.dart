@@ -256,6 +256,12 @@ class _BestMatchesDeckState extends ConsumerState<BestMatchesDeck>
   }
 
   Future<void> _commit(BestMatchSwipe decision) async {
+    // v2: a firm tap for interest, a light tick for skip or later.
+    if (decision == BestMatchSwipe.interested) {
+      unawaited(HapticFeedback.mediumImpact());
+    } else {
+      unawaited(HapticFeedback.selectionClick());
+    }
     if (_busy || _index >= widget.homes.length) {
       return;
     }
