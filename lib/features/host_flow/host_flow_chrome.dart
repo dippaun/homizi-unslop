@@ -301,10 +301,12 @@ class FlowContinueButton extends StatelessWidget {
                       )
                     : Text(
                         homiziText(context, label),
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontFamily: 'PlusJakartaSans',
                           fontWeight: FontWeight.w600,
-                          color: HomiziColors.ink,
+                          color: onPressed == null
+                              ? HomiziColors.ink
+                              : HomiziColors.white,
                         ),
                       ),
               ),

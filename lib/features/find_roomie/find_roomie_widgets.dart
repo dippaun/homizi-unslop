@@ -195,15 +195,23 @@ class FindRoomieButton extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   if (icon != null) ...[
-                    Icon(icon, color: HomiziColors.ink, size: 20),
+                    Icon(
+                      icon,
+                      color: onPressed == null
+                          ? HomiziColors.ink
+                          : HomiziColors.white,
+                      size: 20,
+                    ),
                     const SizedBox(width: 8),
                   ],
                   Flexible(
                     child: Text(
                       homiziText(context, label),
                       textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        color: HomiziColors.ink,
+                      style: TextStyle(
+                        color: onPressed == null
+                            ? HomiziColors.ink
+                            : HomiziColors.white,
                         fontWeight: FontWeight.w600,
                         fontSize: 15,
                       ),

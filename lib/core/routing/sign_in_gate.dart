@@ -292,7 +292,7 @@ class _GradientCta extends StatelessWidget {
               child: Text(
                 label,
                 style: const TextStyle(
-                  color: HomiziColors.ink,
+                  color: HomiziColors.white,
                   fontWeight: FontWeight.w600,
                   fontSize: 16,
                 ),

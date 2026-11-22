@@ -608,13 +608,13 @@ class _Actions extends StatelessWidget {
                         const Icon(
                           Icons.chat_bubble_rounded,
                           size: 18,
-                          color: HomiziColors.ink,
+                          color: HomiziColors.white,
                         ),
                         const SizedBox(width: 8),
                         Text(
                           homiziText(context, 'Message'),
                           style: const TextStyle(
-                            color: HomiziColors.ink,
+                            color: HomiziColors.white,
                             fontWeight: FontWeight.w600,
                             fontSize: 15,
                           ),

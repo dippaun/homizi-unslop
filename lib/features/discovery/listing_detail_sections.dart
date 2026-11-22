@@ -1724,7 +1724,7 @@ class _InterestButton extends StatelessWidget {
                         Text(
                           homiziText(context, label),
                           style: const TextStyle(
-                            color: HomiziColors.ink,
+                            color: HomiziColors.white,
                             fontWeight: FontWeight.w600,
                             fontSize: 15,
                           ),
@@ -1734,7 +1734,7 @@ class _InterestButton extends StatelessWidget {
                           const Icon(
                             Icons.arrow_forward,
                             size: 18,
-                            color: HomiziColors.ink,
+                            color: HomiziColors.white,
                           ),
                         ],
                       ],

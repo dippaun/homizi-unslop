@@ -1573,7 +1573,9 @@ class _GradientButton extends StatelessWidget {
         style: FilledButton.styleFrom(
           backgroundColor: HomiziColors.clear,
           disabledBackgroundColor: HomiziColors.clear,
-          foregroundColor: HomiziColors.ink,
+          // White on the red action gradient (5.2:1); ink on the pale
+          // disabled wash.
+          foregroundColor: HomiziColors.white,
           disabledForegroundColor: HomiziColors.ink,
           shadowColor: HomiziColors.clear,
           surfaceTintColor: HomiziColors.clear,

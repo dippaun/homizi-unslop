@@ -450,7 +450,7 @@ class _PrimaryButton extends StatelessWidget {
         key: buttonKey,
         style: FilledButton.styleFrom(
           backgroundColor: HomiziColors.clear,
-          foregroundColor: HomiziColors.ink,
+          foregroundColor: HomiziColors.white,
           shadowColor: HomiziColors.clear,
           minimumSize: const Size.fromHeight(48),
           shape: RoundedRectangleBorder(
