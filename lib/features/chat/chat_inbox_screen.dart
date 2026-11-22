@@ -8,6 +8,7 @@ import 'package:homizi/core/l10n/translate.dart';
 import 'package:homizi/core/routing/route_paths.dart';
 import 'package:homizi/core/supabase/missing_relation.dart';
 import 'package:homizi/core/theme/homizi_colors.dart';
+import 'package:homizi/core/theme/role_palette.dart';
 import 'package:homizi/core/widgets/homizi_home_bar.dart';
 import 'package:homizi/core/widgets/listing_widgets.dart';
 import 'package:homizi/core/widgets/split_section.dart';
@@ -214,14 +215,18 @@ class _ChatInboxScreenState extends ConsumerState<ChatInboxScreen> {
                           color: HomiziColors.muted,
                         ),
                         filled: true,
-                        fillColor: HomiziColors.mist,
+                        fillColor: HomiziColors.white,
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20),
-                          borderSide: BorderSide.none,
+                          borderSide: const BorderSide(
+                            color: HomiziColors.line,
+                          ),
                         ),
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20),
-                          borderSide: BorderSide.none,
+                          borderSide: const BorderSide(
+                            color: HomiziColors.line,
+                          ),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20),
@@ -271,35 +276,41 @@ class _ChatInboxScreenState extends ConsumerState<ChatInboxScreen> {
       for (final row in visible)
         if (!_roommateChat(row)) row,
     ];
-    return ListView(
-      key: const Key('chat-inbox-list'),
-      padding: const EdgeInsets.fromLTRB(16, 12, 16, 24),
-      children: [
-        SplitSection(
-          sectionKey: const Key('chat-section-roommates'),
-          icon: Icons.groups_outlined,
-          title: 'Roommates',
-          count: roommates.length,
-          tint: HomiziColors.warmWash,
-          accent: HomiziColors.brandDeepRed,
-          emptyLine: searching
-              ? 'No roommate chats match this search.'
-              : 'No roommate chats yet. Message someone from their profile.',
-          children: [for (final row in roommates) _thread(context, row, now)],
-        ),
-        SplitSection(
-          sectionKey: const Key('chat-section-flats'),
-          icon: Icons.apartment_outlined,
-          title: 'Flats',
-          count: flats.length,
-          tint: HomiziColors.accentWash,
-          accent: HomiziColors.logoOrange,
-          emptyLine: searching
-              ? 'No flat chats match this search.'
-              : 'No flat chats yet. Message an owner, broker, or PG from their listing.',
-          children: [for (final row in flats) _thread(context, row, now)],
-        ),
-      ],
+    return RefreshIndicator(
+      color: HomiziColors.brandRedOrange,
+      backgroundColor: HomiziColors.white,
+      onRefresh: _load,
+      child: ListView(
+        key: const Key('chat-inbox-list'),
+        physics: const AlwaysScrollableScrollPhysics(),
+        padding: const EdgeInsets.fromLTRB(16, 12, 16, 24),
+        children: [
+          SplitSection(
+            sectionKey: const Key('chat-section-roommates'),
+            icon: Icons.groups_outlined,
+            title: 'Roommates',
+            count: roommates.length,
+            tint: HomiziRolePalette.roommate.wash,
+            accent: HomiziRolePalette.roommate.ink,
+            emptyLine: searching
+                ? 'No roommate chats match this search.'
+                : 'No roommate chats yet. Message someone from their profile.',
+            children: [for (final row in roommates) _thread(context, row, now)],
+          ),
+          SplitSection(
+            sectionKey: const Key('chat-section-flats'),
+            icon: Icons.apartment_outlined,
+            title: 'Flats',
+            count: flats.length,
+            tint: HomiziRolePalette.tenant.wash,
+            accent: HomiziRolePalette.tenant.ink,
+            emptyLine: searching
+                ? 'No flat chats match this search.'
+                : 'No flat chats yet. Message an owner, broker, or PG from their listing.',
+            children: [for (final row in flats) _thread(context, row, now)],
+          ),
+        ],
+      ),
     );
   }
 

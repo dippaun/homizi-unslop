@@ -11,6 +11,7 @@ import 'package:homizi/core/location/place_autocomplete_field.dart';
 import 'package:homizi/core/routing/route_paths.dart';
 import 'package:homizi/core/storage/device_string_store.dart';
 import 'package:homizi/core/theme/homizi_colors.dart';
+import 'package:homizi/core/theme/role_palette.dart';
 import 'package:homizi/core/widgets/engagement_row.dart';
 import 'package:homizi/core/widgets/homizi_date_field.dart';
 import 'package:homizi/core/widgets/homizi_home_bar.dart';
@@ -58,7 +59,9 @@ import 'package:homizi/features/session/log_out.dart';
 import 'package:homizi/features/session/session_controller.dart';
 import 'package:homizi/features/verification/domain/kyc_rules.dart';
 import 'package:homizi/features/verification/kyc_providers.dart';
+import 'package:homizi/ui/kit/hero_band.dart';
 import 'package:homizi/ui/kit/kit.dart';
+import 'package:homizi/ui/kit/motion_kit.dart';
 
 /// Signed-in profile dashboard. The Profile tab and `/profile/me`.
 class ProfileMeScreen extends ConsumerStatefulWidget {
@@ -511,22 +514,52 @@ class _ProfileMeScreenState extends ConsumerState<ProfileMeScreen> {
     final roleLabel = createHost
         ? 'Create profile as host'
         : (_switching ? 'Switching…' : 'Switch to $nextRole');
+    // v2: photo and stats sit on the person's role hero, with the stats
+    // as white cards over the pattern.
+    final palette = HomiziRolePalette.forWire(pgOwner ? 'pg' : wire);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Row(
-          children: [
-            AnimatedProfilePhoto(
-              key: const Key('profile-photo'),
-              name: name,
-              bytes: photo,
-              photoRef: _photoRef,
-              heroTag: ownProfilePhotoHero,
-              onTap: _openOwnPhoto,
+        HomiziStaggerIn(
+          child: HomiziHeroBand(
+            palette: palette,
+            radius: 24,
+            padding: const EdgeInsets.fromLTRB(14, 14, 14, 36),
+            child: Row(
+              children: [
+                DecoratedBox(
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(
+                      color: HomiziColors.brandYellow,
+                      width: 2,
+                    ),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(2),
+                    child: AnimatedProfilePhoto(
+                      key: const Key('profile-photo'),
+                      name: name,
+                      bytes: photo,
+                      photoRef: _photoRef,
+                      heroTag: ownProfilePhotoHero,
+                      onTap: _openOwnPhoto,
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: DefaultTextStyle.merge(
+                    style: const TextStyle(color: HomiziColors.ink),
+                    child: IconTheme.merge(
+                      data: const IconThemeData(color: HomiziColors.ink),
+                      child: _stats(stats),
+                    ),
+                  ),
+                ),
+              ],
             ),
-            const SizedBox(width: 12),
-            Expanded(child: _stats(stats)),
-          ],
+          ),
         ),
         const SizedBox(height: 12),
         Row(

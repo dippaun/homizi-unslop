@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:homizi/core/brand/indian_patterns.dart';
 import 'package:homizi/core/l10n/translate.dart';
 import 'package:homizi/core/theme/homizi_colors.dart';
 import 'package:homizi/core/widgets/homizi_back.dart';
@@ -772,12 +773,48 @@ class _Hero extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // v2: the state icon sits in a ring of its own colour over a kolam,
+    // like a doorstep design.
     return Center(
-      child: Container(
-        width: 88,
-        height: 88,
-        decoration: BoxDecoration(color: wash, shape: BoxShape.circle),
-        child: Icon(icon, size: 46, color: color),
+      child: SizedBox(
+        width: 168,
+        height: 140,
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            Positioned.fill(
+              child: IgnorePointer(
+                child: CustomPaint(
+                  painter: KolamPainter(color: color, opacity: 0.18, gap: 24),
+                ),
+              ),
+            ),
+            Container(
+              width: 100,
+              height: 100,
+              padding: const EdgeInsets.all(3),
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [color, color.withValues(alpha: 0.35)],
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    color: color.withValues(alpha: 0.25),
+                    blurRadius: 18,
+                    offset: const Offset(0, 8),
+                  ),
+                ],
+              ),
+              child: DecoratedBox(
+                decoration: BoxDecoration(color: wash, shape: BoxShape.circle),
+                child: Icon(icon, size: 46, color: color),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
