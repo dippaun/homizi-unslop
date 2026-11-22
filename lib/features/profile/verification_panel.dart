@@ -35,7 +35,7 @@ class _VerificationPanelState extends State<VerificationPanel>
     _pulse = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 1400),
-    )..repeat(reverse: true);
+    )..value = 1;
   }
 
   @override

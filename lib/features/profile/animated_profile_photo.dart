@@ -38,7 +38,7 @@ class _AnimatedProfilePhotoState extends State<AnimatedProfilePhoto>
     _spin = AnimationController(
       vsync: this,
       duration: const Duration(seconds: 8),
-    )..repeat();
+    );
   }
 
   @override

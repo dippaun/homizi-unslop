@@ -8,6 +8,7 @@ import 'package:homizi/core/location/location_models.dart'
 import 'package:homizi/core/location/place_autocomplete_field.dart';
 import 'package:homizi/core/theme/flow_accent.dart';
 import 'package:homizi/core/theme/homizi_colors.dart';
+import 'package:homizi/core/theme/homizi_theme.dart';
 import 'package:homizi/core/widgets/homizi_date_field.dart';
 import 'package:homizi/features/broker/broker_chip.dart';
 import 'package:homizi/features/listings/domain/listing_draft.dart';
@@ -233,7 +234,7 @@ class _HostIntentCard extends StatelessWidget {
     return TweenAnimationBuilder<double>(
       tween: Tween(begin: 0.94, end: 1),
       duration: const Duration(milliseconds: 420),
-      curve: Curves.easeOutBack,
+      curve: HomiziMotion.curve,
       builder: (context, scale, child) =>
           Transform.scale(scale: scale, child: child),
       child: Material(

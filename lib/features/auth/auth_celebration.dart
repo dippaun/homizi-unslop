@@ -8,6 +8,7 @@ import 'package:homizi/core/l10n/translate.dart';
 import 'package:homizi/core/routing/route_paths.dart';
 import 'package:homizi/core/routing/sign_in_gate.dart';
 import 'package:homizi/core/theme/homizi_colors.dart';
+import 'package:homizi/core/theme/homizi_theme.dart';
 import 'package:homizi/features/auth/login_confirm.dart';
 import 'package:homizi/features/auth/registration_gate.dart';
 import 'package:homizi/features/host/host_intent.dart';
@@ -368,7 +369,7 @@ class _HouseMark extends StatelessWidget {
     return TweenAnimationBuilder<double>(
       tween: Tween(begin: reduce ? 1 : 0.7, end: 1),
       duration: reduce ? Duration.zero : const Duration(milliseconds: 520),
-      curve: Curves.easeOutBack,
+      curve: HomiziMotion.curve,
       builder: (context, scale, child) {
         return Transform.scale(scale: scale, child: child);
       },

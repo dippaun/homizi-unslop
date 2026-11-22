@@ -4,6 +4,7 @@ import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'package:homizi/core/l10n/translate.dart';
 import 'package:homizi/core/theme/homizi_colors.dart';
+import 'package:homizi/core/theme/homizi_theme.dart';
 
 /// `65` becomes `01:05`. Used by the resend line under the code boxes.
 String otpClock(int seconds) {
@@ -79,7 +80,7 @@ class OtpHeroBadge extends StatelessWidget {
             child: AnimatedScale(
               scale: codeSent ? 1 : 0,
               duration: const Duration(milliseconds: 420),
-              curve: Curves.easeOutBack,
+              curve: HomiziMotion.curve,
               child: Container(
                 key: const Key('otp-hero-bubble'),
                 padding: EdgeInsets.symmetric(
@@ -363,9 +364,9 @@ class OtpVerifiedBadge extends StatelessWidget {
       builder: (context, t, _) {
         // 0 to 0.35 the lock pops in, 0.35 to 0.6 it holds, then it
         // shrinks away while the green tick grows in its place.
-        final lockIn = Curves.easeOutBack.transform((t / 0.35).clamp(0, 1));
+        final lockIn = HomiziMotion.curve.transform((t / 0.35).clamp(0, 1));
         final swap = Curves.easeInOut.transform(((t - 0.6) / 0.4).clamp(0, 1));
-        final tickScale = Curves.easeOutBack.transform(swap);
+        final tickScale = HomiziMotion.curve.transform(swap);
         return SizedBox(
           width: size,
           height: size,

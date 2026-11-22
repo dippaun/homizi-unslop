@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:homizi/core/l10n/translate.dart';
 import 'package:homizi/core/theme/homizi_colors.dart';
+import 'package:homizi/core/theme/homizi_theme.dart';
 
 /// Shown while saved preferences are read. Never the input form.
 class PrefsSkeleton extends StatelessWidget {
@@ -231,7 +232,7 @@ class _SavedBadge extends StatelessWidget {
     return TweenAnimationBuilder<double>(
       tween: Tween(begin: 0, end: 1),
       duration: const Duration(milliseconds: 420),
-      curve: Curves.easeOutBack,
+      curve: HomiziMotion.curve,
       builder: (context, value, child) {
         return Opacity(
           opacity: value.clamp(0, 1),

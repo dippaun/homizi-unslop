@@ -441,6 +441,21 @@ abstract final class HomiziType {
   static const FontWeight strong = FontWeight.w600;
 }
 
+/// Motion tokens (unslop pass 9). One ease-out curve, no overshoot, no
+/// loops on things that are not live.
+abstract final class HomiziMotion {
+  static const Curve curve = Cubic(0.22, 1, 0.36, 1);
+
+  /// Hover, press, toggles.
+  static const Duration fast = Duration(milliseconds: 150);
+
+  /// Menus, popovers, chips.
+  static const Duration menu = Duration(milliseconds: 200);
+
+  /// Entrances, sheets, layout changes.
+  static const Duration enter = Duration(milliseconds: 360);
+}
+
 /// Menus stay a white surface with ink type. The selected row is a pale
 /// orange wash. A solid navy focus colour used to paint the dropdown header
 /// and hide the items.
