@@ -76,7 +76,7 @@ class _BrokerFlatScreenState extends ConsumerState<BrokerFlatScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: const Key('broker-flat-screen'),
-      backgroundColor: HomiziColors.white,
+      backgroundColor: HomiziColors.cream,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: const HomiziBackButton(),

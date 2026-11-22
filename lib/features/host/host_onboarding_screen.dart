@@ -566,10 +566,10 @@ class _HostOnboardingScreenState extends ConsumerState<HostOnboardingScreen> {
     final last = _step == hostOnboardingStepCount - 1;
     return Scaffold(
       key: const Key('host-onboarding-screen'),
-      backgroundColor: HomiziColors.white,
+      backgroundColor: HomiziColors.cream,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: HomiziColors.white,
+        backgroundColor: HomiziColors.cream,
         surfaceTintColor: HomiziColors.white,
         leading: IconButton(
           key: const Key('host-onboard-back'),

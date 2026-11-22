@@ -196,7 +196,7 @@ class _ChatInboxScreenState extends ConsumerState<ChatInboxScreen> {
     return MinTouchScope(
       child: Scaffold(
         key: const Key('chat-inbox-screen'),
-        backgroundColor: HomiziColors.white,
+        backgroundColor: HomiziColors.cream,
         appBar: widget.embedded ? null : const HomiziHomeBar(),
         body: _loading
             ? const LoadingState(message: 'Opening the conversation…')

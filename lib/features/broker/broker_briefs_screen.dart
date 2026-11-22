@@ -62,7 +62,7 @@ class _BrokerBriefsScreenState extends ConsumerState<BrokerBriefsScreen> {
     final page = _page;
     return Scaffold(
       key: const Key('broker-briefs-screen'),
-      backgroundColor: HomiziColors.white,
+      backgroundColor: HomiziColors.cream,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: const HomiziBackButton(),
@@ -177,7 +177,7 @@ class _BrokerBriefScreenState extends ConsumerState<BrokerBriefScreen> {
     if (_loading) {
       return const Scaffold(
         key: Key('broker-brief-screen'),
-        backgroundColor: HomiziColors.white,
+        backgroundColor: HomiziColors.cream,
         body: Center(child: CircularProgressIndicator()),
       );
     }

@@ -39,7 +39,7 @@ Future<bool> requireSignedInToPublish(
     builder: (dialogContext) {
       return AlertDialog(
         key: const Key('sign-in-prompt'),
-        backgroundColor: HomiziColors.white,
+        backgroundColor: HomiziColors.cream,
         title: Text(homiziText(dialogContext, 'Sign in to continue')),
         content: Text(
           homiziText(

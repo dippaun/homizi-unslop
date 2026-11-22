@@ -114,14 +114,14 @@ class _SearchEntryState extends ConsumerState<SearchEntry> {
     if (!_ready) {
       return const Scaffold(
         key: Key('search-entry-loading'),
-        backgroundColor: HomiziColors.white,
+        backgroundColor: HomiziColors.cream,
         body: PrefsSkeleton(),
       );
     }
     if (_saved != null && !widget.editing) {
       return const Scaffold(
         key: Key('search-entry-loading'),
-        backgroundColor: HomiziColors.white,
+        backgroundColor: HomiziColors.cream,
         body: PrefsSkeleton(),
       );
     }
@@ -138,10 +138,10 @@ class SearchTenantPrompt extends ConsumerWidget {
     final signedIn = ref.watch(signedInProvider);
     return Scaffold(
       key: const Key('search-tenant-prompt'),
-      backgroundColor: HomiziColors.white,
+      backgroundColor: HomiziColors.cream,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: HomiziColors.white,
+        backgroundColor: HomiziColors.cream,
         surfaceTintColor: HomiziColors.white,
         leading: const HomiziBackButton(),
         title: const Text('Search Properties'),
@@ -152,7 +152,7 @@ class SearchTenantPrompt extends ConsumerWidget {
           const Text(
             'Search Properties is for tenants.',
             style: TextStyle(
-              fontFamily: 'PlusJakartaSans',
+              fontFamily: 'Poppins',
               fontSize: 22,
               fontWeight: FontWeight.w600,
               color: HomiziColors.ink,

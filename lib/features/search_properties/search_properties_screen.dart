@@ -814,7 +814,7 @@ class _SearchPropertiesScreenState
     if (_holdWizard) {
       return const Scaffold(
         key: Key('search-properties-screen'),
-        backgroundColor: HomiziColors.white,
+        backgroundColor: HomiziColors.cream,
         body: PrefsSkeleton(),
       );
     }
@@ -824,10 +824,10 @@ class _SearchPropertiesScreenState
     final last = _step == searchConfirmStep;
     return Scaffold(
       key: const Key('search-properties-screen'),
-      backgroundColor: HomiziColors.white,
+      backgroundColor: HomiziColors.cream,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: HomiziColors.white,
+        backgroundColor: HomiziColors.cream,
         leading: const HomiziBackButton(),
         title: const Text('Search Properties'),
         actions: [

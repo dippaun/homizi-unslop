@@ -33,10 +33,10 @@ class TenantFlowScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       key: pageKey,
-      backgroundColor: HomiziColors.white,
+      backgroundColor: HomiziColors.cream,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: HomiziColors.white,
+        backgroundColor: HomiziColors.cream,
         foregroundColor: HomiziColors.ink,
         elevation: 0,
         scrolledUnderElevation: 0,

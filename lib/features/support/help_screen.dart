@@ -24,7 +24,7 @@ class HelpScreen extends StatelessWidget {
           final tabs = DefaultTabController.of(context);
           return MinTouchScope(
             child: Scaffold(
-              backgroundColor: HomiziColors.white,
+              backgroundColor: HomiziColors.cream,
               appBar: AppBar(
                 automaticallyImplyLeading: false,
                 leading: const HomiziBackButton(),

@@ -275,7 +275,7 @@ class _KycScreenState extends ConsumerState<KycScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: HomiziColors.white,
+      backgroundColor: HomiziColors.cream,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: HomiziBackButton(onPressed: _back),

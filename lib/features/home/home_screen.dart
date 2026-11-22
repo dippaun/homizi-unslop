@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:homizi/core/brand/indian_patterns.dart';
 import 'package:homizi/core/l10n/translate.dart';
 import 'package:homizi/core/routing/account_prompt.dart';
 import 'package:homizi/core/routing/route_paths.dart';
 import 'package:homizi/core/theme/homizi_colors.dart';
+import 'package:homizi/core/theme/role_palette.dart';
 import 'package:homizi/core/widgets/homizi_error_boundary.dart';
 import 'package:homizi/core/widgets/homizi_home_bar.dart';
 import 'package:homizi/features/browse/browse_place.dart';
@@ -16,6 +18,8 @@ import 'package:homizi/features/roles/role_provider.dart';
 import 'package:homizi/features/session/session_controller.dart';
 import 'package:homizi/features/session/sign_in_source.dart';
 import 'package:homizi/features/shell/min_touch.dart';
+import 'package:homizi/ui/kit/hero_band.dart';
+import 'package:homizi/ui/kit/motion_kit.dart';
 
 /// Phone-width column for the landing page on a wide web window.
 const homeHubMaxWidth = 480.0;
@@ -37,7 +41,7 @@ class HomeScreen extends ConsumerWidget {
         constraints: const BoxConstraints(maxWidth: homeHubMaxWidth),
         child: Scaffold(
           key: const Key('home-screen'),
-          backgroundColor: HomiziColors.white,
+          backgroundColor: HomiziColors.cream,
           appBar: HomiziHomeBar(actions: [if (signedIn) const _NotifyButton()]),
           body: const HomiziErrorBoundary(child: _HomeBody()),
         ),
@@ -74,22 +78,34 @@ class _HomeBody extends StatelessWidget {
       key: const Key('home-scroll'),
       padding: const EdgeInsets.only(bottom: 28),
       children: const [
-        _Hero(),
-        SizedBox(height: 8),
+        HomiziStaggerIn(child: _Hero()),
+        SizedBox(height: 16),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: _page),
           child: _ActionGrid(),
         ),
-        SizedBox(height: 8),
+        SizedBox(height: 20),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: _page),
+          child: BlockPrintBorder(height: 10, opacity: 0.4),
+        ),
+        SizedBox(height: 16),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: _page),
           child: _RentalStrip(),
+        ),
+        SizedBox(height: 20),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: _page),
+          child: _TrustBand(),
         ),
       ],
     );
   }
 }
 
+/// v2 hero: the role gradient band with jaali, kolam and the city
+/// skyline, and the living-room photo framed in a jharokha arch.
 class _Hero extends StatelessWidget {
   const _Hero();
 
@@ -98,51 +114,65 @@ class _Hero extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, constraints) {
         final width = constraints.maxWidth;
-        final photoWidth = width * 0.58;
         final heading = width >= 400
             ? 28.0
             : width >= 360
             ? 26.0
             : 22.0;
-        return ConstrainedBox(
-          constraints: const BoxConstraints(minHeight: 132),
-          child: Stack(
-            children: [
-              Positioned(
-                top: 0,
-                right: 0,
-                bottom: 0,
-                width: photoWidth,
-                child: const _HeroPhoto(),
-              ),
-              Positioned(
-                top: 0,
-                right: 0,
-                bottom: 0,
-                width: photoWidth,
-                child: const DecoratedBox(
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [
-                        HomiziColors.white,
-                        HomiziColors.whiteVeil,
-                        HomiziColors.whiteClear,
-                      ],
-                      stops: [0, 0.14, 0.58],
-                    ),
-                  ),
+        final archWidth = (width - 32) * 0.36;
+        return Padding(
+          padding: const EdgeInsets.fromLTRB(_page, 12, _page, 0),
+          child: HomiziHeroBand(
+            padding: const EdgeInsets.fromLTRB(20, 20, 16, 40),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(child: _HeroCopy(headingSize: heading)),
+                const SizedBox(width: 12),
+                SizedBox(
+                  width: archWidth,
+                  height: archWidth * 1.3,
+                  child: const _ArchPhoto(),
                 ),
-              ),
-              Padding(
-                padding: EdgeInsets.fromLTRB(16, 12, width * 0.28, 8),
-                child: _HeroCopy(headingSize: heading),
-              ),
-            ],
+              ],
+            ),
           ),
         );
       },
     );
   }
+}
+
+/// Photo inside a jharokha arch with a thin golden outline.
+class _ArchPhoto extends StatelessWidget {
+  const _ArchPhoto();
+
+  @override
+  Widget build(BuildContext context) {
+    return const CustomPaint(
+      foregroundPainter: _ArchOutline(),
+      child: ClipPath(
+        clipper: JharokhaClipper(archFraction: 0.36),
+        child: _HeroPhoto(),
+      ),
+    );
+  }
+}
+
+class _ArchOutline extends CustomPainter {
+  const _ArchOutline();
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final paint = Paint()
+      ..color = HomiziColors.brandYellow.withValues(alpha: 0.9)
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 2;
+    canvas.drawPath(jharokhaPath(size, 0.36), paint);
+  }
+
+  @override
+  bool shouldRepaint(covariant _ArchOutline oldDelegate) => false;
 }
 
 /// Warm living room, cover-fit on the right and faded into the page.
@@ -169,37 +199,48 @@ class _HeroCopy extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final palette = HomiziRoleScope.of(context);
+    final onHero = palette.onHero;
+    // Second line in haldi on the red heroes, deep red on the yellow ones.
+    final lift = onHero == HomiziColors.ink
+        ? HomiziColors.brandDeepRed
+        : HomiziColors.brandYellow;
     final heading = TextStyle(
-      fontFamily: 'PlusJakartaSans',
+      fontFamily: 'Poppins',
       fontSize: headingSize,
-      height: 1.05,
-      fontWeight: FontWeight.w600,
-      color: HomiziColors.ink,
+      height: 1.1,
+      fontWeight: FontWeight.w700,
+      color: onHero,
     );
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: [
         Text(
-          homiziText(context, 'Search'),
-          style: heading.copyWith(color: HomiziColors.accent, fontSize: 14),
+          homiziText(context, 'Search').toUpperCase(),
+          style: heading.copyWith(
+            color: lift,
+            fontSize: 12,
+            letterSpacing: 1.6,
+            fontWeight: FontWeight.w600,
+          ),
         ),
         const SizedBox(height: 4),
         Text(homiziText(context, 'Find a place.'), style: heading),
         const SizedBox(height: 2),
         Text(
           homiziText(context, 'Find your people.'),
-          style: heading.copyWith(color: HomiziColors.accent),
+          style: heading.copyWith(color: lift),
         ),
         const SizedBox(height: 8),
         Text(
           homiziText(context, 'Rent smarter, live better.'),
-          style: const TextStyle(
+          style: TextStyle(
             fontFamily: 'Inter',
             fontSize: 14,
             height: 1.3,
             fontWeight: FontWeight.w500,
-            color: HomiziColors.muted,
+            color: onHero.withValues(alpha: 0.92),
           ),
         ),
       ],
@@ -213,7 +254,7 @@ class _HubAction {
     required this.icon,
     required this.title,
     required this.subtitle,
-    required this.color,
+    required this.palette,
     required this.path,
     this.image,
   });
@@ -222,7 +263,7 @@ class _HubAction {
   final IconData icon;
   final String title;
   final String subtitle;
-  final Color color;
+  final HomiziRolePalette palette;
   final String path;
   final String? image;
 }
@@ -233,7 +274,7 @@ const _actions = <_HubAction>[
     icon: Icons.verified_outlined,
     title: 'Create Your Profile',
     subtitle: 'Get verified and find genuine matches',
-    color: HomiziColors.white,
+    palette: HomiziRolePalette.tenant,
     path: RoutePaths.profileCreate,
     image: 'assets/images/real/living.webp',
   ),
@@ -242,7 +283,7 @@ const _actions = <_HubAction>[
     icon: Icons.home_work_outlined,
     title: 'Post Your Property',
     subtitle: 'List your property and reach verified tenants',
-    color: HomiziColors.white,
+    palette: HomiziRolePalette.owner,
     path: RoutePaths.postProperty,
     image: 'assets/images/real/exterior.webp',
   ),
@@ -251,7 +292,7 @@ const _actions = <_HubAction>[
     icon: Icons.bedroom_parent_outlined,
     title: 'Post a room',
     subtitle: 'Share a room or the whole house you live in',
-    color: HomiziColors.white,
+    palette: HomiziRolePalette.sharer,
     path: RoutePaths.postRoom,
     image: 'assets/images/real/bedroom.webp',
   ),
@@ -260,7 +301,7 @@ const _actions = <_HubAction>[
     icon: Icons.groups_outlined,
     title: 'Find Your Roomie',
     subtitle: 'Connect with like-minded flatmates and search together',
-    color: HomiziColors.white,
+    palette: HomiziRolePalette.roommate,
     path: RoutePaths.roommate,
     image: 'assets/images/real/people.webp',
   ),
@@ -269,7 +310,7 @@ const _actions = <_HubAction>[
     icon: Icons.search,
     title: 'Search Properties',
     subtitle: 'Find your next home across cities',
-    color: HomiziColors.white,
+    palette: HomiziRolePalette.pg,
     path: RoutePaths.searchStart,
     image: 'assets/images/real/apartment.webp',
   ),
@@ -323,7 +364,7 @@ class _ActionGrid extends ConsumerWidget {
       children: [
         if (signedIn) const HomeCustomSection(),
         if (actions.length == 1)
-          _ActionCard(action: actions.first)
+          HomiziPressable(child: _ActionCard(action: actions.first))
         else
           for (var index = 0; index < actions.length; index += 2) ...[
             if (index > 0) const SizedBox(height: _gap),
@@ -331,11 +372,23 @@ class _ActionGrid extends ConsumerWidget {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Expanded(child: _ActionCard(action: actions[index])),
+                  Expanded(
+                    child: HomiziStaggerIn(
+                      index: index + 1,
+                      child: HomiziPressable(
+                        child: _ActionCard(action: actions[index]),
+                      ),
+                    ),
+                  ),
                   const SizedBox(width: _gap),
                   Expanded(
                     child: index + 1 < actions.length
-                        ? _ActionCard(action: actions[index + 1])
+                        ? HomiziStaggerIn(
+                            index: index + 2,
+                            child: HomiziPressable(
+                              child: _ActionCard(action: actions[index + 1]),
+                            ),
+                          )
                         : const SizedBox.shrink(),
                   ),
                 ],
@@ -355,6 +408,7 @@ class _ActionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const ink = HomiziColors.ink;
+    final palette = action.palette;
     final spoken = [
       homiziText(context, action.title),
       homiziText(context, action.subtitle),
@@ -371,14 +425,14 @@ class _ActionCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(_tileRadius),
         boxShadow: const [
           BoxShadow(
-            color: HomiziColors.shadow,
-            blurRadius: 16,
+            color: HomiziColors.shadowWarm,
+            blurRadius: 18,
             offset: Offset(0, 8),
           ),
         ],
       ),
       child: Material(
-        color: action.color,
+        color: palette.wash,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(_tileRadius),
         ),
@@ -402,8 +456,8 @@ class _ActionCard extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         DecoratedBox(
-                          decoration: const BoxDecoration(
-                            color: HomiziColors.white,
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(colors: palette.hero),
                             shape: BoxShape.circle,
                           ),
                           child: SizedBox(
@@ -412,7 +466,7 @@ class _ActionCard extends StatelessWidget {
                             child: Icon(
                               action.icon,
                               size: 20,
-                              color: HomiziColors.accent,
+                              color: palette.onHero,
                             ),
                           ),
                         ),
@@ -499,7 +553,7 @@ class _TilePhoto extends StatelessWidget {
     if (asset == null) {
       return const SizedBox.shrink();
     }
-    return _EdgePhoto(asset: asset, fade: action.color);
+    return _EdgePhoto(asset: asset, fade: action.palette.wash);
   }
 }
 
@@ -604,7 +658,7 @@ class _RentalStrip extends ConsumerWidget {
               child: Text(
                 homiziText(context, 'Explore rentals'),
                 style: const TextStyle(
-                  fontFamily: 'PlusJakartaSans',
+                  fontFamily: 'Poppins',
                   fontSize: 20,
                   fontWeight: FontWeight.w600,
                   color: HomiziColors.ink,
@@ -657,7 +711,7 @@ class _SampleTag extends StatelessWidget {
       alignment: Alignment.centerLeft,
       child: DecoratedBox(
         decoration: BoxDecoration(
-          color: HomiziColors.accentWash,
+          color: HomiziColors.haldiWash,
           borderRadius: BorderRadius.circular(999),
         ),
         child: const Padding(
@@ -670,6 +724,110 @@ class _SampleTag extends StatelessWidget {
               color: HomiziColors.ink,
             ),
           ),
+        ),
+      ),
+    );
+  }
+}
+
+/// Deep maroon trust band: the cities HOMIZI checks homes in. White type
+/// on maroon clears 9:1.
+class _TrustBand extends StatelessWidget {
+  const _TrustBand();
+
+  static const _cities = [
+    'Mumbai',
+    'Bengaluru',
+    'Delhi NCR',
+    'Pune',
+    'Hyderabad',
+    'Chennai',
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return ClipRRect(
+      key: const Key('home-trust-band'),
+      borderRadius: BorderRadius.circular(_tileRadius),
+      child: DecoratedBox(
+        decoration: const BoxDecoration(gradient: HomiziGradients.maroon),
+        child: Stack(
+          children: [
+            const Positioned.fill(
+              child: IgnorePointer(
+                child: CustomPaint(
+                  painter: JaaliPainter(
+                    color: HomiziColors.brandGolden,
+                    opacity: 0.1,
+                    cell: 28,
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    homiziText(context, 'Homes checked in person'),
+                    style: const TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600,
+                      color: HomiziColors.white,
+                    ),
+                  ),
+                  const SizedBox(height: 4),
+                  Text(
+                    homiziText(
+                      context,
+                      'Owners verified with Aadhaar, photos taken on site.',
+                    ),
+                    style: const TextStyle(
+                      fontFamily: 'Inter',
+                      fontSize: 13,
+                      height: 1.35,
+                      color: HomiziColors.creamDeep,
+                    ),
+                  ),
+                  const SizedBox(height: 12),
+                  Wrap(
+                    spacing: 8,
+                    runSpacing: 8,
+                    children: [
+                      for (final city in _cities)
+                        DecoratedBox(
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: HomiziColors.brandGolden.withValues(
+                                alpha: 0.7,
+                              ),
+                            ),
+                            borderRadius: BorderRadius.circular(999),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 10,
+                              vertical: 4,
+                            ),
+                            child: Text(
+                              city,
+                              style: const TextStyle(
+                                fontFamily: 'Inter',
+                                fontSize: 12,
+                                fontWeight: FontWeight.w600,
+                                color: HomiziColors.brandYellow,
+                              ),
+                            ),
+                          ),
+                        ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );

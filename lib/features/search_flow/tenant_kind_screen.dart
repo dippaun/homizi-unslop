@@ -16,7 +16,7 @@ class TenantKindScreen extends ConsumerWidget {
     final stay = ref.watch(flowPrefsProvider).stay;
     return Scaffold(
       key: const Key('tenant-kind-screen'),
-      backgroundColor: HomiziColors.white,
+      backgroundColor: HomiziColors.cream,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: const HomiziBackButton(),

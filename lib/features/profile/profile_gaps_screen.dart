@@ -43,11 +43,11 @@ class _ProfileGapsScreenState extends State<ProfileGapsScreen> {
     final gaps = score.gaps;
     return Scaffold(
       key: const Key('profile-gaps-screen'),
-      backgroundColor: HomiziColors.white,
+      backgroundColor: HomiziColors.cream,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: const HomiziBackButton(),
-        backgroundColor: HomiziColors.white,
+        backgroundColor: HomiziColors.cream,
         surfaceTintColor: HomiziColors.white,
         title: Text(homiziText(context, 'Finish your profile')),
       ),
@@ -58,7 +58,7 @@ class _ProfileGapsScreenState extends State<ProfileGapsScreen> {
             homiziText(context, '${score.percent}%'),
             key: const Key('profile-gaps-percent'),
             style: const TextStyle(
-              fontFamily: 'PlusJakartaSans',
+              fontFamily: 'Poppins',
               fontSize: 32,
               fontWeight: FontWeight.w600,
               color: HomiziColors.logoOrange,

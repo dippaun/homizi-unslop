@@ -50,7 +50,7 @@ class RoleReadyScreen extends ConsumerWidget {
             "You're all set",
             key: Key('role-ready-title'),
             style: TextStyle(
-              fontFamily: 'PlusJakartaSans',
+              fontFamily: 'Poppins',
               fontSize: 28,
               fontWeight: FontWeight.w600,
               color: HomiziColors.ink,

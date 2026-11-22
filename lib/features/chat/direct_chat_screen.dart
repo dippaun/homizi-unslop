@@ -282,7 +282,7 @@ class _DirectChatScreenState extends ConsumerState<DirectChatScreen> {
     return MinTouchScope(
       child: Scaffold(
         key: const Key('direct-chat-screen'),
-        backgroundColor: HomiziColors.white,
+        backgroundColor: HomiziColors.cream,
         appBar: AppBar(
           automaticallyImplyLeading: false,
           leading: const HomiziBackButton(),

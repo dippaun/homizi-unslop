@@ -68,7 +68,7 @@ class ToolsScreen extends StatelessWidget {
       ),
     ];
     return Scaffold(
-      backgroundColor: HomiziColors.white,
+      backgroundColor: HomiziColors.cream,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: const HomiziBackButton(),

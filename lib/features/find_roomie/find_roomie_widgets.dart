@@ -52,10 +52,10 @@ class FindRoomiePage extends StatelessWidget {
     return RepaintBoundary(
       key: shotKey,
       child: Scaffold(
-        backgroundColor: HomiziColors.white,
+        backgroundColor: HomiziColors.cream,
         appBar: AppBar(
           automaticallyImplyLeading: false,
-          backgroundColor: HomiziColors.white,
+          backgroundColor: HomiziColors.cream,
           surfaceTintColor: HomiziColors.white,
           foregroundColor: HomiziColors.ink,
           leading: const HomiziBackButton(),

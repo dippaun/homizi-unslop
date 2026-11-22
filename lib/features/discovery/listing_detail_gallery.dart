@@ -301,7 +301,7 @@ class _RoundIconButton extends StatelessWidget {
       tooltip: homiziText(context, tooltip),
       onPressed: onPressed,
       style: IconButton.styleFrom(
-        backgroundColor: HomiziColors.white,
+        backgroundColor: HomiziColors.cream,
         foregroundColor: color,
         fixedSize: const Size(40, 40),
         minimumSize: const Size(40, 40),

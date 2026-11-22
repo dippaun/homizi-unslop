@@ -630,7 +630,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
     final reading = readAuthContact(_contact.text);
     return MinTouchScope(
       child: Scaffold(
-        backgroundColor: HomiziColors.white,
+        backgroundColor: HomiziColors.cream,
         body: Stack(
           children: [
             const Positioned(
@@ -696,7 +696,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                                         ),
                                         textAlign: TextAlign.center,
                                         style: const TextStyle(
-                                          fontFamily: 'PlusJakartaSans',
+                                          fontFamily: 'Poppins',
                                           fontSize: 28,
                                           fontWeight: FontWeight.w600,
                                           color: HomiziColors.ink,

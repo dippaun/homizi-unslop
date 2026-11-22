@@ -31,7 +31,7 @@ class _ListingStatsScreenState extends ConsumerState<ListingStatsScreen> {
     final stats = ref.watch(listingStatsProvider(widget.propertyId));
     return Scaffold(
       key: const Key('listing-stats-screen'),
-      backgroundColor: HomiziColors.white,
+      backgroundColor: HomiziColors.cream,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: const HomiziBackButton(),

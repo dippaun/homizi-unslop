@@ -32,7 +32,7 @@ class RoleGate extends ConsumerWidget {
     }
     return Scaffold(
       key: const Key('role-gate-blocked'),
-      backgroundColor: HomiziColors.white,
+      backgroundColor: HomiziColors.cream,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: const HomiziBackButton(),

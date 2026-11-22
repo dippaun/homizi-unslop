@@ -202,7 +202,7 @@ class _ChecklistScreenState extends ConsumerState<ChecklistScreen> {
     final matches = ref.watch(discoveryProvider).matches;
     final open = _open;
     return Scaffold(
-      backgroundColor: HomiziColors.white,
+      backgroundColor: HomiziColors.cream,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: const HomiziBackButton(),

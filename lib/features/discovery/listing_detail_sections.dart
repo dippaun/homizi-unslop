@@ -1193,7 +1193,7 @@ class ListingHostRow extends ConsumerWidget {
             key: const Key('listing-view-profile'),
             style: OutlinedButton.styleFrom(
               foregroundColor: HomiziColors.ink,
-              backgroundColor: HomiziColors.white,
+              backgroundColor: HomiziColors.cream,
               side: const BorderSide(color: HomiziColors.line),
               padding: const EdgeInsets.symmetric(horizontal: 16),
               minimumSize: const Size(48, 40),

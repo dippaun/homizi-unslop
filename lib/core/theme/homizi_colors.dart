@@ -24,13 +24,13 @@ abstract final class HomiziColors {
 
   /// Warm peach wash for selected cards, info panels and empty states.
   /// Replaces the old Post Property lavender (unslop pass 2: no purple).
-  static const Color warmWash = Color(0xFFFFF1E8);
+  static const Color warmWash = Color(0xFFFFE9D6);
 
   static const Color white = Color(0xFFFFFFFF);
 
   /// Warm Indian page tones (v2). Saffron cream is the app background;
   /// haldi and terracotta tint role sections; maroon carries deep bands.
-  static const Color cream = Color(0xFFFFF8EC);
+  static const Color cream = soft;
   static const Color creamDeep = Color(0xFFFCEFD9);
   static const Color haldiWash = Color(0xFFFFF0C2);
   static const Color saffronWash = Color(0xFFFFE6C7);
@@ -39,11 +39,12 @@ abstract final class HomiziColors {
   static const Color maroon = Color(0xFF5C1008);
 
   /// Warm hairline on cream.
-  static const Color creamLine = Color(0xFFF0DFC4);
+  static const Color creamLine = line;
   static const Color surface = white;
 
-  /// Warm off-white page background. Cards sit on it in white.
-  static const Color soft = Color(0xFFFAF8F5);
+  /// Saffron cream page background (v2, was #FAF8F5). Cards sit on it in
+  /// white. Muted text still clears 5.2:1 here.
+  static const Color soft = Color(0xFFFFF8EC);
 
   /// Main text. About 16:1 on white.
   static const Color ink = Color(0xFF172033);
@@ -54,8 +55,8 @@ abstract final class HomiziColors {
   /// Secondary text. About 5.7:1 on white and 5.4:1 on [soft].
   static const Color muted = Color(0xFF5C677A);
 
-  /// Quiet hairline, ink at about 8% on the warm page.
-  static const Color line = Color(0xFFEAE6E1);
+  /// Warm sandstone hairline on cream (v2, was #EAE6E1).
+  static const Color line = Color(0xFFF0DFC4);
   static const Color mist = soft;
 
   /// Pale yellow for selected chips. Ink on this stays well above 4.5:1.

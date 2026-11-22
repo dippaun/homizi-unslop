@@ -131,7 +131,7 @@ class _RegistrationFinishScreenState
       });
       return const Scaffold(
         key: Key('registration-skip-complete'),
-        backgroundColor: HomiziColors.white,
+        backgroundColor: HomiziColors.cream,
         body: SizedBox.shrink(),
       );
     }
@@ -148,13 +148,13 @@ class _RegistrationFinishScreenState
         });
       }
       return const Scaffold(
-        backgroundColor: HomiziColors.white,
+        backgroundColor: HomiziColors.cream,
         body: SizedBox.shrink(),
       );
     }
     return Scaffold(
       key: const Key('registration-finish-screen'),
-      backgroundColor: HomiziColors.white,
+      backgroundColor: HomiziColors.cream,
       body: PageBackground(
         variant: PageBackgroundVariant.soft,
         child: SafeArea(
@@ -241,7 +241,7 @@ class _RegistrationFinishScreenState
             key: const Key('registration-success'),
             textAlign: TextAlign.center,
             style: const TextStyle(
-              fontFamily: 'PlusJakartaSans',
+              fontFamily: 'Poppins',
               fontSize: 28,
               fontWeight: FontWeight.w600,
               color: HomiziColors.ink,

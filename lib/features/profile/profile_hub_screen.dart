@@ -198,7 +198,7 @@ class _ProfileHubScreenState extends ConsumerState<ProfileHubScreen> {
 
     return MinTouchScope(
       child: Scaffold(
-        backgroundColor: HomiziColors.white,
+        backgroundColor: HomiziColors.cream,
         body: Column(
           children: [
             Expanded(
@@ -735,7 +735,7 @@ class _ProfileHubScreenState extends ConsumerState<ProfileHubScreen> {
                         tooltip: homiziText(context, 'Share'),
                         onPressed: _share,
                         style: IconButton.styleFrom(
-                          backgroundColor: HomiziColors.white,
+                          backgroundColor: HomiziColors.cream,
                           foregroundColor: HomiziColors.ink,
                           side: const BorderSide(
                             color: HomiziColors.accent,

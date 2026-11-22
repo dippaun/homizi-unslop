@@ -21,7 +21,7 @@ class BrokerListingsScreen extends ConsumerWidget {
     final listings = ref.watch(ownerListingsProvider);
     return Scaffold(
       key: const Key('broker-listings-screen'),
-      backgroundColor: HomiziColors.white,
+      backgroundColor: HomiziColors.cream,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: const HomiziBackButton(),
@@ -87,7 +87,7 @@ class BrokerListingScreen extends ConsumerWidget {
     return listings.when(
       loading: () => const Scaffold(
         key: Key('broker-listing-screen'),
-        backgroundColor: HomiziColors.white,
+        backgroundColor: HomiziColors.cream,
         body: Center(child: CircularProgressIndicator()),
       ),
       error: (error, stack) => BrokerPage(

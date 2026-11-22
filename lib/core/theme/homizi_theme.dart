@@ -196,7 +196,7 @@ abstract final class HomiziTheme {
     final base = ThemeData(
       useMaterial3: true,
       colorScheme: scheme,
-      scaffoldBackgroundColor: HomiziColors.cream,
+      scaffoldBackgroundColor: HomiziColors.soft,
       canvasColor: HomiziColors.cream,
     );
     final text = _type(base.textTheme);

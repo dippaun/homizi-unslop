@@ -79,7 +79,7 @@ class _Shortcut extends StatelessWidget {
         foregroundColor: HomiziColors.ink,
         iconColor: HomiziColors.accent,
         side: const BorderSide(color: HomiziColors.line),
-        backgroundColor: HomiziColors.white,
+        backgroundColor: HomiziColors.cream,
         minimumSize: const Size(48, 48),
         maximumSize: const Size(double.infinity, 48),
         padding: const EdgeInsets.symmetric(horizontal: 8),

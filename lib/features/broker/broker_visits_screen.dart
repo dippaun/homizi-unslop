@@ -216,7 +216,7 @@ class _BrokerVisitsScreenState extends ConsumerState<BrokerVisitsScreen> {
     final notes = ref.watch(brokerVisitNotesProvider);
     return Scaffold(
       key: const Key('broker-visits-screen'),
-      backgroundColor: HomiziColors.white,
+      backgroundColor: HomiziColors.cream,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: const HomiziBackButton(),
@@ -450,7 +450,7 @@ class _BrokerVisitScreenState extends ConsumerState<BrokerVisitScreen> {
     if (_loading) {
       return const Scaffold(
         key: Key('broker-visit-screen'),
-        backgroundColor: HomiziColors.white,
+        backgroundColor: HomiziColors.cream,
         body: Center(child: CircularProgressIndicator()),
       );
     }

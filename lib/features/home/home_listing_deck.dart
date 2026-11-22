@@ -453,7 +453,7 @@ class _CaughtUp extends StatelessWidget {
                 homiziText(context, 'You are caught up'),
                 textAlign: TextAlign.center,
                 style: const TextStyle(
-                  fontFamily: 'PlusJakartaSans',
+                  fontFamily: 'Poppins',
                   fontSize: 22,
                   fontWeight: FontWeight.w600,
                   color: HomiziColors.ink,

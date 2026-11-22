@@ -230,7 +230,7 @@ class _SplitScreenState extends ConsumerState<SplitScreen> {
     final next = await showModalBottomSheet<SplitRoom>(
       context: context,
       isScrollControlled: true,
-      backgroundColor: HomiziColors.white,
+      backgroundColor: HomiziColors.cream,
       builder: (context) =>
           _RoomSheet(title: roomTitle(_rooms, index), room: _rooms[index]),
     );
@@ -375,7 +375,7 @@ class _SplitScreenState extends ConsumerState<SplitScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: HomiziColors.white,
+      backgroundColor: HomiziColors.cream,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: HomiziBackButton(onPressed: _back),

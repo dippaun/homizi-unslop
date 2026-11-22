@@ -207,7 +207,7 @@ class _HostMatchDeckState extends ConsumerState<HostMatchDeck> {
     final current = _current;
     return Scaffold(
       key: const Key('host-match-deck'),
-      backgroundColor: HomiziColors.white,
+      backgroundColor: HomiziColors.cream,
       appBar: const HomiziHomeBar(),
       body: _loading
           ? const LoadingState(message: 'Finding seekers…')

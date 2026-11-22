@@ -225,7 +225,7 @@ class _Banner extends StatelessWidget {
               FilledButton(
                 key: const Key('post-add-property'),
                 style: FilledButton.styleFrom(
-                  backgroundColor: HomiziColors.white,
+                  backgroundColor: HomiziColors.cream,
                   foregroundColor: HomiziColors.ink,
                 ),
                 onPressed: onAdd,

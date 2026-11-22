@@ -79,7 +79,7 @@ class _TenantLikesScreenState extends ConsumerState<TenantLikesScreen> {
     return MinTouchScope(
       child: Scaffold(
         key: const Key('tenant-likes-screen'),
-        backgroundColor: HomiziColors.white,
+        backgroundColor: HomiziColors.cream,
         body: PageBackground(
           variant: PageBackgroundVariant.soft,
           child: SafeArea(

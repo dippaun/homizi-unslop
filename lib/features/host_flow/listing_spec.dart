@@ -675,7 +675,7 @@ class ListingReviewPage extends StatelessWidget {
                 ? homiziText(context, 'Add a rent')
                 : '₹ ${formatIndianDigits(rent)}',
             style: const TextStyle(
-              fontFamily: 'PlusJakartaSans',
+              fontFamily: 'Poppins',
               fontSize: 28,
               fontWeight: FontWeight.w600,
               color: HomiziColors.ink,

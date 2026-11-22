@@ -74,10 +74,10 @@ class _ProfileInquiriesScreenState
     final activity = _activity;
     return Scaffold(
       key: const Key('profile-inquiries-screen'),
-      backgroundColor: HomiziColors.white,
+      backgroundColor: HomiziColors.cream,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: HomiziColors.white,
+        backgroundColor: HomiziColors.cream,
         surfaceTintColor: HomiziColors.white,
         leading: const HomiziBackButton(),
         title: Text(

@@ -327,7 +327,7 @@ class _RoommateMatchesPageState extends State<RoommateMatchesPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: const Key('roommate-matches-page'),
-      backgroundColor: HomiziColors.white,
+      backgroundColor: HomiziColors.cream,
       appBar: AppBar(title: Text(homiziText(context, 'Matched roommates'))),
       body: ListView.separated(
         padding: const EdgeInsets.fromLTRB(8, 8, 8, 24),

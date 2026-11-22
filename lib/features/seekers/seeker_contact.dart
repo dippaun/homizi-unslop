@@ -75,7 +75,7 @@ Future<void> showSeekerContactSheet(
   final first = profile.name.split(' ').first;
   return showModalBottomSheet<void>(
     context: context,
-    backgroundColor: HomiziColors.white,
+    backgroundColor: HomiziColors.cream,
     builder: (sheet) => SafeArea(
       child: Padding(
         key: const Key('seeker-contact-sheet'),

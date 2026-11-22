@@ -68,7 +68,7 @@ class _MutualInterestScreenState extends ConsumerState<MutualInterestScreen> {
       await showModalBottomSheet<void>(
         context: context,
         isScrollControlled: true,
-        backgroundColor: HomiziColors.white,
+        backgroundColor: HomiziColors.cream,
         builder: (context) =>
             RoommateBreakdownSheet(seeker: seeker, score: score),
       );
@@ -87,7 +87,7 @@ class _MutualInterestScreenState extends ConsumerState<MutualInterestScreen> {
     return MinTouchScope(
       child: Scaffold(
         key: const Key('flatmate-mutual-screen'),
-        backgroundColor: HomiziColors.white,
+        backgroundColor: HomiziColors.cream,
         appBar: AppBar(
           automaticallyImplyLeading: false,
           leading: const HomiziBackButton(),

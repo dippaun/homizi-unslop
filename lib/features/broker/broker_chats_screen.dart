@@ -35,7 +35,7 @@ class BrokerChatsScreen extends ConsumerWidget {
         : const <MatchSummary>[];
     return Scaffold(
       key: const Key('broker-chats-screen'),
-      backgroundColor: HomiziColors.white,
+      backgroundColor: HomiziColors.cream,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: const HomiziBackButton(),

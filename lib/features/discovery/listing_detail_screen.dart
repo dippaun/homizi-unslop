@@ -289,7 +289,7 @@ class _ListingDetailScreenState extends ConsumerState<ListingDetailScreen> {
         _galleryLabels ?? galleryLabelsForAssets(listing.photoAssets);
     final cost = publishedHome?.cost ?? rentingCostForListing(listing);
     return Scaffold(
-      backgroundColor: HomiziColors.white,
+      backgroundColor: HomiziColors.cream,
       bottomNavigationBar: ListingActionBar(
         saved: saved,
         busy: discovery.busy,

@@ -87,7 +87,7 @@ class MatchesScreen extends ConsumerWidget {
 
     return MinTouchScope(
       child: Scaffold(
-        backgroundColor: HomiziColors.white,
+        backgroundColor: HomiziColors.cream,
         appBar: AppBar(
           automaticallyImplyLeading: false,
           leading: const HomiziBackButton(),

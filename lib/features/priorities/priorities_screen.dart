@@ -65,10 +65,10 @@ class PrioritiesScreen extends ConsumerWidget {
     return RepaintBoundary(
       key: const Key('priority-shot'),
       child: Scaffold(
-        backgroundColor: HomiziColors.white,
+        backgroundColor: HomiziColors.cream,
         appBar: AppBar(
           automaticallyImplyLeading: false,
-          backgroundColor: HomiziColors.white,
+          backgroundColor: HomiziColors.cream,
           foregroundColor: HomiziColors.ink,
           leading: HomiziBackButton(
             onPressed: () {
@@ -705,7 +705,7 @@ class _TenantPrioritiesState extends ConsumerState<_TenantPriorities> {
   ) async {
     final picked = await showModalBottomSheet<PriorityCriterion>(
       context: context,
-      backgroundColor: HomiziColors.white,
+      backgroundColor: HomiziColors.cream,
       builder: (context) => SafeArea(
         child: ListView(
           key: const Key('priority-add-sheet'),
@@ -742,7 +742,7 @@ class _TenantPrioritiesState extends ConsumerState<_TenantPriorities> {
     final next = await showModalBottomSheet<SearchPriorities>(
       context: context,
       isScrollControlled: true,
-      backgroundColor: HomiziColors.white,
+      backgroundColor: HomiziColors.cream,
       builder: (context) => _TenantEditSheet(
         value: draft,
         criterion: c,
@@ -1418,7 +1418,7 @@ class _HostPrioritiesState extends ConsumerState<_HostPriorities> {
   ) async {
     final picked = await showModalBottomSheet<HostCriterion>(
       context: context,
-      backgroundColor: HomiziColors.white,
+      backgroundColor: HomiziColors.cream,
       builder: (context) => SafeArea(
         child: ListView(
           key: const Key('priority-add-sheet'),
@@ -1451,7 +1451,7 @@ class _HostPrioritiesState extends ConsumerState<_HostPriorities> {
     final next = await showModalBottomSheet<HostTenantPriorities>(
       context: context,
       isScrollControlled: true,
-      backgroundColor: HomiziColors.white,
+      backgroundColor: HomiziColors.cream,
       builder: (context) => _HostEditSheet(
         value: draft,
         criterion: c,

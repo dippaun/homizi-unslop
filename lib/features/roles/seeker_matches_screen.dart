@@ -166,7 +166,7 @@ class _SeekerMatchesScreenState extends ConsumerState<SeekerMatchesScreen> {
         .length;
     return Scaffold(
       key: const Key('interested-seekers'),
-      backgroundColor: HomiziColors.white,
+      backgroundColor: HomiziColors.cream,
       appBar: HomiziHomeBar(
         leading: const HomiziBackButton(key: Key('seekers-back')),
         actions: [
@@ -359,7 +359,7 @@ class _SeekerMatchesScreenState extends ConsumerState<SeekerMatchesScreen> {
   Future<void> _openFilter() async {
     final next = await showModalBottomSheet<SeekerListFilter>(
       context: context,
-      backgroundColor: HomiziColors.white,
+      backgroundColor: HomiziColors.cream,
       builder: (context) => _FilterSheet(initial: _filter),
     );
     if (next == null || !mounted) {

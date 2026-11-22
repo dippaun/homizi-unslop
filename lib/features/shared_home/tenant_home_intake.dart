@@ -219,7 +219,7 @@ class _TenantSharedIntakeState extends ConsumerState<TenantSharedIntake> {
         Text(
           homiziText(context, 'Add complete details'),
           style: const TextStyle(
-            fontFamily: 'PlusJakartaSans',
+            fontFamily: 'Poppins',
             fontSize: 24,
             fontWeight: FontWeight.w600,
             color: HomiziColors.ink,
@@ -333,7 +333,7 @@ class _TenantSharedIntakeState extends ConsumerState<TenantSharedIntake> {
         Text(
           homiziText(context, intake.address),
           style: const TextStyle(
-            fontFamily: 'PlusJakartaSans',
+            fontFamily: 'Poppins',
             fontSize: 22,
             fontWeight: FontWeight.w600,
             color: HomiziColors.ink,

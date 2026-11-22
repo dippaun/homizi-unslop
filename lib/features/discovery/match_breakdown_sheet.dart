@@ -14,7 +14,7 @@ Future<void> showMatchBreakdown(
   return showModalBottomSheet<void>(
     context: context,
     showDragHandle: true,
-    backgroundColor: HomiziColors.white,
+    backgroundColor: HomiziColors.cream,
     isScrollControlled: true,
     builder: (sheetContext) {
       return MatchBreakdownSheet(

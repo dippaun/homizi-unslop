@@ -269,10 +269,10 @@ class _ContactOtpScreenState extends ConsumerState<ContactOtpScreen> {
               fallback: shownContact(session.contact).phone,
             );
       return Scaffold(
-        backgroundColor: HomiziColors.white,
+        backgroundColor: HomiziColors.cream,
         appBar: AppBar(
           automaticallyImplyLeading: false,
-          backgroundColor: HomiziColors.white,
+          backgroundColor: HomiziColors.cream,
           leading: const HomiziBackButton(),
           title: Text(homiziText(context, _email ? 'Email' : 'Mobile')),
         ),
@@ -301,9 +301,9 @@ class _ContactOtpScreenState extends ConsumerState<ContactOtpScreen> {
     if (!_email && !phoneOn && !config.hasPhoneTestNumbers) {
       return MinTouchScope(
         child: Scaffold(
-          backgroundColor: HomiziColors.white,
+          backgroundColor: HomiziColors.cream,
           appBar: AppBar(
-            backgroundColor: HomiziColors.white,
+            backgroundColor: HomiziColors.cream,
             surfaceTintColor: HomiziColors.white,
             automaticallyImplyLeading: false,
             leading: const HomiziBackButton(),
@@ -338,9 +338,9 @@ class _ContactOtpScreenState extends ConsumerState<ContactOtpScreen> {
     }
     return MinTouchScope(
       child: Scaffold(
-        backgroundColor: HomiziColors.white,
+        backgroundColor: HomiziColors.cream,
         appBar: AppBar(
-          backgroundColor: HomiziColors.white,
+          backgroundColor: HomiziColors.cream,
           surfaceTintColor: HomiziColors.white,
           automaticallyImplyLeading: false,
           leading: const HomiziBackButton(),

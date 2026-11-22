@@ -930,7 +930,7 @@ class TenantJourneyHubPage extends StatelessWidget {
               style: TextStyle(
                 color: HomiziColors.ink,
                 fontWeight: FontWeight.w600,
-                fontFamily: 'PlusJakartaSans',
+                fontFamily: 'Poppins',
                 fontSize: 22,
               ),
             ),
@@ -1006,7 +1006,7 @@ class _HubChip extends StatelessWidget {
   Widget build(BuildContext context) {
     return Chip(
       label: Text(homiziText(context, label)),
-      backgroundColor: HomiziColors.white,
+      backgroundColor: HomiziColors.cream,
       side: const BorderSide(color: HomiziColors.line),
       labelStyle: const TextStyle(
         color: HomiziColors.ink,

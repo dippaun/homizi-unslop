@@ -207,7 +207,7 @@ class _RoommateFinderScreenState extends ConsumerState<RoommateFinderScreen> {
     return MinTouchScope(
       child: Scaffold(
         key: const Key('roommate-screen'),
-        backgroundColor: HomiziColors.white,
+        backgroundColor: HomiziColors.cream,
         floatingActionButton: posted
             ? FloatingActionButton.extended(
                 key: const Key('roommate-preferences'),

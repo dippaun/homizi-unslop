@@ -168,7 +168,7 @@ class _BrokerRegistrationScreenState
   Widget build(BuildContext context) {
     if (_loading) {
       return const Scaffold(
-        backgroundColor: HomiziColors.white,
+        backgroundColor: HomiziColors.cream,
         body: Center(child: CircularProgressIndicator()),
       );
     }
@@ -177,7 +177,7 @@ class _BrokerRegistrationScreenState
         phase == SessionPhase.signedOut || phase == SessionPhase.booting;
     return Scaffold(
       key: const Key('broker-registration-screen'),
-      backgroundColor: HomiziColors.white,
+      backgroundColor: HomiziColors.cream,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: HomiziBackButton(

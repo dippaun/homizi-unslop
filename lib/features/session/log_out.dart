@@ -27,7 +27,7 @@ Future<void> confirmLogOut(BuildContext context, WidgetRef ref) async {
     builder: (context) {
       return AlertDialog(
         key: const Key('log-out-confirm'),
-        backgroundColor: HomiziColors.white,
+        backgroundColor: HomiziColors.cream,
         title: Text(
           homiziText(context, 'Log out?'),
           style: const TextStyle(

@@ -119,7 +119,7 @@ class FlowPage extends StatelessWidget {
     return FlowAccentScope(
       child: Scaffold(
         key: pageKey,
-        backgroundColor: HomiziColors.white,
+        backgroundColor: HomiziColors.cream,
         body: PageBackground(
           variant: pageVariantFor(headline ?? badge ?? 'host-flow'),
           child: SafeArea(

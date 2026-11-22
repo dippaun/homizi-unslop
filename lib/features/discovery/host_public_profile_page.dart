@@ -110,10 +110,10 @@ class _HostProfileViewState extends ConsumerState<_HostProfileView> {
     final story = widget.story;
     return Scaffold(
       key: const Key('listing-host-page'),
-      backgroundColor: HomiziColors.white,
+      backgroundColor: HomiziColors.cream,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: HomiziColors.white,
+        backgroundColor: HomiziColors.cream,
         surfaceTintColor: HomiziColors.white,
         elevation: 0,
         scrolledUnderElevation: 0,
@@ -239,7 +239,7 @@ class _HostProfileViewState extends ConsumerState<_HostProfileView> {
       builder: (context) {
         return AlertDialog(
           key: const Key('host-profile-share-dialog'),
-          backgroundColor: HomiziColors.white,
+          backgroundColor: HomiziColors.cream,
           title: Text(
             homiziText(context, 'Share profile'),
             style: const TextStyle(

@@ -47,7 +47,7 @@ class ProfileRoleSelect extends StatelessWidget {
         Text(
           homiziText(context, 'Select Your Role'),
           style: const TextStyle(
-            fontFamily: 'PlusJakartaSans',
+            fontFamily: 'Poppins',
             fontSize: 28,
             height: 1.12,
             fontWeight: FontWeight.w600,

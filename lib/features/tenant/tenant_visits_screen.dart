@@ -61,7 +61,7 @@ class _TenantVisitsScreenState extends ConsumerState<TenantVisitsScreen> {
     final visits = _activity?.visits ?? const <ActivityVisit>[];
     return Scaffold(
       key: const Key('tenant-visits-screen'),
-      backgroundColor: HomiziColors.white,
+      backgroundColor: HomiziColors.cream,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: const HomiziBackButton(),

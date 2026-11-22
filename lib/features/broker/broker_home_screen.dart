@@ -3,10 +3,12 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:homizi/core/brand/indian_patterns.dart';
 import 'package:homizi/core/l10n/translate.dart';
 import 'package:homizi/core/layout/homizi_frame.dart';
 import 'package:homizi/core/routing/route_paths.dart';
 import 'package:homizi/core/theme/homizi_colors.dart';
+import 'package:homizi/core/theme/role_palette.dart';
 import 'package:homizi/core/widgets/homizi_home_bar.dart';
 import 'package:homizi/features/broker/broker_auth.dart';
 import 'package:homizi/features/broker/broker_links.dart';
@@ -15,6 +17,8 @@ import 'package:homizi/features/broker/broker_providers.dart';
 import 'package:homizi/features/roles/role_switch_bar.dart';
 import 'package:homizi/features/session/session_controller.dart';
 import 'package:homizi/features/session/session_state.dart';
+import 'package:homizi/ui/kit/hero_band.dart';
+import 'package:homizi/ui/kit/motion_kit.dart';
 
 class BrokerHomeScreen extends ConsumerStatefulWidget {
   const BrokerHomeScreen({super.key});
@@ -69,7 +73,7 @@ class _BrokerHomeScreenState extends ConsumerState<BrokerHomeScreen> {
     final saved = _loaded && name.isNotEmpty;
     return Scaffold(
       key: const Key('broker-home-screen'),
-      backgroundColor: HomiziColors.white,
+      backgroundColor: HomiziColors.cream,
       appBar: HomiziHomeBar(
         actions: [
           IconButton(
@@ -104,18 +108,22 @@ class _BrokerHomeScreenState extends ConsumerState<BrokerHomeScreen> {
           padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
           children: [
             const RoleSwitchBar(),
-            Text(
-              homiziText(context, saved ? 'Hello, $name' : 'Your broker desk'),
-              key: const Key('broker-home-title'),
-              style: Theme.of(context).textTheme.headlineSmall,
-            ),
-            const SizedBox(height: 8),
-            Text(
-              homiziText(
-                context,
-                saved
-                    ? '${profile?.agencyName.trim() ?? ''} · ${profile?.cities.join(', ') ?? ''}'
-                    : 'Briefs, listings, leads, chats, and visits for the homes you manage.',
+            HomiziStaggerIn(
+              child: HomiziRoleIntro(
+                palette: HomiziRolePalette.broker,
+                eyebrow: homiziText(context, 'Broker desk'),
+                icon: Icons.badge_outlined,
+                titleKey: const Key('broker-home-title'),
+                title: homiziText(
+                  context,
+                  saved ? 'Hello, $name' : 'Your broker desk',
+                ),
+                body: homiziText(
+                  context,
+                  saved
+                      ? '${profile?.agencyName.trim() ?? ''} · ${profile?.cities.join(', ') ?? ''}'
+                      : 'Briefs, listings, leads, chats, and visits for the homes you manage.',
+                ),
               ),
             ),
             if (_loaded && !saved) ...[
@@ -126,9 +134,23 @@ class _BrokerHomeScreenState extends ConsumerState<BrokerHomeScreen> {
                 child: Text(homiziText(context, 'Create profile')),
               ),
             ],
-            const SizedBox(height: 20),
-            for (final link in brokerLinks) ...[
-              _DeskTile(link: link, onTap: () => openBrokerLink(context, link)),
+            const SizedBox(height: 16),
+            const BlockPrintBorder(
+              color: HomiziColors.brandDarkRed,
+              height: 8,
+              opacity: 0.35,
+            ),
+            const SizedBox(height: 16),
+            for (final (index, link) in brokerLinks.indexed) ...[
+              HomiziStaggerIn(
+                index: index + 1,
+                child: HomiziPressable(
+                  child: _DeskTile(
+                    link: link,
+                    onTap: () => openBrokerLink(context, link),
+                  ),
+                ),
+              ),
               const SizedBox(height: 12),
             ],
           ],
@@ -160,7 +182,11 @@ class _DeskTile extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
           child: Row(
             children: [
-              Icon(link.icon, color: HomiziColors.accent),
+              HomiziRoleIcon(
+                link.icon,
+                palette: HomiziRolePalette.broker,
+                size: 40,
+              ),
               const SizedBox(width: 12),
               Expanded(
                 child: Text(
@@ -168,7 +194,7 @@ class _DeskTile extends StatelessWidget {
                   style: Theme.of(context).textTheme.titleMedium,
                 ),
               ),
-              const Icon(Icons.chevron_right, color: HomiziColors.muted),
+              const Icon(Icons.chevron_right, color: HomiziColors.brandDarkRed),
             ],
           ),
         ),

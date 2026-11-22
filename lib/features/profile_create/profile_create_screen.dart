@@ -356,7 +356,7 @@ class _ProfileCreateScreenState extends ConsumerState<ProfileCreateScreen> {
       builder: (context) {
         return AlertDialog(
           key: const Key('profile-create-alert'),
-          backgroundColor: HomiziColors.white,
+          backgroundColor: HomiziColors.cream,
           title: Text(homiziText(context, title)),
           content: Text(homiziText(context, message)),
           actions: [
@@ -1244,10 +1244,10 @@ class _ProfileCreateScreenState extends ConsumerState<ProfileCreateScreen> {
     if (_showDone && !_reedit) {
       return Scaffold(
         key: const Key('profile-create-saved'),
-        backgroundColor: HomiziColors.white,
+        backgroundColor: HomiziColors.cream,
         appBar: AppBar(
           automaticallyImplyLeading: false,
-          backgroundColor: HomiziColors.white,
+          backgroundColor: HomiziColors.cream,
           leading: const HomiziBackButton(),
           title: Text(homiziText(context, 'Your profile')),
         ),
@@ -1286,10 +1286,10 @@ class _ProfileCreateScreenState extends ConsumerState<ProfileCreateScreen> {
           }
         },
         child: Scaffold(
-          backgroundColor: HomiziColors.white,
+          backgroundColor: HomiziColors.cream,
           appBar: AppBar(
             automaticallyImplyLeading: false,
-            backgroundColor: HomiziColors.white,
+            backgroundColor: HomiziColors.cream,
             surfaceTintColor: HomiziColors.white,
             elevation: 0,
             scrolledUnderElevation: 0,

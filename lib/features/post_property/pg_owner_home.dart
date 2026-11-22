@@ -5,11 +5,14 @@ import 'package:homizi/core/format/inr.dart';
 import 'package:homizi/core/l10n/translate.dart';
 import 'package:homizi/core/routing/route_paths.dart';
 import 'package:homizi/core/theme/homizi_colors.dart';
+import 'package:homizi/core/theme/role_palette.dart';
 import 'package:homizi/features/discovery/poster_badge.dart';
 import 'package:homizi/features/listings/domain/poster_kind.dart';
 import 'package:homizi/features/listings/published_search.dart';
 import 'package:homizi/features/post_property/post_property_chrome.dart';
 import 'package:homizi/features/shared_home/host_shared_home_screen.dart';
+import 'package:homizi/ui/kit/hero_band.dart';
+import 'package:homizi/ui/kit/motion_kit.dart';
 
 /// PG owner's own homes and real join requests.
 ///
@@ -28,23 +31,26 @@ class PgOwnerHome extends ConsumerWidget {
     final requests = ref.watch(hostJoinRequestsProvider);
     return Scaffold(
       key: const Key('pg-owner-home'),
-      backgroundColor: HomiziColors.white,
+      backgroundColor: HomiziColors.cream,
       appBar: const PostPropertyBar(),
       body: ListView(
         padding: const EdgeInsets.fromLTRB(16, 8, 16, 32),
         children: [
           const PosterKindBadge(kind: posterPg),
           const SizedBox(height: 10),
-          Text(
-            homiziText(context, 'Your PGs'),
-            style: const TextStyle(
-              fontFamily: 'PlusJakartaSans',
-              fontSize: 24,
-              fontWeight: FontWeight.w600,
-              color: HomiziColors.ink,
+          HomiziStaggerIn(
+            child: HomiziRoleIntro(
+              palette: HomiziRolePalette.pg,
+              eyebrow: homiziText(context, 'PG owner'),
+              icon: Icons.night_shelter_outlined,
+              title: homiziText(context, 'Your PGs'),
+              body: homiziText(
+                context,
+                'Beds, meals and house rules in one place. Requests land below.',
+              ),
             ),
           ),
-          const SizedBox(height: 12),
+          const SizedBox(height: 16),
           if (published.isEmpty)
             _EmptyPg(onAdd: () => context.push('${RoutePaths.postPg}?list=1'))
           else
@@ -59,7 +65,7 @@ class PgOwnerHome extends ConsumerWidget {
           Text(
             homiziText(context, 'Requests'),
             style: const TextStyle(
-              fontFamily: 'PlusJakartaSans',
+              fontFamily: 'Poppins',
               fontSize: 20,
               fontWeight: FontWeight.w600,
               color: HomiziColors.ink,
@@ -115,7 +121,8 @@ class _EmptyPg extends StatelessWidget {
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        color: HomiziColors.warmWash,
+        color: HomiziColors.saffronWash,
+        border: Border.all(color: HomiziColors.creamLine),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -129,7 +136,7 @@ class _EmptyPg extends StatelessWidget {
           Text(
             homiziText(context, 'Add your PG'),
             style: const TextStyle(
-              fontFamily: 'PlusJakartaSans',
+              fontFamily: 'Poppins',
               fontSize: 22,
               fontWeight: FontWeight.w600,
               color: HomiziColors.ink,

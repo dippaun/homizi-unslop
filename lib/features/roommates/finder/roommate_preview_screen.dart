@@ -51,7 +51,7 @@ class _RoommatePreviewScreenState extends ConsumerState<RoommatePreviewScreen> {
         appBar: AppBar(
           automaticallyImplyLeading: false,
           leading: const HomiziBackButton(),
-          backgroundColor: HomiziColors.white,
+          backgroundColor: HomiziColors.cream,
         ),
         body: const EmptyState(
           title: 'Roommate not found',
@@ -70,7 +70,7 @@ class _RoommatePreviewScreenState extends ConsumerState<RoommatePreviewScreen> {
     return MinTouchScope(
       child: Scaffold(
         key: const Key('roommate-preview'),
-        backgroundColor: HomiziColors.white,
+        backgroundColor: HomiziColors.cream,
         body: RepaintBoundary(
           key: const Key('roommate-preview-shot'),
           child: Material(
@@ -93,7 +93,7 @@ class _RoommatePreviewScreenState extends ConsumerState<RoommatePreviewScreen> {
                                 key: const Key('roommate-share'),
                                 tooltip: homiziText(context, 'Share'),
                                 style: IconButton.styleFrom(
-                                  backgroundColor: HomiziColors.white,
+                                  backgroundColor: HomiziColors.cream,
                                 ),
                                 onPressed: () => _share(person),
                                 icon: const Icon(
@@ -105,7 +105,7 @@ class _RoommatePreviewScreenState extends ConsumerState<RoommatePreviewScreen> {
                                 key: const Key('roommate-preview-heart'),
                                 tooltip: homiziText(context, 'Maybe'),
                                 style: IconButton.styleFrom(
-                                  backgroundColor: HomiziColors.white,
+                                  backgroundColor: HomiziColors.cream,
                                 ),
                                 onPressed: () {
                                   ref
@@ -519,7 +519,7 @@ class _RoommatePreviewScreenState extends ConsumerState<RoommatePreviewScreen> {
       builder: (context) {
         return AlertDialog(
           key: const Key('roommate-share-dialog'),
-          backgroundColor: HomiziColors.white,
+          backgroundColor: HomiziColors.cream,
           title: Text(
             homiziText(context, 'Share ${person.name}'),
             style: const TextStyle(color: HomiziColors.ink),

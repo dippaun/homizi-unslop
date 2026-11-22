@@ -48,7 +48,7 @@ Future<void> guardVerifiedAction(
   final proceed = await showModalBottomSheet<bool>(
     context: context,
     showDragHandle: true,
-    backgroundColor: HomiziColors.white,
+    backgroundColor: HomiziColors.cream,
     builder: (sheetContext) {
       return SafeArea(
         child: Padding(

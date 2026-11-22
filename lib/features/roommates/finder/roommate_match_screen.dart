@@ -32,11 +32,11 @@ class RoommateMatchScreen extends StatelessWidget {
     return MinTouchScope(
       child: Scaffold(
         key: Key(mutual ? 'roommate-match' : 'roommate-sent'),
-        backgroundColor: HomiziColors.white,
+        backgroundColor: HomiziColors.cream,
         appBar: AppBar(
           automaticallyImplyLeading: false,
           leading: const HomiziBackButton(),
-          backgroundColor: HomiziColors.white,
+          backgroundColor: HomiziColors.cream,
           surfaceTintColor: HomiziColors.white,
         ),
         body: RepaintBoundary(
@@ -141,11 +141,11 @@ class RoommateMaybeScreen extends StatelessWidget {
       child: MinTouchScope(
         child: Scaffold(
           key: const Key('roommate-maybe'),
-          backgroundColor: HomiziColors.white,
+          backgroundColor: HomiziColors.cream,
           appBar: AppBar(
             automaticallyImplyLeading: false,
             leading: const HomiziBackButton(),
-            backgroundColor: HomiziColors.white,
+            backgroundColor: HomiziColors.cream,
             surfaceTintColor: HomiziColors.white,
           ),
           body: ListView(
@@ -209,11 +209,11 @@ class RoommateRequirementsSavedScreen extends ConsumerWidget {
     return MinTouchScope(
       child: Scaffold(
         key: const Key('roommate-requirements-saved'),
-        backgroundColor: HomiziColors.white,
+        backgroundColor: HomiziColors.cream,
         appBar: AppBar(
           automaticallyImplyLeading: false,
           leading: const HomiziBackButton(),
-          backgroundColor: HomiziColors.white,
+          backgroundColor: HomiziColors.cream,
         ),
         body: SavedSummaryCard(
           title: 'Preferences saved',

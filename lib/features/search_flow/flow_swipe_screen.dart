@@ -133,7 +133,7 @@ class _FlowSwipeScreenState extends ConsumerState<FlowSwipeScreen> {
     final cards = _cards;
     return Scaffold(
       key: const Key('flow-swipe-screen'),
-      backgroundColor: HomiziColors.white,
+      backgroundColor: HomiziColors.cream,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: const HomiziBackButton(),

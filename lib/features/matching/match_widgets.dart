@@ -23,10 +23,10 @@ class MatchScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: HomiziColors.white,
+      backgroundColor: HomiziColors.cream,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: HomiziColors.white,
+        backgroundColor: HomiziColors.cream,
         foregroundColor: HomiziColors.ink,
         leading: const HomiziBackButton(),
         title: Text(homiziText(context, title)),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:homizi/core/l10n/translate.dart';
 import 'package:homizi/core/theme/homizi_colors.dart';
+import 'package:homizi/core/theme/role_palette.dart';
 import 'package:homizi/core/widgets/homizi_back.dart';
 import 'package:homizi/features/shared_home/shared_home_widgets.dart';
 import 'package:homizi/ui/kit/kit.dart';
@@ -28,10 +29,10 @@ class RoleFlowScaffold extends StatelessWidget {
     final action = footer;
     return Scaffold(
       key: screenKey,
-      backgroundColor: HomiziColors.white,
+      backgroundColor: HomiziColors.cream,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: HomiziColors.white,
+        backgroundColor: HomiziColors.cream,
         surfaceTintColor: HomiziColors.white,
         leading: const HomiziBackButton(),
         title: Text(homiziText(context, title)),
@@ -64,13 +65,26 @@ class RoleFlowIntro extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      homiziText(context, text),
-      style: const TextStyle(
-        fontFamily: 'Inter',
-        fontSize: 14,
-        height: 1.4,
-        color: HomiziColors.inkSoft,
+    // v2: the intro sits on the role wash with a gradient edge, so each
+    // role's setup reads in its own colour.
+    final palette = HomiziRoleScope.of(context);
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        color: palette.wash,
+        borderRadius: BorderRadius.circular(14),
+        border: Border(left: BorderSide(color: palette.accent, width: 4)),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(14, 12, 14, 12),
+        child: Text(
+          homiziText(context, text),
+          style: const TextStyle(
+            fontFamily: 'Inter',
+            fontSize: 14,
+            height: 1.4,
+            color: HomiziColors.ink,
+          ),
+        ),
       ),
     );
   }

@@ -275,7 +275,7 @@ class _Quote extends StatelessWidget {
       children: [
         CircleAvatar(
           radius: 16,
-          backgroundColor: HomiziColors.white,
+          backgroundColor: HomiziColors.cream,
           child: Icon(icon, size: 18, color: HomiziColors.brandDeepRed),
         ),
         const SizedBox(width: 10),

@@ -147,7 +147,7 @@ class _PartnerPropertyChatsState extends ConsumerState<PartnerPropertyChats> {
     return MinTouchScope(
       child: Scaffold(
         key: const Key('partner-property-chats'),
-        backgroundColor: HomiziColors.white,
+        backgroundColor: HomiziColors.cream,
         appBar: AppBar(
           automaticallyImplyLeading: false,
           leading: const HomiziBackButton(),

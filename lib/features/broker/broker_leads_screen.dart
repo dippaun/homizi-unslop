@@ -78,7 +78,7 @@ class _BrokerLeadsScreenState extends ConsumerState<BrokerLeadsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: const Key('broker-leads-screen'),
-      backgroundColor: HomiziColors.white,
+      backgroundColor: HomiziColors.cream,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: const HomiziBackButton(),
@@ -221,7 +221,7 @@ class _BrokerLeadScreenState extends ConsumerState<BrokerLeadScreen> {
     if (_loading) {
       return const Scaffold(
         key: Key('broker-lead-screen'),
-        backgroundColor: HomiziColors.white,
+        backgroundColor: HomiziColors.cream,
         body: Center(child: CircularProgressIndicator()),
       );
     }

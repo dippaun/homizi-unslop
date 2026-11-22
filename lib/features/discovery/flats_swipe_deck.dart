@@ -38,10 +38,10 @@ class FlatsSwipeScreen extends ConsumerWidget {
     final listings = homeSwipeListings(source, limit: source.length);
     return Scaffold(
       key: const Key('flats-swipe-screen'),
-      backgroundColor: HomiziColors.white,
+      backgroundColor: HomiziColors.cream,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: HomiziColors.white,
+        backgroundColor: HomiziColors.cream,
         surfaceTintColor: HomiziColors.white,
         leading: const HomiziBackButton(),
         title: Text(homiziText(context, 'Explore rentals')),

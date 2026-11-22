@@ -82,7 +82,7 @@ class _FlowRequirementsScreenState
   Widget build(BuildContext context) {
     return Scaffold(
       key: const Key('flow-requirements-screen'),
-      backgroundColor: HomiziColors.white,
+      backgroundColor: HomiziColors.cream,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: const HomiziBackButton(),

@@ -441,7 +441,7 @@ class _BestMatchesDeckState extends ConsumerState<BestMatchesDeck>
     final current = done || total == 0 ? null : widget.homes[_index];
     return Scaffold(
       key: const Key('search-matches-screen'),
-      backgroundColor: HomiziColors.white,
+      backgroundColor: HomiziColors.cream,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: const HomiziBackButton(),

@@ -168,7 +168,7 @@ class _RoleCard extends StatelessWidget {
             children: [
               CircleAvatar(
                 radius: 26,
-                backgroundColor: HomiziColors.white,
+                backgroundColor: HomiziColors.cream,
                 child: Icon(option.icon, color: HomiziColors.logoOrange),
               ),
               const SizedBox(width: 16),

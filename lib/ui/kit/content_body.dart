@@ -76,10 +76,10 @@ class ContentScaffold extends StatelessWidget {
     final label = primaryLabel;
     final page = Scaffold(
       key: scaffoldKey,
-      backgroundColor: HomiziColors.white,
+      backgroundColor: HomiziColors.cream,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: HomiziColors.white,
+        backgroundColor: HomiziColors.cream,
         surfaceTintColor: HomiziColors.white,
         elevation: 0,
         scrolledUnderElevation: 0,

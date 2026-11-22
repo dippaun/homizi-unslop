@@ -44,7 +44,7 @@ class _TenantSearchScreenState extends ConsumerState<TenantSearchScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: const Key('tenant-search-screen'),
-      backgroundColor: HomiziColors.white,
+      backgroundColor: HomiziColors.cream,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: const HomiziBackButton(),

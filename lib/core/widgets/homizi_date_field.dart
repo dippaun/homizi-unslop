@@ -149,7 +149,7 @@ Future<DateTime?> pickHomiziDate(
             onSurface: HomiziColors.ink,
           ),
           datePickerTheme: DatePickerThemeData(
-            backgroundColor: HomiziColors.white,
+            backgroundColor: HomiziColors.cream,
             headerBackgroundColor: HomiziColors.white,
             headerForegroundColor: HomiziColors.ink,
             surfaceTintColor: HomiziColors.clear,
@@ -171,7 +171,7 @@ Future<DateTime?> pickHomiziDate(
             ),
           ),
           dialogTheme: const DialogThemeData(
-            backgroundColor: HomiziColors.white,
+            backgroundColor: HomiziColors.cream,
           ),
         ),
         child: child ?? const SizedBox.shrink(),

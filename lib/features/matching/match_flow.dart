@@ -153,7 +153,7 @@ class _HubChip extends StatelessWidget {
   Widget build(BuildContext context) {
     return Chip(
       label: Text(homiziText(context, label)),
-      backgroundColor: HomiziColors.white,
+      backgroundColor: HomiziColors.cream,
       side: const BorderSide(color: HomiziColors.line),
     );
   }

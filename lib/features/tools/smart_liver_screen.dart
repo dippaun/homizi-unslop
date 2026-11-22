@@ -95,7 +95,7 @@ class _SmartLiverScreenState extends ConsumerState<SmartLiverScreen> {
     final result = _result;
     return Scaffold(
       key: const Key('smart-liver-screen'),
-      backgroundColor: HomiziColors.white,
+      backgroundColor: HomiziColors.cream,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: const HomiziBackButton(),

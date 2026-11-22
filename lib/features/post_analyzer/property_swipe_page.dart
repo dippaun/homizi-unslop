@@ -596,7 +596,7 @@ class _Chips extends StatelessWidget {
                       : FontWeight.w600,
                 ),
                 selectedColor: HomiziColors.accent,
-                backgroundColor: HomiziColors.white,
+                backgroundColor: HomiziColors.cream,
                 side: BorderSide(
                   color: selected == chip
                       ? HomiziColors.accent
@@ -717,7 +717,7 @@ class PropertyDetailPreview extends StatelessWidget {
         automaticallyImplyLeading: false,
         leading: const _PopBack(),
         title: Text(homiziText(context, data.title)),
-        backgroundColor: HomiziColors.white,
+        backgroundColor: HomiziColors.cream,
         foregroundColor: HomiziColors.ink,
         elevation: 0,
       ),
@@ -771,12 +771,12 @@ class InterestSentPage extends StatelessWidget {
     final host = hostName.trim().isEmpty ? 'The host' : hostName.trim();
     return Scaffold(
       key: const Key('property-interest-sent'),
-      backgroundColor: HomiziColors.white,
+      backgroundColor: HomiziColors.cream,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: const _PopBack(),
         title: Text(homiziText(context, 'Interest sent')),
-        backgroundColor: HomiziColors.white,
+        backgroundColor: HomiziColors.cream,
         foregroundColor: HomiziColors.ink,
         elevation: 0,
       ),

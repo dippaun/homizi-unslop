@@ -102,7 +102,7 @@ class _SwipeScreenState extends ConsumerState<SwipeScreen> {
       );
     }
     return Scaffold(
-      backgroundColor: HomiziColors.white,
+      backgroundColor: HomiziColors.cream,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: const HomiziBackButton(),

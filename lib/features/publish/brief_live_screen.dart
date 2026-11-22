@@ -25,10 +25,10 @@ class BriefLiveScreen extends StatelessWidget {
     final theme = Theme.of(context);
     return Scaffold(
       key: const Key('brief-live'),
-      backgroundColor: HomiziColors.white,
+      backgroundColor: HomiziColors.cream,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: HomiziColors.white,
+        backgroundColor: HomiziColors.cream,
         leading: const HomiziBackButton(),
         title: Text(homiziText(context, 'Published')),
       ),

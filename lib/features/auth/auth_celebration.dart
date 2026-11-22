@@ -238,7 +238,7 @@ class _AuthCelebrationState extends ConsumerState<AuthCelebration>
                     key: const Key('signup-confirmed'),
                     textAlign: TextAlign.center,
                     style: const TextStyle(
-                      fontFamily: 'PlusJakartaSans',
+                      fontFamily: 'Poppins',
                       fontSize: 32,
                       height: 1.15,
                       fontWeight: FontWeight.w600,
@@ -263,7 +263,7 @@ class _AuthCelebrationState extends ConsumerState<AuthCelebration>
                     key: const Key('signup-confirmed'),
                     textAlign: TextAlign.center,
                     style: const TextStyle(
-                      fontFamily: 'PlusJakartaSans',
+                      fontFamily: 'Poppins',
                       fontSize: 28,
                       height: 1.15,
                       fontWeight: FontWeight.w600,
@@ -295,7 +295,7 @@ class _AuthCelebrationState extends ConsumerState<AuthCelebration>
                   key: const Key('signup-confirmed-card'),
                   textAlign: TextAlign.center,
                   style: const TextStyle(
-                    fontFamily: 'PlusJakartaSans',
+                    fontFamily: 'Poppins',
                     fontSize: 28,
                     height: 1.15,
                     fontWeight: FontWeight.w600,

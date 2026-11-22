@@ -154,3 +154,127 @@ class HomiziRoleChip extends StatelessWidget {
     );
   }
 }
+
+/// Role home intro: eyebrow chip, Poppins title and one line of body on
+/// the role hero band. Reused by host, owner, PG, broker, sharer and
+/// tenant homes in place of their plain title/body pair.
+class HomiziRoleIntro extends StatelessWidget {
+  const HomiziRoleIntro({
+    required this.title,
+    this.body,
+    this.eyebrow,
+    this.palette,
+    this.trailing,
+    this.icon,
+    this.titleKey,
+    super.key,
+  });
+
+  /// Key on the title [Text], for tests and deep links.
+  final Key? titleKey;
+  final String title;
+  final String? body;
+  final String? eyebrow;
+  final HomiziRolePalette? palette;
+  final Widget? trailing;
+  final IconData? icon;
+
+  @override
+  Widget build(BuildContext context) {
+    final p = palette ?? HomiziRoleScope.of(context);
+    final lift = p.onHero == HomiziColors.ink
+        ? HomiziColors.brandDeepRed
+        : HomiziColors.brandYellow;
+    return HomiziHeroBand(
+      palette: p,
+      padding: const EdgeInsets.fromLTRB(20, 18, 20, 44),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  (eyebrow ?? p.label).toUpperCase(),
+                  style: TextStyle(
+                    fontFamily: 'Inter',
+                    fontSize: 11,
+                    letterSpacing: 1.6,
+                    fontWeight: FontWeight.w700,
+                    color: lift,
+                  ),
+                ),
+                const SizedBox(height: 6),
+                Text(
+                  title,
+                  key: titleKey,
+                  style: TextStyle(
+                    fontFamily: 'Poppins',
+                    fontSize: 24,
+                    height: 1.15,
+                    fontWeight: FontWeight.w700,
+                    color: p.onHero,
+                  ),
+                ),
+                if (body != null) ...[
+                  const SizedBox(height: 8),
+                  Text(
+                    body!,
+                    style: TextStyle(
+                      fontFamily: 'Inter',
+                      fontSize: 14,
+                      height: 1.35,
+                      color: p.onHero.withValues(alpha: 0.92),
+                    ),
+                  ),
+                ],
+              ],
+            ),
+          ),
+          if (trailing != null) ...[const SizedBox(width: 12), trailing!],
+          if (trailing == null && icon != null) ...[
+            const SizedBox(width: 12),
+            DecoratedBox(
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: p.onHero.withValues(alpha: 0.16),
+                border: Border.all(color: p.onHero.withValues(alpha: 0.4)),
+              ),
+              child: SizedBox(
+                width: 52,
+                height: 52,
+                child: Icon(icon, size: 26, color: p.onHero),
+              ),
+            ),
+          ],
+        ],
+      ),
+    );
+  }
+}
+
+/// Round icon disc in the role gradient, for list tiles and cards.
+class HomiziRoleIcon extends StatelessWidget {
+  const HomiziRoleIcon(this.icon, {this.palette, this.size = 44, super.key});
+
+  final IconData icon;
+  final HomiziRolePalette? palette;
+  final double size;
+
+  @override
+  Widget build(BuildContext context) {
+    final p = palette ?? HomiziRoleScope.of(context);
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        gradient: p.heroGradient,
+      ),
+      child: SizedBox(
+        width: size,
+        height: size,
+        child: Icon(icon, size: size * 0.5, color: p.onHero),
+      ),
+    );
+  }
+}

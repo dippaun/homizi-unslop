@@ -1680,7 +1680,7 @@ class _ListingEditorScreenState extends ConsumerState<ListingEditorScreen> {
       child: Theme(
         data: theme.copyWith(
           chipTheme: theme.chipTheme.copyWith(
-            backgroundColor: HomiziColors.white,
+            backgroundColor: HomiziColors.cream,
             selectedColor: HomiziColors.warmWash,
             checkmarkColor: HomiziColors.brandDeepRed,
             labelStyle: const TextStyle(color: HomiziColors.ink),

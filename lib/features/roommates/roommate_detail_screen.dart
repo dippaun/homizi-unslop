@@ -83,7 +83,7 @@ class _RoommateDetailScreenState extends ConsumerState<RoommateDetailScreen> {
       await showModalBottomSheet<void>(
         context: context,
         isScrollControlled: true,
-        backgroundColor: HomiziColors.white,
+        backgroundColor: HomiziColors.cream,
         builder: (context) =>
             RoommateBreakdownSheet(seeker: seeker, score: score),
       );
@@ -149,7 +149,7 @@ class _RoommateDetailScreenState extends ConsumerState<RoommateDetailScreen> {
     return MinTouchScope(
       child: Scaffold(
         key: const Key('flatmate-person'),
-        backgroundColor: HomiziColors.white,
+        backgroundColor: HomiziColors.cream,
         appBar: AppBar(
           automaticallyImplyLeading: false,
           leading: const HomiziBackButton(),

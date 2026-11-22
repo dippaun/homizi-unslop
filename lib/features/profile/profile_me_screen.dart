@@ -356,7 +356,7 @@ class _ProfileMeScreenState extends ConsumerState<ProfileMeScreen> {
       key: const Key('profile-me-shot'),
       child: Scaffold(
         key: const Key('profile-me-screen'),
-        backgroundColor: HomiziColors.white,
+        backgroundColor: HomiziColors.cream,
         appBar: HomiziHomeBar(
           actions: [
             IconButton(

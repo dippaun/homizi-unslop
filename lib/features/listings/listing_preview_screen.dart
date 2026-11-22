@@ -75,7 +75,7 @@ class _ListingPreviewScreenState extends ConsumerState<ListingPreviewScreen> {
     final photosVerified = draftPhotosVerified(draft);
     final rent = draft.rentInr;
     return Scaffold(
-      backgroundColor: HomiziColors.white,
+      backgroundColor: HomiziColors.cream,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: const HomiziBackButton(),

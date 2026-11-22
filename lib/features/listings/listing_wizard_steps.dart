@@ -588,7 +588,7 @@ class NearbyStep extends StatelessWidget {
                 size: 18,
               ),
               label: Text(homiziText(context, where)),
-              backgroundColor: HomiziColors.white,
+              backgroundColor: HomiziColors.cream,
               side: const BorderSide(color: HomiziColors.line),
             ),
           ],

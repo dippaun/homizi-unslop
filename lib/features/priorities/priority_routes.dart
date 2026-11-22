@@ -56,10 +56,10 @@ class PrioritiesSavedScreen extends ConsumerWidget {
     return RepaintBoundary(
       key: const Key('priority-saved-shot'),
       child: Scaffold(
-        backgroundColor: HomiziColors.white,
+        backgroundColor: HomiziColors.cream,
         appBar: AppBar(
           automaticallyImplyLeading: false,
-          backgroundColor: HomiziColors.white,
+          backgroundColor: HomiziColors.cream,
           foregroundColor: HomiziColors.ink,
           leading: HomiziBackButton(
             onPressed: () => context.go(RoutePaths.home),

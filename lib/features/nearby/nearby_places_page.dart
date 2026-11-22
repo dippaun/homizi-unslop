@@ -85,10 +85,10 @@ class _NearbyPlacesPageState extends ConsumerState<NearbyPlacesPage> {
     ].where((part) => part.isNotEmpty).join(', ');
     return Scaffold(
       key: const Key('nearby-places-page'),
-      backgroundColor: HomiziColors.white,
+      backgroundColor: HomiziColors.cream,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: HomiziColors.white,
+        backgroundColor: HomiziColors.cream,
         surfaceTintColor: HomiziColors.white,
         leading: const HomiziBackButton(),
         title: Text(
@@ -129,7 +129,7 @@ class _NearbyPlacesPageState extends ConsumerState<NearbyPlacesPage> {
                   size: 18,
                 ),
                 label: Text(homiziText(context, place)),
-                backgroundColor: HomiziColors.white,
+                backgroundColor: HomiziColors.cream,
                 side: const BorderSide(color: HomiziColors.line),
               ),
             ),

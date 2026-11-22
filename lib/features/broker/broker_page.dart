@@ -21,7 +21,7 @@ class BrokerPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       key: screenKey,
-      backgroundColor: HomiziColors.white,
+      backgroundColor: HomiziColors.cream,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: const HomiziBackButton(),

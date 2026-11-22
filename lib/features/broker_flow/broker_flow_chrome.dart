@@ -89,10 +89,10 @@ class BrokerFlowChrome extends StatelessWidget {
         key: const Key('broker-flow-shot'),
         child: Scaffold(
           key: pageKey,
-          backgroundColor: HomiziColors.white,
+          backgroundColor: HomiziColors.cream,
           appBar: AppBar(
             automaticallyImplyLeading: false,
-            backgroundColor: HomiziColors.white,
+            backgroundColor: HomiziColors.cream,
             surfaceTintColor: HomiziColors.white,
             leading: HomiziBackButton(
               key: const Key('broker-flow-back'),

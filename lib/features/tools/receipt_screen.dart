@@ -164,7 +164,7 @@ class _ReceiptScreenState extends ConsumerState<ReceiptScreen> {
   Widget build(BuildContext context) {
     final years = [for (var year = 2025; year <= 2028; year++) year];
     return Scaffold(
-      backgroundColor: HomiziColors.white,
+      backgroundColor: HomiziColors.cream,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: const HomiziBackButton(),

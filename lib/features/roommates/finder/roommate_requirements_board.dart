@@ -69,7 +69,7 @@ class _RoommateRequirementsBoardState extends State<RoommateRequirementsBoard> {
     }
     final picked = await showModalBottomSheet<RoommateAskId>(
       context: context,
-      backgroundColor: HomiziColors.white,
+      backgroundColor: HomiziColors.cream,
       builder: (context) => SafeArea(
         child: ListView(
           key: const Key('roommate-add-sheet'),
@@ -110,7 +110,7 @@ class _RoommateRequirementsBoardState extends State<RoommateRequirementsBoard> {
     final next = await showModalBottomSheet<RoommateAsk>(
       context: context,
       isScrollControlled: true,
-      backgroundColor: HomiziColors.white,
+      backgroundColor: HomiziColors.cream,
       builder: (context) => _AskEditSheet(
         value: _draft,
         id: id,

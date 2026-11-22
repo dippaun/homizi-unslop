@@ -65,7 +65,7 @@ class _RoomShareStartState extends ConsumerState<RoomShareStart> {
           Text(
             homiziText(context, 'What are you sharing?'),
             style: const TextStyle(
-              fontFamily: 'PlusJakartaSans',
+              fontFamily: 'Poppins',
               fontSize: 24,
               fontWeight: FontWeight.w600,
               color: HomiziColors.ink,

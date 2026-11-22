@@ -58,7 +58,7 @@ class PostPropertyBar extends StatelessWidget implements PreferredSizeWidget {
     }
     return AppBar(
       automaticallyImplyLeading: false,
-      backgroundColor: HomiziColors.white,
+      backgroundColor: HomiziColors.cream,
       surfaceTintColor: HomiziColors.white,
       elevation: 0,
       leadingWidth: 64,
@@ -177,7 +177,7 @@ class PostPropertyPage extends StatelessWidget {
     return FlowAccentScope(
       child: Scaffold(
         key: pageKey,
-        backgroundColor: HomiziColors.white,
+        backgroundColor: HomiziColors.cream,
         appBar: PostPropertyBar(onBack: onBack, showAccount: showAccount),
         body: PageBackground(
           variant: pageVariantFor('post-property'),

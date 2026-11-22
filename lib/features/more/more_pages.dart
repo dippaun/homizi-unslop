@@ -99,7 +99,7 @@ class _ServiceInfoScreenState extends ConsumerState<ServiceInfoScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: Key('service-info-${widget.id}'),
-      backgroundColor: HomiziColors.white,
+      backgroundColor: HomiziColors.cream,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: const HomiziBackButton(),
@@ -219,7 +219,7 @@ class MyServicesScreen extends ConsumerWidget {
     final remote = ref.watch(_myLeadsProvider);
     return Scaffold(
       key: const Key('my-services-screen'),
-      backgroundColor: HomiziColors.white,
+      backgroundColor: HomiziColors.cream,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: const HomiziBackButton(),
@@ -297,7 +297,7 @@ class AboutHomiziScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       key: const Key('about-homizi'),
-      backgroundColor: HomiziColors.white,
+      backgroundColor: HomiziColors.cream,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: const HomiziBackButton(),

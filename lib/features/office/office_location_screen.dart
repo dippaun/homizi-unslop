@@ -206,7 +206,7 @@ class _OfficeLocationScreenState extends ConsumerState<OfficeLocationScreen> {
     final offices = ref.watch(officeRepositoryProvider).offices;
     return Scaffold(
       key: const Key('office-location-screen'),
-      backgroundColor: HomiziColors.white,
+      backgroundColor: HomiziColors.cream,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: const HomiziBackButton(),
@@ -231,7 +231,7 @@ class _OfficeLocationScreenState extends ConsumerState<OfficeLocationScreen> {
                         const Text(
                           'Live closer to what matters',
                           style: TextStyle(
-                            fontFamily: 'PlusJakartaSans',
+                            fontFamily: 'Poppins',
                             fontSize: 22,
                             fontWeight: FontWeight.w600,
                             color: HomiziColors.ink,
@@ -459,7 +459,7 @@ class OfficeSavedScreen extends StatelessWidget {
         : 'Saved on this device. It syncs to your profile when the office table is applied.';
     return Scaffold(
       key: const Key('office-saved-screen'),
-      backgroundColor: HomiziColors.white,
+      backgroundColor: HomiziColors.cream,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: const HomiziBackButton(),
@@ -482,7 +482,7 @@ class OfficeSavedScreen extends StatelessWidget {
                   Text(
                     label,
                     style: const TextStyle(
-                      fontFamily: 'PlusJakartaSans',
+                      fontFamily: 'Poppins',
                       fontSize: 22,
                       fontWeight: FontWeight.w600,
                       color: HomiziColors.ink,

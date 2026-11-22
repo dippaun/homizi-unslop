@@ -81,7 +81,7 @@ Future<FramedPhoto> framePhoto({
     isDismissible: false,
     enableDrag: false,
     useRootNavigator: true,
-    backgroundColor: HomiziColors.white,
+    backgroundColor: HomiziColors.cream,
     builder: (sheetContext) {
       final height = MediaQuery.sizeOf(sheetContext).height;
       return SizedBox(
@@ -346,7 +346,7 @@ class _PhotoCropSheetState extends State<_PhotoCropSheet> {
       canPop: !_saving,
       child: Scaffold(
         key: const Key('photo-crop-sheet'),
-        backgroundColor: HomiziColors.white,
+        backgroundColor: HomiziColors.cream,
         body: Column(
           children: [
             SafeArea(
@@ -517,7 +517,7 @@ class _PhotoCropSheetState extends State<_PhotoCropSheet> {
               showCheckmark: false,
               onSelected: _saving ? null : (_) => _select(aspect),
               selectedColor: HomiziColors.logoOrange.withValues(alpha: 0.10),
-              backgroundColor: HomiziColors.white,
+              backgroundColor: HomiziColors.cream,
               labelStyle: const TextStyle(
                 color: HomiziColors.ink,
                 fontWeight: FontWeight.w600,

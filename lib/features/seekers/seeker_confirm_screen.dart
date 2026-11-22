@@ -23,11 +23,11 @@ class SeekerConfirmScreen extends StatelessWidget {
     final theme = Theme.of(context);
     return Scaffold(
       key: const Key('seeker-confirm'),
-      backgroundColor: HomiziColors.white,
+      backgroundColor: HomiziColors.cream,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: const HomiziBackButton(),
-        backgroundColor: HomiziColors.white,
+        backgroundColor: HomiziColors.cream,
         foregroundColor: HomiziColors.ink,
         elevation: 0,
       ),

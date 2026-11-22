@@ -160,11 +160,11 @@ class SignInContinuePage extends ConsumerWidget {
     return MinTouchScope(
       child: Scaffold(
         key: const Key('sign-in-gate'),
-        backgroundColor: HomiziColors.white,
+        backgroundColor: HomiziColors.cream,
         appBar: AppBar(
           automaticallyImplyLeading: false,
           leading: const HomiziBackButton(),
-          backgroundColor: HomiziColors.white,
+          backgroundColor: HomiziColors.cream,
           surfaceTintColor: HomiziColors.white,
           elevation: 0,
         ),

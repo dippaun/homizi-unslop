@@ -73,7 +73,7 @@ class _SeekerPreviewScreenState extends ConsumerState<SeekerPreviewScreen> {
       backgroundColor: HomiziColors.soft,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: HomiziColors.white,
+        backgroundColor: HomiziColors.cream,
         foregroundColor: HomiziColors.ink,
         elevation: 0,
         leading: const HomiziBackButton(),
@@ -222,7 +222,7 @@ class _MissingSeeker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: HomiziColors.white,
+      backgroundColor: HomiziColors.cream,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: const HomiziBackButton(),
@@ -529,7 +529,7 @@ class _Tabs extends StatelessWidget {
                     fontSize: 12,
                   ),
                   selectedColor: HomiziColors.accentWash,
-                  backgroundColor: HomiziColors.white,
+                  backgroundColor: HomiziColors.cream,
                   side: BorderSide(
                     color: index == i ? HomiziColors.accent : HomiziColors.line,
                   ),
