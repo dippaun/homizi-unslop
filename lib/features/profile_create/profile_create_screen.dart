@@ -2400,7 +2400,7 @@ class _ProfileCreateScreenState extends ConsumerState<ProfileCreateScreen> {
               child: FilledButton(
                 key: const Key('profile-roommate-seeker-yes'),
                 style: FilledButton.styleFrom(
-                  backgroundColor: HomiziColors.logoOrange,
+                  backgroundColor: HomiziColors.brandRedOrange,
                   foregroundColor: HomiziColors.white,
                 ),
                 onPressed: _saving

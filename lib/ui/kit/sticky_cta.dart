@@ -11,9 +11,9 @@ class StickyCta extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: HomiziColors.white,
+      color: HomiziColors.cream,
       elevation: 8,
-      shadowColor: HomiziColors.shadowSoft,
+      shadowColor: HomiziColors.shadowWarm,
       child: SafeArea(
         top: false,
         child: Padding(

@@ -108,7 +108,7 @@ class _TrustBadgeSectionState extends ConsumerState<TrustBadgeSection> {
               : FilledButton.icon(
                   key: const Key('open-verification'),
                   style: FilledButton.styleFrom(
-                    backgroundColor: HomiziColors.logoOrange,
+                    backgroundColor: HomiziColors.brandRedOrange,
                     foregroundColor: HomiziColors.white,
                   ),
                   icon: const Icon(Icons.verified_user_outlined),

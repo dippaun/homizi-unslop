@@ -593,11 +593,13 @@ class _EdgePhoto extends StatelessWidget {
                   colors: [
                     fade,
                     fade,
-                    fade.withValues(alpha: 0.82),
-                    fade.withValues(alpha: 0.28),
+                    fade.withValues(alpha: 0.9),
+                    fade.withValues(alpha: 0.4),
                     fade.withValues(alpha: 0),
                   ],
-                  stops: const [0, 0.32, 0.52, 0.74, 1],
+                  // The copy runs to about 70% of the tile, so the wash
+                  // holds until then and the photo shows on the right.
+                  stops: const [0, 0.45, 0.68, 0.86, 1],
                 ),
               ),
             ),

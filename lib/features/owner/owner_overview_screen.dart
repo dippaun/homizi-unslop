@@ -118,12 +118,15 @@ class _OwnerOverviewScreenState extends ConsumerState<OwnerOverviewScreen> {
                               fontSize: 11,
                               letterSpacing: 1.6,
                               fontWeight: FontWeight.w700,
-                              color: HomiziColors.brandYellow,
+                              color: HomiziColors.haldiWash,
                             ),
                           ),
                           const SizedBox(height: 6),
                           Text(
-                            homiziText(context, '$_live live homes'),
+                            homiziText(
+                              context,
+                              _live == 1 ? '1 live home' : '$_live live homes',
+                            ),
                             style: const TextStyle(
                               fontFamily: 'Poppins',
                               fontSize: 26,

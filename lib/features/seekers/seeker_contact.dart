@@ -108,7 +108,7 @@ Future<void> showSeekerContactSheet(
             FilledButton(
               key: const Key('seeker-contact-chat'),
               style: FilledButton.styleFrom(
-                backgroundColor: HomiziColors.logoOrange,
+                backgroundColor: HomiziColors.brandRedOrange,
                 foregroundColor: HomiziColors.white,
                 minimumSize: const Size.fromHeight(46),
               ),
