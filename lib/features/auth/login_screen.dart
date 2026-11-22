@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:homizi/core/brand/homizi_mark.dart';
+import 'package:homizi/core/brand/indian_patterns.dart';
 import 'package:homizi/core/config/app_config.dart';
 import 'package:homizi/core/config/app_config_provider.dart';
 import 'package:homizi/core/l10n/translate.dart';
@@ -633,6 +634,56 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
         backgroundColor: HomiziColors.cream,
         body: Stack(
           children: [
+            // v2 layers: saffron glow, carved jaali, a kolam at the top
+            // corner and the filled city line behind the line-art skyline.
+            const Positioned.fill(
+              child: IgnorePointer(
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                    gradient: RadialGradient(
+                      center: Alignment(0.8, -1.1),
+                      radius: 1.2,
+                      colors: [HomiziColors.saffronWash, HomiziColors.cream],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            const Positioned.fill(
+              child: IgnorePointer(
+                child: CustomPaint(
+                  painter: JaaliPainter(opacity: 0.07, cell: 40),
+                ),
+              ),
+            ),
+            const Positioned(
+              right: -30,
+              top: -30,
+              width: 170,
+              height: 170,
+              child: IgnorePointer(
+                child: CustomPaint(
+                  painter: KolamPainter(
+                    color: HomiziColors.brandDeepOrange,
+                    gap: 22,
+                  ),
+                ),
+              ),
+            ),
+            const Positioned(
+              left: 0,
+              right: 0,
+              bottom: 0,
+              height: 110,
+              child: IgnorePointer(
+                child: CustomPaint(
+                  painter: IndianSkylinePainter(
+                    color: HomiziColors.brandOrange,
+                    opacity: 0.12,
+                  ),
+                ),
+              ),
+            ),
             const Positioned(
               left: 0,
               right: 0,
@@ -1341,20 +1392,24 @@ class _BrandLockup extends StatelessWidget {
             width: 72,
             height: 72,
             decoration: BoxDecoration(
-              color: HomiziColors.accentWash,
-              borderRadius: BorderRadius.circular(16),
+              gradient: HomiziGradients.action,
+              borderRadius: BorderRadius.circular(20),
+              boxShadow: const [
+                BoxShadow(
+                  color: HomiziColors.shadowWarm,
+                  blurRadius: 20,
+                  offset: Offset(0, 8),
+                ),
+              ],
             ),
             alignment: Alignment.center,
-            child: const HomiziSquareMark(
-              size: 40,
-              color: HomiziColors.logoOrange,
-            ),
+            child: const HomiziSquareMark(size: 40, color: HomiziColors.white),
           ),
           const SizedBox(height: 10),
           const Text(
             'HOMIZI',
             style: TextStyle(
-              fontFamily: 'PlusJakartaSans',
+              fontFamily: 'Poppins',
               fontSize: 18,
               fontWeight: FontWeight.w700,
               letterSpacing: 1.2,
@@ -1376,12 +1431,12 @@ class _AuthCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return DecoratedBox(
       decoration: BoxDecoration(
-        color: HomiziColors.white,
+        color: HomiziColors.white.withValues(alpha: 0.94),
         borderRadius: BorderRadius.circular(20),
         border: Border.all(color: HomiziColors.line),
         boxShadow: const [
           BoxShadow(
-            color: HomiziColors.shadow,
+            color: HomiziColors.shadowWarm,
             blurRadius: 24,
             offset: Offset(0, 10),
           ),

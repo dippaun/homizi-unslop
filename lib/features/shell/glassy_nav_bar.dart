@@ -74,11 +74,11 @@ class GlassyNavigationBar extends StatelessWidget {
       key: const Key('glassy-nav'),
       child: DecoratedBox(
         decoration: const BoxDecoration(
-          color: HomiziColors.white,
+          color: HomiziColors.cream,
           border: Border(top: BorderSide(color: HomiziColors.line)),
           boxShadow: [
             BoxShadow(
-              color: HomiziColors.shadowSoft,
+              color: HomiziColors.shadowWarm,
               blurRadius: 8,
               offset: Offset(0, -2),
             ),
@@ -91,6 +91,20 @@ class GlassyNavigationBar extends StatelessWidget {
             fit: StackFit.expand,
             children: [
               IgnorePointer(child: _NavVeil(inset: inset)),
+              // v2: a thin sunrise rule, yellow to red orange, along the top.
+              const Positioned(
+                left: 0,
+                right: 0,
+                top: 0,
+                height: 2,
+                child: IgnorePointer(
+                  child: DecoratedBox(
+                    decoration: BoxDecoration(
+                      gradient: HomiziGradients.sunrise,
+                    ),
+                  ),
+                ),
+              ),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
@@ -120,8 +134,8 @@ class _NavVeil extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final row = HomiziColors.white.withValues(alpha: _rowVeil);
-    final chin = HomiziColors.white.withValues(alpha: _insetVeil);
+    final row = HomiziColors.cream.withValues(alpha: _rowVeil);
+    final chin = HomiziColors.cream.withValues(alpha: _insetVeil);
     final gradient = inset <= 0
         ? LinearGradient(colors: [row, row], stops: const [0, 1])
         : LinearGradient(
@@ -166,8 +180,9 @@ class _NavItemState extends State<_NavItem> {
 
   @override
   Widget build(BuildContext context) {
+    // v2: red orange clears 4.9:1 on cream at 11px; logo orange did not.
     final color = widget.selected
-        ? HomiziColors.logoOrange
+        ? HomiziColors.brandRedOrange
         : HomiziColors.ink.withValues(
             alpha: GlassyNavigationBar.inactiveOpacity,
           );
@@ -229,7 +244,10 @@ class _NavItemState extends State<_NavItem> {
                   const DecoratedBox(
                     decoration: BoxDecoration(
                       border: Border.fromBorderSide(
-                        BorderSide(color: HomiziColors.logoOrange, width: 2),
+                        BorderSide(
+                          color: HomiziColors.brandRedOrange,
+                          width: 2,
+                        ),
                       ),
                     ),
                     child: SizedBox.expand(),
@@ -243,15 +261,29 @@ class _NavItemState extends State<_NavItem> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Center(
-                            child: SizedBox(
-                              width: GlassyNavigationBar.iconSize,
-                              height: GlassyNavigationBar.iconSize,
-                              child: IconTheme(
-                                data: IconThemeData(
-                                  color: color,
-                                  size: GlassyNavigationBar.iconSize,
+                            child: AnimatedContainer(
+                              duration: hoverDuration,
+                              curve: Curves.easeOutCubic,
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 12,
+                                vertical: 2,
+                              ),
+                              decoration: BoxDecoration(
+                                color: widget.selected
+                                    ? HomiziColors.saffronWash
+                                    : HomiziColors.clear,
+                                borderRadius: BorderRadius.circular(999),
+                              ),
+                              child: SizedBox(
+                                width: GlassyNavigationBar.iconSize,
+                                height: GlassyNavigationBar.iconSize,
+                                child: IconTheme(
+                                  data: IconThemeData(
+                                    color: color,
+                                    size: GlassyNavigationBar.iconSize,
+                                  ),
+                                  child: iconWidget,
                                 ),
-                                child: iconWidget,
                               ),
                             ),
                           ),

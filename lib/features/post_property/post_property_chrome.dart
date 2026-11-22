@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:homizi/core/brand/homizi_mark.dart';
+import 'package:homizi/core/brand/indian_patterns.dart';
 import 'package:homizi/core/l10n/translate.dart';
 import 'package:homizi/core/routing/route_paths.dart';
 import 'package:homizi/core/theme/flow_accent.dart';
 import 'package:homizi/core/theme/homizi_colors.dart';
+import 'package:homizi/core/theme/role_palette.dart';
 import 'package:homizi/core/widgets/homizi_back.dart';
 import 'package:homizi/core/widgets/homizi_tab_header.dart';
 import 'package:homizi/ui/kit/kit.dart';
@@ -27,9 +29,10 @@ class PostPropertyBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    final palette = HomiziRoleScope.of(context);
     if (showAccount) {
       return Material(
-        color: HomiziColors.white,
+        color: palette.wash,
         child: SafeArea(
           bottom: false,
           child: HomiziTabHeader(
@@ -58,10 +61,14 @@ class PostPropertyBar extends StatelessWidget implements PreferredSizeWidget {
     }
     return AppBar(
       automaticallyImplyLeading: false,
-      backgroundColor: HomiziColors.cream,
-      surfaceTintColor: HomiziColors.white,
+      backgroundColor: palette.wash,
+      surfaceTintColor: palette.wash,
       elevation: 0,
       leadingWidth: 64,
+      flexibleSpace: Align(
+        alignment: Alignment.bottomCenter,
+        child: BlockPrintBorder(color: palette.ink, height: 6, opacity: 0.35),
+      ),
       leading: Padding(
         padding: const EdgeInsets.only(left: 12),
         child: _RoundIconButton(

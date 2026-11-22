@@ -213,22 +213,29 @@ class _AnimatedMatchRingState extends State<AnimatedMatchRing>
         final t = reduce ? 1.0 : Curves.easeOutCubic.transform(_sweep.value);
         final value = widget.percent;
         final shown = value == null ? null : (value * t).round();
+        // v2: the ring settles with a small overshoot as the sweep lands.
+        final pop = reduce
+            ? 1.0
+            : 0.9 + 0.1 * Curves.easeOutBack.transform(_sweep.value);
         return SizedBox(
           width: widget.size,
           height: widget.size,
-          child: CustomPaint(
-            painter: _MatchRingPainter(
-              fraction: value == null ? 0 : (value.clamp(0, 100) / 100) * t,
-              color: value == null ? HomiziColors.muted : tone.bar,
-            ),
-            child: Center(
-              child: Text(
-                shown == null ? '—' : '$shown%',
-                key: widget.labelKey,
-                style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                  fontFamily: 'PlusJakartaSans',
-                  color: value == null ? HomiziColors.muted : tone.bar,
-                  fontWeight: FontWeight.w600,
+          child: Transform.scale(
+            scale: pop,
+            child: CustomPaint(
+              painter: _MatchRingPainter(
+                fraction: value == null ? 0 : (value.clamp(0, 100) / 100) * t,
+                color: value == null ? HomiziColors.muted : tone.bar,
+              ),
+              child: Center(
+                child: Text(
+                  shown == null ? '—' : '$shown%',
+                  key: widget.labelKey,
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                    fontFamily: 'PlusJakartaSans',
+                    color: value == null ? HomiziColors.muted : tone.bar,
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
               ),
             ),
@@ -258,6 +265,14 @@ class _MatchRingPainter extends CustomPainter {
     if (fraction <= 0) {
       return;
     }
+    // Soft glow under the arc, then the arc itself.
+    final glow = Paint()
+      ..color = color.withValues(alpha: 0.28)
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = stroke * 1.8
+      ..strokeCap = StrokeCap.round
+      ..maskFilter = MaskFilter.blur(BlurStyle.normal, stroke * 0.6);
+    canvas.drawArc(rect, -math.pi / 2, math.pi * 2 * fraction, false, glow);
     final paint = Paint()
       ..color = color
       ..style = PaintingStyle.stroke

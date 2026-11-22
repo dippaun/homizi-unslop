@@ -2,11 +2,15 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:homizi/core/brand/indian_patterns.dart';
 import 'package:homizi/core/l10n/translate.dart';
 import 'package:homizi/core/theme/homizi_colors.dart';
+import 'package:homizi/core/theme/role_palette.dart';
 import 'package:homizi/features/roles/role_flow.dart';
 import 'package:homizi/features/roles/role_onboarding_widgets.dart';
 import 'package:homizi/features/session/session_controller.dart';
+import 'package:homizi/ui/kit/hero_band.dart';
+import 'package:homizi/ui/kit/motion_kit.dart';
 
 class _RoleOption {
   const _RoleOption({
@@ -15,8 +19,14 @@ class _RoleOption {
     required this.detail,
     required this.icon,
     required this.cardKey,
+    required this.palette,
+    this.kinds = const [],
   });
 
+  final HomiziRolePalette palette;
+
+  /// Every profile this way in covers, as role chips.
+  final List<(String, HomiziRolePalette)> kinds;
   final String wire;
   final String title;
   final String detail;
@@ -31,6 +41,12 @@ const _options = <_RoleOption>[
     detail: 'Find a home to rent in your city.',
     icon: Icons.apartment_outlined,
     cardKey: Key('role-card-tenant'),
+    palette: HomiziRolePalette.tenant,
+    kinds: [
+      ('Tenant', HomiziRolePalette.tenant),
+      ('Family', HomiziRolePalette.tenant),
+      ('Student', HomiziRolePalette.tenant),
+    ],
   ),
   _RoleOption(
     wire: 'host',
@@ -38,6 +54,12 @@ const _options = <_RoleOption>[
     detail: 'List a home and hear from tenants.',
     icon: Icons.vpn_key_outlined,
     cardKey: Key('role-card-host'),
+    palette: HomiziRolePalette.owner,
+    kinds: [
+      ('Owner', HomiziRolePalette.owner),
+      ('PG owner', HomiziRolePalette.pg),
+      ('Company', HomiziRolePalette.company),
+    ],
   ),
   _RoleOption(
     wire: 'broker',
@@ -45,6 +67,11 @@ const _options = <_RoleOption>[
     detail: 'Broker or agent for seekers and owners.',
     icon: Icons.badge_outlined,
     cardKey: Key('role-card-broker'),
+    palette: HomiziRolePalette.broker,
+    kinds: [
+      ('Broker', HomiziRolePalette.broker),
+      ('Channel partner', HomiziRolePalette.broker),
+    ],
   ),
   _RoleOption(
     wire: 'roommate',
@@ -52,6 +79,11 @@ const _options = <_RoleOption>[
     detail: 'You have a room and want a flatmate.',
     icon: Icons.groups_outlined,
     cardKey: Key('role-card-roommate'),
+    palette: HomiziRolePalette.sharer,
+    kinds: [
+      ('Room sharer', HomiziRolePalette.sharer),
+      ('Flatmate', HomiziRolePalette.roommate),
+    ],
   ),
 ];
 
@@ -111,11 +143,16 @@ class _RoleOnboardingScreenState extends ConsumerState<RoleOnboardingScreen> {
             'Pick one way in. You can change it later from Profile.',
           ),
           const SizedBox(height: 20),
-          for (final option in _options) ...[
-            _RoleCard(
-              option: option,
-              selected: _selected == option.wire,
-              onTap: () => setState(() => _selected = option.wire),
+          for (final (index, option) in _options.indexed) ...[
+            HomiziStaggerIn(
+              index: index,
+              child: HomiziPressable(
+                child: _RoleCard(
+                  option: option,
+                  selected: _selected == option.wire,
+                  onTap: () => setState(() => _selected = option.wire),
+                ),
+              ),
             ),
             const SizedBox(height: 12),
           ],
@@ -149,58 +186,107 @@ class _RoleCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final title = homiziText(context, option.title);
     final detail = homiziText(context, option.detail);
-    return Material(
-      color: selected ? HomiziColors.accentWash : HomiziColors.white,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
-        side: BorderSide(
-          color: selected ? HomiziColors.logoOrange : HomiziColors.line,
-          width: selected ? 2 : 1,
-        ),
+    final p = option.palette;
+    final duration = MediaQuery.disableAnimationsOf(context)
+        ? Duration.zero
+        : const Duration(milliseconds: 200);
+    return AnimatedContainer(
+      duration: duration,
+      curve: Curves.easeOutCubic,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(18),
+        boxShadow: [
+          BoxShadow(
+            color: selected
+                ? p.accent.withValues(alpha: 0.3)
+                : HomiziColors.shadowWarm,
+            blurRadius: selected ? 18 : 10,
+            offset: const Offset(0, 6),
+          ),
+        ],
       ),
-      child: InkWell(
-        key: option.cardKey,
-        borderRadius: BorderRadius.circular(16),
-        onTap: onTap,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
-          child: Row(
+      child: Material(
+        color: selected ? p.wash : HomiziColors.white,
+        clipBehavior: Clip.antiAlias,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(18),
+          side: BorderSide(
+            color: selected ? p.accent : p.accent.withValues(alpha: 0.35),
+            width: selected ? 2 : 1,
+          ),
+        ),
+        child: InkWell(
+          key: option.cardKey,
+          onTap: onTap,
+          child: Stack(
             children: [
-              CircleAvatar(
-                radius: 26,
-                backgroundColor: HomiziColors.cream,
-                child: Icon(option.icon, color: HomiziColors.logoOrange),
-              ),
-              const SizedBox(width: 16),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+              if (selected)
+                Positioned(
+                  right: -26,
+                  bottom: -26,
+                  width: 110,
+                  height: 110,
+                  child: IgnorePointer(
+                    child: CustomPaint(
+                      painter: KolamPainter(color: p.ink, opacity: 0.16),
+                    ),
+                  ),
+                ),
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 18,
+                ),
+                child: Row(
                   children: [
-                    Text(
-                      title,
-                      style: const TextStyle(
-                        fontFamily: 'PlusJakartaSans',
-                        fontWeight: FontWeight.w600,
-                        fontSize: 16,
-                        color: HomiziColors.ink,
+                    HomiziRoleIcon(option.icon, palette: p, size: 52),
+                    const SizedBox(width: 16),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            title,
+                            style: const TextStyle(
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w600,
+                              fontSize: 16,
+                              color: HomiziColors.ink,
+                            ),
+                          ),
+                          const SizedBox(height: 4),
+                          Text(
+                            detail,
+                            style: const TextStyle(
+                              fontFamily: 'Inter',
+                              fontSize: 13,
+                              height: 1.35,
+                              color: HomiziColors.inkSoft,
+                            ),
+                          ),
+                          if (option.kinds.isNotEmpty) ...[
+                            const SizedBox(height: 8),
+                            Wrap(
+                              spacing: 6,
+                              runSpacing: 6,
+                              children: [
+                                for (final (label, palette) in option.kinds)
+                                  HomiziRoleChip(
+                                    label: homiziText(context, label),
+                                    palette: palette,
+                                  ),
+                              ],
+                            ),
+                          ],
+                        ],
                       ),
                     ),
-                    const SizedBox(height: 4),
-                    Text(
-                      detail,
-                      style: const TextStyle(
-                        fontFamily: 'Inter',
-                        fontSize: 13,
-                        height: 1.35,
-                        color: HomiziColors.inkSoft,
-                      ),
+                    Icon(
+                      selected ? Icons.check_circle : Icons.circle_outlined,
+                      color: selected ? p.ink : HomiziColors.muted,
                     ),
                   ],
                 ),
-              ),
-              Icon(
-                selected ? Icons.check_circle : Icons.circle_outlined,
-                color: selected ? HomiziColors.logoOrange : HomiziColors.muted,
               ),
             ],
           ),
