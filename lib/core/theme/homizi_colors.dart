@@ -27,6 +27,19 @@ abstract final class HomiziColors {
   static const Color warmWash = Color(0xFFFFF1E8);
 
   static const Color white = Color(0xFFFFFFFF);
+
+  /// Warm Indian page tones (v2). Saffron cream is the app background;
+  /// haldi and terracotta tint role sections; maroon carries deep bands.
+  static const Color cream = Color(0xFFFFF8EC);
+  static const Color creamDeep = Color(0xFFFCEFD9);
+  static const Color haldiWash = Color(0xFFFFF0C2);
+  static const Color saffronWash = Color(0xFFFFE6C7);
+  static const Color terracottaWash = Color(0xFFFBE1D5);
+  static const Color maroonWash = Color(0xFFF7DDD8);
+  static const Color maroon = Color(0xFF5C1008);
+
+  /// Warm hairline on cream.
+  static const Color creamLine = Color(0xFFF0DFC4);
   static const Color surface = white;
 
   /// Warm off-white page background. Cards sit on it in white.
@@ -71,6 +84,9 @@ abstract final class HomiziColors {
   static const Color shadow = Color(0x12172033);
   static const Color shadowSoft = Color(0x0D172033);
   static const Color shadowStrong = Color(0x1F172033);
+
+  /// Warm terracotta shadow for cards on cream (v2).
+  static const Color shadowWarm = Color(0x29A92310);
   static const Color shadowNight = Color(0x66000000);
 
   static const Color accentDisabled = Color(0x7AF47B0B);
@@ -105,8 +121,38 @@ abstract final class HomiziColors {
 /// The one gradient in the app. Orange into red, only on the primary
 /// action of a screen (Continue, Verify, Message, Interested).
 abstract final class HomiziGradients {
+  /// Primary CTA (v2): red orange into deep red. White type clears
+  /// 5.2:1 at the light end.
   static const LinearGradient action = LinearGradient(
-    colors: [HomiziColors.logoOrange, HomiziColors.brandRedOrange],
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: [HomiziColors.brandRedOrange, HomiziColors.brandDeepRed],
+  );
+
+  /// Haldi-to-saffron band. Ink type only (never white on yellow).
+  static const LinearGradient saffron = LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: [HomiziColors.brandYellow, HomiziColors.brandGolden],
+  );
+
+  /// Decorative sunrise strip for rules and rings, no text on it.
+  static const LinearGradient sunrise = LinearGradient(
+    colors: [
+      HomiziColors.brandYellow,
+      HomiziColors.brandGolden,
+      HomiziColors.brandOrange,
+      HomiziColors.brandDeepOrange,
+      HomiziColors.brandVermilion,
+      HomiziColors.brandRedOrange,
+    ],
+  );
+
+  /// Deep maroon section (testimonials, trust): white type 9.6:1+.
+  static const LinearGradient maroon = LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: [HomiziColors.brandDarkRed, HomiziColors.maroon],
   );
 }
 

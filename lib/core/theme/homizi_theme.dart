@@ -16,10 +16,13 @@ abstract final class HomiziTheme {
   static TextTheme _type(TextTheme base) {
     final headings = GoogleFonts.plusJakartaSansTextTheme(base);
     final reading = GoogleFonts.interTextTheme(headings);
+    // v2: Poppins carries display and headline sizes (bundled, OFL).
     TextStyle? display(TextStyle? style) {
       return style?.copyWith(
+        fontFamily: 'Poppins',
         color: HomiziColors.ink,
         fontWeight: FontWeight.w600,
+        letterSpacing: -0.4,
       );
     }
 
@@ -174,23 +177,27 @@ abstract final class HomiziTheme {
       onSecondaryContainer: HomiziColors.ink,
       outline: HomiziColors.line,
       outlineVariant: HomiziColors.line,
-      surface: HomiziColors.white,
+      surface: HomiziColors.cream,
       onSurface: HomiziColors.ink,
       onSurfaceVariant: HomiziColors.muted,
-      surfaceTint: HomiziColors.white,
+      surfaceTint: HomiziColors.cream,
       surfaceContainerLowest: HomiziColors.white,
-      surfaceContainerLow: HomiziColors.white,
-      surfaceContainer: HomiziColors.white,
-      surfaceContainerHigh: HomiziColors.white,
-      surfaceContainerHighest: HomiziColors.mist,
+      surfaceContainerLow: HomiziColors.cream,
+      surfaceContainer: HomiziColors.cream,
+      surfaceContainerHigh: HomiziColors.creamDeep,
+      surfaceContainerHighest: HomiziColors.creamDeep,
+      secondary: HomiziColors.brandRedOrange,
+      onSecondary: HomiziColors.white,
+      tertiary: HomiziColors.brandDeepRed,
+      onTertiary: HomiziColors.white,
       inverseSurface: HomiziColors.ink,
       onInverseSurface: HomiziColors.white,
     );
     final base = ThemeData(
       useMaterial3: true,
       colorScheme: scheme,
-      scaffoldBackgroundColor: HomiziColors.soft,
-      canvasColor: HomiziColors.white,
+      scaffoldBackgroundColor: HomiziColors.cream,
+      canvasColor: HomiziColors.cream,
     );
     final text = _type(base.textTheme);
     return base.copyWith(
@@ -198,9 +205,9 @@ abstract final class HomiziTheme {
       textTheme: text,
       primaryTextTheme: _type(base.primaryTextTheme),
       appBarTheme: AppBarTheme(
-        backgroundColor: HomiziColors.white,
+        backgroundColor: HomiziColors.cream,
         foregroundColor: HomiziColors.ink,
-        surfaceTintColor: HomiziColors.white,
+        surfaceTintColor: HomiziColors.cream,
         elevation: 0,
         scrolledUnderElevation: 3,
         centerTitle: false,
@@ -208,13 +215,13 @@ abstract final class HomiziTheme {
         titleTextStyle: text.titleLarge?.copyWith(color: HomiziColors.ink),
       ),
       navigationBarTheme: const NavigationBarThemeData(
-        backgroundColor: HomiziColors.white,
-        surfaceTintColor: HomiziColors.white,
-        indicatorColor: HomiziColors.accentWash,
+        backgroundColor: HomiziColors.cream,
+        surfaceTintColor: HomiziColors.cream,
+        indicatorColor: HomiziColors.saffronWash,
         height: 80,
         elevation: 3,
       ),
-      dialogTheme: const DialogThemeData(backgroundColor: HomiziColors.white),
+      dialogTheme: const DialogThemeData(backgroundColor: HomiziColors.cream),
       snackBarTheme: const SnackBarThemeData(
         behavior: SnackBarBehavior.floating,
       ),
@@ -230,12 +237,12 @@ abstract final class HomiziTheme {
       cardTheme: const CardThemeData(
         color: HomiziColors.white,
         surfaceTintColor: Colors.transparent,
-        shadowColor: HomiziColors.shadow,
+        shadowColor: HomiziColors.shadowWarm,
         clipBehavior: Clip.antiAlias,
-        elevation: 0,
+        elevation: 1,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(HomiziRadius.card)),
-          side: BorderSide(color: HomiziColors.line),
+          side: BorderSide(color: HomiziColors.creamLine),
         ),
       ),
       filledButtonTheme: FilledButtonThemeData(style: _filled),
@@ -245,7 +252,7 @@ abstract final class HomiziTheme {
       iconButtonTheme: IconButtonThemeData(style: _icon),
       inputDecorationTheme: const InputDecorationTheme(
         filled: true,
-        fillColor: HomiziColors.mist,
+        fillColor: HomiziColors.white,
         contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
         hintStyle: TextStyle(
           fontFamily: 'Inter',
@@ -264,11 +271,11 @@ abstract final class HomiziTheme {
         ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(HomiziRadius.control)),
-          borderSide: BorderSide.none,
+          borderSide: BorderSide(color: HomiziColors.creamLine),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(HomiziRadius.control)),
-          borderSide: BorderSide.none,
+          borderSide: BorderSide(color: HomiziColors.creamLine),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(HomiziRadius.control)),
@@ -276,8 +283,8 @@ abstract final class HomiziTheme {
         ),
       ),
       chipTheme: const ChipThemeData(
-        backgroundColor: HomiziColors.mist,
-        selectedColor: HomiziColors.accentWash,
+        backgroundColor: HomiziColors.creamDeep,
+        selectedColor: HomiziColors.saffronWash,
         disabledColor: HomiziColors.mist,
         labelStyle: TextStyle(
           fontFamily: 'Inter',
@@ -303,7 +310,7 @@ abstract final class HomiziTheme {
         contentPadding: EdgeInsets.symmetric(horizontal: 16),
       ),
       dividerTheme: const DividerThemeData(
-        color: HomiziColors.line,
+        color: HomiziColors.creamLine,
         space: 16,
         thickness: 1,
       ),
