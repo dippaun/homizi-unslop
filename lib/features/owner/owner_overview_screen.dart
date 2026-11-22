@@ -229,16 +229,24 @@ class _Stat extends StatelessWidget {
   Widget build(BuildContext context) {
     // Glass chip on the owner hero: white type on red orange to dark red
     // clears 5.2:1.
-    return Chip(
-      label: Text(homiziText(context, label)),
-      labelStyle: const TextStyle(
-        fontFamily: 'Inter',
-        fontSize: 13,
-        fontWeight: FontWeight.w600,
-        color: HomiziColors.white,
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        color: HomiziColors.white.withValues(alpha: 0.14),
+        borderRadius: BorderRadius.circular(999),
+        border: Border.all(color: HomiziColors.white.withValues(alpha: 0.45)),
       ),
-      backgroundColor: HomiziColors.white.withValues(alpha: 0.14),
-      side: BorderSide(color: HomiziColors.white.withValues(alpha: 0.45)),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+        child: Text(
+          homiziText(context, label),
+          style: const TextStyle(
+            fontFamily: 'Inter',
+            fontSize: 13,
+            fontWeight: FontWeight.w600,
+            color: HomiziColors.white,
+          ),
+        ),
+      ),
     );
   }
 }
