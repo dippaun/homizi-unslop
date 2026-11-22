@@ -80,13 +80,13 @@ void main() {
 
     await open();
     await shoot('01-tenant-priorities');
-    await tester.scrollUntilVisible(find.text('How It Works'), 500);
+    await tester.scrollUntilVisible(find.text('How it works'), 500);
     await tester.pump(const Duration(milliseconds: 50));
     await shoot('02-tenant-how-it-works');
 
     await open(role: HomiziRole.host);
     await shoot('03-host-priorities');
-    await tester.scrollUntilVisible(find.text('How It Works'), 500);
+    await tester.scrollUntilVisible(find.text('How it works'), 500);
     await tester.pump(const Duration(milliseconds: 50));
     await shoot('04-host-how-it-works');
 

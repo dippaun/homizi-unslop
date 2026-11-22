@@ -15,7 +15,7 @@ String finderHeadline(int? percent) {
     return 'Set preferences to see your match';
   }
   if (matchStrength(percent) == MatchStrength.strong && percent >= 85) {
-    return 'Great Match!';
+    return 'Strong match';
   }
   return matchStrengthLabel(matchStrength(percent));
 }

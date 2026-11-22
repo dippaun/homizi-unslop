@@ -1271,7 +1271,7 @@ class _ProfileCreateScreenState extends ConsumerState<ProfileCreateScreen> {
         ),
       );
     }
-    final title = _showDone ? 'Profile Completed!' : _stepTitles[_step];
+    final title = _showDone ? 'Profile complete' : _stepTitles[_step];
     final detail = _showDone
         ? 'Your profile is verified and ready to use Homizi.'
         : _stepDetails[_step];

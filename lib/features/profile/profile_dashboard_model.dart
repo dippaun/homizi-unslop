@@ -72,7 +72,7 @@ class ProfileCompleteness {
       return 'Profile complete';
     }
     if (percent >= 80) {
-      return 'Almost there! Complete your profile to get 3+ more matches.';
+      return 'Complete your profile to see more matches';
     }
     return 'Complete your profile to get better matches.';
   }

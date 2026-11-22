@@ -192,7 +192,7 @@ void main() {
     expect(app.remote.sent, isEmpty, reason: 'samples send nothing');
     expect(decodeJoinRequests(app.local.values[joinRequestsKey]), hasLength(1));
     await _tap(tester, 'join-sample-reply');
-    expect(find.text('You & Rohit S. are a match!'), findsOneWidget);
+    expect(find.text('You & Rohit S. are a match'), findsOneWidget);
     expect(find.byKey(const Key('join-chat-note')), findsOneWidget);
     await _tap(tester, 'join-continue-home');
     expect(find.text('Your shared home'), findsOneWidget);

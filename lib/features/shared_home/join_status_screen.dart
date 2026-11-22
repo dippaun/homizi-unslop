@@ -90,7 +90,7 @@ class _JoinStatusScreenState extends ConsumerState<JoinStatusScreen> {
         : ref.watch(sharedHomesProvider).byId(request.homeId);
     final title = switch (request?.status) {
       JoinStatus.accepted =>
-        _showHome ? 'Your shared home' : 'Request accepted!',
+        _showHome ? 'Your shared home' : 'Request accepted',
       JoinStatus.movedIn => 'Welcome home',
       JoinStatus.declined => 'Request declined',
       JoinStatus.withdrawn => 'Request withdrawn',
@@ -258,7 +258,7 @@ class _JoinStatusScreenState extends ConsumerState<JoinStatusScreen> {
       ),
       const SizedBox(height: 16),
       Text(
-        '${homiziText(context, 'You')} & ${request.hostName} ${homiziText(context, 'are a match!')}',
+        '${homiziText(context, 'You')} & ${request.hostName} ${homiziText(context, 'are a match')}',
         key: const Key('join-accepted'),
         textAlign: TextAlign.center,
         style: text.headlineSmall?.copyWith(
@@ -427,7 +427,7 @@ class _JoinStatusScreenState extends ConsumerState<JoinStatusScreen> {
       const ShDoneMark(),
       const SizedBox(height: 16),
       Text(
-        homiziText(context, 'You are moving in!'),
+        homiziText(context, 'You are moving in'),
         key: const Key('join-moved-in'),
         textAlign: TextAlign.center,
         style: text.headlineSmall?.copyWith(

@@ -277,7 +277,7 @@ void main() {
     await tester.pump(const Duration(milliseconds: 200));
 
     expect(find.byKey(const Key('post-partner-success')), findsOneWidget);
-    expect(find.text('Registration Successful!'), findsOneWidget);
+    expect(find.text('Registration complete'), findsOneWidget);
     final id = tester.widget<Text>(
       find.byKey(const Key('post-application-id')),
     );

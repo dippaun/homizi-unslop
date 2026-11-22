@@ -172,7 +172,7 @@ class PartnerSuccessScreen extends ConsumerWidget {
           ),
           const SizedBox(height: 12),
           Text(
-            homiziText(context, 'Registration Successful!'),
+            homiziText(context, 'Registration complete'),
             textAlign: TextAlign.center,
             style: const TextStyle(
               fontFamily: 'PlusJakartaSans',

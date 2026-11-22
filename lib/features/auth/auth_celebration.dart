@@ -211,7 +211,7 @@ class _AuthCelebrationState extends ConsumerState<AuthCelebration>
     final name = _name;
     final headline = first
         ? (name.isEmpty ? 'Welcome home' : 'Welcome home, $name')
-        : (name.isEmpty ? 'Welcome back!' : 'Welcome back, $name!');
+        : (name.isEmpty ? 'Welcome back' : 'Welcome back, $name');
     return Stack(
       fit: StackFit.expand,
       children: [

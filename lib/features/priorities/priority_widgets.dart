@@ -385,7 +385,7 @@ class PriorityHowItWorks extends StatelessWidget {
               borderRadius: BorderRadius.circular(20),
             ),
             child: Text(
-              homiziText(context, 'How It Works'),
+              homiziText(context, 'How it works'),
               style: const TextStyle(
                 color: HomiziColors.white,
                 fontWeight: FontWeight.w700,
