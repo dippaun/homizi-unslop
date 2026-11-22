@@ -702,5 +702,5 @@ IconData _habitIcon(String label) {
   if (label.contains('Work')) {
     return Icons.laptop_mac;
   }
-  return Icons.auto_awesome;
+  return Icons.handshake_outlined;
 }

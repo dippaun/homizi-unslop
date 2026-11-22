@@ -42,7 +42,7 @@ void main() {
         'roommate',
       ]),
     );
-    expect(empty.line, isNot('Profile complete ✓'));
+    expect(empty.line, isNot('Profile complete'));
 
     final ready = profileWizardCompleteness(
       draft: const ProfileCreateDraft(
@@ -80,7 +80,7 @@ void main() {
       aadhaarVerified: false,
     );
     expect(ready.percent, 100);
-    expect(ready.line, 'Profile complete ✓');
+    expect(ready.line, 'Profile complete');
     expect(ready.complete, isTrue);
     expect(ready.gaps, isEmpty);
 

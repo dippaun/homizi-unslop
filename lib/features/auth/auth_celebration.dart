@@ -210,7 +210,7 @@ class _AuthCelebrationState extends ConsumerState<AuthCelebration>
         gate.asData?.value == true;
     final name = _name;
     final headline = first
-        ? (name.isEmpty ? 'Welcome home! 🎉' : 'Welcome home, $name! 🎉')
+        ? (name.isEmpty ? 'Welcome home' : 'Welcome home, $name')
         : (name.isEmpty ? 'Welcome back!' : 'Welcome back, $name!');
     return Stack(
       fit: StackFit.expand,
@@ -323,7 +323,7 @@ class _AuthCelebrationState extends ConsumerState<AuthCelebration>
                       label: 'Verified people',
                       icon: Icons.verified_outlined,
                     ),
-                    _Chip(label: 'Smart matches', icon: Icons.auto_awesome),
+                    _Chip(label: 'Smart matches', icon: Icons.handshake_outlined),
                     _Chip(label: 'Private contact', icon: Icons.lock_outline),
                   ],
                 ),

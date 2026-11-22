@@ -81,7 +81,7 @@ class _ProfileGapsScreenState extends State<ProfileGapsScreen> {
             homiziText(
               context,
               score.complete
-                  ? 'Profile complete ✓'
+                  ? 'Profile complete'
                   : 'These are the only details still missing. Saved answers stay as they are.',
             ),
             style: const TextStyle(color: HomiziColors.inkSoft, height: 1.4),
@@ -91,7 +91,7 @@ class _ProfileGapsScreenState extends State<ProfileGapsScreen> {
             const ListTile(
               key: Key('profile-gaps-done'),
               leading: Icon(Icons.check_circle, color: HomiziColors.success),
-              title: Text('Profile complete ✓'),
+              title: Text('Profile complete'),
             )
           else
             for (final gap in gaps)

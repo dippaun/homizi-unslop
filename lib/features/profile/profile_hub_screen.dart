@@ -513,7 +513,7 @@ class _ProfileHubScreenState extends ConsumerState<ProfileHubScreen> {
                                     homiziText(
                                       context,
                                       score.complete
-                                          ? 'Profile complete ✓'
+                                          ? 'Profile complete'
                                           : '${score.percent}% ${score.line}',
                                     ),
                                     key: const Key('profile-completion'),

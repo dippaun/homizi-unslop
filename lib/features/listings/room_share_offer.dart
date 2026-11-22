@@ -224,7 +224,7 @@ class _EstimateCard extends StatelessWidget {
         children: [
           Row(
             children: [
-              const Icon(Icons.auto_awesome, color: HomiziColors.logoOrange),
+              const Icon(Icons.calculate_outlined, color: HomiziColors.logoOrange),
               const SizedBox(width: 8),
               Expanded(
                 child: Text(

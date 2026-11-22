@@ -258,7 +258,7 @@ class _Reasons extends StatelessWidget {
                 child: Row(
                   children: [
                     const Icon(
-                      Icons.auto_awesome,
+                      Icons.handshake_outlined,
                       size: 16,
                       color: HomiziColors.logoOrange,
                     ),

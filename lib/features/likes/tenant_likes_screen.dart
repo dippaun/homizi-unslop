@@ -121,7 +121,7 @@ class _TenantLikesScreenState extends ConsumerState<TenantLikesScreen> {
                       ),
                       CompartmentSpec(
                         tileKey: const Key('likes-tab-matches'),
-                        icon: Icons.auto_awesome,
+                        icon: Icons.handshake_outlined,
                         label: 'Matches',
                         count: matched,
                       ),

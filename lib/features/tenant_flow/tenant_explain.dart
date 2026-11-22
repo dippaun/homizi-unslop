@@ -209,7 +209,7 @@ class TenantPrioritiesExplainPage extends StatelessWidget {
               color: HomiziColors.mist,
             ),
             TenantPoint(
-              icon: Icons.auto_awesome,
+              icon: Icons.handshake_outlined,
               label: 'Get better matches',
               color: HomiziColors.accentWash,
             ),

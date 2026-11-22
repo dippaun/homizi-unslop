@@ -406,7 +406,7 @@ class _BetterMatches extends StatelessWidget {
         children: [
           Row(
             children: [
-              const Icon(Icons.auto_awesome, color: HomiziColors.success),
+              const Icon(Icons.handshake_outlined, color: HomiziColors.success),
               const SizedBox(width: 8),
               Text(
                 homiziText(context, 'Get better matches'),

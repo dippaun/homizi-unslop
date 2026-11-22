@@ -155,7 +155,7 @@ IconData iconForMatchLabel(String label) {
   if (text.contains('preference')) {
     return Icons.tune;
   }
-  return Icons.auto_awesome_outlined;
+  return Icons.handshake_outlined;
 }
 
 /// Match percent drawn as a ring that sweeps in, then rests.
