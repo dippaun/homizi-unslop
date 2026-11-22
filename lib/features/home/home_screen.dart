@@ -69,41 +69,45 @@ class _NotifyButton extends ConsumerWidget {
   }
 }
 
-class _HomeBody extends StatelessWidget {
+class _HomeBody extends ConsumerWidget {
   const _HomeBody();
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     // A plain scroll view builds every section, so the rentals deck is
-    // in the tree under the taller v2 hero.
-    return const SingleChildScrollView(
-      key: Key('home-scroll'),
-      padding: EdgeInsets.only(bottom: 28),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          HomiziStaggerIn(child: _Hero()),
-          SizedBox(height: 16),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: _page),
-            child: _ActionGrid(),
-          ),
-          SizedBox(height: 20),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: _page),
-            child: BlockPrintBorder(height: 10, opacity: 0.4),
-          ),
-          SizedBox(height: 16),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: _page),
-            child: _RentalStrip(),
-          ),
-          SizedBox(height: 20),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: _page),
-            child: _TrustBand(),
-          ),
-        ],
+    // in the tree under the taller v2 hero. Pull down to refresh rentals.
+    return HomiziRefresh(
+      onRefresh: () => ref.read(discoveryProvider.notifier).refresh(),
+      child: const SingleChildScrollView(
+        key: Key('home-scroll'),
+        physics: AlwaysScrollableScrollPhysics(),
+        padding: EdgeInsets.only(bottom: 28),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            HomiziStaggerIn(child: _Hero()),
+            SizedBox(height: 16),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: _page),
+              child: _ActionGrid(),
+            ),
+            SizedBox(height: 20),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: _page),
+              child: BlockPrintBorder(height: 10, opacity: 0.4),
+            ),
+            SizedBox(height: 16),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: _page),
+              child: _RentalStrip(),
+            ),
+            SizedBox(height: 20),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: _page),
+              child: _TrustBand(),
+            ),
+          ],
+        ),
       ),
     );
   }

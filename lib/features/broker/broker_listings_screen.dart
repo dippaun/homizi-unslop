@@ -12,6 +12,7 @@ import 'package:homizi/features/owner/owner_gateway.dart';
 import 'package:homizi/features/owner/owner_models.dart';
 import 'package:homizi/features/owner/owner_rules.dart';
 import 'package:homizi/shared/widgets/homizi_match_card.dart';
+import 'package:homizi/ui/kit/motion_kit.dart';
 
 class BrokerListingsScreen extends ConsumerWidget {
   const BrokerListingsScreen({super.key});
@@ -51,24 +52,28 @@ class BrokerListingsScreen extends ConsumerWidget {
                   context.push('${RoutePaths.listingEditor}?fresh=1'),
             );
           }
-          return ListView(
-            padding: const EdgeInsets.fromLTRB(20, 8, 20, 96),
-            children: [
-              Text(
-                homiziText(
-                  context,
-                  'Homes you manage. Open one to edit, see leads, or plan a visit.',
+          return HomiziRefresh(
+            onRefresh: () => ref.refresh(ownerListingsProvider.future),
+            child: ListView(
+              physics: const AlwaysScrollableScrollPhysics(),
+              padding: const EdgeInsets.fromLTRB(20, 8, 20, 96),
+              children: [
+                Text(
+                  homiziText(
+                    context,
+                    'Homes you manage. Open one to edit, see leads, or plan a visit.',
+                  ),
                 ),
-              ),
-              const SizedBox(height: 12),
-              for (final listing in rows)
-                BrokerTapCard(
-                  cardKey: Key('broker-listing-card-${listing.id}'),
-                  onTap: () =>
-                      context.push(RoutePaths.brokerListing(listing.id)),
-                  child: _ListingSummary(listing: listing),
-                ),
-            ],
+                const SizedBox(height: 12),
+                for (final listing in rows)
+                  BrokerTapCard(
+                    cardKey: Key('broker-listing-card-${listing.id}'),
+                    onTap: () =>
+                        context.push(RoutePaths.brokerListing(listing.id)),
+                    child: _ListingSummary(listing: listing),
+                  ),
+              ],
+            ),
           );
         },
       ),

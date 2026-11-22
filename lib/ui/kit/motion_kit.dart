@@ -1,5 +1,8 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import '../../core/theme/homizi_colors.dart';
 
 /// Press feedback for any tappable surface: a 0.97 scale while the finger
 /// is down and a light haptic on release. It listens to raw pointers, so
@@ -31,7 +34,7 @@ class _HomiziPressableState extends State<HomiziPressable> {
       onPointerUp: (_) {
         _set(false);
         if (widget.haptic) {
-          HapticFeedback.lightImpact();
+          unawaited(HapticFeedback.lightImpact());
         }
       },
       onPointerCancel: (_) => _set(false),
@@ -113,6 +116,32 @@ class _HomiziStaggerInState extends State<HomiziStaggerIn>
           ),
         );
       },
+    );
+  }
+}
+
+/// Pull-to-refresh in the brand colours, with a light tap when a refresh
+/// starts. The child must be a scrollable that can always scroll.
+class HomiziRefresh extends StatelessWidget {
+  const HomiziRefresh({
+    super.key,
+    required this.onRefresh,
+    required this.child,
+  });
+
+  final Future<void> Function() onRefresh;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return RefreshIndicator(
+      color: HomiziColors.brandRedOrange,
+      backgroundColor: HomiziColors.white,
+      onRefresh: () async {
+        unawaited(HapticFeedback.lightImpact());
+        await onRefresh();
+      },
+      child: child,
     );
   }
 }

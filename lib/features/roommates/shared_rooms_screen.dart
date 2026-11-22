@@ -22,6 +22,7 @@ import 'package:homizi/features/shared_home/shared_home_providers.dart';
 import 'package:homizi/features/shared_home/shared_home_widgets.dart';
 import 'package:homizi/features/shell/min_touch.dart';
 import 'package:homizi/shared/widgets/homizi_match_card.dart';
+import 'package:homizi/ui/kit/motion_kit.dart';
 
 bool isSharedRoomListing(Listing listing) => isSharedHomeListing(listing);
 
@@ -131,98 +132,102 @@ class _HomesList extends ConsumerWidget {
         if (!row.fit.fits) row,
     ];
     final people = need.people == 1 ? '1 person' : '${need.people} people';
-    return ListView(
-      key: const Key('flatmate-rooms-list'),
-      padding: const EdgeInsets.fromLTRB(20, 12, 20, 28),
-      children: [
-        Material(
-          color: HomiziColors.white,
-          shape: RoundedRectangleBorder(
-            side: const BorderSide(color: HomiziColors.line),
-            borderRadius: BorderRadius.circular(12),
-          ),
-          child: ListTile(
-            key: const Key('occ-summary'),
-            leading: const Icon(Icons.tune, color: HomiziColors.brandOrange),
-            title: Text(
-              '${homiziText(context, people)} · ${homiziText(context, need.occupancy.label)}',
+    return HomiziRefresh(
+      onRefresh: () => ref.read(discoveryProvider.notifier).refresh(),
+      child: ListView(
+        physics: const AlwaysScrollableScrollPhysics(),
+        key: const Key('flatmate-rooms-list'),
+        padding: const EdgeInsets.fromLTRB(20, 12, 20, 28),
+        children: [
+          Material(
+            color: HomiziColors.white,
+            shape: RoundedRectangleBorder(
+              side: const BorderSide(color: HomiziColors.line),
+              borderRadius: BorderRadius.circular(12),
             ),
-            subtitle: Text('${budgetLine(need)} · ${need.locality}'),
-            trailing: TextButton(
-              key: const Key('occ-edit'),
-              onPressed: () => context.pushReplacement(
+            child: ListTile(
+              key: const Key('occ-summary'),
+              leading: const Icon(Icons.tune, color: HomiziColors.brandOrange),
+              title: Text(
+                '${homiziText(context, people)} · ${homiziText(context, need.occupancy.label)}',
+              ),
+              subtitle: Text('${budgetLine(need)} · ${need.locality}'),
+              trailing: TextButton(
+                key: const Key('occ-edit'),
+                onPressed: () => context.pushReplacement(
+                  entry == OccupancyEntry.roomie
+                      ? SharedHomePaths.roomie
+                      : SharedHomePaths.search,
+                ),
+                child: Text(
+                  homiziText(context, 'Edit'),
+                  style: const TextStyle(color: HomiziColors.brandDeepRed),
+                ),
+              ),
+            ),
+          ),
+          if (state.loading) ...[
+            const SizedBox(height: 12),
+            const LinearProgressIndicator(key: Key('shared-loading')),
+            const SizedBox(height: 6),
+            Text(homiziText(context, 'Loading homes listed on HOMIZI…')),
+          ],
+          if (state.error != null) ...[
+            const SizedBox(height: 12),
+            Material(
+              color: HomiziColors.errorWash,
+              borderRadius: BorderRadius.circular(12),
+              child: ListTile(
+                key: const Key('shared-error'),
+                leading: const Icon(Icons.wifi_off, color: HomiziColors.error),
+                title: Text(homiziText(context, 'Listed homes did not load')),
+                subtitle: Text(
+                  homiziText(context, 'Sample homes are still shown below.'),
+                ),
+                trailing: TextButton(
+                  key: const Key('shared-retry'),
+                  onPressed: () {
+                    unawaited(ref.read(discoveryProvider.notifier).refresh());
+                  },
+                  child: Text(homiziText(context, 'Retry')),
+                ),
+              ),
+            ),
+          ],
+          const SizedBox(height: 16),
+          if (fits.isEmpty)
+            EmptyState(
+              key: const Key('shared-empty'),
+              title: 'No home fits that yet',
+              message:
+                  'Try flexible occupancy, a smaller group, or another locality.',
+              actionLabel: 'Change my search',
+              onAction: () => context.pushReplacement(
                 entry == OccupancyEntry.roomie
                     ? SharedHomePaths.roomie
                     : SharedHomePaths.search,
               ),
-              child: Text(
-                homiziText(context, 'Edit'),
-                style: const TextStyle(color: HomiziColors.brandDeepRed),
-              ),
             ),
-          ),
-        ),
-        if (state.loading) ...[
-          const SizedBox(height: 12),
-          const LinearProgressIndicator(key: Key('shared-loading')),
-          const SizedBox(height: 6),
-          Text(homiziText(context, 'Loading homes listed on HOMIZI…')),
-        ],
-        if (state.error != null) ...[
-          const SizedBox(height: 12),
-          Material(
-            color: HomiziColors.errorWash,
-            borderRadius: BorderRadius.circular(12),
-            child: ListTile(
-              key: const Key('shared-error'),
-              leading: const Icon(Icons.wifi_off, color: HomiziColors.error),
-              title: Text(homiziText(context, 'Listed homes did not load')),
-              subtitle: Text(
-                homiziText(context, 'Sample homes are still shown below.'),
-              ),
-              trailing: TextButton(
-                key: const Key('shared-retry'),
-                onPressed: () {
-                  unawaited(ref.read(discoveryProvider.notifier).refresh());
-                },
-                child: Text(homiziText(context, 'Retry')),
-              ),
-            ),
-          ),
-        ],
-        const SizedBox(height: 16),
-        if (fits.isEmpty)
-          EmptyState(
-            key: const Key('shared-empty'),
-            title: 'No home fits that yet',
-            message:
-                'Try flexible occupancy, a smaller group, or another locality.',
-            actionLabel: 'Change my search',
-            onAction: () => context.pushReplacement(
-              entry == OccupancyEntry.roomie
-                  ? SharedHomePaths.roomie
-                  : SharedHomePaths.search,
-            ),
-          ),
-        for (final row in fits) ...[
-          SharedHomeCard(row: row, need: need),
-          const SizedBox(height: 16),
-        ],
-        if (others.isNotEmpty) ...[
-          Text(
-            homiziText(context, 'Other homes (rooms do not fit your ask)'),
-            key: const Key('shared-others'),
-            style: Theme.of(
-              context,
-            ).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w600),
-          ),
-          const SizedBox(height: 10),
-          for (final row in others) ...[
+          for (final row in fits) ...[
             SharedHomeCard(row: row, need: need),
             const SizedBox(height: 16),
           ],
+          if (others.isNotEmpty) ...[
+            Text(
+              homiziText(context, 'Other homes (rooms do not fit your ask)'),
+              key: const Key('shared-others'),
+              style: Theme.of(
+                context,
+              ).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w600),
+            ),
+            const SizedBox(height: 10),
+            for (final row in others) ...[
+              SharedHomeCard(row: row, need: need),
+              const SizedBox(height: 16),
+            ],
+          ],
         ],
-      ],
+      ),
     );
   }
 }
@@ -382,44 +387,48 @@ class _NewRoomiesState extends ConsumerState<_NewRoomies> {
         onAction: () => context.go(RoutePaths.roommate),
       );
     }
-    return ListView.separated(
-      key: const Key('shared-roomies-list'),
-      padding: const EdgeInsets.fromLTRB(20, 12, 20, 28),
-      itemCount: deck.length,
-      separatorBuilder: (context, index) => const SizedBox(height: 10),
-      itemBuilder: (context, index) {
-        final person = deck[index];
-        final percent = scoreFinderPerson(
-          snapshot.requirements,
-          person,
-          ask: snapshot.ask,
-          saved: snapshot.requirementsSaved,
-        ).percent;
-        return HomiziMatchCard(
-          cardKey: Key('shared-roomie-${person.id}'),
-          title: person.name,
-          price: person.seeker.budgetLabel,
-          locality: person.seeker.localityLabel,
-          person: true,
-          photos: [
-            personPortrait(
-              personId: person.id,
-              photoRef: person.seeker.photoRef,
-              gallery: person.gallery,
-            ),
-          ],
-          photoSeed: person.id,
-          verified: person.seeker.trust.anyIdentity,
-          matchPercent: percent,
-          onTap: () => context.push(RoutePaths.roommatePerson(person.id)),
-          chips: [
-            HomiziCardChip(
-              '${person.seeker.age} · ${person.seeker.profession}',
-            ),
-          ],
-          qualityIcons: roommateQualitySymbols(person),
-        );
-      },
+    return HomiziRefresh(
+      onRefresh: () => ref.read(finderProvider.notifier).load(silent: true),
+      child: ListView.separated(
+        physics: const AlwaysScrollableScrollPhysics(),
+        key: const Key('shared-roomies-list'),
+        padding: const EdgeInsets.fromLTRB(20, 12, 20, 28),
+        itemCount: deck.length,
+        separatorBuilder: (context, index) => const SizedBox(height: 10),
+        itemBuilder: (context, index) {
+          final person = deck[index];
+          final percent = scoreFinderPerson(
+            snapshot.requirements,
+            person,
+            ask: snapshot.ask,
+            saved: snapshot.requirementsSaved,
+          ).percent;
+          return HomiziMatchCard(
+            cardKey: Key('shared-roomie-${person.id}'),
+            title: person.name,
+            price: person.seeker.budgetLabel,
+            locality: person.seeker.localityLabel,
+            person: true,
+            photos: [
+              personPortrait(
+                personId: person.id,
+                photoRef: person.seeker.photoRef,
+                gallery: person.gallery,
+              ),
+            ],
+            photoSeed: person.id,
+            verified: person.seeker.trust.anyIdentity,
+            matchPercent: percent,
+            onTap: () => context.push(RoutePaths.roommatePerson(person.id)),
+            chips: [
+              HomiziCardChip(
+                '${person.seeker.age} · ${person.seeker.profession}',
+              ),
+            ],
+            qualityIcons: roommateQualitySymbols(person),
+          );
+        },
+      ),
     );
   }
 }

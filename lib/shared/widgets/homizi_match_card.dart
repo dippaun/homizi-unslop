@@ -145,9 +145,13 @@ class HomiziMatchCard extends StatelessWidget {
     this.linesKey,
     this.badgesKey,
     this.semanticLabel,
+    this.heroTag,
   });
 
   final String title;
+
+  /// Flies the photo into the detail page that shares this tag.
+  final String? heroTag;
   final String? price;
   final String? locality;
   final List<String> photos;
@@ -259,6 +263,18 @@ class HomiziMatchCard extends StatelessWidget {
     );
   }
 
+  Widget _heroed(BuildContext context, Widget child) {
+    final tag = heroTag;
+    if (tag == null) {
+      return child;
+    }
+    // Cards in a hidden shell branch must not register a hero.
+    return HeroMode(
+      enabled: TickerMode.valuesOf(context).enabled,
+      child: Hero(tag: tag, child: child),
+    );
+  }
+
   Widget _photo(BuildContext context) {
     final seed = photoSeed ?? title;
     final frames = homiziCardPhotos(photos, seed: seed, person: person);
@@ -277,19 +293,23 @@ class HomiziMatchCard extends StatelessWidget {
     return Stack(
       fit: StackFit.expand,
       children: [
-        if (frames.isEmpty)
-          ListingPhoto(
-            fallbackAsset: fallback,
-            semanticLabel: label,
-            alignment: person ? const Alignment(0, -0.3) : Alignment.center,
-          )
-        else if (frames.length == 1)
-          frameAt(0)
-        else
-          PageView.builder(
-            itemCount: frames.length,
-            itemBuilder: (context, index) => frameAt(index),
-          ),
+        _heroed(
+          context,
+          frames.isEmpty
+              ? ListingPhoto(
+                  fallbackAsset: fallback,
+                  semanticLabel: label,
+                  alignment: person
+                      ? const Alignment(0, -0.3)
+                      : Alignment.center,
+                )
+              : frames.length == 1
+              ? frameAt(0)
+              : PageView.builder(
+                  itemCount: frames.length,
+                  itemBuilder: (context, index) => frameAt(index),
+                ),
+        ),
         if (matchPercent != null)
           Positioned(
             left: 12,

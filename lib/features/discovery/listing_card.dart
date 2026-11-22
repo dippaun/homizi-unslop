@@ -53,6 +53,7 @@ class ListingCard extends ConsumerWidget {
       locality: place,
       photos: listing.photoAssets,
       photoSeed: listing.id,
+      heroTag: listing.heroTag,
       verified: verified || badges.verifiedListing,
       onTap: () => context.push(RoutePaths.listing(listing.id)),
       matchPercent: match.showBadge ? match.score : null,
