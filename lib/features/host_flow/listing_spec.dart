@@ -125,7 +125,7 @@ class ListingIntroPage extends StatelessWidget {
                                     homiziText(context, point.$3),
                                     style: const TextStyle(
                                       fontFamily: 'PlusJakartaSans',
-                                      fontWeight: FontWeight.w800,
+                                      fontWeight: FontWeight.w600,
                                       color: HomiziColors.ink,
                                     ),
                                   ),
@@ -359,7 +359,7 @@ class ListingTransparencyPage extends StatelessWidget {
             homiziText(context, 'All Key Details in One Listing'),
             style: const TextStyle(
               fontFamily: 'PlusJakartaSans',
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w600,
               fontSize: 18,
               color: HomiziColors.ink,
             ),
@@ -393,7 +393,7 @@ class ListingTransparencyPage extends StatelessWidget {
                           homiziText(context, item.$2),
                           style: const TextStyle(
                             fontFamily: 'PlusJakartaSans',
-                            fontWeight: FontWeight.w800,
+                            fontWeight: FontWeight.w600,
                             color: HomiziColors.ink,
                           ),
                         ),
@@ -417,7 +417,7 @@ class ListingTransparencyPage extends StatelessWidget {
               homiziText(context, group.$1),
               style: const TextStyle(
                 fontFamily: 'PlusJakartaSans',
-                fontWeight: FontWeight.w800,
+                fontWeight: FontWeight.w600,
                 color: HomiziColors.ink,
               ),
             ),
@@ -440,7 +440,7 @@ class ListingTransparencyPage extends StatelessWidget {
             homiziText(context, 'Photo Upload Rules (Mandatory)'),
             style: const TextStyle(
               fontFamily: 'PlusJakartaSans',
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w600,
               fontSize: 18,
               color: HomiziColors.ink,
             ),
@@ -474,7 +474,7 @@ class ListingTransparencyPage extends StatelessWidget {
               ),
               style: const TextStyle(
                 fontFamily: 'PlusJakartaSans',
-                fontWeight: FontWeight.w700,
+                fontWeight: FontWeight.w600,
                 color: HomiziColors.ink,
               ),
             ),
@@ -504,7 +504,7 @@ class ListingTransparencyPage extends StatelessWidget {
                           homiziText(context, benefit.$3),
                           style: const TextStyle(
                             fontFamily: 'PlusJakartaSans',
-                            fontWeight: FontWeight.w800,
+                            fontWeight: FontWeight.w600,
                             color: HomiziColors.ink,
                           ),
                         ),
@@ -599,7 +599,7 @@ class _PhotoTile extends StatelessWidget {
                   style: const TextStyle(
                     fontFamily: 'PlusJakartaSans',
                     color: HomiziColors.nightInk,
-                    fontWeight: FontWeight.w700,
+                    fontWeight: FontWeight.w600,
                     fontSize: 12,
                   ),
                 ),
@@ -677,7 +677,7 @@ class ListingReviewPage extends StatelessWidget {
             style: const TextStyle(
               fontFamily: 'PlusJakartaSans',
               fontSize: 28,
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w600,
               color: HomiziColors.ink,
             ),
           ),
@@ -693,7 +693,7 @@ class ListingReviewPage extends StatelessWidget {
             homiziText(context, title),
             style: const TextStyle(
               fontFamily: 'PlusJakartaSans',
-              fontWeight: FontWeight.w700,
+              fontWeight: FontWeight.w600,
               color: HomiziColors.ink,
               fontSize: 16,
             ),

@@ -95,7 +95,7 @@ class _NearbyPlacesPageState extends ConsumerState<NearbyPlacesPage> {
           homiziText(context, 'Nearby places'),
           style: const TextStyle(
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w800,
+            fontWeight: FontWeight.w600,
           ),
         ),
       ),
@@ -220,7 +220,7 @@ class _Fallback extends StatelessWidget {
                 label,
                 style: const TextStyle(
                   color: HomiziColors.ink,
-                  fontWeight: FontWeight.w800,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
             ),

@@ -698,7 +698,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                                         style: const TextStyle(
                                           fontFamily: 'PlusJakartaSans',
                                           fontSize: 28,
-                                          fontWeight: FontWeight.w800,
+                                          fontWeight: FontWeight.w600,
                                           color: HomiziColors.ink,
                                         ),
                                       ),
@@ -779,7 +779,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                                                 ),
                                                 style: const TextStyle(
                                                   color: HomiziColors.ink,
-                                                  fontWeight: FontWeight.w700,
+                                                  fontWeight: FontWeight.w600,
                                                 ),
                                               ),
                                             )
@@ -796,7 +796,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                                                 ),
                                                 style: const TextStyle(
                                                   color: HomiziColors.ink,
-                                                  fontWeight: FontWeight.w700,
+                                                  fontWeight: FontWeight.w600,
                                                 ),
                                               ),
                                             ),
@@ -1051,7 +1051,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
             ),
             style: const TextStyle(
               fontFamily: 'PlusJakartaSans',
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w600,
               fontSize: 16,
               color: HomiziColors.ink,
             ),
@@ -1178,7 +1178,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
         'G',
         style: TextStyle(
           fontFamily: 'PlusJakartaSans',
-          fontWeight: FontWeight.w800,
+          fontWeight: FontWeight.w600,
           color: HomiziColors.logoOrange,
         ),
       ),
@@ -1356,7 +1356,7 @@ class _BrandLockup extends StatelessWidget {
             style: TextStyle(
               fontFamily: 'PlusJakartaSans',
               fontSize: 18,
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w700,
               letterSpacing: 1.2,
               color: HomiziColors.ink,
             ),
@@ -1418,7 +1418,7 @@ class _PhonePrefix extends StatelessWidget {
                     '+91',
                     style: TextStyle(
                       fontFamily: 'PlusJakartaSans',
-                      fontWeight: FontWeight.w800,
+                      fontWeight: FontWeight.w600,
                       color: HomiziColors.ink,
                     ),
                   ),
@@ -1440,14 +1440,7 @@ class _OrDivider extends StatelessWidget {
         Expanded(child: Divider(color: HomiziColors.line)),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 12),
-          child: Text(
-            'OR',
-            style: TextStyle(
-              color: HomiziColors.muted,
-              fontWeight: FontWeight.w700,
-              letterSpacing: 1,
-            ),
-          ),
+          child: Text('or', style: TextStyle(color: HomiziColors.muted)),
         ),
         Expanded(child: Divider(color: HomiziColors.line)),
       ],
@@ -1465,7 +1458,7 @@ class _LegalLine extends StatelessWidget {
     ).textTheme.bodySmall?.copyWith(color: HomiziColors.muted);
     final link = style?.copyWith(
       color: HomiziColors.ink,
-      fontWeight: FontWeight.w700,
+      fontWeight: FontWeight.w600,
       decoration: TextDecoration.underline,
     );
     return Text.rich(

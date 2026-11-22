@@ -79,7 +79,7 @@ class EngagementRow extends StatelessWidget {
                           style: const TextStyle(
                             fontFamily: 'PlusJakartaSans',
                             color: HomiziColors.ink,
-                            fontWeight: FontWeight.w800,
+                            fontWeight: FontWeight.w600,
                             fontSize: 14,
                           ),
                         ),
@@ -100,7 +100,7 @@ class EngagementRow extends StatelessWidget {
                             overflow: TextOverflow.ellipsis,
                             style: const TextStyle(
                               color: HomiziColors.ink,
-                              fontWeight: FontWeight.w700,
+                              fontWeight: FontWeight.w600,
                               fontSize: 12,
                             ),
                           ),
@@ -145,7 +145,7 @@ class EngagementRow extends StatelessWidget {
                               overflow: TextOverflow.ellipsis,
                               style: const TextStyle(
                                 color: HomiziColors.success,
-                                fontWeight: FontWeight.w800,
+                                fontWeight: FontWeight.w600,
                                 fontSize: 13,
                               ),
                             ),
@@ -216,8 +216,8 @@ class _Highlight extends StatelessWidget {
               homiziText(context, label),
               style: const TextStyle(
                 color: HomiziColors.ink,
-                fontSize: 10,
-                fontWeight: FontWeight.w700,
+                fontSize: 11,
+                fontWeight: FontWeight.w600,
               ),
             ),
           ],

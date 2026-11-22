@@ -32,7 +32,7 @@ class TenantKindScreen extends ConsumerWidget {
               Text(
                 homiziText(context, 'What are you looking for?'),
                 style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                  fontWeight: FontWeight.w800,
+                  fontWeight: FontWeight.w600,
                   color: HomiziColors.ink,
                 ),
               ),
@@ -155,7 +155,7 @@ class _StayTile extends StatelessWidget {
                         style: const TextStyle(
                           fontFamily: 'PlusJakartaSans',
                           fontSize: 16,
-                          fontWeight: FontWeight.w800,
+                          fontWeight: FontWeight.w600,
                           color: HomiziColors.ink,
                         ),
                       ),

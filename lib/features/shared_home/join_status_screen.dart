@@ -163,7 +163,7 @@ class _JoinStatusScreenState extends ConsumerState<JoinStatusScreen> {
         textAlign: TextAlign.center,
         style: text.headlineSmall?.copyWith(
           color: HomiziColors.success,
-          fontWeight: FontWeight.w700,
+          fontWeight: FontWeight.w600,
         ),
       ),
       const SizedBox(height: 8),
@@ -263,7 +263,7 @@ class _JoinStatusScreenState extends ConsumerState<JoinStatusScreen> {
         textAlign: TextAlign.center,
         style: text.headlineSmall?.copyWith(
           color: HomiziColors.success,
-          fontWeight: FontWeight.w700,
+          fontWeight: FontWeight.w600,
         ),
       ),
       const SizedBox(height: 8),
@@ -432,7 +432,7 @@ class _JoinStatusScreenState extends ConsumerState<JoinStatusScreen> {
         textAlign: TextAlign.center,
         style: text.headlineSmall?.copyWith(
           color: HomiziColors.success,
-          fontWeight: FontWeight.w700,
+          fontWeight: FontWeight.w600,
         ),
       ),
       const SizedBox(height: 8),

@@ -70,7 +70,7 @@ class ListedByBrokerBadge extends StatelessWidget {
             homiziText(context, 'Listed by Broker'),
             style: const TextStyle(
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w700,
+              fontWeight: FontWeight.w600,
               fontSize: 13,
             ),
           ),
@@ -97,7 +97,7 @@ class BrokerOwnerAuthorisation extends ConsumerWidget {
           homiziText(context, 'Owner authorisation'),
           style: Theme.of(context).textTheme.titleSmall?.copyWith(
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w700,
+            fontWeight: FontWeight.w600,
           ),
         ),
         const SizedBox(height: 4),

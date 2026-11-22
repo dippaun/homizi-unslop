@@ -63,7 +63,7 @@ class MatchPill extends StatelessWidget {
             homiziText(context, '${breakdown.score}% Match'),
             style: TextStyle(
               color: tone.foreground,
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w600,
             ),
           ),
         ),
@@ -77,13 +77,13 @@ class MatchPill extends StatelessWidget {
             homiziText(context, breakdown.colourName),
             style: TextStyle(
               color: tone.foreground,
-              fontWeight: FontWeight.w700,
+              fontWeight: FontWeight.w600,
             ),
           ),
         ),
         Text(
           homiziText(context, breakdown.bandLabel),
-          style: TextStyle(color: tone.foreground, fontWeight: FontWeight.w700),
+          style: TextStyle(color: tone.foreground, fontWeight: FontWeight.w600),
         ),
       ],
     );
@@ -112,7 +112,7 @@ class VerifyBadge extends StatelessWidget {
             homiziText(context, label),
             style: const TextStyle(
               color: HomiziColors.success,
-              fontWeight: FontWeight.w700,
+              fontWeight: FontWeight.w600,
             ),
           ),
         ],
@@ -172,7 +172,7 @@ class _LegendRow extends StatelessWidget {
                 homiziText(context, matchStrengthLabel(strength)),
                 style: const TextStyle(
                   color: HomiziColors.ink,
-                  fontWeight: FontWeight.w800,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
               Text(
@@ -215,7 +215,7 @@ class FactorBar extends StatelessWidget {
             homiziText(context, '$label $percent%'),
             style: const TextStyle(
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w700,
+              fontWeight: FontWeight.w600,
             ),
           ),
           const SizedBox(height: 4),

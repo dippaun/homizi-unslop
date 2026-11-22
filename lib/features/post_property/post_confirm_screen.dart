@@ -73,8 +73,8 @@ class OwnerPostedScreen extends ConsumerWidget {
             style: const TextStyle(
               fontFamily: 'PlusJakartaSans',
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w800,
-              fontSize: 26,
+              fontWeight: FontWeight.w600,
+              fontSize: 24,
             ),
           ),
           const SizedBox(height: 8),
@@ -83,7 +83,7 @@ class OwnerPostedScreen extends ConsumerWidget {
             textAlign: TextAlign.center,
             style: const TextStyle(
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w700,
+              fontWeight: FontWeight.w600,
               fontSize: 18,
             ),
           ),
@@ -95,7 +95,7 @@ class OwnerPostedScreen extends ConsumerWidget {
               textAlign: TextAlign.center,
               style: const TextStyle(
                 color: HomiziColors.inkSoft,
-                fontWeight: FontWeight.w700,
+                fontWeight: FontWeight.w600,
               ),
             ),
           ],
@@ -140,7 +140,7 @@ class OwnerPostedScreen extends ConsumerWidget {
               homiziText(context, 'Back to Home'),
               style: const TextStyle(
                 color: HomiziColors.ink,
-                fontWeight: FontWeight.w700,
+                fontWeight: FontWeight.w600,
               ),
             ),
           ),
@@ -177,8 +177,8 @@ class PartnerSuccessScreen extends ConsumerWidget {
             style: const TextStyle(
               fontFamily: 'PlusJakartaSans',
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w800,
-              fontSize: 26,
+              fontWeight: FontWeight.w600,
+              fontSize: 24,
             ),
           ),
           const SizedBox(height: 8),
@@ -218,7 +218,7 @@ class PartnerSuccessScreen extends ConsumerWidget {
                           key: const Key('post-application-id'),
                           style: const TextStyle(
                             color: HomiziColors.ink,
-                            fontWeight: FontWeight.w800,
+                            fontWeight: FontWeight.w600,
                             fontSize: 18,
                           ),
                         ),
@@ -274,7 +274,7 @@ class PartnerSuccessScreen extends ConsumerWidget {
               homiziText(context, 'Back to Home'),
               style: const TextStyle(
                 color: HomiziColors.ink,
-                fontWeight: FontWeight.w700,
+                fontWeight: FontWeight.w600,
               ),
             ),
           ),

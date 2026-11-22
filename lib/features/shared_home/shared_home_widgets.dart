@@ -66,7 +66,7 @@ class ShGradientButton extends StatelessWidget {
                               overflow: TextOverflow.ellipsis,
                               style: const TextStyle(
                                 color: HomiziColors.white,
-                                fontWeight: FontWeight.w700,
+                                fontWeight: FontWeight.w600,
                                 fontSize: 16,
                               ),
                             ),
@@ -115,7 +115,7 @@ class ShGreenButton extends StatelessWidget {
         icon: Icon(icon ?? Icons.check_circle_outline),
         label: Text(
           homiziText(context, label),
-          style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 16),
+          style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
         ),
       ),
     );
@@ -162,7 +162,7 @@ class ShSection extends StatelessWidget {
                       homiziText(context, title!),
                       style: Theme.of(context).textTheme.titleMedium?.copyWith(
                         color: HomiziColors.brandDeepRed,
-                        fontWeight: FontWeight.w700,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                   ),
@@ -208,7 +208,7 @@ class ShMatchPill extends StatelessWidget {
                 '${match.score}%',
                 style: TextStyle(
                   color: tone.foreground,
-                  fontWeight: FontWeight.w700,
+                  fontWeight: FontWeight.w600,
                   fontSize: 18,
                   height: 1.1,
                 ),
@@ -244,7 +244,7 @@ class ShTag extends StatelessWidget {
           homiziText(context, label),
           style: const TextStyle(
             color: HomiziColors.white,
-            fontWeight: FontWeight.w700,
+            fontWeight: FontWeight.w600,
           ),
         ),
       ),
@@ -402,7 +402,7 @@ class ShInfoRow extends StatelessWidget {
               textAlign: TextAlign.right,
               style: text.bodyMedium?.copyWith(
                 color: HomiziColors.ink,
-                fontWeight: FontWeight.w700,
+                fontWeight: FontWeight.w600,
               ),
             ),
           ),
@@ -433,7 +433,7 @@ class ShAvatar extends StatelessWidget {
         initial,
         style: TextStyle(
           color: you ? HomiziColors.white : HomiziColors.brandDeepRed,
-          fontWeight: FontWeight.w700,
+          fontWeight: FontWeight.w600,
           fontSize: size * 0.4,
         ),
       ),
@@ -531,7 +531,7 @@ class ShHowItWorks extends StatelessWidget {
                         Text(
                           homiziText(context, steps[i].$2),
                           style: text.bodyMedium?.copyWith(
-                            fontWeight: FontWeight.w700,
+                            fontWeight: FontWeight.w600,
                             color: HomiziColors.ink,
                           ),
                         ),

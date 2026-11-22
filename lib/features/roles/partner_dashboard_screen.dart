@@ -66,7 +66,7 @@ class PartnerDashboardScreen extends ConsumerWidget {
                   homiziText(context, 'Edit partner details'),
                   style: const TextStyle(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w700,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
               ),
@@ -119,7 +119,7 @@ class _Card extends StatelessWidget {
                       homiziText(context, title),
                       style: const TextStyle(
                         fontFamily: 'PlusJakartaSans',
-                        fontWeight: FontWeight.w800,
+                        fontWeight: FontWeight.w600,
                         fontSize: 16,
                         color: HomiziColors.ink,
                       ),

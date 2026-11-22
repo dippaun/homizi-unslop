@@ -61,7 +61,7 @@ class PriorityRankRow extends StatelessWidget {
                         homiziText(context, title),
                         style: const TextStyle(
                           color: HomiziColors.ink,
-                          fontWeight: FontWeight.w700,
+                          fontWeight: FontWeight.w600,
                         ),
                       ),
                       Text(
@@ -131,7 +131,7 @@ class PriorityBadge extends StatelessWidget {
         'P$rank',
         style: const TextStyle(
           color: HomiziColors.white,
-          fontWeight: FontWeight.w700,
+          fontWeight: FontWeight.w600,
           fontSize: 13,
         ),
       ),
@@ -171,7 +171,7 @@ class PriorityTypeChip extends StatelessWidget {
               homiziText(context, label),
               style: TextStyle(
                 color: mustHave ? HomiziColors.error : HomiziColors.success,
-                fontWeight: FontWeight.w700,
+                fontWeight: FontWeight.w600,
                 fontSize: 11,
               ),
             ),
@@ -250,7 +250,7 @@ class _TypeCard extends StatelessWidget {
           const SizedBox(height: 4),
           Text(
             homiziText(context, title),
-            style: TextStyle(color: tone, fontWeight: FontWeight.w700),
+            style: TextStyle(color: tone, fontWeight: FontWeight.w600),
           ),
           Text(
             homiziText(context, subtitle),
@@ -340,7 +340,7 @@ class PriorityTabs extends StatelessWidget {
                               color: i == index
                                   ? HomiziColors.white
                                   : HomiziColors.ink,
-                              fontWeight: FontWeight.w700,
+                              fontWeight: FontWeight.w600,
                               fontSize: 13,
                             ),
                           ),
@@ -388,7 +388,7 @@ class PriorityHowItWorks extends StatelessWidget {
               homiziText(context, 'How it works'),
               style: const TextStyle(
                 color: HomiziColors.white,
-                fontWeight: FontWeight.w700,
+                fontWeight: FontWeight.w600,
               ),
             ),
           ),

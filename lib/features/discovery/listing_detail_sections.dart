@@ -188,7 +188,7 @@ class ListingTitleBlock extends StatelessWidget {
             homiziText(context, listing.title),
             style: Theme.of(context).textTheme.headlineSmall?.copyWith(
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w600,
             ),
           ),
         ),
@@ -223,7 +223,7 @@ class _MatchPill extends MatchBadge {
             homiziText(context, match.label),
             style: TextStyle(
               color: tone.foreground,
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w600,
               fontSize: 13,
             ),
           ),
@@ -281,7 +281,7 @@ class ListingPriceBlock extends StatelessWidget {
                 style: const TextStyle(
                   color: HomiziColors.logoOrange,
                   fontSize: 32,
-                  fontWeight: FontWeight.w800,
+                  fontWeight: FontWeight.w600,
                   height: 1.1,
                 ),
               ),
@@ -400,7 +400,7 @@ class _SpecTile extends StatelessWidget {
             overflow: TextOverflow.ellipsis,
             style: const TextStyle(
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w600,
               fontSize: 12,
             ),
           ),
@@ -434,7 +434,7 @@ class ListingAmenityGrid extends StatelessWidget {
           homiziText(context, 'Amenities'),
           style: Theme.of(context).textTheme.titleMedium?.copyWith(
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w800,
+            fontWeight: FontWeight.w600,
           ),
         ),
         const SizedBox(height: 10),
@@ -479,7 +479,7 @@ class ListingAmenityGrid extends StatelessWidget {
                             overflow: TextOverflow.ellipsis,
                             style: const TextStyle(
                               color: HomiziColors.ink,
-                              fontWeight: FontWeight.w700,
+                              fontWeight: FontWeight.w600,
                               fontSize: 12,
                             ),
                           ),
@@ -765,7 +765,7 @@ class _ListingOfficeCommuteState extends ConsumerState<ListingOfficeCommute> {
             homiziText(context, 'Commute from Office'),
             style: const TextStyle(
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w600,
               fontSize: 13,
             ),
           ),
@@ -808,7 +808,7 @@ class _ListingOfficeCommuteState extends ConsumerState<ListingOfficeCommute> {
         key: const Key('listing-saved-office'),
         style: const TextStyle(
           color: HomiziColors.ink,
-          fontWeight: FontWeight.w800,
+          fontWeight: FontWeight.w600,
         ),
       );
     }
@@ -826,7 +826,7 @@ class _ListingOfficeCommuteState extends ConsumerState<ListingOfficeCommute> {
           onPressed: () => unawaited(_addOffice()),
           child: Text(
             homiziText(context, 'Add office'),
-            style: const TextStyle(fontWeight: FontWeight.w800),
+            style: const TextStyle(fontWeight: FontWeight.w600),
           ),
         ),
       );
@@ -843,7 +843,7 @@ class _ListingOfficeCommuteState extends ConsumerState<ListingOfficeCommute> {
       key: const Key('listing-office-minutes'),
       style: const TextStyle(
         color: HomiziColors.ink,
-        fontWeight: FontWeight.w800,
+        fontWeight: FontWeight.w600,
       ),
     );
   }
@@ -935,7 +935,7 @@ class _ListingNearbyMiniState extends ConsumerState<ListingNearbyMini> {
                 homiziText(context, 'Nearby Places'),
                 style: const TextStyle(
                   color: HomiziColors.ink,
-                  fontWeight: FontWeight.w800,
+                  fontWeight: FontWeight.w600,
                   fontSize: 13,
                 ),
               ),
@@ -1038,7 +1038,7 @@ class _NearbyPlaceRow extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                   style: const TextStyle(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w700,
+                    fontWeight: FontWeight.w600,
                     fontSize: 12,
                   ),
                 ),
@@ -1048,7 +1048,7 @@ class _NearbyPlaceRow extends StatelessWidget {
                   row.kmLabel,
                   style: const TextStyle(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w800,
+                    fontWeight: FontWeight.w600,
                     fontSize: 11,
                   ),
                 ),
@@ -1154,7 +1154,7 @@ class ListingHostRow extends ConsumerWidget {
                           overflow: TextOverflow.ellipsis,
                           style: const TextStyle(
                             color: HomiziColors.ink,
-                            fontWeight: FontWeight.w800,
+                            fontWeight: FontWeight.w600,
                             fontSize: 16,
                           ),
                         ),
@@ -1204,7 +1204,7 @@ class ListingHostRow extends ConsumerWidget {
               homiziText(context, 'View Profile >'),
               style: const TextStyle(
                 color: HomiziColors.ink,
-                fontWeight: FontWeight.w700,
+                fontWeight: FontWeight.w600,
                 fontSize: 13,
               ),
             ),
@@ -1246,7 +1246,7 @@ class _PendingHostBadge extends StatelessWidget {
         homiziText(context, 'Verification pending'),
         style: const TextStyle(
           color: HomiziColors.warning,
-          fontWeight: FontWeight.w700,
+          fontWeight: FontWeight.w600,
           fontSize: 12,
         ),
       ),
@@ -1278,7 +1278,7 @@ class _VerifiedHostBadge extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
               style: const TextStyle(
                 color: HomiziColors.onSuccess,
-                fontWeight: FontWeight.w800,
+                fontWeight: FontWeight.w600,
                 fontSize: 11,
               ),
             ),
@@ -1357,7 +1357,7 @@ class _ListingWhyMatchState extends State<ListingWhyMatch>
                         style: const TextStyle(
                           fontFamily: 'PlusJakartaSans',
                           color: HomiziColors.ink,
-                          fontWeight: FontWeight.w800,
+                          fontWeight: FontWeight.w600,
                           fontSize: 20,
                           height: 1.15,
                         ),
@@ -1396,7 +1396,7 @@ class _ListingWhyMatchState extends State<ListingWhyMatch>
                   style: const TextStyle(
                     fontFamily: 'PlusJakartaSans',
                     color: HomiziColors.inkSoft,
-                    fontWeight: FontWeight.w700,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
               ],
@@ -1565,7 +1565,7 @@ class ListingCostSection extends StatelessWidget {
           homiziText(context, 'Cost of renting'),
           style: const TextStyle(
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w800,
+            fontWeight: FontWeight.w600,
           ),
         ),
         subtitle: Text(
@@ -1682,7 +1682,7 @@ class _BarButton extends StatelessWidget {
             homiziText(context, label),
             style: const TextStyle(
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w600,
             ),
           ),
         ],
@@ -1725,7 +1725,7 @@ class _InterestButton extends StatelessWidget {
                           homiziText(context, label),
                           style: const TextStyle(
                             color: HomiziColors.ink,
-                            fontWeight: FontWeight.w800,
+                            fontWeight: FontWeight.w600,
                             fontSize: 15,
                           ),
                         ),

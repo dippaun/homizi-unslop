@@ -136,7 +136,7 @@ class _JoinRequestScreenState extends ConsumerState<JoinRequestScreen> {
       children: [
         Text(
           '${home.tag} · ${home.place}',
-          style: text.titleMedium?.copyWith(fontWeight: FontWeight.w700),
+          style: text.titleMedium?.copyWith(fontWeight: FontWeight.w600),
         ),
         const SizedBox(height: 4),
         Text(
@@ -243,7 +243,7 @@ class _JoinRequestScreenState extends ConsumerState<JoinRequestScreen> {
                   mode == JoinMode.group
                       ? '${homiziText(context, 'You')} +${_group - 1}'
                       : homiziText(context, 'You'),
-                  style: const TextStyle(fontWeight: FontWeight.w700),
+                  style: const TextStyle(fontWeight: FontWeight.w600),
                 ),
                 Text('(${shortInr(share)})'),
               ],
@@ -256,7 +256,7 @@ class _JoinRequestScreenState extends ConsumerState<JoinRequestScreen> {
               children: [
                 ShAvatar(initial: mate?.initial ?? 'H', size: 64),
                 const SizedBox(height: 6),
-                Text(host, style: const TextStyle(fontWeight: FontWeight.w700)),
+                Text(host, style: const TextStyle(fontWeight: FontWeight.w600)),
                 Text(
                   homiziText(
                     context,
@@ -389,7 +389,7 @@ class _Option extends StatelessWidget {
                           Text(
                             homiziText(context, title),
                             style: Theme.of(context).textTheme.titleMedium
-                                ?.copyWith(fontWeight: FontWeight.w700),
+                                ?.copyWith(fontWeight: FontWeight.w600),
                           ),
                           const SizedBox(height: 4),
                           Text(homiziText(context, body)),

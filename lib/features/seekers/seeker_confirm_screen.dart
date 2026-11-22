@@ -48,7 +48,7 @@ class SeekerConfirmScreen extends StatelessWidget {
                 homiziText(context, title),
                 style: theme.textTheme.headlineSmall?.copyWith(
                   color: HomiziColors.ink,
-                  fontWeight: FontWeight.w800,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
               const SizedBox(height: 12),
@@ -73,7 +73,7 @@ class SeekerConfirmScreen extends StatelessWidget {
                     homiziText(context, actionLabel!),
                     style: const TextStyle(
                       fontFamily: 'PlusJakartaSans',
-                      fontWeight: FontWeight.w700,
+                      fontWeight: FontWeight.w600,
                       fontSize: 16,
                       color: HomiziColors.ink,
                     ),

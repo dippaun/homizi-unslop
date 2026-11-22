@@ -81,7 +81,7 @@ class ListingCard extends ConsumerWidget {
               listing.hostDisplayName,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
-              style: const TextStyle(fontWeight: FontWeight.w700),
+              style: const TextStyle(fontWeight: FontWeight.w600),
             ),
           ),
           const SizedBox(width: 8),

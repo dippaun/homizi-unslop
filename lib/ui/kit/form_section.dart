@@ -63,7 +63,7 @@ class FormSection extends StatelessWidget {
                     title,
                     style: const TextStyle(
                       fontFamily: 'PlusJakartaSans',
-                      fontWeight: FontWeight.w800,
+                      fontWeight: FontWeight.w600,
                       fontSize: 16,
                       height: 1.25,
                       color: HomiziColors.ink,

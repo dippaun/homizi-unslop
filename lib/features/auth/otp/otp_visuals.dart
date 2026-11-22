@@ -139,7 +139,7 @@ class OtpHeader extends StatelessWidget {
           homiziText(context, title),
           style: const TextStyle(
             fontFamily: 'PlusJakartaSans',
-            fontWeight: FontWeight.w800,
+            fontWeight: FontWeight.w600,
             fontSize: 24,
             color: HomiziColors.ink,
           ),
@@ -156,7 +156,7 @@ class OtpHeader extends StatelessWidget {
                   text: target,
                   style: const TextStyle(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w700,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
               ],
@@ -198,7 +198,7 @@ class OtpResendLine extends StatelessWidget {
                 text: otpClock(remaining),
                 style: const TextStyle(
                   color: HomiziColors.logoOrange,
-                  fontWeight: FontWeight.w800,
+                  fontWeight: FontWeight.w600,
                   fontFeatures: [ui.FontFeature.tabularFigures()],
                 ),
               ),
@@ -222,7 +222,7 @@ class OtpResendLine extends StatelessWidget {
           homiziText(context, label),
           style: const TextStyle(
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w800,
+            fontWeight: FontWeight.w600,
           ),
         ),
       ),
@@ -333,7 +333,7 @@ class OtpVerifyingVeil extends StatelessWidget {
                       homiziText(context, label),
                       style: const TextStyle(
                         color: HomiziColors.ink,
-                        fontWeight: FontWeight.w700,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                   ],

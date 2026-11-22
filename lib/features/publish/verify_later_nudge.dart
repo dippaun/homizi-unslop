@@ -26,7 +26,7 @@ class VerifyLaterNudge extends StatelessWidget {
               homiziText(context, 'Verify your profile to get more responses'),
               style: Theme.of(context).textTheme.titleSmall?.copyWith(
                 color: HomiziColors.success,
-                fontWeight: FontWeight.w700,
+                fontWeight: FontWeight.w600,
               ),
             ),
             const SizedBox(height: 8),

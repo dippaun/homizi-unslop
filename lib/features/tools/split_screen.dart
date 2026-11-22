@@ -424,7 +424,7 @@ class _SplitScreenState extends ConsumerState<SplitScreen> {
   TextStyle? _h1(BuildContext context) => Theme.of(context)
       .textTheme
       .headlineSmall
-      ?.copyWith(fontWeight: FontWeight.w700, color: HomiziColors.ink);
+      ?.copyWith(fontWeight: FontWeight.w600, color: HomiziColors.ink);
 
   List<Widget> _setup(BuildContext context) {
     final text = Theme.of(context).textTheme;
@@ -539,7 +539,7 @@ class _SplitScreenState extends ConsumerState<SplitScreen> {
                   '$_people',
                   key: const Key('split-people'),
                   style: text.titleMedium?.copyWith(
-                    fontWeight: FontWeight.w700,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
                 IconButton(
@@ -618,7 +618,7 @@ class _SplitScreenState extends ConsumerState<SplitScreen> {
         const SizedBox(height: 24),
         Text(
           homiziText(context, 'Your saved splits'),
-          style: text.titleMedium?.copyWith(fontWeight: FontWeight.w700),
+          style: text.titleMedium?.copyWith(fontWeight: FontWeight.w600),
         ),
         for (final split in _history.take(3))
           Container(
@@ -714,7 +714,7 @@ class _SplitScreenState extends ConsumerState<SplitScreen> {
                   Text(
                     '${formatInr(_home.rentInr)} / ${homiziText(context, 'month')}',
                     style: text.headlineSmall?.copyWith(
-                      fontWeight: FontWeight.w700,
+                      fontWeight: FontWeight.w600,
                       color: HomiziColors.ink,
                     ),
                   ),
@@ -785,7 +785,7 @@ class _SplitScreenState extends ConsumerState<SplitScreen> {
                     : homiziText(context, outcome.problem!),
                 key: const Key('split-total'),
                 style: text.titleMedium?.copyWith(
-                  fontWeight: FontWeight.w700,
+                  fontWeight: FontWeight.w600,
                   color: ok ? HomiziColors.ink : HomiziColors.error,
                 ),
               ),
@@ -954,7 +954,7 @@ class _SplitScreenState extends ConsumerState<SplitScreen> {
                     ),
                     Text(
                       formatInr(share.totalInr),
-                      style: const TextStyle(fontWeight: FontWeight.w700),
+                      style: const TextStyle(fontWeight: FontWeight.w600),
                     ),
                   ],
                 ),
@@ -1003,7 +1003,7 @@ class _SplitScreenState extends ConsumerState<SplitScreen> {
                   ),
                   style: const TextStyle(
                     color: HomiziColors.success,
-                    fontWeight: FontWeight.w700,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
               ),
@@ -1063,7 +1063,7 @@ class _Steps extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 11,
                       color: i <= at ? HomiziColors.ink : HomiziColors.muted,
-                      fontWeight: i == at ? FontWeight.w700 : FontWeight.w500,
+                      fontWeight: i == at ? FontWeight.w600 : FontWeight.w500,
                     ),
                   ),
                 ],
@@ -1108,7 +1108,7 @@ class _Section extends StatelessWidget {
                 Text(
                   homiziText(context, title),
                   style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                    fontWeight: FontWeight.w700,
+                    fontWeight: FontWeight.w600,
                     color: HomiziColors.brandRedOrange,
                   ),
                 ),
@@ -1179,7 +1179,7 @@ class _GradientButton extends StatelessWidget {
                               overflow: TextOverflow.ellipsis,
                               style: const TextStyle(
                                 color: HomiziColors.white,
-                                fontWeight: FontWeight.w700,
+                                fontWeight: FontWeight.w600,
                                 fontSize: 16,
                               ),
                             ),
@@ -1245,7 +1245,7 @@ class _RoomCard extends StatelessWidget {
                         Text(
                           homiziText(context, title),
                           style: text.titleMedium?.copyWith(
-                            fontWeight: FontWeight.w700,
+                            fontWeight: FontWeight.w600,
                             color: HomiziColors.ink,
                           ),
                         ),
@@ -1360,7 +1360,7 @@ class _RoomSheetState extends State<_RoomSheet> {
           children: [
             Text(
               homiziText(context, widget.title),
-              style: text.titleLarge?.copyWith(fontWeight: FontWeight.w700),
+              style: text.titleLarge?.copyWith(fontWeight: FontWeight.w600),
             ),
             const SizedBox(height: 12),
             Text(homiziText(context, 'Room size'), style: text.titleSmall),
@@ -1475,7 +1475,7 @@ class _ModeTab extends StatelessWidget {
                 homiziText(context, mode.label),
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontWeight: FontWeight.w700,
+                  fontWeight: FontWeight.w600,
                   fontSize: 13,
                   color: selected ? HomiziColors.white : HomiziColors.ink,
                 ),
@@ -1484,7 +1484,7 @@ class _ModeTab extends StatelessWidget {
                 homiziText(context, mode.hint),
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontSize: 10.5,
+                  fontSize: 11,
                   color: selected ? HomiziColors.white : HomiziColors.muted,
                 ),
               ),
@@ -1536,7 +1536,7 @@ class _PersonRow extends StatelessWidget {
             child: Text(
               initial,
               style: TextStyle(
-                fontWeight: FontWeight.w700,
+                fontWeight: FontWeight.w600,
                 color: index == 0 ? HomiziColors.white : HomiziColors.ink,
               ),
             ),
@@ -1548,7 +1548,7 @@ class _PersonRow extends StatelessWidget {
               children: [
                 Text(
                   share.name,
-                  style: text.titleSmall?.copyWith(fontWeight: FontWeight.w700),
+                  style: text.titleSmall?.copyWith(fontWeight: FontWeight.w600),
                 ),
                 Text(
                   homiziText(context, roomLabel),
@@ -1587,7 +1587,7 @@ class _PersonRow extends StatelessWidget {
               formatInr(share.totalInr),
               key: Key('split-amount-$index'),
               style: text.titleMedium?.copyWith(
-                fontWeight: FontWeight.w700,
+                fontWeight: FontWeight.w600,
                 color: HomiziColors.ink,
               ),
             ),
@@ -1635,7 +1635,7 @@ class _HowItWorks extends StatelessWidget {
           Text(
             homiziText(context, 'How the split works'),
             style: text.titleMedium?.copyWith(
-              fontWeight: FontWeight.w700,
+              fontWeight: FontWeight.w600,
               color: HomiziColors.brandRedOrange,
             ),
           ),

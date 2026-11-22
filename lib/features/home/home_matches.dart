@@ -48,7 +48,7 @@ class HomeMatches extends ConsumerWidget {
             homiziText(context, 'Best matches for you'),
             key: const Key('home-best-matches'),
             style: Theme.of(context).textTheme.titleMedium?.copyWith(
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w600,
               color: HomiziColors.ink,
             ),
           ),
@@ -63,7 +63,7 @@ class HomeMatches extends ConsumerWidget {
             homiziText(context, 'More homes'),
             key: const Key('home-more-matches'),
             style: Theme.of(context).textTheme.titleMedium?.copyWith(
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w600,
               color: HomiziColors.ink,
             ),
           ),

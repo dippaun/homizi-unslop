@@ -158,7 +158,7 @@ class SavedSummaryCard extends StatelessWidget {
         icon: const Icon(Icons.edit_outlined),
         label: Text(
           homiziText(context, editLabel),
-          style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 16),
+          style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
         ),
       ),
     );
@@ -262,7 +262,7 @@ class _SavedBadge extends StatelessWidget {
               style: const TextStyle(
                 fontFamily: 'PlusJakartaSans',
                 color: HomiziColors.success,
-                fontWeight: FontWeight.w800,
+                fontWeight: FontWeight.w600,
                 fontSize: 22,
               ),
             ),
@@ -335,7 +335,7 @@ class _SavedTile extends StatelessWidget {
                     style: const TextStyle(
                       color: HomiziColors.inkSoft,
                       fontSize: 12,
-                      fontWeight: FontWeight.w700,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
                   const SizedBox(height: 2),
@@ -344,7 +344,7 @@ class _SavedTile extends StatelessWidget {
                     style: const TextStyle(
                       fontFamily: 'PlusJakartaSans',
                       color: HomiziColors.ink,
-                      fontWeight: FontWeight.w800,
+                      fontWeight: FontWeight.w600,
                       fontSize: 16,
                     ),
                   ),

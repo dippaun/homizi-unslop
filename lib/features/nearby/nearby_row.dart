@@ -26,7 +26,7 @@ class NearbyCommuteTile extends StatelessWidget {
                   homiziText(context, row.label),
                   style: const TextStyle(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w800,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
                 if (row.name.trim().isNotEmpty)
@@ -47,7 +47,7 @@ class NearbyCommuteTile extends StatelessWidget {
               row.kmLabel,
               style: const TextStyle(
                 color: HomiziColors.ink,
-                fontWeight: FontWeight.w800,
+                fontWeight: FontWeight.w600,
               ),
             ),
           if (row.minutesLabel.isNotEmpty) ...[

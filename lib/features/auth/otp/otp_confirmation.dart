@@ -44,7 +44,7 @@ class OtpConfirmation extends StatelessWidget {
                   textAlign: TextAlign.center,
                   style: text.headlineSmall?.copyWith(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w800,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
                 if (note != null && note.isNotEmpty) ...[
@@ -73,7 +73,7 @@ class OtpConfirmation extends StatelessWidget {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(HomiziSpace.radius),
                       ),
-                      textStyle: const TextStyle(fontWeight: FontWeight.w800),
+                      textStyle: const TextStyle(fontWeight: FontWeight.w600),
                     ),
                     onPressed: onContinue,
                     child: Text(homiziText(context, 'Continue')),

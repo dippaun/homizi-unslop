@@ -375,7 +375,7 @@ class _VerifiedPropertyBadge extends StatelessWidget {
             homiziText(context, 'Verified Property'),
             style: const TextStyle(
               color: HomiziColors.onSuccess,
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w600,
               fontSize: 12,
             ),
           ),
@@ -404,7 +404,7 @@ class _Counter extends StatelessWidget {
         '${index + 1}/$total',
         style: const TextStyle(
           color: HomiziColors.white,
-          fontWeight: FontWeight.w800,
+          fontWeight: FontWeight.w600,
           fontSize: 13,
         ),
       ),
@@ -498,7 +498,7 @@ class _ListingPhotoGalleryPageState extends State<ListingPhotoGalleryPage> {
                           homiziText(context, label),
                           style: const TextStyle(
                             color: HomiziColors.ink,
-                            fontWeight: FontWeight.w700,
+                            fontWeight: FontWeight.w600,
                           ),
                         ),
                       ),
@@ -506,7 +506,7 @@ class _ListingPhotoGalleryPageState extends State<ListingPhotoGalleryPage> {
                         '${_index + 1}/${widget.assets.length}',
                         style: const TextStyle(
                           color: HomiziColors.ink,
-                          fontWeight: FontWeight.w800,
+                          fontWeight: FontWeight.w600,
                         ),
                       ),
                     ],

@@ -33,7 +33,7 @@ class MatchHubScreen extends StatelessWidget {
               homiziText(context, 'Simple. Smart. Social.'),
               style: theme.textTheme.headlineSmall?.copyWith(
                 color: HomiziColors.ink,
-                fontWeight: FontWeight.w800,
+                fontWeight: FontWeight.w600,
               ),
             ),
           ),
@@ -42,7 +42,7 @@ class MatchHubScreen extends StatelessWidget {
             homiziText(context, 'Find the Right Place. Meet the Right People.'),
             style: theme.textTheme.titleMedium?.copyWith(
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w700,
+              fontWeight: FontWeight.w600,
             ),
           ),
           const SizedBox(height: 16),
@@ -61,7 +61,7 @@ class MatchHubScreen extends StatelessWidget {
             homiziText(context, 'Smart Matching for Better Living'),
             style: theme.textTheme.titleLarge?.copyWith(
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w600,
             ),
           ),
           const SizedBox(height: 8),
@@ -104,7 +104,7 @@ class MatchHubScreen extends StatelessWidget {
           Text(
             homiziText(context, 'How matching works'),
             style: theme.textTheme.titleMedium?.copyWith(
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w600,
               color: HomiziColors.ink,
             ),
           ),
@@ -183,7 +183,7 @@ class _Step extends StatelessWidget {
             radius: 14,
             child: Text(
               number,
-              style: const TextStyle(fontWeight: FontWeight.w800),
+              style: const TextStyle(fontWeight: FontWeight.w600),
             ),
           ),
           const SizedBox(width: 10),
@@ -195,7 +195,7 @@ class _Step extends StatelessWidget {
                   homiziText(context, title),
                   style: const TextStyle(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w800,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
                 Text(
@@ -365,7 +365,7 @@ class MatchConfirmScreen extends StatelessWidget {
             style: const TextStyle(
               color: HomiziColors.ink,
               fontSize: 24,
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w600,
             ),
           ),
           const SizedBox(height: 8),

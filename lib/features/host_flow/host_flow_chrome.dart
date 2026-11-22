@@ -24,7 +24,7 @@ class FlowWordmark extends StatelessWidget {
                 style: const TextStyle(
                   fontFamily: 'PlusJakartaSans',
                   color: HomiziColors.accent,
-                  fontWeight: FontWeight.w800,
+                  fontWeight: FontWeight.w700,
                   fontSize: 16,
                   letterSpacing: 0.4,
                 ),
@@ -72,7 +72,7 @@ class FlowStepPill extends StatelessWidget {
           style: const TextStyle(
             fontFamily: 'PlusJakartaSans',
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w800,
+            fontWeight: FontWeight.w600,
             fontSize: 12,
           ),
         ),
@@ -151,7 +151,7 @@ class FlowPage extends StatelessWidget {
                               style: const TextStyle(
                                 fontFamily: 'PlusJakartaSans',
                                 color: HomiziColors.ink,
-                                fontWeight: FontWeight.w800,
+                                fontWeight: FontWeight.w600,
                               ),
                             ),
                           )
@@ -176,8 +176,8 @@ class FlowPage extends StatelessWidget {
                           style: const TextStyle(
                             fontFamily: 'PlusJakartaSans',
                             color: HomiziColors.ink,
-                            fontWeight: FontWeight.w800,
-                            fontSize: 26,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 24,
                             height: 1.15,
                           ),
                         ),
@@ -238,7 +238,7 @@ class FlowBanner extends StatelessWidget {
                 style: const TextStyle(
                   fontFamily: 'PlusJakartaSans',
                   color: HomiziColors.ink,
-                  fontWeight: FontWeight.w800,
+                  fontWeight: FontWeight.w600,
                   fontSize: 18,
                   height: 1.2,
                 ),
@@ -303,7 +303,7 @@ class FlowContinueButton extends StatelessWidget {
                         homiziText(context, label),
                         style: const TextStyle(
                           fontFamily: 'PlusJakartaSans',
-                          fontWeight: FontWeight.w800,
+                          fontWeight: FontWeight.w600,
                           color: HomiziColors.ink,
                         ),
                       ),
@@ -338,7 +338,7 @@ class FlowContinueButton extends StatelessWidget {
                 homiziText(context, label),
                 style: const TextStyle(
                   fontFamily: 'PlusJakartaSans',
-                  fontWeight: FontWeight.w800,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
       ),

@@ -69,7 +69,7 @@ class RangeSliderField extends StatelessWidget {
           key: valueKey,
           style: const TextStyle(
             fontFamily: 'PlusJakartaSans',
-            fontWeight: FontWeight.w800,
+            fontWeight: FontWeight.w600,
             fontSize: 22,
             color: HomiziColors.ink,
           ),
@@ -177,7 +177,7 @@ class _PresetChip extends StatelessWidget {
             preset.label,
             style: const TextStyle(
               fontFamily: 'PlusJakartaSans',
-              fontWeight: FontWeight.w700,
+              fontWeight: FontWeight.w600,
               fontSize: 13,
               color: HomiziColors.ink,
             ),

@@ -92,7 +92,7 @@ class _Saved extends StatelessWidget {
                 style: const TextStyle(
                   color: HomiziColors.ink,
                   fontSize: 20,
-                  fontWeight: FontWeight.w700,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
               Text(
@@ -159,7 +159,7 @@ class _TenantSummary extends ConsumerWidget {
           homiziText(context, 'Match preview (based on your priorities)'),
           style: Theme.of(context).textTheme.titleMedium?.copyWith(
             color: HomiziColors.brandDeepRed,
-            fontWeight: FontWeight.w700,
+            fontWeight: FontWeight.w600,
           ),
         ),
         const SizedBox(height: 8),
@@ -175,7 +175,7 @@ class _TenantSummary extends ConsumerWidget {
                 homiziText(context, prompt.text),
                 style: const TextStyle(
                   color: HomiziColors.brandDeepRed,
-                  fontWeight: FontWeight.w800,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
             ),
@@ -356,7 +356,7 @@ class _SummaryRow extends StatelessWidget {
                           homiziText(context, '$label: $value'),
                           style: const TextStyle(
                             color: HomiziColors.ink,
-                            fontWeight: FontWeight.w700,
+                            fontWeight: FontWeight.w600,
                             fontSize: 14,
                           ),
                         ),
@@ -412,7 +412,7 @@ class _BetterMatches extends StatelessWidget {
                 homiziText(context, 'Get better matches'),
                 style: const TextStyle(
                   color: HomiziColors.ink,
-                  fontWeight: FontWeight.w700,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
             ],
@@ -517,7 +517,7 @@ class _ReadinessRing extends StatelessWidget {
                 style: const TextStyle(
                   color: HomiziColors.ink,
                   fontSize: 32,
-                  fontWeight: FontWeight.w700,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
             ],

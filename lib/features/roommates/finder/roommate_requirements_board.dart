@@ -80,7 +80,7 @@ class _RoommateRequirementsBoardState extends State<RoommateRequirementsBoard> {
               homiziText(context, 'Add a preference'),
               style: Theme.of(context).textTheme.titleMedium?.copyWith(
                 color: HomiziColors.ink,
-                fontWeight: FontWeight.w800,
+                fontWeight: FontWeight.w600,
               ),
             ),
             const SizedBox(height: 8),
@@ -174,7 +174,7 @@ class _RoommateRequirementsBoardState extends State<RoommateRequirementsBoard> {
                     homiziText(context, 'Add more preferences'),
                     style: const TextStyle(
                       color: HomiziColors.logoOrange,
-                      fontWeight: FontWeight.w800,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
                   style: OutlinedButton.styleFrom(
@@ -199,7 +199,7 @@ class _RoommateRequirementsBoardState extends State<RoommateRequirementsBoard> {
                         homiziText(context, 'Publish my roommate profile'),
                         style: const TextStyle(
                           color: HomiziColors.ink,
-                          fontWeight: FontWeight.w800,
+                          fontWeight: FontWeight.w600,
                         ),
                       ),
                       subtitle: Text(
@@ -378,7 +378,7 @@ class _AskEditSheetState extends State<_AskEditSheet> {
                 homiziText(context, roommateAskTitle(id)),
                 style: Theme.of(context).textTheme.titleLarge?.copyWith(
                   color: HomiziColors.ink,
-                  fontWeight: FontWeight.w800,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
               if (roommateAskNote(id) != null) ...[
@@ -662,7 +662,7 @@ class _IconTile extends StatelessWidget {
                 label,
                 style: const TextStyle(
                   color: HomiziColors.ink,
-                  fontWeight: FontWeight.w700,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
             ],

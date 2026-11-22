@@ -148,7 +148,7 @@ class _RoundAction extends StatelessWidget {
           homiziText(context, label!),
           style: const TextStyle(
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w700,
+            fontWeight: FontWeight.w600,
             fontSize: 12,
           ),
         ),
@@ -279,7 +279,7 @@ class _RoommateFilterSheetState extends State<RoommateFilterSheet> {
                 homiziText(context, 'Filter Roommates'),
                 style: theme.textTheme.titleLarge?.copyWith(
                   color: HomiziColors.ink,
-                  fontWeight: FontWeight.w800,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
               const SizedBox(height: 16),
@@ -424,7 +424,7 @@ class _RoommateFilterSheetState extends State<RoommateFilterSheet> {
                 ),
                 style: const TextStyle(
                   color: HomiziColors.ink,
-                  fontWeight: FontWeight.w700,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
               RangeSlider(
@@ -542,7 +542,7 @@ class _RoommateFilterSheetState extends State<RoommateFilterSheet> {
             label,
             style: const TextStyle(
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w700,
+              fontWeight: FontWeight.w600,
             ),
           ),
           const SizedBox(height: 6),

@@ -185,7 +185,7 @@ class _MoreScreenState extends ConsumerState<MoreScreen> {
                         homiziText(context, 'Example only'),
                         style: const TextStyle(
                           color: HomiziColors.white,
-                          fontWeight: FontWeight.w800,
+                          fontWeight: FontWeight.w600,
                           fontSize: 11,
                         ),
                       ),
@@ -198,7 +198,7 @@ class _MoreScreenState extends ConsumerState<MoreScreen> {
                       ),
                       style: const TextStyle(
                         fontFamily: 'PlusJakartaSans',
-                        fontWeight: FontWeight.w800,
+                        fontWeight: FontWeight.w600,
                         fontSize: 18,
                         color: HomiziColors.ink,
                       ),
@@ -216,7 +216,7 @@ class _MoreScreenState extends ConsumerState<MoreScreen> {
                       homiziText(context, 'Book now'),
                       style: const TextStyle(
                         color: HomiziColors.ink,
-                        fontWeight: FontWeight.w800,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                     if (_exampleNoted)
@@ -347,7 +347,7 @@ class _BannerCard extends StatelessWidget {
                       homiziText(context, title),
                       style: TextStyle(
                         fontFamily: 'PlusJakartaSans',
-                        fontWeight: FontWeight.w800,
+                        fontWeight: FontWeight.w600,
                         fontSize: 16,
                         color: ink,
                       ),
@@ -380,7 +380,7 @@ class _BannerCard extends StatelessWidget {
                     homiziText(context, badge!),
                     style: const TextStyle(
                       color: HomiziColors.onSuccess,
-                      fontWeight: FontWeight.w800,
+                      fontWeight: FontWeight.w600,
                       fontSize: 11,
                     ),
                   ),
@@ -433,7 +433,7 @@ class _ServiceRow extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                       style: const TextStyle(
                         fontSize: 11,
-                        fontWeight: FontWeight.w700,
+                        fontWeight: FontWeight.w600,
                         color: HomiziColors.ink,
                         height: 1.2,
                       ),
@@ -472,7 +472,7 @@ class _RowLink extends StatelessWidget {
       title: Text(
         homiziText(context, title),
         style: const TextStyle(
-          fontWeight: FontWeight.w800,
+          fontWeight: FontWeight.w600,
           color: HomiziColors.ink,
         ),
       ),

@@ -177,7 +177,7 @@ class _ShareSheet extends StatelessWidget {
                 style: const TextStyle(
                   fontFamily: 'PlusJakartaSans',
                   color: HomiziColors.ink,
-                  fontWeight: FontWeight.w800,
+                  fontWeight: FontWeight.w600,
                   fontSize: 18,
                 ),
               ),
@@ -256,7 +256,7 @@ class _ShareTile extends StatelessWidget {
             style: const TextStyle(
               color: HomiziColors.ink,
               fontSize: 11,
-              fontWeight: FontWeight.w700,
+              fontWeight: FontWeight.w600,
             ),
           ),
         ],

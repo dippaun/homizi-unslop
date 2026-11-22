@@ -121,7 +121,7 @@ class _CompartmentTile extends StatelessWidget {
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                           fontFamily: 'PlusJakartaSans',
-                          fontWeight: FontWeight.w800,
+                          fontWeight: FontWeight.w600,
                           fontSize: 12,
                           height: 1.15,
                           color: muted,
@@ -183,8 +183,8 @@ class _IconBadge extends StatelessWidget {
                     shown,
                     style: TextStyle(
                       fontFamily: 'Inter',
-                      fontSize: 10,
-                      fontWeight: FontWeight.w800,
+                      fontSize: 11,
+                      fontWeight: FontWeight.w600,
                       color: selected
                           ? HomiziColors.logoOrange
                           : HomiziColors.white,

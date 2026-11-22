@@ -162,7 +162,7 @@ class _ExploreScreenState extends ConsumerState<ExploreScreen> {
                       homiziText(context, 'Posted by'),
                       style: const TextStyle(
                         color: HomiziColors.ink,
-                        fontWeight: FontWeight.w800,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                   ),
@@ -813,7 +813,7 @@ class _FeedHeading extends StatelessWidget {
         key: headingKey,
         style: Theme.of(
           context,
-        ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w800),
+        ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w600),
       ),
     );
   }

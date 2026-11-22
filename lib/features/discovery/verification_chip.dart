@@ -34,7 +34,7 @@ class VerificationChip extends StatelessWidget {
             homiziText(context, verified ? 'Verified' : 'Verification pending'),
             style: Theme.of(context).textTheme.labelSmall?.copyWith(
               color: foreground,
-              fontWeight: FontWeight.w700,
+              fontWeight: FontWeight.w600,
             ),
           ),
         ],

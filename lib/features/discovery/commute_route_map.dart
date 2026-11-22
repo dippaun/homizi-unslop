@@ -55,7 +55,7 @@ class CommuteRouteMap extends StatelessWidget {
           homiziText(context, 'About $kmLabel km · A home, B office'),
           style: const TextStyle(
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w700,
+            fontWeight: FontWeight.w600,
             fontSize: 12,
           ),
         ),
@@ -85,7 +85,7 @@ class CommuteRouteMap extends StatelessWidget {
                         style: const TextStyle(
                           color: HomiziColors.ink,
                           fontSize: 11,
-                          fontWeight: FontWeight.w700,
+                          fontWeight: FontWeight.w600,
                         ),
                       ),
                     ],
@@ -169,7 +169,7 @@ class CommuteRouteMap extends StatelessWidget {
             label,
             style: const TextStyle(
               color: HomiziColors.white,
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w600,
               fontSize: 12,
             ),
           ),

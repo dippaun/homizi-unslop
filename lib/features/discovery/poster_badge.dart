@@ -34,7 +34,7 @@ class PosterKindBadge extends StatelessWidget {
                 style: TextStyle(
                   color: posterKindInk(wire),
                   fontSize: 12,
-                  fontWeight: FontWeight.w800,
+                  fontWeight: FontWeight.w600,
                   height: 1.1,
                 ),
               ),

@@ -154,7 +154,7 @@ class _OccupancySearchScreenState extends ConsumerState<OccupancySearchScreen> {
           children: [
             Text(
               homiziText(context, title),
-              style: text.headlineSmall?.copyWith(fontWeight: FontWeight.w700),
+              style: text.headlineSmall?.copyWith(fontWeight: FontWeight.w600),
             ),
             const SizedBox(height: 4),
             Text(homiziText(context, subtitle), style: text.bodyMedium),
@@ -355,7 +355,7 @@ class _OccupancySearchScreenState extends ConsumerState<OccupancySearchScreen> {
         Text(
           '${_need.groupSize}',
           key: const Key('occ-group-size'),
-          style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 16),
+          style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
         ),
         IconButton(
           key: const Key('occ-group-plus'),
@@ -468,7 +468,7 @@ class _OccupancySearchScreenState extends ConsumerState<OccupancySearchScreen> {
       trailing: Text(
         date == null ? homiziText(context, 'Pick a date') : formatMoveIn(date),
         style: const TextStyle(
-          fontWeight: FontWeight.w700,
+          fontWeight: FontWeight.w600,
           color: HomiziColors.ink,
         ),
       ),
@@ -488,7 +488,7 @@ class _OccupancySearchScreenState extends ConsumerState<OccupancySearchScreen> {
             Text(
               '${_need.ageMin} – ${_need.ageMax} ${homiziText(context, 'years')}',
               key: const Key('roomie-age-label'),
-              style: const TextStyle(fontWeight: FontWeight.w700),
+              style: const TextStyle(fontWeight: FontWeight.w600),
             ),
           ],
         ),
@@ -599,7 +599,7 @@ class _OccupancySearchScreenState extends ConsumerState<OccupancySearchScreen> {
                               Text(
                                 homiziText(context, row.$3),
                                 style: text.titleSmall?.copyWith(
-                                  fontWeight: FontWeight.w700,
+                                  fontWeight: FontWeight.w600,
                                 ),
                               ),
                               Text(
@@ -652,7 +652,7 @@ class _OccupancySearchScreenState extends ConsumerState<OccupancySearchScreen> {
                     Text(
                       homiziText(context, 'Hosts, owners and existing tenants'),
                       style: const TextStyle(
-                        fontWeight: FontWeight.w700,
+                        fontWeight: FontWeight.w600,
                         color: HomiziColors.ink,
                       ),
                     ),

@@ -537,7 +537,7 @@ class _ProfileMeScreenState extends ConsumerState<ProfileMeScreen> {
                 key: const Key('profile-name'),
                 style: Theme.of(context).textTheme.titleLarge?.copyWith(
                   color: HomiziColors.ink,
-                  fontWeight: FontWeight.w800,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
             ),
@@ -564,7 +564,7 @@ class _ProfileMeScreenState extends ConsumerState<ProfileMeScreen> {
             homiziText(context, pgOwner ? 'PG owner' : profileRoleChip(wire)),
             style: const TextStyle(
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w700,
+              fontWeight: FontWeight.w600,
               fontSize: 12,
             ),
           ),
@@ -589,7 +589,7 @@ class _ProfileMeScreenState extends ConsumerState<ProfileMeScreen> {
                 style: const TextStyle(
                   fontFamily: 'PlusJakartaSans',
                   color: HomiziColors.logoOrange,
-                  fontWeight: FontWeight.w800,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
             ),
@@ -623,7 +623,7 @@ class _ProfileMeScreenState extends ConsumerState<ProfileMeScreen> {
                   homiziText(context, 'Edit profile'),
                   style: const TextStyle(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w700,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
               ),
@@ -655,7 +655,7 @@ class _ProfileMeScreenState extends ConsumerState<ProfileMeScreen> {
                   overflow: TextOverflow.ellipsis,
                   style: const TextStyle(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w700,
+                    fontWeight: FontWeight.w600,
                     fontSize: 13,
                   ),
                 ),
@@ -738,7 +738,7 @@ class _ProfileMeScreenState extends ConsumerState<ProfileMeScreen> {
               key: const Key('profile-completeness'),
               style: TextStyle(
                 color: color,
-                fontWeight: FontWeight.w800,
+                fontWeight: FontWeight.w600,
                 fontSize: 13,
               ),
             ),
@@ -751,7 +751,7 @@ class _ProfileMeScreenState extends ConsumerState<ProfileMeScreen> {
                 overflow: TextOverflow.ellipsis,
                 style: TextStyle(
                   color: done ? HomiziColors.success : HomiziColors.muted,
-                  fontWeight: done ? FontWeight.w700 : FontWeight.w500,
+                  fontWeight: done ? FontWeight.w600 : FontWeight.w500,
                   fontSize: 13,
                 ),
               ),
@@ -775,7 +775,7 @@ class _ProfileMeScreenState extends ConsumerState<ProfileMeScreen> {
                   homiziText(context, 'Complete Now'),
                   style: const TextStyle(
                     color: HomiziColors.logoOrange,
-                    fontWeight: FontWeight.w800,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
               ),
@@ -964,7 +964,7 @@ class _ProfileMeScreenState extends ConsumerState<ProfileMeScreen> {
                 homiziText(context, 'Add a listing'),
                 style: const TextStyle(
                   color: HomiziColors.logoOrange,
-                  fontWeight: FontWeight.w700,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
             ),
@@ -984,7 +984,7 @@ class _ProfileMeScreenState extends ConsumerState<ProfileMeScreen> {
               homiziText(context, 'Add a listing'),
               style: const TextStyle(
                 color: HomiziColors.logoOrange,
-                fontWeight: FontWeight.w700,
+                fontWeight: FontWeight.w600,
               ),
             ),
           ),
@@ -1059,7 +1059,7 @@ class _ProfileMeScreenState extends ConsumerState<ProfileMeScreen> {
                   match.name,
                   style: const TextStyle(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w700,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
               ),
@@ -1291,7 +1291,7 @@ class _ProfileMeScreenState extends ConsumerState<ProfileMeScreen> {
             homiziText(context, 'My Priorities'),
             style: Theme.of(
               context,
-            ).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w800),
+            ).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w600),
           ),
           subtitle: Text(
             homiziText(context, 'Set the order that decides your matches.'),
@@ -1411,7 +1411,7 @@ class _ProfileMeScreenState extends ConsumerState<ProfileMeScreen> {
               style: const TextStyle(
                 fontFamily: 'PlusJakartaSans',
                 color: HomiziColors.ink,
-                fontWeight: FontWeight.w700,
+                fontWeight: FontWeight.w600,
               ),
             ),
           ),
@@ -1942,7 +1942,7 @@ class _ProfileMeScreenState extends ConsumerState<ProfileMeScreen> {
                   child: Text(
                     homiziText(context, title),
                     style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                      fontWeight: FontWeight.w800,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
                 ),
@@ -2016,14 +2016,14 @@ class _HabitTile extends StatelessWidget {
                   style: const TextStyle(
                     color: HomiziColors.muted,
                     fontSize: 11,
-                    fontWeight: FontWeight.w700,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
                 Text(
                   value,
                   style: const TextStyle(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w800,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
               ],
@@ -2078,7 +2078,7 @@ class _StatTile extends StatelessWidget {
                       key: Key(statKey),
                       style: TextStyle(
                         color: accent,
-                        fontWeight: FontWeight.w800,
+                        fontWeight: FontWeight.w600,
                         fontSize: 16,
                       ),
                     )
@@ -2091,7 +2091,7 @@ class _StatTile extends StatelessWidget {
                           key: Key(statKey),
                           style: TextStyle(
                             color: accent,
-                            fontWeight: FontWeight.w800,
+                            fontWeight: FontWeight.w600,
                             fontSize: 16,
                           ),
                         );
@@ -2103,7 +2103,7 @@ class _StatTile extends StatelessWidget {
                 style: const TextStyle(
                   color: HomiziColors.ink,
                   fontSize: 11,
-                  fontWeight: FontWeight.w700,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
             ],
@@ -2159,7 +2159,7 @@ class _SavedMiniCard extends StatelessWidget {
                       style: const TextStyle(
                         fontFamily: 'PlusJakartaSans',
                         color: HomiziColors.ink,
-                        fontWeight: FontWeight.w800,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                     Text(

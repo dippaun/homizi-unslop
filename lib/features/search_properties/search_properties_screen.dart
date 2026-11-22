@@ -483,7 +483,7 @@ class _SearchPropertiesScreenState
                 const SizedBox(height: 8),
                 const Text(
                   'Preferred distance from office/work',
-                  style: TextStyle(fontWeight: FontWeight.w700),
+                  style: TextStyle(fontWeight: FontWeight.w600),
                 ),
                 const SizedBox(height: 8),
                 OptionGrid(
@@ -778,7 +778,7 @@ class _SearchPropertiesScreenState
                           Text(
                             value,
                             style: const TextStyle(
-                              fontWeight: FontWeight.w700,
+                              fontWeight: FontWeight.w600,
                               color: HomiziColors.ink,
                             ),
                           ),
@@ -915,7 +915,7 @@ class _SearchPropertiesScreenState
                               'Back',
                               style: TextStyle(
                                 fontFamily: 'PlusJakartaSans',
-                                fontWeight: FontWeight.w800,
+                                fontWeight: FontWeight.w600,
                                 color: HomiziColors.ink,
                               ),
                             ),
@@ -959,7 +959,7 @@ class _SearchPropertiesScreenState
                                   textAlign: TextAlign.center,
                                   style: const TextStyle(
                                     fontFamily: 'PlusJakartaSans',
-                                    fontWeight: FontWeight.w800,
+                                    fontWeight: FontWeight.w600,
                                     color: HomiziColors.ink,
                                   ),
                                 ),
@@ -982,7 +982,7 @@ class _SearchPropertiesScreenState
                                   textAlign: TextAlign.center,
                                   style: const TextStyle(
                                     fontFamily: 'PlusJakartaSans',
-                                    fontWeight: FontWeight.w800,
+                                    fontWeight: FontWeight.w600,
                                     color: HomiziColors.ink,
                                   ),
                                 ),
@@ -1234,7 +1234,7 @@ class _LifestyleRow<T> extends StatelessWidget {
             label,
             style: const TextStyle(
               fontFamily: 'PlusJakartaSans',
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w600,
               color: HomiziColors.ink,
             ),
           ),
@@ -1292,7 +1292,7 @@ class _NearbyHints extends StatelessWidget {
                   style: const TextStyle(
                     color: HomiziColors.ink,
                     fontSize: 12,
-                    fontWeight: FontWeight.w700,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
               ],

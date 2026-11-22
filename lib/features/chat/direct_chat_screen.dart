@@ -415,7 +415,7 @@ class _DirectChatScreenState extends ConsumerState<DirectChatScreen> {
                                         ),
                                         style: const TextStyle(
                                           color: HomiziColors.ink,
-                                          fontWeight: FontWeight.w800,
+                                          fontWeight: FontWeight.w600,
                                         ),
                                       ),
                                       if ((widget.place ?? '')

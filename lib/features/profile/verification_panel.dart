@@ -107,7 +107,7 @@ class _VerificationPanelState extends State<VerificationPanel>
                         style: const TextStyle(
                           fontFamily: 'PlusJakartaSans',
                           color: HomiziColors.ink,
-                          fontWeight: FontWeight.w800,
+                          fontWeight: FontWeight.w600,
                           fontSize: 18,
                         ),
                       ),
@@ -150,7 +150,7 @@ class _VerificationPanelState extends State<VerificationPanel>
               key: const Key('verify-phone-prompt'),
               style: const TextStyle(
                 color: HomiziColors.inkSoft,
-                fontWeight: FontWeight.w700,
+                fontWeight: FontWeight.w600,
               ),
             ),
           ),
@@ -220,7 +220,7 @@ class _MethodCard extends StatelessWidget {
                       homiziText(context, title),
                       style: const TextStyle(
                         color: HomiziColors.ink,
-                        fontWeight: FontWeight.w800,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                     Text(
@@ -240,7 +240,7 @@ class _MethodCard extends StatelessWidget {
                     homiziText(context, action),
                     style: const TextStyle(
                       color: HomiziColors.logoOrange,
-                      fontWeight: FontWeight.w800,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
                 ),
@@ -300,7 +300,7 @@ class _TrustBenefits extends StatelessWidget {
               style: const TextStyle(
                 fontFamily: 'PlusJakartaSans',
                 color: HomiziColors.ink,
-                fontWeight: FontWeight.w800,
+                fontWeight: FontWeight.w600,
               ),
             ),
             const SizedBox(height: 8),

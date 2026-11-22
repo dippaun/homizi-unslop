@@ -62,7 +62,7 @@ Future<void> guardVerifiedAction(
                 homiziText(sheetContext, 'Verify to continue'),
                 style: Theme.of(sheetContext).textTheme.headlineSmall?.copyWith(
                   color: HomiziColors.ink,
-                  fontWeight: FontWeight.w700,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
               const SizedBox(height: 8),

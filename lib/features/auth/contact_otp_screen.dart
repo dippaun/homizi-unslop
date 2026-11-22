@@ -327,7 +327,7 @@ class _ContactOtpScreenState extends ConsumerState<ContactOtpScreen> {
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.titleMedium?.copyWith(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w700,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
               ],
@@ -393,7 +393,7 @@ class _ContactOtpScreenState extends ConsumerState<ContactOtpScreen> {
                             key: const Key('verify-phone-prompt'),
                             style: const TextStyle(
                               color: HomiziColors.ink,
-                              fontWeight: FontWeight.w800,
+                              fontWeight: FontWeight.w600,
                             ),
                           ),
                         ),

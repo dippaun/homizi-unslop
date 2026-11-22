@@ -281,7 +281,7 @@ class HostSpecFlow extends StatelessWidget {
                       homiziText(context, 'Add Multiple Roles'),
                       style: const TextStyle(
                         fontFamily: 'PlusJakartaSans',
-                        fontWeight: FontWeight.w800,
+                        fontWeight: FontWeight.w600,
                         color: HomiziColors.ink,
                       ),
                     ),
@@ -322,7 +322,7 @@ class HostSpecFlow extends StatelessWidget {
           homiziText(context, 'Basic Information'),
           style: const TextStyle(
             fontFamily: 'PlusJakartaSans',
-            fontWeight: FontWeight.w800,
+            fontWeight: FontWeight.w600,
             color: HomiziColors.ink,
             fontSize: 16,
           ),
@@ -574,7 +574,7 @@ class HostSpecFlow extends StatelessWidget {
               homiziText(context, title),
               style: const TextStyle(
                 fontFamily: 'PlusJakartaSans',
-                fontWeight: FontWeight.w800,
+                fontWeight: FontWeight.w600,
                 color: HomiziColors.ink,
                 fontSize: 14,
               ),
@@ -681,7 +681,7 @@ class HostSpecFlow extends StatelessWidget {
           homiziText(context, 'Example'),
           style: const TextStyle(
             fontFamily: 'PlusJakartaSans',
-            fontWeight: FontWeight.w800,
+            fontWeight: FontWeight.w600,
             color: HomiziColors.ink,
           ),
         ),
@@ -757,7 +757,7 @@ class HostSpecFlow extends StatelessWidget {
           Text(
             homiziText(context, status.label),
             key: Key('host-auth-status-${kind.wire}'),
-            style: TextStyle(color: color, fontWeight: FontWeight.w700),
+            style: TextStyle(color: color, fontWeight: FontWeight.w600),
           ),
           if (status != PropertyAuthStatus.verified)
             TextButton(
@@ -788,7 +788,7 @@ class HostSpecFlow extends StatelessWidget {
               key: titleKey,
               style: const TextStyle(
                 fontFamily: 'PlusJakartaSans',
-                fontWeight: FontWeight.w800,
+                fontWeight: FontWeight.w600,
                 fontSize: 13,
                 color: HomiziColors.ink,
               ),
@@ -862,7 +862,7 @@ class HostSpecFlow extends StatelessWidget {
                       homiziText(context, name),
                       style: const TextStyle(
                         fontFamily: 'PlusJakartaSans',
-                        fontWeight: FontWeight.w800,
+                        fontWeight: FontWeight.w600,
                         color: HomiziColors.ink,
                       ),
                     ),
@@ -878,7 +878,7 @@ class HostSpecFlow extends StatelessWidget {
                       homiziText(context, 'Verified'),
                       style: const TextStyle(
                         color: HomiziColors.success,
-                        fontWeight: FontWeight.w700,
+                        fontWeight: FontWeight.w600,
                         fontSize: 12,
                       ),
                     ),
@@ -967,7 +967,7 @@ class HostSpecFlow extends StatelessWidget {
                     homiziText(context, label),
                     style: const TextStyle(
                       color: HomiziColors.ink,
-                      fontWeight: FontWeight.w800,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
                 ),
@@ -1026,7 +1026,7 @@ class _HostIntro extends StatelessWidget {
                               homiziText(context, point.$3),
                               style: const TextStyle(
                                 fontFamily: 'PlusJakartaSans',
-                                fontWeight: FontWeight.w700,
+                                fontWeight: FontWeight.w600,
                                 color: HomiziColors.ink,
                               ),
                             ),
@@ -1117,7 +1117,7 @@ class _RoleTile extends StatelessWidget {
                   homiziText(context, role.title),
                   style: const TextStyle(
                     fontFamily: 'PlusJakartaSans',
-                    fontWeight: FontWeight.w800,
+                    fontWeight: FontWeight.w600,
                     color: HomiziColors.ink,
                   ),
                 ),
@@ -1183,7 +1183,7 @@ class _CategoryProfiles extends StatelessWidget {
                                 homiziText(context, example.name),
                                 style: const TextStyle(
                                   fontFamily: 'PlusJakartaSans',
-                                  fontWeight: FontWeight.w800,
+                                  fontWeight: FontWeight.w600,
                                   color: HomiziColors.ink,
                                 ),
                               ),

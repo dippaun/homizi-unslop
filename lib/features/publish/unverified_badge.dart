@@ -18,7 +18,7 @@ class UnverifiedBadge extends StatelessWidget {
         homiziText(context, 'Unverified'),
         style: Theme.of(context).textTheme.labelSmall?.copyWith(
           color: HomiziColors.warning,
-          fontWeight: FontWeight.w700,
+          fontWeight: FontWeight.w600,
         ),
       ),
     );

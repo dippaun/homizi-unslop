@@ -350,7 +350,7 @@ class _PartnerFlowScreenState extends ConsumerState<PartnerFlowScreen> {
                 key: const Key('post-partner-note'),
                 style: const TextStyle(
                   color: HomiziColors.error,
-                  fontWeight: FontWeight.w700,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
             ),
@@ -433,8 +433,8 @@ class _PartnerFlowScreenState extends ConsumerState<PartnerFlowScreen> {
           style: const TextStyle(
             fontFamily: 'PlusJakartaSans',
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w800,
-            fontSize: 26,
+            fontWeight: FontWeight.w600,
+            fontSize: 24,
             height: 1.15,
           ),
         ),
@@ -443,7 +443,7 @@ class _PartnerFlowScreenState extends ConsumerState<PartnerFlowScreen> {
           homiziText(context, 'Select Partner Type'),
           style: const TextStyle(
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w700,
+            fontWeight: FontWeight.w600,
             fontSize: 16,
           ),
         ),
@@ -493,7 +493,7 @@ class _PartnerFlowScreenState extends ConsumerState<PartnerFlowScreen> {
           style: const TextStyle(
             fontFamily: 'PlusJakartaSans',
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w800,
+            fontWeight: FontWeight.w600,
             fontSize: 22,
           ),
         ),
@@ -548,7 +548,7 @@ class _PartnerFlowScreenState extends ConsumerState<PartnerFlowScreen> {
             homiziText(context, 'Already have an account? Sign in'),
             style: const TextStyle(
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w700,
+              fontWeight: FontWeight.w600,
             ),
           ),
         ),
@@ -570,7 +570,7 @@ class _PartnerFlowScreenState extends ConsumerState<PartnerFlowScreen> {
           style: const TextStyle(
             fontFamily: 'PlusJakartaSans',
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w800,
+            fontWeight: FontWeight.w600,
             fontSize: 22,
           ),
         ),
@@ -665,7 +665,7 @@ class _PartnerFlowScreenState extends ConsumerState<PartnerFlowScreen> {
           style: const TextStyle(
             fontFamily: 'PlusJakartaSans',
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w800,
+            fontWeight: FontWeight.w600,
             fontSize: 22,
           ),
         ),
@@ -759,7 +759,7 @@ class _TypeTile extends StatelessWidget {
                       homiziText(context, title),
                       style: const TextStyle(
                         color: HomiziColors.ink,
-                        fontWeight: FontWeight.w800,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                     Text(
@@ -827,7 +827,7 @@ class _DocRow extends StatelessWidget {
                   homiziText(context, title),
                   style: const TextStyle(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w700,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
               ),
@@ -838,7 +838,7 @@ class _DocRow extends StatelessWidget {
                 ),
                 style: TextStyle(
                   color: done ? HomiziColors.success : HomiziColors.inkSoft,
-                  fontWeight: FontWeight.w700,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
             ],

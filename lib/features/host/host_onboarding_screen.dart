@@ -609,7 +609,7 @@ class _HostOnboardingScreenState extends ConsumerState<HostOnboardingScreen> {
                             style: Theme.of(context).textTheme.headlineSmall
                                 ?.copyWith(
                                   color: HomiziColors.ink,
-                                  fontWeight: FontWeight.w800,
+                                  fontWeight: FontWeight.w600,
                                 ),
                           ),
                           const SizedBox(height: 8),
@@ -1057,7 +1057,7 @@ class _Intro extends StatelessWidget {
               'List today. Find great people. Live better.',
               style: TextStyle(
                 color: HomiziColors.ink,
-                fontWeight: FontWeight.w800,
+                fontWeight: FontWeight.w600,
               ),
             ),
           ),
@@ -1100,7 +1100,7 @@ class _RoleCard extends StatelessWidget {
                     Text(
                       homiziText(context, role.title),
                       style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                        fontWeight: FontWeight.w700,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                     const SizedBox(height: 4),

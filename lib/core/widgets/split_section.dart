@@ -63,7 +63,7 @@ class SplitSection extends StatelessWidget {
                       style: const TextStyle(
                         fontFamily: 'PlusJakartaSans',
                         color: HomiziColors.ink,
-                        fontWeight: FontWeight.w800,
+                        fontWeight: FontWeight.w600,
                         fontSize: 18,
                       ),
                     ),
@@ -82,7 +82,7 @@ class SplitSection extends StatelessWidget {
                         '$count',
                         style: const TextStyle(
                           color: HomiziColors.white,
-                          fontWeight: FontWeight.w800,
+                          fontWeight: FontWeight.w600,
                           fontSize: 13,
                         ),
                       ),

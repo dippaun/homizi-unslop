@@ -81,7 +81,7 @@ class _TenantStepHeader extends StatelessWidget {
           label,
           style: const TextStyle(
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w800,
+            fontWeight: FontWeight.w600,
             fontFamily: 'PlusJakartaSans',
           ),
         ),
@@ -112,7 +112,7 @@ class TenantStepChip extends StatelessWidget {
         label,
         style: const TextStyle(
           color: HomiziColors.ink,
-          fontWeight: FontWeight.w800,
+          fontWeight: FontWeight.w600,
           fontFamily: 'PlusJakartaSans',
         ),
       ),
@@ -213,7 +213,7 @@ class _SideChip extends StatelessWidget {
             textAlign: TextAlign.center,
             style: const TextStyle(
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w600,
               fontFamily: 'PlusJakartaSans',
             ),
           ),
@@ -261,7 +261,7 @@ class TenantPoint extends StatelessWidget {
                   homiziText(context, label),
                   style: const TextStyle(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w800,
+                    fontWeight: FontWeight.w600,
                     fontFamily: 'PlusJakartaSans',
                     fontSize: 15,
                   ),
@@ -311,7 +311,7 @@ class TenantNumberedStep extends StatelessWidget {
             foregroundColor: HomiziColors.ink,
             child: Text(
               number,
-              style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 14),
+              style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 14),
             ),
           ),
           const SizedBox(width: 12),
@@ -330,7 +330,7 @@ class TenantNumberedStep extends StatelessWidget {
                         homiziText(context, title),
                         style: const TextStyle(
                           color: HomiziColors.ink,
-                          fontWeight: FontWeight.w800,
+                          fontWeight: FontWeight.w600,
                           fontFamily: 'PlusJakartaSans',
                         ),
                       ),
@@ -378,7 +378,7 @@ class TenantMatchBadge extends StatelessWidget {
         homiziText(context, '$percent% Match'),
         style: TextStyle(
           color: tone.foreground,
-          fontWeight: FontWeight.w800,
+          fontWeight: FontWeight.w600,
           fontFamily: 'PlusJakartaSans',
           fontSize: 13,
         ),
@@ -409,7 +409,7 @@ class TenantVerifiedBadge extends StatelessWidget {
             homiziText(context, label),
             style: const TextStyle(
               color: HomiziColors.success,
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w600,
               fontSize: 12,
               fontFamily: 'PlusJakartaSans',
             ),
@@ -450,7 +450,7 @@ class TenantScoreRing extends StatelessWidget {
             style: const TextStyle(
               color: HomiziColors.ink,
               fontSize: 28,
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w600,
               fontFamily: 'PlusJakartaSans',
             ),
           ),
@@ -501,7 +501,7 @@ class TenantStoryBox extends StatelessWidget {
             homiziText(context, title),
             style: const TextStyle(
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w600,
               fontFamily: 'PlusJakartaSans',
             ),
           ),

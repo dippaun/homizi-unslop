@@ -247,7 +247,7 @@ void main() {
 
     final active = tester.widget<Text>(find.text('Home').first);
     expect(active.style?.color, HomiziColors.logoOrange);
-    expect(active.style?.fontWeight, FontWeight.w700);
+    expect(active.style?.fontWeight, FontWeight.w600);
 
     final idle = tester.widget<Text>(find.text('Explore').first);
     expect(
@@ -333,7 +333,7 @@ void main() {
     }
     final active = tester.widget<Text>(find.text('Priorities').first);
     expect(active.style?.color, HomiziColors.logoOrange);
-    expect(active.style?.fontWeight, FontWeight.w700);
+    expect(active.style?.fontWeight, FontWeight.w600);
   });
 
   testWidgets('hover washes the item without shifting its icon', (

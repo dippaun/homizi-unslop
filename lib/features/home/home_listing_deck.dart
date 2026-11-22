@@ -392,7 +392,7 @@ class _SwipeCard extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
               style: const TextStyle(
                 color: HomiziColors.ink,
-                fontWeight: FontWeight.w700,
+                fontWeight: FontWeight.w600,
               ),
             ),
           ),
@@ -455,7 +455,7 @@ class _CaughtUp extends StatelessWidget {
                 style: const TextStyle(
                   fontFamily: 'PlusJakartaSans',
                   fontSize: 22,
-                  fontWeight: FontWeight.w800,
+                  fontWeight: FontWeight.w600,
                   color: HomiziColors.ink,
                 ),
               ),

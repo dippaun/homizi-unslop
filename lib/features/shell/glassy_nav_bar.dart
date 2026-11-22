@@ -213,7 +213,7 @@ class _NavItemState extends State<_NavItem> {
         (Theme.of(context).textTheme.labelSmall ?? const TextStyle()).copyWith(
           fontSize: 11,
           height: 1.1,
-          fontWeight: widget.selected ? FontWeight.w700 : FontWeight.w500,
+          fontWeight: widget.selected ? FontWeight.w600 : FontWeight.w500,
           color: color,
         );
     return Semantics(

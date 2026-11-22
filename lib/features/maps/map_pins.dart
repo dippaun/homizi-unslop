@@ -32,7 +32,7 @@ class PricePin extends StatelessWidget {
             label,
             style: Theme.of(context).textTheme.labelLarge?.copyWith(
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w700,
+              fontWeight: FontWeight.w600,
             ),
           ),
         ),

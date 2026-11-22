@@ -96,7 +96,7 @@ class _Body extends ConsumerWidget {
                 person.name,
                 style: text.headlineSmall?.copyWith(
                   color: HomiziColors.ink,
-                  fontWeight: FontWeight.w800,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
             ),
@@ -120,7 +120,7 @@ class _Body extends ConsumerWidget {
           homiziText(context, 'Why you match'),
           style: text.titleMedium?.copyWith(
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w800,
+            fontWeight: FontWeight.w600,
           ),
         ),
         const SizedBox(height: 8),

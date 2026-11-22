@@ -410,7 +410,7 @@ class _EditProfileScreenState extends ConsumerState<EditProfileScreen> {
                 homiziText(context, 'Change profile photo'),
                 style: const TextStyle(
                   color: HomiziColors.logoOrange,
-                  fontWeight: FontWeight.w700,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
             ),
@@ -562,7 +562,7 @@ class _EditProfileScreenState extends ConsumerState<EditProfileScreen> {
               homiziText(context, 'Profile information'),
               style: Theme.of(context).textTheme.titleSmall?.copyWith(
                 color: HomiziColors.ink,
-                fontWeight: FontWeight.w800,
+                fontWeight: FontWeight.w600,
               ),
             ),
           ),

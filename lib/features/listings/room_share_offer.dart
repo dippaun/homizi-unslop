@@ -39,7 +39,7 @@ class RoomShareOffer extends StatelessWidget {
           style: const TextStyle(
             fontFamily: 'PlusJakartaSans',
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w800,
+            fontWeight: FontWeight.w600,
             fontSize: 18,
           ),
         ),
@@ -72,7 +72,7 @@ class RoomShareOffer extends StatelessWidget {
             homiziText(context, 'Room ${index + 1} occupancy'),
             style: const TextStyle(
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w600,
             ),
           ),
           const SizedBox(height: 8),
@@ -102,7 +102,7 @@ class RoomShareOffer extends StatelessWidget {
           style: const TextStyle(
             fontFamily: 'PlusJakartaSans',
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w800,
+            fontWeight: FontWeight.w600,
             fontSize: 18,
           ),
         ),
@@ -224,14 +224,17 @@ class _EstimateCard extends StatelessWidget {
         children: [
           Row(
             children: [
-              const Icon(Icons.calculate_outlined, color: HomiziColors.logoOrange),
+              const Icon(
+                Icons.calculate_outlined,
+                color: HomiziColors.logoOrange,
+              ),
               const SizedBox(width: 8),
               Expanded(
                 child: Text(
                   homiziText(context, 'Rent for the room on offer'),
                   style: const TextStyle(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w800,
+                    fontWeight: FontWeight.w600,
                     fontSize: 16,
                   ),
                 ),
@@ -289,7 +292,7 @@ class _Quote extends StatelessWidget {
             key: ValueKey(shown),
             style: const TextStyle(
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w600,
             ),
           ),
         ),

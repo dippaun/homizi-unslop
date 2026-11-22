@@ -171,7 +171,7 @@ class _PosterAddressStepState extends ConsumerState<PosterAddressStep> {
           style: const TextStyle(
             fontFamily: 'PlusJakartaSans',
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w800,
+            fontWeight: FontWeight.w600,
             fontSize: 22,
           ),
         ),
@@ -295,7 +295,7 @@ class _PosterAddressStepState extends ConsumerState<PosterAddressStep> {
                   ),
                   style: const TextStyle(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w700,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
               ),
@@ -309,7 +309,7 @@ class _PosterAddressStepState extends ConsumerState<PosterAddressStep> {
             style: const TextStyle(
               fontFamily: 'PlusJakartaSans',
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w600,
               fontSize: 18,
             ),
           ),

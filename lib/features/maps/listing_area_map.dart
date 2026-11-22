@@ -178,7 +178,7 @@ class _AreaFallback extends StatelessWidget {
                         label,
                         style: const TextStyle(
                           color: HomiziColors.ink,
-                          fontWeight: FontWeight.w800,
+                          fontWeight: FontWeight.w600,
                         ),
                       ),
                     ),

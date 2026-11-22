@@ -357,7 +357,7 @@ class _ChatInboxScreenState extends ConsumerState<ChatInboxScreen> {
                           overflow: TextOverflow.ellipsis,
                           style: const TextStyle(
                             color: HomiziColors.ink,
-                            fontWeight: FontWeight.w700,
+                            fontWeight: FontWeight.w600,
                           ),
                         ),
                       ),
@@ -445,7 +445,7 @@ class _UnreadBadge extends StatelessWidget {
             style: const TextStyle(
               color: HomiziColors.ink,
               fontSize: 11,
-              fontWeight: FontWeight.w700,
+              fontWeight: FontWeight.w600,
             ),
           ),
         ),

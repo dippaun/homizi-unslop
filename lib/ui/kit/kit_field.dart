@@ -6,7 +6,7 @@ import 'package:homizi/core/theme/homizi_colors.dart';
 /// Label sits above the box so it cannot collide with the field above it.
 const TextStyle kitFieldLabelStyle = TextStyle(
   fontFamily: 'PlusJakartaSans',
-  fontWeight: FontWeight.w700,
+  fontWeight: FontWeight.w600,
   fontSize: 13,
   height: 1.3,
   color: HomiziColors.ink,

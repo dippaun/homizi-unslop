@@ -169,7 +169,7 @@ class CurrentUserAvatar extends ConsumerWidget {
                   style: const TextStyle(
                     fontFamily: 'Inter',
                     color: HomiziColors.white,
-                    fontWeight: FontWeight.w700,
+                    fontWeight: FontWeight.w600,
                     fontSize: 14,
                   ),
                 ),
@@ -248,7 +248,7 @@ class _FilledHeaderPhoto extends StatelessWidget {
           name.isEmpty ? 'Y' : name[0].toUpperCase(),
           style: const TextStyle(
             color: HomiziColors.white,
-            fontWeight: FontWeight.w700,
+            fontWeight: FontWeight.w600,
             fontSize: 14,
           ),
         ),

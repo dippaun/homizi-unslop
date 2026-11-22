@@ -29,7 +29,7 @@ class HostRoleChip extends StatelessWidget {
       side: const BorderSide(color: HomiziColors.line),
       labelStyle: const TextStyle(
         color: HomiziColors.ink,
-        fontWeight: FontWeight.w700,
+        fontWeight: FontWeight.w600,
       ),
       visualDensity: VisualDensity.compact,
     );
@@ -66,7 +66,7 @@ class HostTrustRecord extends ConsumerWidget {
           homiziText(context, 'Your trust record'),
           style: Theme.of(
             context,
-          ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w700),
+          ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w600),
         ),
         const SizedBox(height: 12),
         PublicProfileCard(profile: card),
@@ -211,7 +211,7 @@ class _AuthRow extends StatelessWidget {
                   key: Key('host-auth-status-${kind.wire}'),
                   style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w700,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
               ],
@@ -250,7 +250,7 @@ class _RohanExample extends StatelessWidget {
               homiziText(context, rohanTrustName),
               style: Theme.of(
                 context,
-              ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w700),
+              ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w600),
             ),
             const SizedBox(height: 8),
             const BrokerChip(),
@@ -350,7 +350,7 @@ class _ExampleCard extends StatelessWidget {
                   Text(
                     homiziText(context, example.name),
                     style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                      fontWeight: FontWeight.w700,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
                   const SizedBox(height: 4),
@@ -365,7 +365,7 @@ class _ExampleCard extends StatelessWidget {
                     'Verified',
                     style: TextStyle(
                       color: profileVerifiedGreen,
-                      fontWeight: FontWeight.w700,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
                 ],
@@ -415,7 +415,7 @@ class HostResponsibilityList extends StatelessWidget {
           ),
           style: Theme.of(
             context,
-          ).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w700),
+          ).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w600),
         ),
         const SizedBox(height: 8),
         Text(

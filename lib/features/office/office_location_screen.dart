@@ -233,7 +233,7 @@ class _OfficeLocationScreenState extends ConsumerState<OfficeLocationScreen> {
                           style: TextStyle(
                             fontFamily: 'PlusJakartaSans',
                             fontSize: 22,
-                            fontWeight: FontWeight.w800,
+                            fontWeight: FontWeight.w600,
                             color: HomiziColors.ink,
                           ),
                         ),
@@ -296,7 +296,7 @@ class _OfficeLocationScreenState extends ConsumerState<OfficeLocationScreen> {
                           'Preferred Transport Mode',
                           style: TextStyle(
                             fontFamily: 'PlusJakartaSans',
-                            fontWeight: FontWeight.w800,
+                            fontWeight: FontWeight.w600,
                             color: HomiziColors.ink,
                           ),
                         ),
@@ -325,7 +325,7 @@ class _OfficeLocationScreenState extends ConsumerState<OfficeLocationScreen> {
                           'Max Commute Time (One Way)',
                           style: TextStyle(
                             fontFamily: 'PlusJakartaSans',
-                            fontWeight: FontWeight.w800,
+                            fontWeight: FontWeight.w600,
                             color: HomiziColors.ink,
                           ),
                         ),
@@ -484,7 +484,7 @@ class OfficeSavedScreen extends StatelessWidget {
                     style: const TextStyle(
                       fontFamily: 'PlusJakartaSans',
                       fontSize: 22,
-                      fontWeight: FontWeight.w800,
+                      fontWeight: FontWeight.w600,
                       color: HomiziColors.ink,
                     ),
                   ),

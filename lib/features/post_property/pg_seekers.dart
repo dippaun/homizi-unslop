@@ -136,8 +136,8 @@ class PgSeekerHome extends ConsumerWidget {
           homiziText(context, 'People looking for a PG'),
           style: const TextStyle(
             fontFamily: 'PlusJakartaSans',
-            fontSize: 26,
-            fontWeight: FontWeight.w800,
+            fontSize: 24,
+            fontWeight: FontWeight.w600,
             color: HomiziColors.ink,
           ),
         ),
@@ -229,7 +229,7 @@ class _SeekerCard extends ConsumerWidget {
                     key: Key('pg-seeker-${seeker.userId}'),
                     style: const TextStyle(
                       fontFamily: 'PlusJakartaSans',
-                      fontWeight: FontWeight.w800,
+                      fontWeight: FontWeight.w600,
                       fontSize: 18,
                       color: HomiziColors.ink,
                     ),
@@ -251,7 +251,7 @@ class _SeekerCard extends ConsumerWidget {
                     seeker.budget,
                     style: const TextStyle(
                       color: HomiziColors.ink,
-                      fontWeight: FontWeight.w700,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
                   Align(
@@ -307,7 +307,7 @@ class _EmptySeekers extends StatelessWidget {
             style: const TextStyle(
               fontFamily: 'PlusJakartaSans',
               fontSize: 20,
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w600,
               color: HomiziColors.ink,
             ),
           ),

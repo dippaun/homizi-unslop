@@ -261,7 +261,7 @@ class _HostIntentCard extends StatelessWidget {
                   style: TextStyle(
                     fontFamily: 'PlusJakartaSans',
                     color: selected ? HomiziColors.white : HomiziColors.ink,
-                    fontWeight: FontWeight.w800,
+                    fontWeight: FontWeight.w600,
                     fontSize: 16,
                     height: 1.2,
                   ),
@@ -695,7 +695,7 @@ class _NearbyRowState extends State<_NearbyRow> {
                       homiziText(context, nearbyKindLabel(place.kind)),
                       style: const TextStyle(
                         fontFamily: 'PlusJakartaSans',
-                        fontWeight: FontWeight.w800,
+                        fontWeight: FontWeight.w600,
                         color: HomiziColors.ink,
                       ),
                     ),
@@ -752,7 +752,7 @@ class _NearbyRowState extends State<_NearbyRow> {
                             textAlign: TextAlign.end,
                             style: const TextStyle(
                               color: HomiziColors.ink,
-                              fontWeight: FontWeight.w700,
+                              fontWeight: FontWeight.w600,
                               fontSize: 13,
                             ),
                           ),
@@ -1048,7 +1048,7 @@ class RulesStep extends StatelessWidget {
           homiziText(context, 'Occupant schedule'),
           style: const TextStyle(
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w800,
+            fontWeight: FontWeight.w600,
           ),
         ),
         const SizedBox(height: 8),
@@ -1771,7 +1771,7 @@ class _PrivateFlatNote extends StatelessWidget {
               ),
               style: const TextStyle(
                 color: HomiziColors.ink,
-                fontWeight: FontWeight.w700,
+                fontWeight: FontWeight.w600,
               ),
             ),
           ),
@@ -1836,7 +1836,7 @@ class _ChoiceLabel extends StatelessWidget {
             homiziText(context, label),
             style: const TextStyle(
               fontFamily: 'PlusJakartaSans',
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w600,
               color: HomiziColors.ink,
             ),
           ),

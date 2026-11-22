@@ -39,8 +39,8 @@ class PgOwnerHome extends ConsumerWidget {
             homiziText(context, 'Your PGs'),
             style: const TextStyle(
               fontFamily: 'PlusJakartaSans',
-              fontSize: 26,
-              fontWeight: FontWeight.w800,
+              fontSize: 24,
+              fontWeight: FontWeight.w600,
               color: HomiziColors.ink,
             ),
           ),
@@ -61,7 +61,7 @@ class PgOwnerHome extends ConsumerWidget {
             style: const TextStyle(
               fontFamily: 'PlusJakartaSans',
               fontSize: 20,
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w600,
               color: HomiziColors.ink,
             ),
           ),
@@ -131,7 +131,7 @@ class _EmptyPg extends StatelessWidget {
             style: const TextStyle(
               fontFamily: 'PlusJakartaSans',
               fontSize: 22,
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w600,
               color: HomiziColors.ink,
             ),
           ),
@@ -201,7 +201,7 @@ class _PgCard extends StatelessWidget {
                         Text(
                           title,
                           style: const TextStyle(
-                            fontWeight: FontWeight.w800,
+                            fontWeight: FontWeight.w600,
                             color: HomiziColors.ink,
                           ),
                         ),
@@ -214,7 +214,7 @@ class _PgCard extends StatelessWidget {
                   ),
                   Text(
                     formatInr(rent),
-                    style: const TextStyle(fontWeight: FontWeight.w800),
+                    style: const TextStyle(fontWeight: FontWeight.w600),
                   ),
                 ],
               ),
@@ -257,7 +257,7 @@ class _RequestNote extends StatelessWidget {
                 Text(
                   homiziText(context, title),
                   style: const TextStyle(
-                    fontWeight: FontWeight.w800,
+                    fontWeight: FontWeight.w600,
                     color: HomiziColors.ink,
                   ),
                 ),
@@ -303,7 +303,7 @@ class _RequestCard extends StatelessWidget {
                 children: [
                   Text(
                     name,
-                    style: const TextStyle(fontWeight: FontWeight.w800),
+                    style: const TextStyle(fontWeight: FontWeight.w600),
                   ),
                   Text(detail),
                 ],

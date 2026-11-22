@@ -74,7 +74,7 @@ class _SavedOfficeFieldState extends ConsumerState<SavedOfficeField> {
           homiziText(context, 'Office'),
           style: Theme.of(context).textTheme.titleSmall?.copyWith(
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w700,
+            fontWeight: FontWeight.w600,
           ),
         ),
         const SizedBox(height: 4),
@@ -119,7 +119,7 @@ class _SavedOfficeFieldState extends ConsumerState<SavedOfficeField> {
       ),
       title: Text(
         homiziText(context, 'Office'),
-        style: const TextStyle(fontWeight: FontWeight.w800),
+        style: const TextStyle(fontWeight: FontWeight.w600),
       ),
       subtitle: Text(label),
       trailing: TextButton(
@@ -128,7 +128,7 @@ class _SavedOfficeFieldState extends ConsumerState<SavedOfficeField> {
           homiziText(context, 'Change office'),
           style: const TextStyle(
             color: HomiziColors.logoOrange,
-            fontWeight: FontWeight.w800,
+            fontWeight: FontWeight.w600,
           ),
         ),
       ),

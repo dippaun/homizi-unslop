@@ -230,7 +230,7 @@ class _SeekerMatchesScreenState extends ConsumerState<SeekerMatchesScreen> {
                           style: Theme.of(context).textTheme.headlineSmall
                               ?.copyWith(
                                 color: HomiziColors.ink,
-                                fontWeight: FontWeight.w800,
+                                fontWeight: FontWeight.w600,
                               ),
                         ),
                         const SizedBox(height: 4),
@@ -625,7 +625,7 @@ class _Tab extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: selected ? HomiziColors.ink : HomiziColors.muted,
-                  fontWeight: selected ? FontWeight.w800 : FontWeight.w500,
+                  fontWeight: selected ? FontWeight.w600 : FontWeight.w500,
                   fontSize: 11,
                 ),
               ),
@@ -719,7 +719,7 @@ class _FilterSheetState extends State<_FilterSheet> {
             homiziText(context, 'Filter seekers'),
             style: Theme.of(context).textTheme.titleMedium?.copyWith(
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w600,
             ),
           ),
           const SizedBox(height: 8),
@@ -872,7 +872,7 @@ class _TopTabs extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: selected ? HomiziColors.white : HomiziColors.ink,
-                      fontWeight: FontWeight.w700,
+                      fontWeight: FontWeight.w600,
                       fontSize: 13,
                     ),
                   ),
@@ -1029,7 +1029,7 @@ class _Fact extends StatelessWidget {
           Icon(icon, size: 18, color: HomiziColors.logoOrange),
           Text(
             homiziText(context, label),
-            style: const TextStyle(color: HomiziColors.muted, fontSize: 10),
+            style: const TextStyle(color: HomiziColors.muted, fontSize: 11),
           ),
           Text(
             homiziText(context, value),
@@ -1038,7 +1038,7 @@ class _Fact extends StatelessWidget {
             overflow: TextOverflow.ellipsis,
             style: const TextStyle(
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w700,
+              fontWeight: FontWeight.w600,
               fontSize: 11,
             ),
           ),

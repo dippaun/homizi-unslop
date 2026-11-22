@@ -173,7 +173,7 @@ class _HeroCopy extends StatelessWidget {
       fontFamily: 'PlusJakartaSans',
       fontSize: headingSize,
       height: 1.05,
-      fontWeight: FontWeight.w800,
+      fontWeight: FontWeight.w600,
       color: HomiziColors.ink,
     );
     return Column(
@@ -363,7 +363,7 @@ class _ActionCard extends StatelessWidget {
       fontFamily: 'PlusJakartaSans',
       fontSize: 15,
       height: 1.15,
-      fontWeight: FontWeight.w800,
+      fontWeight: FontWeight.w600,
       color: ink,
     );
     return DecoratedBox(
@@ -606,7 +606,7 @@ class _RentalStrip extends ConsumerWidget {
                 style: const TextStyle(
                   fontFamily: 'PlusJakartaSans',
                   fontSize: 20,
-                  fontWeight: FontWeight.w800,
+                  fontWeight: FontWeight.w600,
                   color: HomiziColors.ink,
                 ),
               ),
@@ -619,7 +619,7 @@ class _RentalStrip extends ConsumerWidget {
                 style: const TextStyle(
                   fontFamily: 'Inter',
                   color: HomiziColors.accent,
-                  fontWeight: FontWeight.w700,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
             ),
@@ -660,7 +660,7 @@ class _SampleTag extends StatelessWidget {
             'Sample',
             style: TextStyle(
               fontFamily: 'Inter',
-              fontWeight: FontWeight.w700,
+              fontWeight: FontWeight.w600,
               color: HomiziColors.ink,
             ),
           ),

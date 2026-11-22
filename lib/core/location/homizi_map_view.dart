@@ -111,7 +111,7 @@ class _MapPlaceholder extends StatelessWidget {
                     label,
                     style: const TextStyle(
                       fontFamily: 'PlusJakartaSans',
-                      fontWeight: FontWeight.w800,
+                      fontWeight: FontWeight.w600,
                       color: HomiziColors.ink,
                       fontSize: 13,
                     ),

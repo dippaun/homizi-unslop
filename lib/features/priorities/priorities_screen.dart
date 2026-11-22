@@ -125,7 +125,7 @@ class _SavedChangePrompt extends StatelessWidget {
         key: const Key('priority-saved-prompt'),
         style: const TextStyle(
           color: HomiziColors.ink,
-          fontWeight: FontWeight.w700,
+          fontWeight: FontWeight.w600,
         ),
       ),
     );
@@ -174,7 +174,7 @@ class _CityQuestionState extends State<_CityQuestion> {
             style: const TextStyle(
               fontFamily: 'PlusJakartaSans',
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w600,
               fontSize: 16,
             ),
           ),
@@ -238,7 +238,7 @@ class _Header extends StatelessWidget {
                   key: const Key('priority-title'),
                   style: const TextStyle(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w700,
+                    fontWeight: FontWeight.w600,
                     fontSize: 20,
                   ),
                 ),

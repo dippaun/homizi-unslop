@@ -69,7 +69,7 @@ class HomiziWordmark extends StatelessWidget {
     const style = TextStyle(
       fontFamily: 'PlusJakartaSans',
       fontSize: 20,
-      fontWeight: FontWeight.w800,
+      fontWeight: FontWeight.w700,
       letterSpacing: 0.6,
       color: HomiziColors.ink,
     );

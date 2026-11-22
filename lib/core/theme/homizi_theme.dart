@@ -10,7 +10,8 @@ abstract final class HomiziTheme {
 
   /// Plus Jakarta Sans for headings, Inter for body and labels.
   ///
-  /// Headings stay near-black and heavy. Body copy is a step softer. Captions
+  /// Headings stay near-black at 600. Hierarchy comes from size and colour,
+  /// not from 800 or 900 weights (unslop pass 5). Body copy is a step softer. Captions
   /// use the muted grey that still clears 4.5:1 on white.
   static TextTheme _type(TextTheme base) {
     final headings = GoogleFonts.plusJakartaSansTextTheme(base);
@@ -18,14 +19,14 @@ abstract final class HomiziTheme {
     TextStyle? display(TextStyle? style) {
       return style?.copyWith(
         color: HomiziColors.ink,
-        fontWeight: FontWeight.w800,
+        fontWeight: FontWeight.w600,
       );
     }
 
     TextStyle? title(TextStyle? style) {
       return style?.copyWith(
         color: HomiziColors.ink,
-        fontWeight: FontWeight.w700,
+        fontWeight: FontWeight.w600,
       );
     }
 
@@ -72,7 +73,7 @@ abstract final class HomiziTheme {
         textStyle: const TextStyle(
           fontFamily: 'PlusJakartaSans',
           fontSize: 16,
-          fontWeight: FontWeight.w800,
+          fontWeight: FontWeight.w600,
           color: HomiziColors.ink,
         ),
       ).copyWith(
@@ -104,7 +105,7 @@ abstract final class HomiziTheme {
         textStyle: const TextStyle(
           fontFamily: 'PlusJakartaSans',
           fontSize: 16,
-          fontWeight: FontWeight.w700,
+          fontWeight: FontWeight.w600,
           color: HomiziColors.ink,
         ),
       ).copyWith(
@@ -132,7 +133,7 @@ abstract final class HomiziTheme {
         textStyle: const TextStyle(
           fontFamily: 'PlusJakartaSans',
           fontSize: 15,
-          fontWeight: FontWeight.w700,
+          fontWeight: FontWeight.w600,
         ),
       ).copyWith(
         side: WidgetStateProperty.resolveWith((states) {
@@ -256,7 +257,7 @@ abstract final class HomiziTheme {
         floatingLabelStyle: TextStyle(
           fontFamily: 'Inter',
           color: HomiziColors.ink,
-          fontWeight: FontWeight.w700,
+          fontWeight: FontWeight.w600,
         ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(16)),
@@ -285,7 +286,7 @@ abstract final class HomiziTheme {
           fontFamily: 'Inter',
           color: HomiziColors.ink,
           fontSize: 13,
-          fontWeight: FontWeight.w700,
+          fontWeight: FontWeight.w600,
         ),
         padding: EdgeInsets.symmetric(horizontal: 8, vertical: 2),
         side: BorderSide.none,
@@ -415,6 +416,26 @@ abstract final class HomiziTheme {
       pageTransitionsTheme: _transitions,
     );
   }
+}
+
+/// Type scale (unslop pass 5). Use these sizes; weights are 400, 500 and
+/// 600 only, except the HOMIZI wordmark and swipe stamps.
+abstract final class HomiziType {
+  /// Meta, counts, small labels. Nothing in the app goes below this.
+  static const double meta = 11;
+  static const double caption = 12;
+  static const double secondary = 13;
+  static const double body = 14;
+  static const double bodyLarge = 16;
+  static const double title = 18;
+  static const double titleLarge = 20;
+  static const double headline = 24;
+  static const double display = 28;
+  static const double hero = 32;
+
+  static const FontWeight regular = FontWeight.w400;
+  static const FontWeight medium = FontWeight.w500;
+  static const FontWeight strong = FontWeight.w600;
 }
 
 /// Menus stay a white surface with ink type. The selected row is a pale

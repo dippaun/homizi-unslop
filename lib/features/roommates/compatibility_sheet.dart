@@ -47,7 +47,7 @@ class RoommateBreakdownSheet extends StatelessWidget {
               '${seeker.score > 0 ? seeker.score : score.score}%',
               style: theme.textTheme.displaySmall?.copyWith(
                 color: HomiziColors.ink,
-                fontWeight: FontWeight.w800,
+                fontWeight: FontWeight.w600,
               ),
             ),
             const SizedBox(height: 8),
@@ -105,13 +105,13 @@ class _ScoreLine extends StatelessWidget {
                 homiziText(context, row.label),
                 style: Theme.of(
                   context,
-                ).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w700),
+                ).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w600),
               ),
               Text(
                 homiziText(context, row.ok ? 'Match' : 'Not a match'),
                 style: Theme.of(context).textTheme.labelLarge?.copyWith(
                   color: HomiziColors.ink,
-                  fontWeight: FontWeight.w700,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
               const SizedBox(height: 2),

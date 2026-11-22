@@ -520,7 +520,7 @@ class _PhotoCropSheetState extends State<_PhotoCropSheet> {
               backgroundColor: HomiziColors.white,
               labelStyle: const TextStyle(
                 color: HomiziColors.ink,
-                fontWeight: FontWeight.w700,
+                fontWeight: FontWeight.w600,
               ),
               side: BorderSide(
                 color: aspect == _aspect

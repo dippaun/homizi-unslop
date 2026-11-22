@@ -122,7 +122,7 @@ class ContactVerifyBadge extends StatelessWidget {
                   key: badgeKey,
                   style: theme.textTheme.bodySmall?.copyWith(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w700,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
                 const SizedBox(height: 2),
@@ -148,7 +148,7 @@ class ContactVerifyBadge extends StatelessWidget {
                 'Verified',
                 style: TextStyle(
                   color: HomiziColors.ink,
-                  fontWeight: FontWeight.w700,
+                  fontWeight: FontWeight.w600,
                   fontSize: 12,
                 ),
               ),

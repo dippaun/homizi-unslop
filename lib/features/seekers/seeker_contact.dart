@@ -154,7 +154,7 @@ class SeekerPriorityBreakdown extends StatelessWidget {
               ),
               style: const TextStyle(
                 color: HomiziColors.white,
-                fontWeight: FontWeight.w700,
+                fontWeight: FontWeight.w600,
               ),
             ),
           ),

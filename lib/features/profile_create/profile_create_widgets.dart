@@ -119,7 +119,7 @@ class ProfileCreateButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final style = Theme.of(context).textTheme.titleMedium?.copyWith(
       color: HomiziColors.ink,
-      fontWeight: FontWeight.w700,
+      fontWeight: FontWeight.w600,
     );
     return SizedBox(
       width: double.infinity,

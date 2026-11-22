@@ -561,7 +561,7 @@ class _Hint extends StatelessWidget {
         style: const TextStyle(
           color: HomiziColors.inkSoft,
           fontSize: 13,
-          fontWeight: FontWeight.w700,
+          fontWeight: FontWeight.w600,
         ),
       ),
     );
@@ -591,7 +591,7 @@ class _Done extends StatelessWidget {
               textAlign: TextAlign.center,
               style: const TextStyle(
                 color: HomiziColors.ink,
-                fontWeight: FontWeight.w800,
+                fontWeight: FontWeight.w600,
                 fontSize: 18,
               ),
             ),
@@ -643,7 +643,7 @@ class _Stamp extends StatelessWidget {
                   label,
                   style: TextStyle(
                     color: foreground,
-                    fontWeight: FontWeight.w800,
+                    fontWeight: FontWeight.w700,
                     fontSize: 22,
                     letterSpacing: 1.1,
                   ),

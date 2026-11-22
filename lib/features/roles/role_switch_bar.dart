@@ -28,7 +28,7 @@ class RoleSwitchBar extends ConsumerWidget {
               selectedColor: HomiziColors.accentWash,
               labelStyle: TextStyle(
                 color: HomiziColors.ink,
-                fontWeight: current == role ? FontWeight.w700 : FontWeight.w500,
+                fontWeight: current == role ? FontWeight.w600 : FontWeight.w500,
               ),
               side: BorderSide(
                 color: current == role

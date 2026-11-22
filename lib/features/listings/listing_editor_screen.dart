@@ -1155,7 +1155,7 @@ class _ListingEditorScreenState extends ConsumerState<ListingEditorScreen> {
                               style: const TextStyle(
                                 fontFamily: 'PlusJakartaSans',
                                 color: HomiziColors.ink,
-                                fontWeight: FontWeight.w800,
+                                fontWeight: FontWeight.w600,
                                 fontSize: 22,
                               ),
                             ),
@@ -1177,7 +1177,7 @@ class _ListingEditorScreenState extends ConsumerState<ListingEditorScreen> {
                               style: const TextStyle(
                                 fontFamily: 'PlusJakartaSans',
                                 color: HomiziColors.ink,
-                                fontWeight: FontWeight.w800,
+                                fontWeight: FontWeight.w600,
                                 fontSize: 22,
                               ),
                             ),
@@ -1567,7 +1567,7 @@ class _ListingEditorScreenState extends ConsumerState<ListingEditorScreen> {
                               tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                               alignment: Alignment.centerLeft,
                               textStyle: const TextStyle(
-                                fontWeight: FontWeight.w700,
+                                fontWeight: FontWeight.w600,
                               ),
                             ),
                             onPressed: _pointsAtField(shownNote)

@@ -224,7 +224,7 @@ class ListingIdentityStep extends ConsumerWidget {
                 homiziText(context, 'Verify later'),
                 style: const TextStyle(
                   fontFamily: 'PlusJakartaSans',
-                  fontWeight: FontWeight.w800,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
             ),
@@ -477,7 +477,7 @@ class ListingIdentityStep extends ConsumerWidget {
                 homiziText(context, title),
                 style: const TextStyle(
                   fontFamily: 'PlusJakartaSans',
-                  fontWeight: FontWeight.w800,
+                  fontWeight: FontWeight.w600,
                   color: HomiziColors.ink,
                 ),
               ),
@@ -537,7 +537,7 @@ class _VerifiedAadhaar extends StatelessWidget {
                       style: const TextStyle(
                         fontFamily: 'PlusJakartaSans',
                         color: HomiziColors.success,
-                        fontWeight: FontWeight.w800,
+                        fontWeight: FontWeight.w600,
                         fontSize: 16,
                       ),
                     ),

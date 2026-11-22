@@ -76,7 +76,7 @@ class RoommateMatchRow extends StatelessWidget {
                         style: const TextStyle(
                           fontFamily: 'PlusJakartaSans',
                           color: HomiziColors.ink,
-                          fontWeight: FontWeight.w800,
+                          fontWeight: FontWeight.w600,
                           fontSize: 15,
                         ),
                       ),
@@ -136,7 +136,7 @@ class RoommateMatchRow extends StatelessWidget {
                             '$percent%',
                             style: const TextStyle(
                               color: HomiziColors.success,
-                              fontWeight: FontWeight.w800,
+                              fontWeight: FontWeight.w600,
                               fontSize: 12,
                             ),
                           ),
@@ -211,7 +211,7 @@ class RoommateSuggestedGrid extends StatelessWidget {
                   homiziText(context, 'Matched roommates'),
                   style: const TextStyle(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w800,
+                    fontWeight: FontWeight.w600,
                     fontSize: 18,
                   ),
                 ),
@@ -240,7 +240,7 @@ class RoommateSuggestedGrid extends StatelessWidget {
                   homiziText(context, 'See All'),
                   style: const TextStyle(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w800,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
               ),
@@ -405,7 +405,7 @@ class _MiniAction extends StatelessWidget {
       onPressed: onPressed,
       child: Text(
         homiziText(context, label),
-        style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 12),
+        style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 12),
       ),
     );
   }

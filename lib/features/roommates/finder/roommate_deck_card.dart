@@ -131,8 +131,8 @@ class _RoommateDeckCardState extends State<RoommateDeckCard>
                     style: const TextStyle(
                       fontFamily: 'PlusJakartaSans',
                       color: HomiziColors.white,
-                      fontWeight: FontWeight.w800,
-                      fontSize: 30,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 28,
                     ),
                   ),
                   const SizedBox(height: 4),
@@ -232,7 +232,7 @@ class _Reasons extends StatelessWidget {
           style: const TextStyle(
             fontFamily: 'PlusJakartaSans',
             color: HomiziColors.white,
-            fontWeight: FontWeight.w800,
+            fontWeight: FontWeight.w600,
           ),
         ),
         const SizedBox(height: 6),
@@ -341,7 +341,7 @@ class _FactChip extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
                 style: const TextStyle(
                   color: HomiziColors.ink,
-                  fontWeight: FontWeight.w700,
+                  fontWeight: FontWeight.w600,
                   fontSize: 13,
                 ),
               ),
@@ -376,7 +376,7 @@ class _LifeChip extends StatelessWidget {
               label,
               style: const TextStyle(
                 color: HomiziColors.ink,
-                fontWeight: FontWeight.w700,
+                fontWeight: FontWeight.w600,
                 fontSize: 13,
               ),
             ),

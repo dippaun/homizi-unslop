@@ -238,9 +238,9 @@ class _AuthCelebrationState extends ConsumerState<AuthCelebration>
                     textAlign: TextAlign.center,
                     style: const TextStyle(
                       fontFamily: 'PlusJakartaSans',
-                      fontSize: 34,
+                      fontSize: 32,
                       height: 1.15,
-                      fontWeight: FontWeight.w800,
+                      fontWeight: FontWeight.w600,
                       color: HomiziColors.ink,
                     ),
                   ),
@@ -263,9 +263,9 @@ class _AuthCelebrationState extends ConsumerState<AuthCelebration>
                     textAlign: TextAlign.center,
                     style: const TextStyle(
                       fontFamily: 'PlusJakartaSans',
-                      fontSize: 30,
+                      fontSize: 28,
                       height: 1.15,
-                      fontWeight: FontWeight.w800,
+                      fontWeight: FontWeight.w600,
                       color: HomiziColors.ink,
                     ),
                   ),
@@ -297,7 +297,7 @@ class _AuthCelebrationState extends ConsumerState<AuthCelebration>
                     fontFamily: 'PlusJakartaSans',
                     fontSize: 28,
                     height: 1.15,
-                    fontWeight: FontWeight.w800,
+                    fontWeight: FontWeight.w600,
                     color: HomiziColors.ink,
                   ),
                 ),
@@ -323,7 +323,10 @@ class _AuthCelebrationState extends ConsumerState<AuthCelebration>
                       label: 'Verified people',
                       icon: Icons.verified_outlined,
                     ),
-                    _Chip(label: 'Smart matches', icon: Icons.handshake_outlined),
+                    _Chip(
+                      label: 'Smart matches',
+                      icon: Icons.handshake_outlined,
+                    ),
                     _Chip(label: 'Private contact', icon: Icons.lock_outline),
                   ],
                 ),
@@ -412,7 +415,7 @@ class _Chip extends StatelessWidget {
             Text(
               homiziText(context, label),
               style: const TextStyle(
-                fontWeight: FontWeight.w700,
+                fontWeight: FontWeight.w600,
                 color: HomiziColors.ink,
                 fontSize: 13,
               ),
@@ -456,7 +459,7 @@ class _PrimaryButton extends StatelessWidget {
         onPressed: onPressed,
         child: Text(
           homiziText(context, label),
-          style: const TextStyle(fontWeight: FontWeight.w800),
+          style: const TextStyle(fontWeight: FontWeight.w600),
         ),
       ),
     );

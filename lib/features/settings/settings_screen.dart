@@ -533,7 +533,7 @@ class _SettingsHeading extends StatelessWidget {
         homiziText(context, title),
         style: Theme.of(context).textTheme.titleSmall?.copyWith(
           color: HomiziColors.ink,
-          fontWeight: FontWeight.w800,
+          fontWeight: FontWeight.w600,
         ),
       ),
     );

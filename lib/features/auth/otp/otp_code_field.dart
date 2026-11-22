@@ -247,7 +247,7 @@ class _OtpBox extends StatelessWidget {
               key: boxKey,
               style: Theme.of(context).textTheme.titleLarge?.copyWith(
                 color: textColor,
-                fontWeight: FontWeight.w800,
+                fontWeight: FontWeight.w600,
               ),
             ),
           ),

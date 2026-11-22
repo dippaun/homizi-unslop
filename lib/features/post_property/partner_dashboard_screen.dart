@@ -38,7 +38,7 @@ class PartnerDashboardScreen extends ConsumerWidget {
             style: const TextStyle(
               fontFamily: 'PlusJakartaSans',
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w600,
               fontSize: 28,
             ),
           ),
@@ -71,7 +71,7 @@ class PartnerDashboardScreen extends ConsumerWidget {
             homiziText(context, 'Recent Enquiries'),
             style: const TextStyle(
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w600,
               fontSize: 18,
             ),
           ),
@@ -105,8 +105,8 @@ class PartnerListingsScreen extends ConsumerWidget {
             style: const TextStyle(
               fontFamily: 'PlusJakartaSans',
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w800,
-              fontSize: 26,
+              fontWeight: FontWeight.w600,
+              fontSize: 24,
             ),
           ),
           const SizedBox(height: 12),
@@ -171,8 +171,8 @@ class PartnerEnquiriesScreen extends StatelessWidget {
             style: const TextStyle(
               fontFamily: 'PlusJakartaSans',
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w800,
-              fontSize: 26,
+              fontWeight: FontWeight.w600,
+              fontSize: 24,
             ),
           ),
           const SizedBox(height: 8),
@@ -209,7 +209,7 @@ class _Banner extends StatelessWidget {
                 style: const TextStyle(
                   color: HomiziColors.ink,
                   fontFamily: 'PlusJakartaSans',
-                  fontWeight: FontWeight.w800,
+                  fontWeight: FontWeight.w600,
                   fontSize: 18,
                 ),
               ),
@@ -268,7 +268,7 @@ class _Stat extends StatelessWidget {
               style: const TextStyle(
                 color: HomiziColors.ink,
                 fontFamily: 'PlusJakartaSans',
-                fontWeight: FontWeight.w800,
+                fontWeight: FontWeight.w600,
                 fontSize: 24,
               ),
             ),
@@ -313,7 +313,7 @@ class _EnquiryTile extends StatelessWidget {
                     enquiry.name,
                     style: const TextStyle(
                       color: HomiziColors.ink,
-                      fontWeight: FontWeight.w800,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
                   Text(

@@ -213,7 +213,7 @@ class _HomesList extends ConsumerWidget {
             key: const Key('shared-others'),
             style: Theme.of(
               context,
-            ).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w700),
+            ).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w600),
           ),
           const SizedBox(height: 10),
           for (final row in others) ...[
@@ -283,7 +283,7 @@ class SharedHomeCard extends ConsumerWidget {
             homiziText(context, 'Occupancy details'),
             style: text.titleSmall?.copyWith(
               color: HomiziColors.brandDeepRed,
-              fontWeight: FontWeight.w700,
+              fontWeight: FontWeight.w600,
             ),
           ),
           const SizedBox(height: 4),

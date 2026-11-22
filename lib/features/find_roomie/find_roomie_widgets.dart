@@ -91,7 +91,7 @@ class FindRoomiePercent extends StatelessWidget {
         key: Key('find-roomie-percent-$personId'),
         style: const TextStyle(
           color: HomiziColors.onSuccess,
-          fontWeight: FontWeight.w800,
+          fontWeight: FontWeight.w600,
           fontSize: 14,
         ),
       ),
@@ -118,7 +118,7 @@ class FindRoomieSampleChip extends StatelessWidget {
           style: const TextStyle(
             color: HomiziColors.ink,
             fontSize: 12,
-            fontWeight: FontWeight.w700,
+            fontWeight: FontWeight.w600,
           ),
         ),
       ),
@@ -147,7 +147,7 @@ class FindRoomieVerified extends StatelessWidget {
               homiziText(context, 'Verified'),
               style: const TextStyle(
                 color: HomiziColors.success,
-                fontWeight: FontWeight.w700,
+                fontWeight: FontWeight.w600,
                 fontSize: 12,
               ),
             ),
@@ -204,7 +204,7 @@ class FindRoomieButton extends StatelessWidget {
                       textAlign: TextAlign.center,
                       style: const TextStyle(
                         color: HomiziColors.ink,
-                        fontWeight: FontWeight.w800,
+                        fontWeight: FontWeight.w600,
                         fontSize: 15,
                       ),
                     ),

@@ -298,7 +298,7 @@ class _LiveTile extends StatelessWidget {
                 Expanded(
                   child: Text(
                     homiziText(context, notice.title),
-                    style: const TextStyle(fontWeight: FontWeight.w800),
+                    style: const TextStyle(fontWeight: FontWeight.w600),
                   ),
                 ),
                 if (notice.demo)

@@ -73,7 +73,7 @@ class TenantRankPage extends StatelessWidget {
                   homiziText(context, '$count priorities'),
                   style: const TextStyle(
                     color: HomiziColors.muted,
-                    fontWeight: FontWeight.w700,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
               ],
@@ -152,7 +152,7 @@ class _DragRow extends StatelessWidget {
                 child: Text(
                   '${index + 1}',
                   style: const TextStyle(
-                    fontWeight: FontWeight.w800,
+                    fontWeight: FontWeight.w600,
                     fontSize: 12,
                   ),
                 ),
@@ -168,7 +168,7 @@ class _DragRow extends StatelessWidget {
                       homiziText(context, title),
                       style: const TextStyle(
                         color: HomiziColors.ink,
-                        fontWeight: FontWeight.w800,
+                        fontWeight: FontWeight.w600,
                         fontFamily: 'PlusJakartaSans',
                       ),
                     ),
@@ -491,7 +491,7 @@ class _TenantDetailPageState extends State<TenantDetailPage> {
             homiziText(context, tenantPhotoCaption(index, photos.length)),
             style: const TextStyle(
               color: HomiziColors.muted,
-              fontWeight: FontWeight.w700,
+              fontWeight: FontWeight.w600,
             ),
           ),
           const SizedBox(height: 8),
@@ -512,7 +512,7 @@ class _TenantDetailPageState extends State<TenantDetailPage> {
             style: const TextStyle(
               color: HomiziColors.ink,
               fontSize: 22,
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w600,
               fontFamily: 'PlusJakartaSans',
             ),
           ),
@@ -531,7 +531,7 @@ class _TenantDetailPageState extends State<TenantDetailPage> {
               homiziText(context, pick.priceLabel),
               style: const TextStyle(
                 color: HomiziColors.ink,
-                fontWeight: FontWeight.w800,
+                fontWeight: FontWeight.w600,
                 fontSize: 18,
                 fontFamily: 'PlusJakartaSans',
               ),
@@ -566,7 +566,7 @@ class _TenantDetailPageState extends State<TenantDetailPage> {
             homiziText(context, 'Key match factors'),
             style: const TextStyle(
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w600,
               fontFamily: 'PlusJakartaSans',
             ),
           ),
@@ -577,7 +577,7 @@ class _TenantDetailPageState extends State<TenantDetailPage> {
             homiziText(context, 'Total compatibility ${pick.percent}%'),
             style: const TextStyle(
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w600,
             ),
           ),
           const SizedBox(height: 12),
@@ -633,7 +633,7 @@ class _OwnerCard extends StatelessWidget {
                     homiziText(context, pick.personName),
                     style: const TextStyle(
                       color: HomiziColors.ink,
-                      fontWeight: FontWeight.w800,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
                   Text(
@@ -713,7 +713,7 @@ class TenantMatchPage extends StatelessWidget {
             style: const TextStyle(
               color: HomiziColors.ink,
               fontSize: 28,
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w600,
               fontFamily: 'PlusJakartaSans',
             ),
           ),
@@ -841,7 +841,7 @@ class _TenantChatPageState extends State<TenantChatPage> {
                         homiziText(context, pick.personName),
                         style: const TextStyle(
                           color: HomiziColors.ink,
-                          fontWeight: FontWeight.w800,
+                          fontWeight: FontWeight.w600,
                         ),
                       ),
                       Text(
@@ -989,7 +989,7 @@ class TenantContactPage extends StatelessWidget {
             homiziText(context, pick.personName),
             style: const TextStyle(
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w600,
               fontSize: 20,
               fontFamily: 'PlusJakartaSans',
             ),
@@ -1092,7 +1092,7 @@ class TenantVisitPage extends StatelessWidget {
             homiziText(context, pick.title),
             style: const TextStyle(
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w600,
               fontSize: 18,
               fontFamily: 'PlusJakartaSans',
             ),
@@ -1156,7 +1156,7 @@ class TenantBookedPage extends StatelessWidget {
             style: const TextStyle(
               color: HomiziColors.ink,
               fontSize: 28,
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w600,
               fontFamily: 'PlusJakartaSans',
             ),
           ),
@@ -1165,7 +1165,7 @@ class TenantBookedPage extends StatelessWidget {
             homiziText(context, '${pick.title} with ${pick.personName}'),
             style: const TextStyle(
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w700,
+              fontWeight: FontWeight.w600,
               fontFamily: 'PlusJakartaSans',
             ),
           ),
@@ -1175,7 +1175,7 @@ class TenantBookedPage extends StatelessWidget {
             style: const TextStyle(
               color: HomiziColors.ink,
               fontSize: 18,
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w600,
             ),
           ),
           const SizedBox(height: 8),

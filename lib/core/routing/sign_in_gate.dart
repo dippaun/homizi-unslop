@@ -184,7 +184,7 @@ class SignInContinuePage extends ConsumerWidget {
                   textAlign: TextAlign.center,
                   style: text.headlineSmall?.copyWith(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w800,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
                 const SizedBox(height: 10),
@@ -223,7 +223,7 @@ class SignInContinuePage extends ConsumerWidget {
                   child: Text(
                     homiziText(context, 'Signup'),
                     style: const TextStyle(
-                      fontWeight: FontWeight.w800,
+                      fontWeight: FontWeight.w600,
                       fontSize: 16,
                     ),
                   ),
@@ -293,7 +293,7 @@ class _GradientCta extends StatelessWidget {
                 label,
                 style: const TextStyle(
                   color: HomiziColors.ink,
-                  fontWeight: FontWeight.w800,
+                  fontWeight: FontWeight.w600,
                   fontSize: 16,
                 ),
               ),

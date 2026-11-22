@@ -89,7 +89,7 @@ class MatchBreakdownSheet extends StatelessWidget {
                     style: theme.textTheme.titleLarge?.copyWith(
                       fontFamily: 'PlusJakartaSans',
                       color: HomiziColors.ink,
-                      fontWeight: FontWeight.w800,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
                 ),
@@ -116,7 +116,7 @@ class MatchBreakdownSheet extends StatelessWidget {
                       homiziText(context, match.label),
                       style: theme.textTheme.labelLarge?.copyWith(
                         color: tone.foreground,
-                        fontWeight: FontWeight.w800,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                   ),
@@ -144,7 +144,7 @@ class MatchBreakdownSheet extends StatelessWidget {
                 key: const Key('match-must-have-cap'),
                 style: theme.textTheme.bodyMedium?.copyWith(
                   color: HomiziColors.error,
-                  fontWeight: FontWeight.w700,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
             ),
@@ -164,7 +164,7 @@ class MatchBreakdownSheet extends StatelessWidget {
                     homiziText(context, 'Add your missing preferences'),
                     style: const TextStyle(
                       color: HomiziColors.brandDeepRed,
-                      fontWeight: FontWeight.w800,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
                 ),
@@ -186,7 +186,7 @@ class MatchBreakdownSheet extends StatelessWidget {
                 key: const Key('match-preferences-title'),
                 style: theme.textTheme.titleMedium?.copyWith(
                   color: HomiziColors.ink,
-                  fontWeight: FontWeight.w800,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
             ),
@@ -207,7 +207,7 @@ class MatchBreakdownSheet extends StatelessWidget {
                         homiziText(context, line),
                         style: const TextStyle(
                           fontFamily: 'PlusJakartaSans',
-                          fontWeight: FontWeight.w700,
+                          fontWeight: FontWeight.w600,
                           color: HomiziColors.ink,
                         ),
                       ),
@@ -226,7 +226,7 @@ class MatchBreakdownSheet extends StatelessWidget {
                   homiziText(context, 'Edit preferences'),
                   style: const TextStyle(
                     color: HomiziColors.brandDeepRed,
-                    fontWeight: FontWeight.w800,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
               ),
@@ -287,7 +287,7 @@ class _FactorRow extends StatelessWidget {
                         style: const TextStyle(
                           fontFamily: 'PlusJakartaSans',
                           color: HomiziColors.ink,
-                          fontWeight: FontWeight.w800,
+                          fontWeight: FontWeight.w600,
                         ),
                       ),
                       Text(
@@ -305,7 +305,7 @@ class _FactorRow extends StatelessWidget {
                   style: theme.textTheme.titleSmall?.copyWith(
                     fontFamily: 'PlusJakartaSans',
                     color: color,
-                    fontWeight: FontWeight.w800,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
               ],

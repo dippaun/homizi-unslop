@@ -108,7 +108,7 @@ class _CenteredMark extends StatelessWidget {
           style: const TextStyle(
             fontFamily: 'PlusJakartaSans',
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w800,
+            fontWeight: FontWeight.w700,
             fontSize: 16,
             letterSpacing: 1.2,
           ),
@@ -253,7 +253,7 @@ class PostGradientButton extends StatelessWidget {
                         style: TextStyle(
                           color: labelColor,
                           fontFamily: 'PlusJakartaSans',
-                          fontWeight: FontWeight.w800,
+                          fontWeight: FontWeight.w600,
                           fontSize: 16,
                         ),
                       ),
@@ -292,7 +292,7 @@ class PostChip extends StatelessWidget {
           style: const TextStyle(
             color: HomiziColors.ink,
             fontSize: 11,
-            fontWeight: FontWeight.w700,
+            fontWeight: FontWeight.w600,
           ),
         ),
       ),
@@ -387,7 +387,7 @@ class _StepDot extends StatelessWidget {
                         '$number',
                         style: TextStyle(
                           color: ink,
-                          fontWeight: FontWeight.w800,
+                          fontWeight: FontWeight.w600,
                           fontSize: 12,
                         ),
                       ),
@@ -403,7 +403,7 @@ class _StepDot extends StatelessWidget {
             style: TextStyle(
               color: active ? HomiziColors.ink : HomiziColors.inkSoft,
               fontSize: 11,
-              fontWeight: active ? FontWeight.w800 : FontWeight.w600,
+              fontWeight: active ? FontWeight.w600 : FontWeight.w600,
               height: 1.15,
             ),
           ),
@@ -520,7 +520,7 @@ class PropertyPhotoUploadCard extends StatelessWidget {
                 style: const TextStyle(
                   color: HomiziColors.ink,
                   fontFamily: 'PlusJakartaSans',
-                  fontWeight: FontWeight.w800,
+                  fontWeight: FontWeight.w600,
                   fontSize: 16,
                 ),
               ),

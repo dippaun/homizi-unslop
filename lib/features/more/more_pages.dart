@@ -189,7 +189,7 @@ class _Confirm extends StatelessWidget {
         Text(
           homiziText(context, 'Request sent'),
           style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-            fontWeight: FontWeight.w800,
+            fontWeight: FontWeight.w600,
             color: HomiziColors.ink,
           ),
         ),
@@ -309,7 +309,7 @@ class AboutHomiziScreen extends StatelessWidget {
           Text(
             homiziText(context, 'Find a place. Find your people.'),
             style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w600,
               color: HomiziColors.ink,
             ),
           ),

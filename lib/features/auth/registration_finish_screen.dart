@@ -242,7 +242,7 @@ class _RegistrationFinishScreenState
             style: const TextStyle(
               fontFamily: 'PlusJakartaSans',
               fontSize: 28,
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w600,
               color: HomiziColors.ink,
             ),
           ),

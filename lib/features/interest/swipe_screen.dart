@@ -139,7 +139,7 @@ class _SwipeScreenState extends ConsumerState<SwipeScreen> {
                   child: Text(
                     'Sample',
                     key: Key('people-sample-tag'),
-                    style: TextStyle(fontWeight: FontWeight.w700),
+                    style: TextStyle(fontWeight: FontWeight.w600),
                   ),
                 ),
               ),

@@ -69,7 +69,7 @@ class BrokerProfileFields extends StatelessWidget {
           homiziText(context, 'Areas served'),
           style: Theme.of(context).textTheme.titleSmall?.copyWith(
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w700,
+            fontWeight: FontWeight.w600,
           ),
         ),
         const SizedBox(height: 8),
@@ -125,7 +125,7 @@ class BrokerProfileFields extends StatelessWidget {
           homiziText(context, 'Experience'),
           style: Theme.of(context).textTheme.titleSmall?.copyWith(
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w700,
+            fontWeight: FontWeight.w600,
           ),
         ),
         Text(
@@ -144,7 +144,7 @@ class BrokerProfileFields extends StatelessWidget {
           homiziText(context, 'Contact details'),
           style: Theme.of(context).textTheme.titleSmall?.copyWith(
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w700,
+            fontWeight: FontWeight.w600,
           ),
         ),
         const SizedBox(height: 8),
@@ -311,7 +311,7 @@ class BrokerVerifyFields extends StatelessWidget {
           homiziText(context, 'Aadhaar'),
           style: Theme.of(context).textTheme.titleSmall?.copyWith(
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w700,
+            fontWeight: FontWeight.w600,
           ),
         ),
         const SizedBox(height: 6),
@@ -328,7 +328,7 @@ class BrokerVerifyFields extends StatelessWidget {
           key: const Key('broker-aadhaar-state'),
           style: const TextStyle(
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w700,
+            fontWeight: FontWeight.w600,
           ),
         ),
         if (kyc.message.isNotEmpty) ...[
@@ -375,7 +375,7 @@ class BrokerVerifyFields extends StatelessWidget {
                 homiziText(context, title),
                 style: const TextStyle(
                   color: HomiziColors.ink,
-                  fontWeight: FontWeight.w700,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
             ),
@@ -460,7 +460,7 @@ class BrokerTrustBadgePage extends StatelessWidget {
                 homiziText(context, 'Broker'),
                 style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                   color: HomiziColors.ink,
-                  fontWeight: FontWeight.w800,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
               const SizedBox(height: 4),
@@ -468,7 +468,7 @@ class BrokerTrustBadgePage extends StatelessWidget {
                 homiziText(context, agency),
                 style: const TextStyle(
                   color: HomiziColors.ink,
-                  fontWeight: FontWeight.w700,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
               if (rera.trim().isNotEmpty)

@@ -60,7 +60,7 @@ class _ProfileGapsScreenState extends State<ProfileGapsScreen> {
             style: const TextStyle(
               fontFamily: 'PlusJakartaSans',
               fontSize: 32,
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w600,
               color: HomiziColors.logoOrange,
             ),
           ),
@@ -108,7 +108,7 @@ class _ProfileGapsScreenState extends State<ProfileGapsScreen> {
                     ),
                     title: Text(
                       homiziText(context, profileGapTitle(gap)),
-                      style: const TextStyle(fontWeight: FontWeight.w800),
+                      style: const TextStyle(fontWeight: FontWeight.w600),
                     ),
                     subtitle: Text(homiziText(context, profileGapDetail(gap))),
                     trailing: const Icon(Icons.chevron_right),

@@ -177,7 +177,7 @@ class _SmartLiverScreenState extends ConsumerState<SmartLiverScreen> {
                             Text(
                               homiziText(context, 'Healthy rent range'),
                               style: Theme.of(context).textTheme.titleMedium
-                                  ?.copyWith(fontWeight: FontWeight.w800),
+                                  ?.copyWith(fontWeight: FontWeight.w600),
                             ),
                             const SizedBox(height: 8),
                             Text(
@@ -186,7 +186,7 @@ class _SmartLiverScreenState extends ConsumerState<SmartLiverScreen> {
                               style: Theme.of(context).textTheme.headlineSmall
                                   ?.copyWith(
                                     color: HomiziColors.ink,
-                                    fontWeight: FontWeight.w800,
+                                    fontWeight: FontWeight.w600,
                                   ),
                             ),
                             const SizedBox(height: 8),

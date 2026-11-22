@@ -63,7 +63,7 @@ class BriefLiveScreen extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: theme.textTheme.headlineSmall?.copyWith(
                   color: HomiziColors.ink,
-                  fontWeight: FontWeight.w700,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
               if (place.trim().isNotEmpty) ...[

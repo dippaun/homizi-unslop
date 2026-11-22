@@ -74,7 +74,7 @@ class _PostPropertyChooserScreenState
                       style: const TextStyle(
                         fontFamily: 'PlusJakartaSans',
                         color: HomiziColors.ink,
-                        fontWeight: FontWeight.w800,
+                        fontWeight: FontWeight.w600,
                         fontSize: 28,
                         height: 1.1,
                       ),
@@ -258,7 +258,7 @@ class _ChoiceCard extends StatelessWidget {
                       style: const TextStyle(
                         fontFamily: 'PlusJakartaSans',
                         color: HomiziColors.ink,
-                        fontWeight: FontWeight.w800,
+                        fontWeight: FontWeight.w600,
                         fontSize: 16,
                       ),
                     ),

@@ -140,7 +140,7 @@ class _RoommatePreviewScreenState extends ConsumerState<RoommatePreviewScreen> {
                         textAlign: TextAlign.center,
                         style: theme.textTheme.headlineSmall?.copyWith(
                           color: HomiziColors.ink,
-                          fontWeight: FontWeight.w800,
+                          fontWeight: FontWeight.w600,
                         ),
                       ),
                       Padding(
@@ -205,7 +205,7 @@ class _RoommatePreviewScreenState extends ConsumerState<RoommatePreviewScreen> {
                                         : '${score.percent}% Match',
                                     style: const TextStyle(
                                       color: HomiziColors.success,
-                                      fontWeight: FontWeight.w800,
+                                      fontWeight: FontWeight.w600,
                                     ),
                                   ),
                                 ),
@@ -252,7 +252,7 @@ class _RoommatePreviewScreenState extends ConsumerState<RoommatePreviewScreen> {
                                 ),
                                 style: theme.textTheme.titleMedium?.copyWith(
                                   color: HomiziColors.ink,
-                                  fontWeight: FontWeight.w800,
+                                  fontWeight: FontWeight.w600,
                                 ),
                               ),
                               const SizedBox(height: 6),
@@ -270,7 +270,7 @@ class _RoommatePreviewScreenState extends ConsumerState<RoommatePreviewScreen> {
                                 homiziText(context, 'Lifestyle & Preferences'),
                                 style: theme.textTheme.titleMedium?.copyWith(
                                   color: HomiziColors.ink,
-                                  fontWeight: FontWeight.w800,
+                                  fontWeight: FontWeight.w600,
                                 ),
                               ),
                               const SizedBox(height: 8),
@@ -289,7 +289,7 @@ class _RoommatePreviewScreenState extends ConsumerState<RoommatePreviewScreen> {
                                 homiziText(context, 'Languages'),
                                 style: theme.textTheme.titleMedium?.copyWith(
                                   color: HomiziColors.ink,
-                                  fontWeight: FontWeight.w800,
+                                  fontWeight: FontWeight.w600,
                                 ),
                               ),
                               const SizedBox(height: 8),
@@ -301,7 +301,7 @@ class _RoommatePreviewScreenState extends ConsumerState<RoommatePreviewScreen> {
                                 homiziText(context, 'Their place'),
                                 style: theme.textTheme.titleMedium?.copyWith(
                                   color: HomiziColors.ink,
-                                  fontWeight: FontWeight.w800,
+                                  fontWeight: FontWeight.w600,
                                 ),
                               ),
                               const SizedBox(height: 8),
@@ -430,7 +430,7 @@ class _RoommatePreviewScreenState extends ConsumerState<RoommatePreviewScreen> {
                 style: const TextStyle(
                   fontFamily: 'PlusJakartaSans',
                   color: HomiziColors.ink,
-                  fontWeight: FontWeight.w800,
+                  fontWeight: FontWeight.w600,
                   fontSize: 18,
                 ),
               ),
@@ -458,7 +458,7 @@ class _RoommatePreviewScreenState extends ConsumerState<RoommatePreviewScreen> {
       homiziText(context, text),
       style: const TextStyle(
         color: HomiziColors.ink,
-        fontWeight: FontWeight.w800,
+        fontWeight: FontWeight.w600,
         fontSize: 14,
       ),
     );
@@ -594,7 +594,7 @@ class _RoommatePreviewScreenState extends ConsumerState<RoommatePreviewScreen> {
               style: const TextStyle(
                 color: HomiziColors.ink,
                 fontSize: 11,
-                fontWeight: FontWeight.w700,
+                fontWeight: FontWeight.w600,
               ),
             ),
           ],
@@ -676,7 +676,7 @@ class _FitIcon extends StatelessWidget {
               style: const TextStyle(
                 color: HomiziColors.ink,
                 fontSize: 11,
-                fontWeight: FontWeight.w700,
+                fontWeight: FontWeight.w600,
               ),
             ),
           ],

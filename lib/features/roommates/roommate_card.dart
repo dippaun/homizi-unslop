@@ -99,7 +99,7 @@ class CompatibilityChip extends StatelessWidget {
                   '$score%',
                   style: Theme.of(context).textTheme.titleMedium?.copyWith(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w800,
+                    fontWeight: FontWeight.w600,
                     height: 1.1,
                   ),
                 ),
@@ -107,7 +107,7 @@ class CompatibilityChip extends StatelessWidget {
                   homiziText(context, 'match'),
                   style: Theme.of(context).textTheme.labelLarge?.copyWith(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w700,
+                    fontWeight: FontWeight.w600,
                     height: 1.1,
                   ),
                 ),
@@ -155,7 +155,7 @@ class RoommateSwipeCard extends StatelessWidget {
                     homiziText(context, like ? 'Interested' : 'Pass'),
                     style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                       color: HomiziColors.ink,
-                      fontWeight: FontWeight.w800,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
                 ),

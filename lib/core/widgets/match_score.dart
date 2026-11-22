@@ -67,7 +67,7 @@ class MatchScoreBlock extends StatelessWidget {
             ),
             style: theme.textTheme.labelLarge?.copyWith(
               color: tone.foreground,
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w600,
             ),
           ),
         ),
@@ -228,7 +228,7 @@ class _AnimatedMatchRingState extends State<AnimatedMatchRing>
                 style: Theme.of(context).textTheme.titleMedium?.copyWith(
                   fontFamily: 'PlusJakartaSans',
                   color: value == null ? HomiziColors.muted : tone.bar,
-                  fontWeight: FontWeight.w800,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
             ),

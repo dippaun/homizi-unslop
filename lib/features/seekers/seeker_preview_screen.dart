@@ -294,7 +294,7 @@ class _Header extends StatelessWidget {
                                   homiziText(context, profile.name),
                                   style: theme.textTheme.titleMedium?.copyWith(
                                     color: HomiziColors.ink,
-                                    fontWeight: FontWeight.w800,
+                                    fontWeight: FontWeight.w600,
                                   ),
                                 ),
                               ),
@@ -361,7 +361,7 @@ class _Header extends StatelessWidget {
                         'Verified Seeker',
                         style: TextStyle(
                           color: HomiziColors.success,
-                          fontWeight: FontWeight.w700,
+                          fontWeight: FontWeight.w600,
                         ),
                       ),
                     ],
@@ -402,7 +402,7 @@ class _MatchRing extends StatelessWidget {
                   key: const Key('seeker-preview-percent'),
                   style: const TextStyle(
                     color: HomiziColors.success,
-                    fontWeight: FontWeight.w800,
+                    fontWeight: FontWeight.w600,
                     fontSize: 16,
                   ),
                 ),
@@ -415,7 +415,7 @@ class _MatchRing extends StatelessWidget {
             textAlign: TextAlign.center,
             style: const TextStyle(
               color: HomiziColors.success,
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w600,
               fontSize: 11,
               height: 1.2,
             ),
@@ -437,7 +437,7 @@ class _MatchRing extends StatelessWidget {
                       homiziText(context, reason),
                       style: const TextStyle(
                         color: HomiziColors.inkSoft,
-                        fontSize: 10,
+                        fontSize: 11,
                       ),
                     ),
                   ),
@@ -525,7 +525,7 @@ class _Tabs extends StatelessWidget {
                   showCheckmark: false,
                   labelStyle: TextStyle(
                     color: HomiziColors.ink,
-                    fontWeight: index == i ? FontWeight.w800 : FontWeight.w500,
+                    fontWeight: index == i ? FontWeight.w600 : FontWeight.w500,
                     fontSize: 12,
                   ),
                   selectedColor: HomiziColors.accentWash,
@@ -855,7 +855,7 @@ class _Actions extends StatelessWidget {
                     homiziText(context, 'Not a Fit'),
                     style: const TextStyle(
                       fontFamily: 'PlusJakartaSans',
-                      fontWeight: FontWeight.w700,
+                      fontWeight: FontWeight.w600,
                       fontSize: 13,
                       color: HomiziColors.ink,
                     ),
@@ -878,7 +878,7 @@ class _Actions extends StatelessWidget {
                     homiziText(context, 'Maybe Later'),
                     style: const TextStyle(
                       fontFamily: 'PlusJakartaSans',
-                      fontWeight: FontWeight.w700,
+                      fontWeight: FontWeight.w600,
                       fontSize: 12,
                       color: HomiziColors.ink,
                     ),
@@ -901,7 +901,7 @@ class _Actions extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style: const TextStyle(
                       fontFamily: 'PlusJakartaSans',
-                      fontWeight: FontWeight.w700,
+                      fontWeight: FontWeight.w600,
                       fontSize: 12,
                       color: HomiziColors.ink,
                     ),
@@ -947,7 +947,7 @@ class _Section extends StatelessWidget {
                   homiziText(context, title),
                   style: const TextStyle(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w800,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
               ),
@@ -999,7 +999,7 @@ class _Fact extends StatelessWidget {
                   homiziText(context, value),
                   style: const TextStyle(
                     fontFamily: 'PlusJakartaSans',
-                    fontWeight: FontWeight.w700,
+                    fontWeight: FontWeight.w600,
                     color: HomiziColors.ink,
                   ),
                 ),
@@ -1034,7 +1034,7 @@ class _ChipWrap extends StatelessWidget {
               homiziText(context, label),
               style: const TextStyle(
                 color: HomiziColors.success,
-                fontWeight: FontWeight.w700,
+                fontWeight: FontWeight.w600,
                 fontSize: 12,
               ),
             ),
@@ -1062,7 +1062,7 @@ class _Chip extends StatelessWidget {
         style: const TextStyle(
           color: HomiziColors.ink,
           fontSize: 11,
-          fontWeight: FontWeight.w700,
+          fontWeight: FontWeight.w600,
         ),
       ),
     );
@@ -1116,7 +1116,7 @@ class _Face extends StatelessWidget {
               initials,
               style: const TextStyle(
                 color: HomiziColors.ink,
-                fontWeight: FontWeight.w800,
+                fontWeight: FontWeight.w600,
               ),
             )
           : null,

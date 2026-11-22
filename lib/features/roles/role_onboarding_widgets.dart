@@ -87,7 +87,7 @@ class RoleFlowLabel extends StatelessWidget {
       homiziText(context, text),
       style: const TextStyle(
         fontFamily: 'PlusJakartaSans',
-        fontWeight: FontWeight.w800,
+        fontWeight: FontWeight.w600,
         fontSize: 16,
         color: HomiziColors.ink,
       ),

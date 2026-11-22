@@ -52,7 +52,7 @@ class RoleReadyScreen extends ConsumerWidget {
             style: TextStyle(
               fontFamily: 'PlusJakartaSans',
               fontSize: 28,
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w600,
               color: HomiziColors.ink,
             ),
           ),
@@ -73,7 +73,7 @@ class RoleReadyScreen extends ConsumerWidget {
                 'My listings',
                 style: TextStyle(
                   color: HomiziColors.ink,
-                  fontWeight: FontWeight.w700,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
             ),

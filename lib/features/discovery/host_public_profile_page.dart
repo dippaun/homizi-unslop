@@ -125,7 +125,7 @@ class _HostProfileViewState extends ConsumerState<_HostProfileView> {
           overflow: TextOverflow.ellipsis,
           style: const TextStyle(
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w800,
+            fontWeight: FontWeight.w600,
             fontSize: 18,
           ),
         ),
@@ -150,7 +150,7 @@ class _HostProfileViewState extends ConsumerState<_HostProfileView> {
                   homiziText(context, 'Report'),
                   style: const TextStyle(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w700,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
               ),
@@ -161,7 +161,7 @@ class _HostProfileViewState extends ConsumerState<_HostProfileView> {
                   homiziText(context, 'Share'),
                   style: const TextStyle(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w700,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
               ),
@@ -244,7 +244,7 @@ class _HostProfileViewState extends ConsumerState<_HostProfileView> {
             homiziText(context, 'Share profile'),
             style: const TextStyle(
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w600,
             ),
           ),
           content: Text(
@@ -261,7 +261,7 @@ class _HostProfileViewState extends ConsumerState<_HostProfileView> {
                 homiziText(context, 'Close'),
                 style: const TextStyle(
                   color: HomiziColors.ink,
-                  fontWeight: FontWeight.w700,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
             ),
@@ -438,7 +438,7 @@ class _Stat extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                   style: const TextStyle(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w800,
+                    fontWeight: FontWeight.w600,
                     fontSize: 18,
                   ),
                 ),
@@ -483,7 +483,7 @@ class _NameBlock extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                   style: const TextStyle(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w800,
+                    fontWeight: FontWeight.w600,
                     fontSize: 18,
                   ),
                 ),
@@ -500,7 +500,7 @@ class _NameBlock extends StatelessWidget {
                   homiziText(context, story.roleLabel),
                   style: const TextStyle(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w700,
+                    fontWeight: FontWeight.w600,
                     fontSize: 12,
                   ),
                 ),
@@ -615,7 +615,7 @@ class _Actions extends StatelessWidget {
                           homiziText(context, 'Message'),
                           style: const TextStyle(
                             color: HomiziColors.ink,
-                            fontWeight: FontWeight.w800,
+                            fontWeight: FontWeight.w600,
                             fontSize: 15,
                           ),
                         ),
@@ -645,7 +645,7 @@ class _Actions extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                       style: const TextStyle(
                         color: HomiziColors.ink,
-                        fontWeight: FontWeight.w800,
+                        fontWeight: FontWeight.w600,
                         fontSize: 13,
                       ),
                     ),
@@ -752,7 +752,7 @@ class _Highlight extends StatelessWidget {
                         homiziText(context, value!),
                         style: const TextStyle(
                           color: HomiziColors.success,
-                          fontWeight: FontWeight.w800,
+                          fontWeight: FontWeight.w600,
                           fontSize: 15,
                         ),
                       ),
@@ -1013,7 +1013,7 @@ class _GridTile extends StatelessWidget {
                           price,
                           style: const TextStyle(
                             color: HomiziColors.ink,
-                            fontWeight: FontWeight.w800,
+                            fontWeight: FontWeight.w600,
                             fontSize: 11,
                           ),
                         ),
@@ -1103,7 +1103,7 @@ class _AboutTab extends StatelessWidget {
                       homiziText(context, language),
                       style: const TextStyle(
                         color: HomiziColors.ink,
-                        fontWeight: FontWeight.w700,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                   ),
@@ -1169,7 +1169,7 @@ class _SectionTitle extends StatelessWidget {
       homiziText(context, text),
       style: const TextStyle(
         color: HomiziColors.ink,
-        fontWeight: FontWeight.w800,
+        fontWeight: FontWeight.w600,
         fontSize: 16,
       ),
     );
@@ -1204,7 +1204,7 @@ class _DetailLine extends StatelessWidget {
               homiziText(context, value),
               style: const TextStyle(
                 color: HomiziColors.ink,
-                fontWeight: FontWeight.w700,
+                fontWeight: FontWeight.w600,
               ),
             ),
           ),
@@ -1268,7 +1268,7 @@ class _Verification extends ConsumerWidget {
                   homiziText(context, chip),
                   style: const TextStyle(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w700,
+                    fontWeight: FontWeight.w600,
                     fontSize: 12,
                   ),
                 ),

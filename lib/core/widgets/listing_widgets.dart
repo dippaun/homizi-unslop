@@ -173,7 +173,7 @@ class InitialsPortrait extends StatelessWidget {
           initials(name),
           style: Theme.of(context).textTheme.headlineMedium?.copyWith(
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w800,
+            fontWeight: FontWeight.w600,
           ),
         ),
       ),
@@ -658,7 +658,7 @@ class PersonPhoto extends StatelessWidget {
         initials(name),
         style: TextStyle(
           color: HomiziColors.ink,
-          fontWeight: FontWeight.w800,
+          fontWeight: FontWeight.w600,
           fontSize: side * 0.34,
         ),
       ),

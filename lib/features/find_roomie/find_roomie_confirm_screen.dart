@@ -92,7 +92,7 @@ class _Body extends ConsumerWidget {
           textAlign: TextAlign.center,
           style: text.headlineSmall?.copyWith(
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w800,
+            fontWeight: FontWeight.w600,
           ),
         ),
         const SizedBox(height: 8),
@@ -109,7 +109,7 @@ class _Body extends ConsumerWidget {
         const SizedBox(height: 16),
         Text(
           home.title,
-          style: text.titleMedium?.copyWith(fontWeight: FontWeight.w800),
+          style: text.titleMedium?.copyWith(fontWeight: FontWeight.w600),
         ),
         const SizedBox(height: 4),
         Text('${home.locality}, ${home.city}'),

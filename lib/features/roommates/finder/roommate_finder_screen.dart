@@ -449,7 +449,7 @@ class _OptInCard extends StatelessWidget {
                   ),
                   style: const TextStyle(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w700,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
               ),

@@ -38,7 +38,7 @@ class RoleCircleScreen extends ConsumerWidget {
                 style: const TextStyle(
                   fontFamily: 'PlusJakartaSans',
                   fontSize: 22,
-                  fontWeight: FontWeight.w800,
+                  fontWeight: FontWeight.w600,
                   color: HomiziColors.ink,
                 ),
               ),
@@ -248,7 +248,7 @@ class _Circle extends StatelessWidget {
                 fontFamily: 'PlusJakartaSans',
                 fontSize: 14,
                 height: 1.2,
-                fontWeight: FontWeight.w800,
+                fontWeight: FontWeight.w600,
                 color: HomiziColors.ink,
               ),
             ),

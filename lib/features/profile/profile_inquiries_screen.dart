@@ -84,7 +84,7 @@ class _ProfileInquiriesScreenState
           homiziText(context, 'Inquiries'),
           style: Theme.of(context).textTheme.titleMedium?.copyWith(
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w800,
+            fontWeight: FontWeight.w600,
           ),
         ),
       ),
@@ -129,7 +129,7 @@ class _ProfileInquiriesScreenState
                         homiziText(context, request.city),
                         style: const TextStyle(
                           color: HomiziColors.ink,
-                          fontWeight: FontWeight.w800,
+                          fontWeight: FontWeight.w600,
                         ),
                       ),
                       subtitle: Text(

@@ -88,7 +88,7 @@ class ContentScaffold extends StatelessWidget {
           homiziText(context, title),
           style: const TextStyle(
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w800,
+            fontWeight: FontWeight.w600,
           ),
         ),
         actions: actions,
@@ -116,7 +116,7 @@ class ContentScaffold extends StatelessWidget {
                     homiziText(context, label),
                     style: const TextStyle(
                       color: HomiziColors.ink,
-                      fontWeight: FontWeight.w800,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
                 ),

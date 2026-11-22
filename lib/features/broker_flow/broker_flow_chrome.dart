@@ -49,7 +49,7 @@ class BrokerFlowChrome extends StatelessWidget {
             key: const Key('broker-flow-step'),
             style: theme.textTheme.titleMedium?.copyWith(
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w600,
             ),
           )
         : StepHeader(
@@ -64,7 +64,7 @@ class BrokerFlowChrome extends StatelessWidget {
             homiziText(context, headlineCopy),
             style: theme.textTheme.headlineSmall?.copyWith(
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w600,
               height: 1.15,
             ),
           );
@@ -106,7 +106,7 @@ class BrokerFlowChrome extends StatelessWidget {
                   'HOMIZI',
                   style: TextStyle(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w800,
+                    fontWeight: FontWeight.w700,
                     letterSpacing: 0.6,
                   ),
                 ),

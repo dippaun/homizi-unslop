@@ -341,7 +341,7 @@ class _KycScreenState extends ConsumerState<KycScreen>
             key: const Key('kyc-coming-soon'),
             textAlign: TextAlign.center,
             style: text.headlineSmall?.copyWith(
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w600,
               color: HomiziColors.ink,
             ),
           ),
@@ -381,7 +381,7 @@ class _KycScreenState extends ConsumerState<KycScreen>
             key: const Key('kyc-intro'),
             textAlign: TextAlign.center,
             style: text.headlineSmall?.copyWith(
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w600,
               color: HomiziColors.ink,
             ),
           ),
@@ -431,7 +431,7 @@ class _KycScreenState extends ConsumerState<KycScreen>
           Text(
             homiziText(context, 'Choose how to share Aadhaar'),
             style: text.titleLarge?.copyWith(
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w600,
               color: HomiziColors.ink,
             ),
           ),
@@ -466,7 +466,7 @@ class _KycScreenState extends ConsumerState<KycScreen>
           Text(
             homiziText(context, 'Your consent'),
             style: text.titleLarge?.copyWith(
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w600,
               color: HomiziColors.ink,
             ),
           ),
@@ -508,7 +508,7 @@ class _KycScreenState extends ConsumerState<KycScreen>
           Text(
             homiziText(context, 'Next: Aadhaar, then a selfie'),
             style: text.titleLarge?.copyWith(
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w600,
               color: HomiziColors.ink,
             ),
           ),
@@ -568,7 +568,7 @@ class _KycScreenState extends ConsumerState<KycScreen>
             key: const Key('kyc-pending'),
             textAlign: TextAlign.center,
             style: text.headlineSmall?.copyWith(
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w600,
               color: HomiziColors.ink,
             ),
           ),
@@ -617,7 +617,7 @@ class _KycScreenState extends ConsumerState<KycScreen>
             key: Key(expired ? 'kyc-expired' : 'kyc-failed'),
             textAlign: TextAlign.center,
             style: text.headlineSmall?.copyWith(
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w600,
               color: HomiziColors.ink,
             ),
           ),
@@ -658,7 +658,7 @@ class _KycScreenState extends ConsumerState<KycScreen>
             key: const Key('kyc-success'),
             textAlign: TextAlign.center,
             style: text.headlineSmall?.copyWith(
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w600,
               color: HomiziColors.success,
             ),
           ),
@@ -805,7 +805,7 @@ class _Card extends StatelessWidget {
             Text(
               homiziText(context, title!),
               style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                fontWeight: FontWeight.w800,
+                fontWeight: FontWeight.w600,
                 color: HomiziColors.ink,
               ),
             ),
@@ -863,7 +863,7 @@ class _GradientCta extends StatelessWidget {
                         homiziText(context, label),
                         style: const TextStyle(
                           color: HomiziColors.white,
-                          fontWeight: FontWeight.w800,
+                          fontWeight: FontWeight.w600,
                           fontSize: 16,
                         ),
                       ),
@@ -931,7 +931,7 @@ class _MethodTile extends StatelessWidget {
                         Text(
                           homiziText(context, title),
                           style: text.titleMedium?.copyWith(
-                            fontWeight: FontWeight.w800,
+                            fontWeight: FontWeight.w600,
                             color: HomiziColors.ink,
                           ),
                         ),
@@ -949,7 +949,7 @@ class _MethodTile extends StatelessWidget {
                               homiziText(context, badge!),
                               style: text.labelSmall?.copyWith(
                                 color: HomiziColors.success,
-                                fontWeight: FontWeight.w700,
+                                fontWeight: FontWeight.w600,
                               ),
                             ),
                           ),
@@ -997,7 +997,7 @@ class _StepLine extends StatelessWidget {
               number,
               style: const TextStyle(
                 color: HomiziColors.ink,
-                fontWeight: FontWeight.w800,
+                fontWeight: FontWeight.w600,
                 fontSize: 12,
               ),
             ),

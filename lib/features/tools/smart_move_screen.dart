@@ -144,7 +144,7 @@ class _SmartMoveScreenState extends ConsumerState<SmartMoveScreen> {
                       'Live now. Move later. Keep more of your rent.',
                     ),
                     style: theme.textTheme.titleLarge?.copyWith(
-                      fontWeight: FontWeight.w800,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
                   const SizedBox(height: 8),
@@ -189,7 +189,7 @@ class _SmartMoveScreenState extends ConsumerState<SmartMoveScreen> {
                   Text(
                     homiziText(context, 'Illustrative calculator'),
                     style: theme.textTheme.titleMedium?.copyWith(
-                      fontWeight: FontWeight.w800,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
                   const SizedBox(height: 8),
@@ -281,7 +281,7 @@ class _SmartMoveScreenState extends ConsumerState<SmartMoveScreen> {
                   Text(
                     homiziText(context, "I'm interested"),
                     style: theme.textTheme.titleMedium?.copyWith(
-                      fontWeight: FontWeight.w800,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
                   const SizedBox(height: 4),
@@ -392,7 +392,7 @@ class _StatRow extends StatelessWidget {
           value,
           key: Key(valueKey),
           style: theme.textTheme.titleMedium?.copyWith(
-            fontWeight: FontWeight.w800,
+            fontWeight: FontWeight.w600,
             color: emphasize ? HomiziColors.accent : HomiziColors.ink,
           ),
         ),

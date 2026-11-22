@@ -55,7 +55,7 @@ class StepProgress extends StatelessWidget {
             key: captionKey,
             style: const TextStyle(
               fontFamily: 'PlusJakartaSans',
-              fontWeight: FontWeight.w700,
+              fontWeight: FontWeight.w600,
               fontSize: 13,
               color: HomiziColors.muted,
             ),
@@ -65,7 +65,7 @@ class StepProgress extends StatelessWidget {
             titles[safeIndex],
             style: const TextStyle(
               fontFamily: 'PlusJakartaSans',
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w600,
               fontSize: 22,
               height: 1.2,
               color: HomiziColors.ink,

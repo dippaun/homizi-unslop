@@ -226,7 +226,7 @@ class _HostSharedHomeScreenState extends ConsumerState<HostSharedHomeScreen> {
       children: [
         Text(
           homiziText(context, 'Add complete details'),
-          style: text.headlineSmall?.copyWith(fontWeight: FontWeight.w700),
+          style: text.headlineSmall?.copyWith(fontWeight: FontWeight.w600),
         ),
         const SizedBox(height: 4),
         Text(
@@ -608,7 +608,7 @@ class _HostSharedHomeScreenState extends ConsumerState<HostSharedHomeScreen> {
           textAlign: TextAlign.center,
           style: text.headlineSmall?.copyWith(
             color: HomiziColors.success,
-            fontWeight: FontWeight.w700,
+            fontWeight: FontWeight.w600,
           ),
         ),
         const SizedBox(height: 8),
@@ -656,7 +656,7 @@ class _HostSharedHomeScreenState extends ConsumerState<HostSharedHomeScreen> {
               homiziText(context, 'Back to Home'),
               style: const TextStyle(
                 color: HomiziColors.ink,
-                fontWeight: FontWeight.w700,
+                fontWeight: FontWeight.w600,
               ),
             ),
           ),
@@ -814,7 +814,7 @@ class _HostJoinRequestsScreenState
                                 Text(
                                   row.firstName,
                                   style: const TextStyle(
-                                    fontWeight: FontWeight.w700,
+                                    fontWeight: FontWeight.w600,
                                   ),
                                 ),
                                 Text(
@@ -866,7 +866,7 @@ class _HostJoinRequestsScreenState
                           key: Key('host-status-${row.id}'),
                           style: const TextStyle(
                             color: HomiziColors.success,
-                            fontWeight: FontWeight.w700,
+                            fontWeight: FontWeight.w600,
                           ),
                         ),
                     ],

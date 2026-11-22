@@ -100,7 +100,7 @@ class HomiziErrorFallback extends StatelessWidget {
                   style: TextStyle(
                     fontFamily: 'PlusJakartaSans',
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w800,
+                    fontWeight: FontWeight.w600,
                     fontSize: 18,
                   ),
                 ),

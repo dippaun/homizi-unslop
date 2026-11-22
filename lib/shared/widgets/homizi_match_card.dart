@@ -325,7 +325,7 @@ class HomiziMatchCard extends StatelessWidget {
                     fontFamily: 'PlusJakartaSans',
                     fontSize: compact ? 15 : 18,
                     height: 1.2,
-                    fontWeight: FontWeight.w800,
+                    fontWeight: FontWeight.w600,
                     color: HomiziColors.ink,
                   ),
                 ),
@@ -365,7 +365,7 @@ class HomiziMatchCard extends StatelessWidget {
               style: TextStyle(
                 fontFamily: 'PlusJakartaSans',
                 fontSize: compact ? 14 : 16,
-                fontWeight: FontWeight.w800,
+                fontWeight: FontWeight.w600,
                 color: HomiziColors.logoOrange,
               ),
             ),
@@ -406,7 +406,7 @@ class HomiziMatchCard extends StatelessWidget {
               homiziText(context, strengthLabel),
               style: TextStyle(
                 fontFamily: 'Inter',
-                fontWeight: FontWeight.w700,
+                fontWeight: FontWeight.w600,
                 color: _strengthColor(matchPercent, importantMismatch),
               ),
             ),
@@ -461,7 +461,7 @@ class HomiziMatchCard extends StatelessWidget {
                         homiziText(context, badge),
                         style: const TextStyle(
                           fontFamily: 'Inter',
-                          fontWeight: FontWeight.w700,
+                          fontWeight: FontWeight.w600,
                           color: HomiziColors.success,
                           fontSize: 12,
                         ),
@@ -583,7 +583,7 @@ class _Chip extends StatelessWidget {
             fontFamily: 'Inter',
             fontSize: compact ? 11 : 12,
             height: 1.2,
-            fontWeight: FontWeight.w700,
+            fontWeight: FontWeight.w600,
             color: ink,
           ),
         ),
@@ -629,7 +629,7 @@ class _MatchPill extends StatelessWidget {
           homiziText(context, '$percent% Match'),
           style: TextStyle(
             fontFamily: 'PlusJakartaSans',
-            fontWeight: FontWeight.w800,
+            fontWeight: FontWeight.w600,
             fontSize: compact ? 11 : 13,
             color: fill.foreground,
           ),
@@ -677,7 +677,7 @@ class _Action extends StatelessWidget {
                   homiziText(context, action.label!),
                   style: const TextStyle(
                     fontFamily: 'PlusJakartaSans',
-                    fontWeight: FontWeight.w800,
+                    fontWeight: FontWeight.w600,
                     color: HomiziColors.ink,
                   ),
                 ),

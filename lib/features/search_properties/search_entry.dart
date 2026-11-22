@@ -154,7 +154,7 @@ class SearchTenantPrompt extends ConsumerWidget {
             style: TextStyle(
               fontFamily: 'PlusJakartaSans',
               fontSize: 22,
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w600,
               color: HomiziColors.ink,
             ),
           ),

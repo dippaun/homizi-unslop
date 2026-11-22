@@ -592,7 +592,7 @@ class _Chips extends StatelessWidget {
                 labelStyle: TextStyle(
                   color: HomiziColors.ink,
                   fontWeight: selected == chip
-                      ? FontWeight.w800
+                      ? FontWeight.w600
                       : FontWeight.w600,
                 ),
                 selectedColor: HomiziColors.accent,
@@ -791,7 +791,7 @@ class InterestSentPage extends StatelessWidget {
             style: const TextStyle(
               color: HomiziColors.ink,
               fontSize: 24,
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w600,
             ),
           ),
           const SizedBox(height: 8),

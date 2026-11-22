@@ -72,7 +72,7 @@ class _Body extends ConsumerWidget {
           home.title,
           style: text.titleLarge?.copyWith(
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w800,
+            fontWeight: FontWeight.w600,
           ),
         ),
         const SizedBox(height: 4),
@@ -80,7 +80,7 @@ class _Body extends ConsumerWidget {
         const SizedBox(height: 4),
         Text(
           '${formatInr(home.rentInr)} / month',
-          style: text.titleMedium?.copyWith(fontWeight: FontWeight.w700),
+          style: text.titleMedium?.copyWith(fontWeight: FontWeight.w600),
         ),
         const SizedBox(height: 16),
         _Flag(

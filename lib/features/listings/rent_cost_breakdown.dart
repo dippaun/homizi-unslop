@@ -81,7 +81,7 @@ class RentCostBreakdown extends StatelessWidget {
               homiziText(context, 'Cost of renting'),
               style: theme.textTheme.titleMedium?.copyWith(
                 color: HomiziColors.ink,
-                fontWeight: FontWeight.w700,
+                fontWeight: FontWeight.w600,
               ),
             ),
             const SizedBox(height: 4),
@@ -156,7 +156,7 @@ class RentCostBreakdown extends StatelessWidget {
             homiziText(context, label),
             style: Theme.of(context).textTheme.titleSmall?.copyWith(
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w700,
+              fontWeight: FontWeight.w600,
             ),
           ),
         ),
@@ -166,7 +166,7 @@ class RentCostBreakdown extends StatelessWidget {
                 valueKey: Key(totalKey),
                 style: Theme.of(context).textTheme.titleSmall?.copyWith(
                   color: HomiziColors.ink,
-                  fontWeight: FontWeight.w700,
+                  fontWeight: FontWeight.w600,
                 ),
               )
             : Text(
@@ -174,7 +174,7 @@ class RentCostBreakdown extends StatelessWidget {
                 key: Key(totalKey),
                 style: Theme.of(context).textTheme.titleSmall?.copyWith(
                   color: HomiziColors.ink,
-                  fontWeight: FontWeight.w700,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
       ],
@@ -306,7 +306,7 @@ class _CalculatingLiveState extends State<_CalculatingLive>
           homiziText(context, 'Calculating live'),
           style: const TextStyle(
             color: HomiziColors.inkSoft,
-            fontWeight: FontWeight.w700,
+            fontWeight: FontWeight.w600,
             fontSize: 13,
           ),
         ),

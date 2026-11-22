@@ -89,7 +89,7 @@ class OptionTile extends StatelessWidget {
                               overflow: TextOverflow.ellipsis,
                               style: const TextStyle(
                                 fontFamily: 'PlusJakartaSans',
-                                fontWeight: FontWeight.w700,
+                                fontWeight: FontWeight.w600,
                                 fontSize: 13,
                                 height: 1.25,
                                 color: HomiziColors.ink,

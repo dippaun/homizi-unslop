@@ -398,7 +398,7 @@ class _Stamp extends StatelessWidget {
                   label,
                   style: TextStyle(
                     color: foreground,
-                    fontWeight: FontWeight.w800,
+                    fontWeight: FontWeight.w700,
                     fontSize: 22,
                     letterSpacing: 1.1,
                   ),

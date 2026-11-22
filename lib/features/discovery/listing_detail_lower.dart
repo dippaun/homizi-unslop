@@ -144,7 +144,7 @@ class _ListingCostCardState extends State<ListingCostCard> {
                         homiziText(context, 'Cost of renting'),
                         style: const TextStyle(
                           color: HomiziColors.ink,
-                          fontWeight: FontWeight.w800,
+                          fontWeight: FontWeight.w600,
                           fontSize: 16,
                         ),
                       ),
@@ -199,7 +199,7 @@ class _ListingCostCardState extends State<ListingCostCard> {
                                             : Key('listing-cost-${line.$2}'),
                                         style: const TextStyle(
                                           color: HomiziColors.ink,
-                                          fontWeight: FontWeight.w800,
+                                          fontWeight: FontWeight.w600,
                                         ),
                                       ),
                                     ],
@@ -213,7 +213,7 @@ class _ListingCostCardState extends State<ListingCostCard> {
                                       'Move-in total',
                                       style: TextStyle(
                                         color: HomiziColors.ink,
-                                        fontWeight: FontWeight.w800,
+                                        fontWeight: FontWeight.w600,
                                       ),
                                     ),
                                   ),
@@ -222,7 +222,7 @@ class _ListingCostCardState extends State<ListingCostCard> {
                                     key: const Key('listing-cost-move-in'),
                                     style: const TextStyle(
                                       color: HomiziColors.ink,
-                                      fontWeight: FontWeight.w800,
+                                      fontWeight: FontWeight.w600,
                                     ),
                                   ),
                                 ],
@@ -259,7 +259,7 @@ class _CountUp extends StatelessWidget {
         homiziText(context, '$label ${formatInr(value)}'),
         style: const TextStyle(
           color: HomiziColors.inkSoft,
-          fontWeight: FontWeight.w700,
+          fontWeight: FontWeight.w600,
         ),
       );
     }
@@ -272,7 +272,7 @@ class _CountUp extends StatelessWidget {
           homiziText(context, '$label ${formatInr(amount.round())}'),
           style: const TextStyle(
             color: HomiziColors.inkSoft,
-            fontWeight: FontWeight.w700,
+            fontWeight: FontWeight.w600,
           ),
         );
       },
@@ -442,7 +442,7 @@ class _FactTile extends StatelessWidget {
             style: const TextStyle(
               color: HomiziColors.inkSoft,
               fontSize: 11,
-              fontWeight: FontWeight.w700,
+              fontWeight: FontWeight.w600,
             ),
           ),
           const SizedBox(height: 2),
@@ -450,7 +450,7 @@ class _FactTile extends StatelessWidget {
             homiziText(context, fact.value),
             style: const TextStyle(
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w600,
               fontSize: 13,
             ),
           ),
@@ -533,7 +533,7 @@ class ListingPrivacyCard extends StatelessWidget {
                   'Private until you agree',
                   style: TextStyle(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w800,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
               ),
@@ -618,7 +618,7 @@ class ListingMessageButton extends StatelessWidget {
                   homiziText(context, 'Message'),
                   style: const TextStyle(
                     color: HomiziColors.white,
-                    fontWeight: FontWeight.w800,
+                    fontWeight: FontWeight.w600,
                     fontSize: 16,
                   ),
                 ),

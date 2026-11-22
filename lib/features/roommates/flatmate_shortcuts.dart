@@ -88,7 +88,7 @@ class _Shortcut extends StatelessWidget {
         textStyle: const TextStyle(
           fontFamily: 'PlusJakartaSans',
           fontSize: 13,
-          fontWeight: FontWeight.w700,
+          fontWeight: FontWeight.w600,
         ),
       ),
       onPressed: onTap,

@@ -1349,7 +1349,7 @@ class _ProfileCreateScreenState extends ConsumerState<ProfileCreateScreen> {
                             style: Theme.of(context).textTheme.titleMedium
                                 ?.copyWith(
                                   color: HomiziColors.ink,
-                                  fontWeight: FontWeight.w800,
+                                  fontWeight: FontWeight.w600,
                                 ),
                           ),
                           const SizedBox(height: 4),
@@ -1358,7 +1358,7 @@ class _ProfileCreateScreenState extends ConsumerState<ProfileCreateScreen> {
                             style: Theme.of(context).textTheme.labelLarge
                                 ?.copyWith(
                                   color: HomiziColors.logoOrange,
-                                  fontWeight: FontWeight.w700,
+                                  fontWeight: FontWeight.w600,
                                 ),
                           ),
                           const SizedBox(height: 8),
@@ -1378,7 +1378,7 @@ class _ProfileCreateScreenState extends ConsumerState<ProfileCreateScreen> {
                             style: Theme.of(context).textTheme.headlineSmall
                                 ?.copyWith(
                                   color: HomiziColors.ink,
-                                  fontWeight: FontWeight.w800,
+                                  fontWeight: FontWeight.w600,
                                 ),
                           ),
                           const SizedBox(height: 8),
@@ -1523,7 +1523,7 @@ class _ProfileCreateScreenState extends ConsumerState<ProfileCreateScreen> {
           homiziText(context, 'Date of Birth'),
           style: Theme.of(context).textTheme.titleSmall?.copyWith(
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w700,
+            fontWeight: FontWeight.w600,
           ),
         ),
         const SizedBox(height: 8),
@@ -1563,7 +1563,7 @@ class _ProfileCreateScreenState extends ConsumerState<ProfileCreateScreen> {
           homiziText(context, 'Gender'),
           style: Theme.of(
             context,
-          ).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w700),
+          ).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w600),
         ),
         const SizedBox(height: 8),
         OptionGrid(
@@ -2065,7 +2065,7 @@ class _ProfileCreateScreenState extends ConsumerState<ProfileCreateScreen> {
               key: const Key('profile-aadhaar-unavailable'),
               style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                 color: HomiziColors.ink,
-                fontWeight: FontWeight.w700,
+                fontWeight: FontWeight.w600,
               ),
             ),
             const SizedBox(height: 8),
@@ -2088,7 +2088,7 @@ class _ProfileCreateScreenState extends ConsumerState<ProfileCreateScreen> {
           homiziText(context, 'Selfie Verification (Mandatory)'),
           style: Theme.of(
             context,
-          ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w800),
+          ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w600),
         ),
         const SizedBox(height: 12),
         if (selfie != null)
@@ -2226,7 +2226,7 @@ class _ProfileCreateScreenState extends ConsumerState<ProfileCreateScreen> {
           homiziText(context, 'For Tenants & Home-Sharers'),
           style: Theme.of(context).textTheme.titleSmall?.copyWith(
             color: HomiziColors.logoOrange,
-            fontWeight: FontWeight.w700,
+            fontWeight: FontWeight.w600,
           ),
         ),
         const SizedBox(height: 12),
@@ -2362,7 +2362,7 @@ class _ProfileCreateScreenState extends ConsumerState<ProfileCreateScreen> {
           style: const TextStyle(
             fontFamily: 'PlusJakartaSans',
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w800,
+            fontWeight: FontWeight.w600,
             fontSize: 22,
             height: 1.2,
           ),
@@ -2440,7 +2440,7 @@ class _ProfileCreateScreenState extends ConsumerState<ProfileCreateScreen> {
           key: const Key('profile-create-public-name'),
           style: Theme.of(
             context,
-          ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w800),
+          ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w600),
         ),
         const SizedBox(height: 12),
         if (draft.mobileVerified)
@@ -2519,7 +2519,7 @@ class _InfoCard extends StatelessWidget {
             homiziText(context, title),
             style: Theme.of(
               context,
-            ).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w800),
+            ).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w600),
           ),
           const SizedBox(height: 8),
           for (final line in lines)

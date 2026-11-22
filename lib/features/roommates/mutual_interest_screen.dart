@@ -192,7 +192,7 @@ class _SplitRentPrompt extends StatelessWidget {
                     Text(
                       homiziText(context, 'Moving in together?'),
                       style: const TextStyle(
-                        fontWeight: FontWeight.w800,
+                        fontWeight: FontWeight.w600,
                         color: HomiziColors.ink,
                       ),
                     ),

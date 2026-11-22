@@ -298,7 +298,7 @@ class _CenteredPhoto extends StatelessWidget {
                     textTheme: theme.textTheme.copyWith(
                       titleSmall: theme.textTheme.headlineSmall?.copyWith(
                         color: HomiziColors.ink,
-                        fontWeight: FontWeight.w800,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                   ),
