@@ -279,7 +279,7 @@ class _RoommateSwipeDeckState extends State<RoommateSwipeDeck>
       children: [
         if (widget.people.length > 1)
           Padding(
-            padding: const EdgeInsets.fromLTRB(14, 18, 14, 24),
+            padding: const EdgeInsets.fromLTRB(16, 20, 16, 24),
             child: Transform.scale(
               scale: 0.95,
               child: IgnorePointer(
@@ -391,7 +391,7 @@ class _Stamp extends StatelessWidget {
               ),
               child: Padding(
                 padding: const EdgeInsets.symmetric(
-                  horizontal: 14,
+                  horizontal: 16,
                   vertical: 8,
                 ),
                 child: Text(

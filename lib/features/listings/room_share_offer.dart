@@ -66,7 +66,7 @@ class RoomShareOffer extends StatelessWidget {
               ),
           ],
         ),
-        const SizedBox(height: 14),
+        const SizedBox(height: 16),
         for (var index = 0; index < plan.roomsForRent; index++) ...[
           Text(
             homiziText(context, 'Room ${index + 1} occupancy'),
@@ -140,7 +140,7 @@ class RoomShareOffer extends StatelessWidget {
           amount: plan.perPersonRent,
           onChanged: (value) => _emit(plan.copyWith(perPersonRent: value)),
         ),
-        const SizedBox(height: 14),
+        const SizedBox(height: 16),
         _EstimateCard(one: one, two: two),
       ],
     );
@@ -212,7 +212,7 @@ class _EstimateCard extends StatelessWidget {
     return AnimatedContainer(
       duration: const Duration(milliseconds: 320),
       curve: Curves.easeOut,
-      padding: const EdgeInsets.all(14),
+      padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(18),
         gradient: const LinearGradient(

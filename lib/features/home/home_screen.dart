@@ -396,7 +396,7 @@ class _ActionCard extends StatelessWidget {
                 children: [
                   if (action.image != null) _TilePhoto(action: action),
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(12, 12, 44, 14),
+                    padding: const EdgeInsets.fromLTRB(12, 12, 44, 16),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisSize: MainAxisSize.min,

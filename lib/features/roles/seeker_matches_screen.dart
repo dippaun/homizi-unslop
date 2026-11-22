@@ -850,7 +850,7 @@ class _TopTabs extends StatelessWidget {
       final selected = index == i;
       return Expanded(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 3),
+          padding: const EdgeInsets.symmetric(horizontal: 4),
           child: Material(
             color: selected ? null : HomiziColors.soft,
             borderRadius: BorderRadius.circular(14),
@@ -871,7 +871,7 @@ class _TopTabs extends StatelessWidget {
                 borderRadius: BorderRadius.circular(14),
                 onTap: () => onChanged(i),
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 11),
+                  padding: const EdgeInsets.symmetric(vertical: 12),
                   child: Text(
                     homiziText(context, label),
                     textAlign: TextAlign.center,

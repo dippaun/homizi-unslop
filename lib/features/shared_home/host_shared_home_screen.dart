@@ -359,7 +359,7 @@ class _HostSharedHomeScreenState extends ConsumerState<HostSharedHomeScreen> {
             ],
           ),
         ),
-        const SizedBox(height: 14),
+        const SizedBox(height: 16),
         ShSection(
           title: 'Occupancy type',
           icon: Icons.bed_outlined,
@@ -384,7 +384,7 @@ class _HostSharedHomeScreenState extends ConsumerState<HostSharedHomeScreen> {
           ),
         ),
         if (_living > 0) ...[
-          const SizedBox(height: 14),
+          const SizedBox(height: 16),
           ShSection(
             title: 'Who lives there now',
             icon: Icons.person_outline,
@@ -516,7 +516,7 @@ class _HostSharedHomeScreenState extends ConsumerState<HostSharedHomeScreen> {
             ),
           ),
         ],
-        const SizedBox(height: 14),
+        const SizedBox(height: 16),
         _example(),
         if (_problem != null) ...[
           const SizedBox(height: 10),
@@ -596,7 +596,7 @@ class _HostSharedHomeScreenState extends ConsumerState<HostSharedHomeScreen> {
       padding: const EdgeInsets.fromLTRB(20, 24, 20, 32),
       children: [
         const ShDoneMark(),
-        const SizedBox(height: 14),
+        const SizedBox(height: 16),
         Text(
           homiziText(
             context,
@@ -683,7 +683,7 @@ class _Pill extends StatelessWidget {
         ),
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 5),
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
         child: Text(
           homiziText(context, text),
           style: TextStyle(

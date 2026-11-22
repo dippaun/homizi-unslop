@@ -353,7 +353,7 @@ class _Avatar extends StatelessWidget {
             Container(
               width: 92,
               height: 92,
-              padding: const EdgeInsets.all(3),
+              padding: const EdgeInsets.all(4),
               decoration: const BoxDecoration(
                 shape: BoxShape.circle,
                 gradient: LinearGradient(
@@ -367,7 +367,7 @@ class _Avatar extends StatelessWidget {
                 ),
               ),
               child: Container(
-                padding: const EdgeInsets.all(3),
+                padding: const EdgeInsets.all(4),
                 decoration: const BoxDecoration(
                   shape: BoxShape.circle,
                   color: HomiziColors.white,
@@ -478,7 +478,7 @@ class _NameBlock extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(16, 14, 16, 0),
+      padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -499,7 +499,7 @@ class _NameBlock extends StatelessWidget {
               const SizedBox(width: 8),
               Container(
                 key: const Key('host-profile-role'),
-                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                 decoration: BoxDecoration(
                   color: HomiziColors.accentWash,
                   borderRadius: BorderRadius.circular(20),
@@ -592,7 +592,7 @@ class _Actions extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(16, 14, 16, 0),
+      padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
       child: Row(
         children: [
           Expanded(
@@ -741,7 +741,7 @@ class _Highlight extends StatelessWidget {
           Container(
             width: 64,
             height: 64,
-            padding: const EdgeInsets.all(2.5),
+            padding: const EdgeInsets.all(2),
             decoration: const BoxDecoration(
               shape: BoxShape.circle,
               color: HomiziColors.success,
@@ -1094,7 +1094,7 @@ class _AboutTab extends StatelessWidget {
           if (story.replyLabel != null)
             _DetailLine(label: 'Usually replies', value: story.replyLabel!),
           if (story.languages.isNotEmpty) ...[
-            const SizedBox(height: 18),
+            const SizedBox(height: 20),
             const _SectionTitle('Languages'),
             const SizedBox(height: 8),
             Wrap(
@@ -1123,12 +1123,12 @@ class _AboutTab extends StatelessWidget {
               ],
             ),
           ],
-          const SizedBox(height: 18),
+          const SizedBox(height: 20),
           const _SectionTitle('Verification'),
           const SizedBox(height: 8),
           _Verification(anchorId: anchorId, verified: story.verified),
           if (story.reviews.isNotEmpty) ...[
-            const SizedBox(height: 18),
+            const SizedBox(height: 20),
             const _SectionTitle('Reviews'),
             const SizedBox(height: 8),
             for (final review in story.reviews) ...[

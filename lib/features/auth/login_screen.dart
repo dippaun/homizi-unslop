@@ -751,9 +751,9 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                                         message: homiziText(context, _error!),
                                       ),
                                     if (!_codeSent) ...[
-                                      const SizedBox(height: 18),
+                                      const SizedBox(height: 20),
                                       const _OrDivider(),
-                                      const SizedBox(height: 14),
+                                      const SizedBox(height: 16),
                                       _googleButton(showGoogle: showGoogle),
                                       if (_googleNote != null) ...[
                                         const SizedBox(height: 8),
@@ -1043,7 +1043,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           const Center(child: OtpHeroBadge(size: 72)),
-          const SizedBox(height: 14),
+          const SizedBox(height: 16),
           Text(
             homiziText(
               context,

@@ -303,7 +303,7 @@ class _PosterAddressStepState extends ConsumerState<PosterAddressStep> {
           ),
         ),
         if (widget.rooms) ...[
-          const SizedBox(height: 18),
+          const SizedBox(height: 20),
           Text(
             homiziText(context, 'Rooms available'),
             style: const TextStyle(

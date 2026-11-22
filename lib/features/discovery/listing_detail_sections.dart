@@ -1195,7 +1195,7 @@ class ListingHostRow extends ConsumerWidget {
               foregroundColor: HomiziColors.ink,
               backgroundColor: HomiziColors.white,
               side: const BorderSide(color: HomiziColors.line),
-              padding: const EdgeInsets.symmetric(horizontal: 14),
+              padding: const EdgeInsets.symmetric(horizontal: 16),
               minimumSize: const Size(48, 40),
               tapTargetSize: MaterialTapTargetSize.shrinkWrap,
             ),
@@ -1237,7 +1237,7 @@ class _PendingHostBadge extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       key: const Key('listing-verification-pending'),
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       decoration: BoxDecoration(
         color: HomiziColors.warningWash,
         borderRadius: BorderRadius.circular(12),
@@ -1261,7 +1261,7 @@ class _VerifiedHostBadge extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       key: const Key('listing-verified-host'),
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       decoration: BoxDecoration(
         color: HomiziColors.success,
         borderRadius: BorderRadius.circular(12),

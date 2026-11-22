@@ -87,7 +87,9 @@ abstract final class HomiziColors {
   static const Color nightAccentContainer = brandDarkRed;
 }
 
-/// Spacing and radii shared by buttons, cards, and the search flow.
+/// Spacing scale. Every margin, padding, gap and fixed height sits on the
+/// 4px grid (unslop pass 1). A 2px step is fine for nudges inside small
+/// controls. Space inside a group is smaller than space between groups.
 abstract final class HomiziSpace {
   static const double xxs = 4;
   static const double xs = 8;
@@ -95,6 +97,38 @@ abstract final class HomiziSpace {
   static const double md = 16;
   static const double lg = 20;
   static const double xl = 24;
+  static const double xxl = 32;
+  static const double xxxl = 40;
+  static const double section = 48;
+
+  /// Page edge on phones.
+  static const double page = 20;
+
+  /// Inside cards.
+  static const double card = 16;
+
+  /// Control radius (buttons, inputs). Kept for older call sites.
   static const double radius = 14;
+
+  /// Card radius. Kept for older call sites.
   static const double cardRadius = 20;
+}
+
+/// Radius scale. Nested radius: inner = outer minus padding, never below 4.
+/// Not everything is a pill: only avatars, dots and the round back button.
+abstract final class HomiziRadius {
+  /// Tags, keycaps, small badges.
+  static const double tag = 6;
+
+  /// Chips and segmented choices.
+  static const double chip = 8;
+
+  /// Buttons, inputs, rows.
+  static const double control = 12;
+
+  /// Cards and tiles.
+  static const double card = 16;
+
+  /// Sheets, panels, large hero blocks.
+  static const double panel = 20;
 }

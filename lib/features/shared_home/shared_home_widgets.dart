@@ -241,7 +241,7 @@ class ShTag extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
         child: Text(
           homiziText(context, label),
           style: const TextStyle(
@@ -266,7 +266,7 @@ class ShSampleChip extends StatelessWidget {
         border: Border.all(color: HomiziColors.warning),
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
         child: Text(
           homiziText(context, 'Sample home'),
           style: const TextStyle(
@@ -389,7 +389,7 @@ class ShInfoRow extends StatelessWidget {
   Widget build(BuildContext context) {
     final text = Theme.of(context).textTheme;
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 5),
+      padding: const EdgeInsets.symmetric(vertical: 4),
       child: Row(
         children: [
           Icon(icon, size: 18, color: HomiziColors.brandOrange),

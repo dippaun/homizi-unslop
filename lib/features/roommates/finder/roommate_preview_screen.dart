@@ -244,7 +244,7 @@ class _RoommatePreviewScreenState extends ConsumerState<RoommatePreviewScreen> {
                               ],
                             ),
                             if (person.about.trim().isNotEmpty) ...[
-                              const SizedBox(height: 18),
+                              const SizedBox(height: 20),
                               Text(
                                 homiziText(
                                   context,
@@ -265,7 +265,7 @@ class _RoommatePreviewScreenState extends ConsumerState<RoommatePreviewScreen> {
                               ),
                             ],
                             if (finderHabitLabels(person).isNotEmpty) ...[
-                              const SizedBox(height: 18),
+                              const SizedBox(height: 20),
                               Text(
                                 homiziText(context, 'Lifestyle & Preferences'),
                                 style: theme.textTheme.titleMedium?.copyWith(
@@ -284,7 +284,7 @@ class _RoommatePreviewScreenState extends ConsumerState<RoommatePreviewScreen> {
                               ),
                             ],
                             if (person.traits.languages.isNotEmpty) ...[
-                              const SizedBox(height: 18),
+                              const SizedBox(height: 20),
                               Text(
                                 homiziText(context, 'Languages'),
                                 style: theme.textTheme.titleMedium?.copyWith(
@@ -296,7 +296,7 @@ class _RoommatePreviewScreenState extends ConsumerState<RoommatePreviewScreen> {
                               Text(person.traits.languages.join(', ')),
                             ],
                             if (_placePhotos(person).isNotEmpty) ...[
-                              const SizedBox(height: 18),
+                              const SizedBox(height: 20),
                               Text(
                                 homiziText(context, 'Their place'),
                                 style: theme.textTheme.titleMedium?.copyWith(
@@ -328,7 +328,7 @@ class _RoommatePreviewScreenState extends ConsumerState<RoommatePreviewScreen> {
                                 ),
                               ),
                             ],
-                            const SizedBox(height: 18),
+                            const SizedBox(height: 20),
                             _compatibility(score),
                             const SizedBox(height: 16),
                           ],
@@ -438,13 +438,13 @@ class _RoommatePreviewScreenState extends ConsumerState<RoommatePreviewScreen> {
           ],
         ),
         if (forward.isNotEmpty) ...[
-          const SizedBox(height: 14),
+          const SizedBox(height: 16),
           _fitLabel('How they fit what you want'),
           const SizedBox(height: 8),
           _fitIcons(forward),
         ],
         if (back.isNotEmpty) ...[
-          const SizedBox(height: 14),
+          const SizedBox(height: 16),
           _fitLabel('How you fit what they want'),
           const SizedBox(height: 8),
           _fitIcons(back),

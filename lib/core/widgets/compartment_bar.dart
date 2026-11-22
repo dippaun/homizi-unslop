@@ -182,7 +182,7 @@ class _IconBadge extends StatelessWidget {
                 ),
                 child: Padding(
                   padding: const EdgeInsets.symmetric(
-                    horizontal: 5,
+                    horizontal: 4,
                     vertical: 1,
                   ),
                   child: Text(

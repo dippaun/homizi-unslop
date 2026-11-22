@@ -142,7 +142,7 @@ class RoommateMatchRow extends StatelessWidget {
                           ),
                         )
                       else
-                        const SizedBox(height: 18),
+                        const SizedBox(height: 20),
                       const SizedBox(height: 6),
                       SizedBox(
                         height: 18,

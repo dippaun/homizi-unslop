@@ -438,7 +438,7 @@ class _SplitScreenState extends ConsumerState<SplitScreen> {
         ),
         style: text.bodyMedium?.copyWith(color: HomiziColors.inkSoft),
       ),
-      const SizedBox(height: 14),
+      const SizedBox(height: 16),
       ClipRRect(
         borderRadius: BorderRadius.circular(18),
         child: AspectRatio(
@@ -476,7 +476,7 @@ class _SplitScreenState extends ConsumerState<SplitScreen> {
                   ),
               ],
             ),
-            const SizedBox(height: 14),
+            const SizedBox(height: 16),
             Autocomplete<String>(
               initialValue: TextEditingValue(text: _locality.text),
               optionsBuilder: (value) {
@@ -624,7 +624,7 @@ class _SplitScreenState extends ConsumerState<SplitScreen> {
           Container(
             key: Key('split-history-${split.id}'),
             margin: const EdgeInsets.only(top: 10),
-            padding: const EdgeInsets.all(14),
+            padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
               border: Border.all(color: HomiziColors.line),
               borderRadius: BorderRadius.circular(16),
@@ -739,7 +739,7 @@ class _SplitScreenState extends ConsumerState<SplitScreen> {
           ],
         ),
       ),
-      const SizedBox(height: 14),
+      const SizedBox(height: 16),
       Row(
         children: [
           for (final mode in SplitMode.values) ...[
@@ -766,7 +766,7 @@ class _SplitScreenState extends ConsumerState<SplitScreen> {
       const SizedBox(height: 4),
       Container(
         key: const Key('split-total-check'),
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
         decoration: BoxDecoration(
           color: ok ? HomiziColors.successWash : HomiziColors.errorWash,
           borderRadius: BorderRadius.circular(16),
@@ -832,7 +832,7 @@ class _SplitScreenState extends ConsumerState<SplitScreen> {
       ),
       const SizedBox(height: 12),
       Container(
-        padding: const EdgeInsets.all(14),
+        padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
           color: HomiziColors.soft,
           borderRadius: BorderRadius.circular(16),
@@ -932,7 +932,7 @@ class _SplitScreenState extends ConsumerState<SplitScreen> {
       ),
       const SizedBox(height: 16),
       Container(
-        padding: const EdgeInsets.all(14),
+        padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
           border: Border.all(color: HomiziColors.line),
           borderRadius: BorderRadius.circular(16),
@@ -986,7 +986,7 @@ class _SplitScreenState extends ConsumerState<SplitScreen> {
       else
         Container(
           key: const Key('split-paid'),
-          padding: const EdgeInsets.all(14),
+          padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
             color: HomiziColors.successWash,
             borderRadius: BorderRadius.circular(16),
@@ -1041,7 +1041,7 @@ class _Steps extends StatelessWidget {
     const labels = ['Home', 'Rooms', 'Result', 'Agree'];
     final at = step.index;
     return Padding(
-      padding: const EdgeInsets.only(bottom: 14, top: 4),
+      padding: const EdgeInsets.only(bottom: 16, top: 4),
       child: Row(
         children: [
           for (var i = 0; i < labels.length; i++) ...[
@@ -1231,7 +1231,7 @@ class _RoomCard extends StatelessWidget {
             borderRadius: const BorderRadius.vertical(top: Radius.circular(18)),
             onTap: onEdit,
             child: Padding(
-              padding: const EdgeInsets.fromLTRB(14, 14, 8, 6),
+              padding: const EdgeInsets.fromLTRB(16, 16, 8, 6),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -1278,7 +1278,7 @@ class _RoomCard extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.fromLTRB(46, 0, 14, 12),
+            padding: const EdgeInsets.fromLTRB(48, 0, 16, 12),
             child: Row(
               children: [
                 const Icon(
@@ -1634,7 +1634,7 @@ class _HowItWorks extends StatelessWidget {
     ];
     return Container(
       key: const Key('split-how'),
-      padding: const EdgeInsets.all(14),
+      padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         border: Border.all(color: HomiziColors.line),
         borderRadius: BorderRadius.circular(18),
@@ -1652,7 +1652,7 @@ class _HowItWorks extends StatelessWidget {
           const SizedBox(height: 8),
           for (final (icon, line) in points)
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 5),
+              padding: const EdgeInsets.symmetric(vertical: 4),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

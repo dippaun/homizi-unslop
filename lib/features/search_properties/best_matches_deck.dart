@@ -529,7 +529,7 @@ class _BestMatchesDeckState extends ConsumerState<BestMatchesDeck>
           children: [
             if (_index + 1 < widget.homes.length)
               const Padding(
-                padding: EdgeInsets.fromLTRB(14, 16, 14, 0),
+                padding: EdgeInsets.fromLTRB(16, 16, 16, 0),
                 child: DecoratedBox(
                   decoration: BoxDecoration(
                     color: HomiziColors.soft,
@@ -790,7 +790,7 @@ class _Stamp extends StatelessWidget {
               ),
               child: Padding(
                 padding: const EdgeInsets.symmetric(
-                  horizontal: 14,
+                  horizontal: 16,
                   vertical: 8,
                 ),
                 child: Text(

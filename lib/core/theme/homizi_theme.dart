@@ -66,7 +66,7 @@ abstract final class HomiziTheme {
         disabledBackgroundColor: HomiziColors.accentDisabled,
         disabledForegroundColor: HomiziColors.ink,
         minimumSize: const Size(48, 48),
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
         elevation: 0,
         shape: const RoundedRectangleBorder(borderRadius: _radius),
         textStyle: const TextStyle(
@@ -98,7 +98,7 @@ abstract final class HomiziTheme {
         foregroundColor: HomiziColors.ink,
         backgroundColor: HomiziColors.white,
         minimumSize: const Size(48, 48),
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
         side: const BorderSide(color: HomiziColors.accent, width: 1.5),
         shape: const RoundedRectangleBorder(borderRadius: _radius),
         textStyle: const TextStyle(

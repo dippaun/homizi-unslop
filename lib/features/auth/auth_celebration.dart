@@ -256,7 +256,7 @@ class _AuthCelebrationState extends ConsumerState<AuthCelebration>
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   const _HouseMark(),
-                  const SizedBox(height: 18),
+                  const SizedBox(height: 20),
                   Text(
                     homiziText(context, headline),
                     key: const Key('signup-confirmed'),
@@ -288,7 +288,7 @@ class _AuthCelebrationState extends ConsumerState<AuthCelebration>
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const _HouseMark(),
-                const SizedBox(height: 18),
+                const SizedBox(height: 20),
                 Text(
                   homiziText(context, headline),
                   key: const Key('signup-confirmed-card'),
@@ -313,7 +313,7 @@ class _AuthCelebrationState extends ConsumerState<AuthCelebration>
                     height: 1.35,
                   ),
                 ),
-                const SizedBox(height: 18),
+                const SizedBox(height: 20),
                 const Wrap(
                   alignment: WrapAlignment.center,
                   spacing: 8,

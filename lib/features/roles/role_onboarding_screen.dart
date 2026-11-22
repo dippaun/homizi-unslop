@@ -163,7 +163,7 @@ class _RoleCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
         onTap: onTap,
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 18),
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
           child: Row(
             children: [
               CircleAvatar(
@@ -171,7 +171,7 @@ class _RoleCard extends StatelessWidget {
                 backgroundColor: HomiziColors.white,
                 child: Icon(option.icon, color: HomiziColors.logoOrange),
               ),
-              const SizedBox(width: 14),
+              const SizedBox(width: 16),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

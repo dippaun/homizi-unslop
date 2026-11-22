@@ -1632,7 +1632,7 @@ class PhotosStep extends StatelessWidget {
             ),
             if (index < photoSequence.length - 1)
               const Padding(
-                padding: EdgeInsets.only(left: 18),
+                padding: EdgeInsets.only(left: 20),
                 child: Icon(
                   Icons.arrow_downward,
                   size: 16,

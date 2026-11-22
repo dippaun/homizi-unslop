@@ -541,7 +541,7 @@ class _DirectChatScreenState extends ConsumerState<DirectChatScreen> {
               : Alignment.centerLeft,
           child: Container(
             margin: const EdgeInsets.only(bottom: 8),
-            padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
             constraints: const BoxConstraints(maxWidth: 320),
             decoration: BoxDecoration(
               color: message.mine ? HomiziColors.accentWash : HomiziColors.mist,

@@ -81,7 +81,7 @@ class MatchBreakdownSheet extends StatelessWidget {
             child: Row(
               children: [
                 AnimatedMatchRing(percent: match.score, size: 84),
-                const SizedBox(width: 14),
+                const SizedBox(width: 16),
                 Expanded(
                   child: Text(
                     homiziText(context, 'Why this match'),

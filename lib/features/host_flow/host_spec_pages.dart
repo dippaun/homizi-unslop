@@ -269,7 +269,7 @@ class HostSpecFlow extends StatelessWidget {
         DecoratedBox(
           decoration: flowCard(color: HomiziColors.accentWash),
           child: Padding(
-            padding: const EdgeInsets.all(14),
+            padding: const EdgeInsets.all(16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -1016,7 +1016,7 @@ class _HostIntro extends StatelessWidget {
                 children: [
                   for (final point in points)
                     Padding(
-                      padding: const EdgeInsets.only(bottom: 14),
+                      padding: const EdgeInsets.only(bottom: 16),
                       child: Row(
                         children: [
                           Icon(point.$1, color: point.$2),

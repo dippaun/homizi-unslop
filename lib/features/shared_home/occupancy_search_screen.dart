@@ -229,7 +229,7 @@ class _OccupancySearchScreenState extends ConsumerState<OccupancySearchScreen> {
         const SizedBox(height: 12),
         _groupStepper(),
       ],
-      const SizedBox(height: 14),
+      const SizedBox(height: 16),
       ShSection(
         title: 'Desired occupancy',
         icon: Icons.bed_outlined,
@@ -248,7 +248,7 @@ class _OccupancySearchScreenState extends ConsumerState<OccupancySearchScreen> {
           ],
         ),
       ),
-      const SizedBox(height: 14),
+      const SizedBox(height: 16),
       ShSection(
         title: 'Preference',
         icon: Icons.tune,
@@ -308,7 +308,7 @@ class _OccupancySearchScreenState extends ConsumerState<OccupancySearchScreen> {
           ],
         ),
       ),
-      const SizedBox(height: 14),
+      const SizedBox(height: 16),
       ShSection(
         title: 'Looking for',
         icon: Icons.home_outlined,

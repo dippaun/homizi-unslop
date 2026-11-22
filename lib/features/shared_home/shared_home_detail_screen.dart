@@ -123,7 +123,7 @@ class _Body extends ConsumerWidget {
             tableKey: const Key('shared-detail-occupancy'),
           ),
         ),
-        const SizedBox(height: 14),
+        const SizedBox(height: 16),
         ShSection(
           title: home.occupancy.housemates.length > 1
               ? 'Current housemates'
@@ -145,7 +145,7 @@ class _Body extends ConsumerWidget {
                   ],
                 ),
         ),
-        const SizedBox(height: 14),
+        const SizedBox(height: 16),
         Row(
           children: [
             Icon(
@@ -161,7 +161,7 @@ class _Body extends ConsumerWidget {
             ),
           ],
         ),
-        const SizedBox(height: 18),
+        const SizedBox(height: 20),
         if (open != null)
           ShGradientButton(
             buttonKey: const Key('shared-view-request'),

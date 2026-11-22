@@ -331,7 +331,7 @@ class _SummaryRow extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       key: rowKey,
-      padding: const EdgeInsets.symmetric(vertical: 5),
+      padding: const EdgeInsets.symmetric(vertical: 4),
       child: Row(
         children: [
           PriorityBadge(rank: rank),
@@ -396,7 +396,7 @@ class _BetterMatches extends StatelessWidget {
     ];
     return Container(
       key: const Key('priority-better-matches'),
-      padding: const EdgeInsets.all(14),
+      padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: HomiziColors.successWash,
         borderRadius: BorderRadius.circular(16),

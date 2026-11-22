@@ -283,7 +283,7 @@ class _JoinRequestScreenState extends ConsumerState<JoinRequestScreen> {
             children: [for (final check in checks) ShCheckRow(check: check)],
           ),
         ),
-        const SizedBox(height: 14),
+        const SizedBox(height: 16),
         TextField(
           key: const Key('join-first-name'),
           controller: _name,

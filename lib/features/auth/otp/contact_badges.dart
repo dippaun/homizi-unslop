@@ -160,7 +160,7 @@ class ContactVerifyBadge extends StatelessWidget {
                 backgroundColor: HomiziColors.logoOrange,
                 foregroundColor: HomiziColors.ink,
                 visualDensity: VisualDensity.compact,
-                padding: const EdgeInsets.symmetric(horizontal: 14),
+                padding: const EdgeInsets.symmetric(horizontal: 16),
                 minimumSize: const Size(0, 36),
                 shape: const StadiumBorder(),
               ),

@@ -149,7 +149,7 @@ class PgSeekerHome extends ConsumerWidget {
           ),
           style: const TextStyle(color: HomiziColors.inkSoft, height: 1.35),
         ),
-        const SizedBox(height: 14),
+        const SizedBox(height: 16),
         seekers.when(
           loading: () => const Padding(
             padding: EdgeInsets.symmetric(vertical: 24),
@@ -222,7 +222,7 @@ class _SeekerCard extends ConsumerWidget {
               ),
             ),
             child: Padding(
-              padding: const EdgeInsets.fromLTRB(14, 14, 14, 10),
+              padding: const EdgeInsets.fromLTRB(16, 16, 16, 10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -290,7 +290,7 @@ class _EmptySeekers extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       key: const Key('pg-seeker-empty'),
-      padding: const EdgeInsets.all(18),
+      padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(24),
         gradient: const LinearGradient(

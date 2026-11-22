@@ -166,7 +166,7 @@ class _SmartMoveScreenState extends ConsumerState<SmartMoveScreen> {
                   Container(
                     key: const Key('smart-move-disclaimer'),
                     width: double.infinity,
-                    padding: const EdgeInsets.all(14),
+                    padding: const EdgeInsets.all(16),
                     decoration: BoxDecoration(
                       color: HomiziColors.warningWash,
                       borderRadius: BorderRadius.circular(HomiziSpace.radius),
@@ -238,7 +238,7 @@ class _SmartMoveScreenState extends ConsumerState<SmartMoveScreen> {
                         ),
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.all(18),
+                        padding: const EdgeInsets.all(20),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [

@@ -301,7 +301,7 @@ class TenantNumberedStep extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 14),
+      padding: const EdgeInsets.only(bottom: 16),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -369,7 +369,7 @@ class TenantMatchBadge extends StatelessWidget {
   Widget build(BuildContext context) {
     final tone = matchFill(percent, importantMismatch: importantMismatch);
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
       decoration: BoxDecoration(
         color: tone.background,
         borderRadius: BorderRadius.circular(20),
@@ -395,7 +395,7 @@ class TenantVerifiedBadge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 5),
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       decoration: BoxDecoration(
         color: HomiziColors.successWash,
         borderRadius: BorderRadius.circular(20),

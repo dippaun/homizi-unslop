@@ -97,7 +97,7 @@ class ToolsScreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(12),
                         onTap: () => context.push(tool.path),
                         child: Padding(
-                          padding: const EdgeInsets.all(18),
+                          padding: const EdgeInsets.all(20),
                           child: Row(
                             children: [
                               CircleAvatar(

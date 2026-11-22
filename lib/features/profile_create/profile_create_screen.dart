@@ -2506,7 +2506,7 @@ class _InfoCard extends StatelessWidget {
     return Container(
       width: double.infinity,
       margin: const EdgeInsets.only(top: 8),
-      padding: const EdgeInsets.all(14),
+      padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: HomiziColors.soft,
         borderRadius: const BorderRadius.all(Radius.circular(16)),

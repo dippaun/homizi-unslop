@@ -242,7 +242,7 @@ class _PaymentsScreenState extends ConsumerState<PaymentsScreen> {
                 color: HomiziColors.accent,
                 borderRadius: BorderRadius.circular(20),
                 child: Padding(
-                  padding: const EdgeInsets.all(14),
+                  padding: const EdgeInsets.all(16),
                   child: Text(
                     homiziText(
                       context,

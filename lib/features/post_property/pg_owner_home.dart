@@ -55,7 +55,7 @@ class PgOwnerHome extends ConsumerWidget {
                 rent: home.listing.rentInr,
                 onTap: () => context.push(RoutePaths.listing(home.listing.id)),
               ),
-          const SizedBox(height: 18),
+          const SizedBox(height: 20),
           Text(
             homiziText(context, 'Requests'),
             style: const TextStyle(
@@ -112,7 +112,7 @@ class _EmptyPg extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       key: const Key('pg-owner-empty'),
-      padding: const EdgeInsets.all(18),
+      padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(24),
         gradient: const LinearGradient(
@@ -143,7 +143,7 @@ class _EmptyPg extends StatelessWidget {
             ),
             style: const TextStyle(color: HomiziColors.inkSoft, height: 1.35),
           ),
-          const SizedBox(height: 14),
+          const SizedBox(height: 16),
           PostGradientButton(
             buttonKey: const Key('pg-add'),
             label: 'Add your PG',
@@ -188,7 +188,7 @@ class _PgCard extends StatelessWidget {
               ),
             ),
             child: Padding(
-              padding: const EdgeInsets.all(14),
+              padding: const EdgeInsets.all(16),
               child: Row(
                 children: [
                   const Icon(Icons.night_shelter, color: Color(0xFF9A4B12)),
@@ -287,7 +287,7 @@ class _RequestCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(bottom: 8),
       child: Container(
-        padding: const EdgeInsets.all(14),
+        padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(18),
           color: const Color(0xFFF7F3FF),

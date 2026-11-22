@@ -170,7 +170,7 @@ class _SmartLiverScreenState extends ConsumerState<SmartLiverScreen> {
                         ),
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.all(18),
+                        padding: const EdgeInsets.all(20),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -202,7 +202,7 @@ class _SmartLiverScreenState extends ConsumerState<SmartLiverScreen> {
                             const SizedBox(height: 12),
                             Container(
                               width: double.infinity,
-                              padding: const EdgeInsets.all(14),
+                              padding: const EdgeInsets.all(16),
                               decoration: BoxDecoration(
                                 color: HomiziColors.accentWash,
                                 borderRadius: BorderRadius.circular(

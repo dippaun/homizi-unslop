@@ -723,7 +723,7 @@ class _FormRow extends StatelessWidget {
           key: rowKey,
           onTap: onTap,
           child: Padding(
-            padding: const EdgeInsets.fromLTRB(16, 13, 12, 13),
+            padding: const EdgeInsets.fromLTRB(16, 12, 12, 12),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

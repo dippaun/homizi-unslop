@@ -112,7 +112,7 @@ class FindRoomieSampleChip extends StatelessWidget {
         border: Border.all(color: HomiziColors.line),
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
         child: Text(
           homiziText(context, 'Sample'),
           style: const TextStyle(

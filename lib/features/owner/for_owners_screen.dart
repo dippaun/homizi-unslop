@@ -148,7 +148,7 @@ class _OwnerStep extends StatelessWidget {
                 foregroundColor: HomiziColors.ink,
                 child: Text(index),
               ),
-              const SizedBox(width: 14),
+              const SizedBox(width: 16),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

@@ -97,7 +97,7 @@ class TenantIntroPage extends StatelessWidget {
           const SizedBox(height: 12),
           Container(
             width: double.infinity,
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
             decoration: BoxDecoration(
               color: HomiziColors.accent,
               borderRadius: BorderRadius.circular(16),
@@ -757,7 +757,7 @@ class _Band extends StatelessWidget {
     };
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.all(14),
+      padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: wash,
         borderRadius: BorderRadius.circular(16),

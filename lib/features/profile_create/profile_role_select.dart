@@ -69,7 +69,7 @@ class ProfileRoleSelect extends StatelessWidget {
           const SizedBox(height: 16),
           ProfileCreateProgress(step: step),
         ],
-        const SizedBox(height: 18),
+        const SizedBox(height: 20),
         OptionGrid(
           minTileWidth: 148,
           maxColumns: 2,

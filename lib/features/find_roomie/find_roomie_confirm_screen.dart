@@ -77,7 +77,7 @@ class _Body extends ConsumerWidget {
               shape: BoxShape.circle,
             ),
             child: Padding(
-              padding: EdgeInsets.all(18),
+              padding: EdgeInsets.all(20),
               child: Icon(
                 Icons.check_rounded,
                 color: HomiziColors.success,

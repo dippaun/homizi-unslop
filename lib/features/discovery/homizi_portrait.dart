@@ -40,7 +40,7 @@ class HomiziPortrait extends StatelessWidget {
               ),
             ),
             child: Container(
-              padding: const EdgeInsets.all(3),
+              padding: const EdgeInsets.all(4),
               decoration: const BoxDecoration(
                 color: HomiziColors.white,
                 shape: BoxShape.circle,

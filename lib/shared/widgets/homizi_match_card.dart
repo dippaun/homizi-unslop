@@ -308,7 +308,7 @@ class HomiziMatchCard extends StatelessWidget {
     final place = locality?.trim() ?? '';
     final strengthLabel = strength?.trim() ?? '';
     return Padding(
-      padding: EdgeInsets.fromLTRB(14, 12, 14, compact ? 10 : 14),
+      padding: EdgeInsets.fromLTRB(16, 12, 16, compact ? 10 : 16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
@@ -575,7 +575,7 @@ class _Chip extends StatelessWidget {
       child: Padding(
         padding: EdgeInsets.symmetric(
           horizontal: compact ? 8 : 10,
-          vertical: compact ? 3 : 5,
+          vertical: compact ? 4 : 4,
         ),
         child: Text(
           homiziText(context, chip.label),
@@ -623,7 +623,7 @@ class _MatchPill extends StatelessWidget {
       child: Padding(
         padding: EdgeInsets.symmetric(
           horizontal: compact ? 8 : 10,
-          vertical: compact ? 3 : 5,
+          vertical: compact ? 4 : 4,
         ),
         child: Text(
           homiziText(context, '$percent% Match'),
@@ -667,7 +667,7 @@ class _Action extends StatelessWidget {
             child: Icon(action.icon, size: 20, color: iconColor),
           )
         : Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [

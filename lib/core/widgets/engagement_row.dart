@@ -211,7 +211,7 @@ class _Highlight extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Icon(icon, size: 12, color: HomiziColors.logoOrange),
-            const SizedBox(width: 3),
+            const SizedBox(width: 4),
             Text(
               homiziText(context, label),
               style: const TextStyle(

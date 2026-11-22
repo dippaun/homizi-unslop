@@ -469,7 +469,7 @@ class ListingIdentityStep extends ConsumerWidget {
       child: DecoratedBox(
         decoration: flowCard(),
         child: Padding(
-          padding: const EdgeInsets.all(14),
+          padding: const EdgeInsets.all(16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -522,7 +522,7 @@ class _VerifiedAadhaar extends StatelessWidget {
       child: DecoratedBox(
         decoration: flowCard(color: HomiziColors.successWash),
         child: Padding(
-          padding: const EdgeInsets.all(14),
+          padding: const EdgeInsets.all(16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

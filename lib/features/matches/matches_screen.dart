@@ -217,7 +217,7 @@ class MatchesScreen extends ConsumerWidget {
                                             scoreListing: scoreListing,
                                           ),
                                         ],
-                                        const SizedBox(height: 14),
+                                        const SizedBox(height: 16),
                                         ContactGatePanel(
                                           gate: match.contact,
                                           matchId: match.matchId,

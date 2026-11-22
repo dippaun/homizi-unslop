@@ -71,7 +71,7 @@ class OptionTile extends StatelessWidget {
                       minHeight: minHeight ?? (dense ? 72 : 112),
                     ),
                     child: Padding(
-                      padding: EdgeInsets.fromLTRB(10, dense ? 10 : 14, 10, 12),
+                      padding: EdgeInsets.fromLTRB(10, dense ? 10 : 16, 10, 12),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [

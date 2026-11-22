@@ -315,7 +315,7 @@ class _SavedTile extends StatelessWidget {
         border: Border.all(color: palette.$2.withValues(alpha: 0.45)),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(14),
+        padding: const EdgeInsets.all(16),
         child: Row(
           children: [
             DecoratedBox(

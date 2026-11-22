@@ -320,7 +320,7 @@ class _OfficeLocationScreenState extends ConsumerState<OfficeLocationScreen> {
                               ),
                           ],
                         ),
-                        const SizedBox(height: 18),
+                        const SizedBox(height: 20),
                         const Text(
                           'Max Commute Time (One Way)',
                           style: TextStyle(
@@ -342,7 +342,7 @@ class _OfficeLocationScreenState extends ConsumerState<OfficeLocationScreen> {
                               ),
                           ],
                         ),
-                        const SizedBox(height: 18),
+                        const SizedBox(height: 20),
                         TextField(
                           key: const Key('office-nearby'),
                           controller: _nearby,
@@ -365,7 +365,7 @@ class _OfficeLocationScreenState extends ConsumerState<OfficeLocationScreen> {
                               ),
                             ),
                           ),
-                        const SizedBox(height: 18),
+                        const SizedBox(height: 20),
                         if (offices.isEmpty)
                           const Text(
                             'No office saved yet.',

@@ -229,7 +229,7 @@ class FlowBanner extends StatelessWidget {
         borderRadius: BorderRadius.circular(28),
       ),
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(18, 16, 18, 16),
+        padding: const EdgeInsets.fromLTRB(20, 16, 20, 16),
         child: Row(
           children: [
             Expanded(

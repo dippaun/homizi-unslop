@@ -183,7 +183,7 @@ class _HomiziPropertyCardState extends State<HomiziPropertyCard> {
         Expanded(
           child: ListView(
             controller: widget.scrollController,
-            padding: const EdgeInsets.fromLTRB(16, 14, 16, 16),
+            padding: const EdgeInsets.fromLTRB(16, 16, 16, 16),
             children: [
               _titleRow(context),
               const SizedBox(height: 12),
@@ -455,7 +455,7 @@ class _HomiziPropertyCardState extends State<HomiziPropertyCard> {
                     key: Key('property-badge-${widget.data.id}'),
                     padding: const EdgeInsets.symmetric(
                       horizontal: 8,
-                      vertical: 3,
+                      vertical: 4,
                     ),
                     decoration: BoxDecoration(
                       color: HomiziColors.accentWash,
@@ -1013,7 +1013,7 @@ class _MatchBadge extends StatelessWidget {
   Widget build(BuildContext context) {
     final badge = Container(
       key: Key('property-match-$percent'),
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
       decoration: BoxDecoration(
         color: HomiziColors.success,
         borderRadius: BorderRadius.circular(20),
@@ -1051,7 +1051,7 @@ class _RoommateBadge extends StatelessWidget {
         borderRadius: BorderRadius.circular(999),
       ),
       child: const Padding(
-        padding: EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+        padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -1078,7 +1078,7 @@ class _VerifiedListing extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 5),
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       decoration: BoxDecoration(
         color: HomiziColors.white,
         borderRadius: BorderRadius.circular(20),

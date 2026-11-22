@@ -168,7 +168,7 @@ class PriorityTypeChip extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
           onTap: onTap,
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 5),
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
             child: Text(
               homiziText(context, label),
               style: TextStyle(
@@ -375,7 +375,7 @@ class PriorityHowItWorks extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       key: const Key('how-it-works'),
-      padding: const EdgeInsets.all(14),
+      padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
