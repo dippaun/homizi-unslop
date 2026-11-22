@@ -5,6 +5,7 @@ import 'package:homizi/core/location/city_locality_field.dart';
 import 'package:homizi/core/location/location_models.dart';
 import 'package:homizi/core/location/place_autocomplete_field.dart';
 import 'package:homizi/core/matching/match_bands.dart';
+import 'package:homizi/core/media/photo_source.dart';
 import 'package:homizi/core/theme/homizi_colors.dart';
 import 'package:homizi/core/widgets/match_score.dart';
 import 'package:homizi/features/roommates/finder/finder_models.dart';
@@ -179,9 +180,13 @@ class RoommateStackCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final photos = person.gallery.isEmpty
-        ? [if (person.seeker.photoRef != null) person.seeker.photoRef!]
-        : person.gallery;
+    final photos = [
+      personPortrait(
+        personId: person.id,
+        photoRef: person.seeker.photoRef,
+        gallery: person.gallery,
+      ),
+    ];
     return HomiziFullPhotoCard(
       cardKey: const Key('roommate-card'),
       tapKey: Key('roommate-open-${person.id}'),

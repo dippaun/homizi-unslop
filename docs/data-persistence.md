@@ -43,7 +43,21 @@ Tenants create a profile at Create Your Profile (`/profile/create`) and the tena
 
 The tenant profile (`profiles`, `profile_details`, and the saved priorities) is the only copy of a person's details. Find Roomie shows that profile. A shared-room post shows that same profile as the current occupant. Listing steps do not ask for the person's name, food, smoking, pets, or schedule again. Matching reads the saved profile and priorities. A live roommate deck does not add sample people.
 
-The question "Also create your profile as a roommate seeker?" is the last step of profile creation. Yes sets `roommate_profiles.discoverable` and `open_to_flatmates`. Find Roomie never shows that question as a dialog. A No leaves a switch on the deck.
+The question "Also create your profile as a roommate seeker?" is the last step of profile creation only when the person did not choose Share my room or Find a roommate. Those two goals publish the roommate profile immediately (`roommate_profiles.discoverable` and `open_to_flatmates`). Publishing a shared-room listing does the same. Find Roomie never shows that question as a dialog. A No leaves a switch on the deck.
+
+## First sign-in goals
+
+The first sign-in asks once, with several goals allowed: Find a room / flat, Share my room, Find a roommate, Host a flat / room. They are stored on the existing profile. `profile_details.roles` keeps `tenant`, `sharer`, and `host` (the database check does not allow a fifth role). The exact goals are tags on `profile_details.tags`: `goal:tenant`, `goal:sharer`, `goal:roommate`, `goal:host`. No new column.
+
+The guided profile steps that already have a name, city, occupation, languages, or lifestyle are skipped. Basic Information and Your Office Location open with the saved city, company, office, transport, and commute time filled in. Saving the office updates that same office. A later goal uses Profile → Your goals and only opens Basic Information when the name or city is still empty.
+
+## City and who is visible
+
+A city is saved from a Places pick. Typing a city and leaving the field saves the top Places suggestion, or the closest catalogue city (so "ahmedbad" becomes Ahmedabad). Feeds and decks show the viewer's city first, sorted by match percent, then every other city under that. A card from another city shows `Different city · <City>`. A 0% match stays in the list. The location factor scores 4 points for a different city instead of the full 15, so that one factor weighs less. Match percent on a home card, a roommate card, and a host's seeker card comes from `scoreMatch`. A factor counts only when both sides have stated it. The breakdown is the factor list on the card.
+
+`list_roommate_seekers_in_city` can return one city. The feeds do not call it, so it does not hide other cities.
+
+A roommate or share-a-room profile with no photo still shows a portrait. The picture is one of `assets/avatars/avatar_01.webp` through `avatar_06.webp`, chosen from the person id. It is drawn on the card, the profile, and the match deck only. It is not saved on `profiles.avatar_path`. An uploaded photo replaces it.
 
 ## Match factors and the one profile
 
@@ -79,3 +93,7 @@ Drinking, guests, and cooking are roommate-only. They are not property-match ico
 ## Migration not applied
 
 `supabase/migrations/20261121195500_account_briefs.sql` adds `roommate_profiles.brief` and `tenant_preferences.intake`. Until it is applied, those two JSON blobs stay on the device and the existing columns still update.
+
+`supabase/migrations/20261122193000_roommate_same_city.sql` adds `list_roommate_seekers_in_city(p_city)`. The feeds do not use it to hide other cities.
+
+`supabase/migrations/20261122193100_ahmedabad_demo_seed.sql` inserts Ahmedabad demo homes and marks them with `property_features` `wizard:demo` = `ahmedabad`. It runs only when an auth user `demo-ahmedabad@homizi.app` already exists. It does not create that user and does not call a photo service. Photos are the existing `homizi.netlify.app/demo_media` files.

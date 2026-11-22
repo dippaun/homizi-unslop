@@ -179,7 +179,7 @@ final remoteSearchProvider = FutureProvider<List<Listing>>((ref) async {
   final filters = ref.watch(listingFilterProvider);
   final rows = await ref
       .watch(discoveryGatewayProvider)
-      .searchListings(filters);
+      .searchListings(filters.copyWith(clearCity: true));
   final extra = [
     for (final home in ref.watch(publishedSearchProvider)) home.listing,
   ];

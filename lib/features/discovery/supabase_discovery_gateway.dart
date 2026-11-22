@@ -267,10 +267,9 @@ class SupabaseDiscoveryGateway implements DiscoveryGateway {
         [for (var count = bedrooms.atLeast!; count <= 12; count++) '$count'],
       );
     }
-    final city = filters.city?.trim() ?? '';
-    if (city.isNotEmpty) {
-      query = query.eq('city', city);
-    }
+    // City is not a hard filter. The feeds sort the viewer's city first and
+    // keep other cities underneath. list_roommate_seekers_in_city is not used
+    // here.
     final place = filters.locality?.trim() ?? '';
     if (place.isNotEmpty) {
       query = query.ilike('locality', place);
