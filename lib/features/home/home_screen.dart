@@ -611,15 +611,21 @@ class _RentalStrip extends ConsumerWidget {
                 ),
               ),
             ),
-            TextButton(
+            TextButton.icon(
               key: const Key('home-see-all'),
               onPressed: () => context.push(RoutePaths.flats),
-              child: Text(
-                homiziText(context, 'See all >'),
+              iconAlignment: IconAlignment.end,
+              icon: const Icon(
+                Icons.chevron_right,
+                size: 18,
+                color: HomiziColors.brandRedOrange,
+              ),
+              label: Text(
+                homiziText(context, 'See all'),
                 style: const TextStyle(
                   fontFamily: 'Inter',
-                  color: HomiziColors.accent,
-                  fontWeight: FontWeight.w600,
+                  color: HomiziColors.brandRedOrange,
+                  fontWeight: FontWeight.w500,
                 ),
               ),
             ),

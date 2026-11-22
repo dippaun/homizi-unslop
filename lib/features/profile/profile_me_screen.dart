@@ -710,7 +710,7 @@ class _ProfileMeScreenState extends ConsumerState<ProfileMeScreen> {
         onTap: () => context.push(RoutePaths.profileInquiries),
       ),
     ];
-    return Wrap(spacing: 6, runSpacing: 6, children: tiles);
+    return Wrap(spacing: 8, runSpacing: 8, children: tiles);
   }
 
   Widget _completeness(ProfileCompleteness score) {
@@ -2061,25 +2061,29 @@ class _StatTile extends StatelessWidget {
       onTap: onTap,
       borderRadius: BorderRadius.circular(14),
       child: DecoratedBox(
+        // One quiet surface for every stat. The figure carries the
+        // meaning; the icon stays muted (unslop pass 6).
         decoration: BoxDecoration(
-          color: tint,
+          color: HomiziColors.white,
           borderRadius: BorderRadius.circular(14),
+          border: Border.all(color: HomiziColors.line),
         ),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Icon(icon, size: 16, color: accent),
+              Icon(icon, size: 16, color: HomiziColors.muted),
               const SizedBox(width: 4),
               value == 0
                   ? Text(
                       '0',
                       key: Key(statKey),
-                      style: TextStyle(
-                        color: accent,
+                      style: const TextStyle(
+                        color: HomiziColors.ink,
                         fontWeight: FontWeight.w600,
                         fontSize: 16,
+                        fontFeatures: [FontFeature.tabularFigures()],
                       ),
                     )
                   : TweenAnimationBuilder<double>(
@@ -2089,10 +2093,11 @@ class _StatTile extends StatelessWidget {
                         return Text(
                           '${shown.round()}',
                           key: Key(statKey),
-                          style: TextStyle(
-                            color: accent,
+                          style: const TextStyle(
+                            color: HomiziColors.ink,
                             fontWeight: FontWeight.w600,
                             fontSize: 16,
+                            fontFeatures: [FontFeature.tabularFigures()],
                           ),
                         );
                       },
@@ -2101,9 +2106,9 @@ class _StatTile extends StatelessWidget {
               Text(
                 homiziText(context, label),
                 style: const TextStyle(
-                  color: HomiziColors.ink,
-                  fontSize: 11,
-                  fontWeight: FontWeight.w600,
+                  color: HomiziColors.muted,
+                  fontSize: 12,
+                  fontWeight: FontWeight.w500,
                 ),
               ),
             ],
