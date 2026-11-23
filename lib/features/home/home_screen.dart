@@ -174,13 +174,17 @@ class _HeroCopy extends StatelessWidget {
                   color: HomiziColors.brandYellow,
                 ),
                 const SizedBox(width: 6),
-                Text(
-                  homiziText(context, 'Zero brokerage · verified owners'),
-                  style: const TextStyle(
-                    fontFamily: 'Inter',
-                    fontSize: 12,
-                    fontWeight: FontWeight.w600,
-                    color: HomiziColors.white,
+                Flexible(
+                  child: Text(
+                    homiziText(context, 'Zero brokerage · verified owners'),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: const TextStyle(
+                      fontFamily: 'Inter',
+                      fontSize: 12,
+                      fontWeight: FontWeight.w600,
+                      color: HomiziColors.white,
+                    ),
                   ),
                 ),
               ],

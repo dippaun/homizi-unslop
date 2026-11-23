@@ -91,11 +91,9 @@ void main() {
     expect(HomiziColors.brandYellow, const Color(0xFFFFD20A));
     expect(HomiziColors.ink, const Color(0xFF172033));
     // v2: the page is saffron cream, not grey-white.
-    expect(HomiziColors.soft, const Color(0xFFFFF8EC));
-    expect(
-      _contrast(HomiziColors.muted, HomiziColors.soft),
-      greaterThan(4.5),
-    );
+    // v3: neutral stone pages instead of cream.
+    expect(HomiziColors.soft, const Color(0xFFF5F3F0));
+    expect(_contrast(HomiziColors.muted, HomiziColors.soft), greaterThan(4.5));
     expect(HomiziColors.success, const Color(0xFF16803C));
     expect(HomiziColors.warning, const Color(0xFF9A6700));
     expect(HomiziColors.error, const Color(0xFFB42318));

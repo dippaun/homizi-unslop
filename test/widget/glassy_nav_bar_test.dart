@@ -235,7 +235,7 @@ void main() {
     expect(find.byType(InkResponse), findsNothing);
   });
 
-  testWidgets('active tab is filled red orange and idle ink is quieter', (
+  testWidgets('active tab is an orange pill and idle tabs are muted on ink', (
     tester,
   ) async {
     await _pump(tester, selected: 0, accent: true, onSelect: (_) {});
@@ -245,25 +245,20 @@ void main() {
     expect(bar.accentSelected, isTrue);
 
     final active = tester.widget<Text>(find.text('Home').first);
-    expect(active.style?.color, HomiziColors.brandRedOrange);
+    // v3 dark bar: white active label, ink icon on an orange pill.
+    expect(active.style?.color, HomiziColors.white);
     expect(active.style?.fontWeight, FontWeight.w600);
 
     final idle = tester.widget<Text>(find.text('Explore').first);
-    expect(
-      idle.style?.color,
-      HomiziColors.ink.withValues(alpha: GlassyNavigationBar.inactiveOpacity),
-    );
+    expect(idle.style?.color, HomiziColors.onInkMuted);
     expect(idle.style?.fontWeight, FontWeight.w500);
 
     final activeIcon = IconTheme.of(tester.element(find.byIcon(Icons.home)));
     final idleIcon = IconTheme.of(tester.element(find.byIcon(Icons.search)));
-    expect(activeIcon.color, HomiziColors.brandRedOrange);
+    expect(activeIcon.color, HomiziColors.ink);
     expect(activeIcon.size, GlassyNavigationBar.iconSize);
     expect(idleIcon.size, activeIcon.size);
-    expect(
-      idleIcon.color,
-      HomiziColors.ink.withValues(alpha: GlassyNavigationBar.inactiveOpacity),
-    );
+    expect(idleIcon.color, HomiziColors.onInkMuted);
 
     final item = tester.getRect(find.byKey(const Key('glassy-nav-item-0')));
     expect(
@@ -301,7 +296,7 @@ void main() {
     expect(gradient.colors.first.a, greaterThanOrEqualTo(0.7));
 
     final label = tester.widget<Text>(find.text('Home').first);
-    expect(label.style?.color, HomiziColors.brandRedOrange);
+    expect(label.style?.color, HomiziColors.white);
   });
 
   testWidgets('six tabs stay tappable on a 320-wide phone', (tester) async {
@@ -319,7 +314,7 @@ void main() {
       expect(item.height, greaterThanOrEqualTo(48));
     }
     final active = tester.widget<Text>(find.text('Priorities').first);
-    expect(active.style?.color, HomiziColors.brandRedOrange);
+    expect(active.style?.color, HomiziColors.white);
     expect(active.style?.fontWeight, FontWeight.w600);
   });
 

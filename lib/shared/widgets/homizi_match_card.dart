@@ -332,7 +332,7 @@ class HomiziMatchCard extends StatelessWidget {
     final place = locality?.trim() ?? '';
     final strengthLabel = strength?.trim() ?? '';
     return Padding(
-      padding: EdgeInsets.fromLTRB(16, 12, 16, compact ? 10 : 16),
+      padding: EdgeInsets.fromLTRB(14, 12, 14, compact ? 10 : 14),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
@@ -631,14 +631,18 @@ class _Chip extends StatelessWidget {
               Icon(chip.icon, size: compact ? 13 : 15, color: ink),
               const SizedBox(width: 4),
             ],
-            Text(
-              homiziText(context, chip.label),
-              style: TextStyle(
-                fontFamily: 'Inter',
-                fontSize: compact ? 11 : 12,
-                height: 1.2,
-                fontWeight: FontWeight.w600,
-                color: ink,
+            Flexible(
+              child: Text(
+                homiziText(context, chip.label),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                  fontFamily: 'Inter',
+                  fontSize: compact ? 11 : 12,
+                  height: 1.2,
+                  fontWeight: FontWeight.w600,
+                  color: ink,
+                ),
               ),
             ),
           ],
