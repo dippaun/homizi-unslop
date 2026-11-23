@@ -290,7 +290,7 @@ class _ChatInboxScreenState extends ConsumerState<ChatInboxScreen> {
             icon: Icons.groups_outlined,
             title: 'Roommates',
             count: roommates.length,
-            tint: HomiziRolePalette.roommate.wash,
+            tint: HomiziColors.white,
             accent: HomiziRolePalette.roommate.ink,
             emptyLine: searching
                 ? 'No roommate chats match this search.'
@@ -302,7 +302,7 @@ class _ChatInboxScreenState extends ConsumerState<ChatInboxScreen> {
             icon: Icons.apartment_outlined,
             title: 'Flats',
             count: flats.length,
-            tint: HomiziRolePalette.tenant.wash,
+            tint: HomiziColors.white,
             accent: HomiziRolePalette.tenant.ink,
             emptyLine: searching
                 ? 'No flat chats match this search.'
