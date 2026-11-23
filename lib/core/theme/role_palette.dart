@@ -4,10 +4,10 @@ import 'package:homizi/core/theme/homizi_colors.dart';
 /// One accent family per HOMIZI role, drawn from the brand range
 /// Yellow #FFD20A to Dark Red #88180B.
 ///
-/// [hero] is the layered gradient behind role headers. [onHero] is the text
-/// colour that clears AA on every stop of that gradient: ink on the yellow
-/// and golden heroes, white on the vermilion-to-maroon ones. [ink] is the
-/// accent used as text or icon on [wash]/cream (AA on both).
+/// v3: role headers are dark ink photo heroes; the role shows through
+/// [glow] (eyebrow, ring, light) and [photo]. [hero] is the role gradient
+/// for small fills (icon discs, progress) with [onHero] text that clears
+/// AA on every stop. [ink] is the accent as text or icon on [wash]/stone.
 @immutable
 class HomiziRolePalette {
   const HomiziRolePalette({
@@ -18,7 +18,16 @@ class HomiziRolePalette {
     required this.wash,
     required this.hero,
     required this.onHero,
+    required this.glow,
+    required this.photo,
   });
+
+  /// v3: the role's bright accent on dark [HomiziColors.ink] heroes. Used
+  /// for the eyebrow, glow and icon ring; every value clears 4.5:1 on ink.
+  final Color glow;
+
+  /// v3: real Indian home photo behind the role's dark hero.
+  final String photo;
 
   final String id;
   final String label;
@@ -57,6 +66,8 @@ class HomiziRolePalette {
     wash: HomiziColors.saffronWash,
     hero: [HomiziColors.brandRedOrange, HomiziColors.brandDeepRed],
     onHero: HomiziColors.white,
+    glow: HomiziColors.brandOrange,
+    photo: 'assets/images/home/apartment.webp',
   );
 
   /// Roommate / flatmate finder: haldi yellow, ink text.
@@ -68,6 +79,8 @@ class HomiziRolePalette {
     wash: HomiziColors.haldiWash,
     hero: [HomiziColors.brandYellow, HomiziColors.brandGolden],
     onHero: HomiziColors.ink,
+    glow: HomiziColors.brandYellow,
+    photo: 'assets/images/real/people.webp',
   );
 
   /// Owner / host: terracotta.
@@ -79,6 +92,8 @@ class HomiziRolePalette {
     wash: HomiziColors.terracottaWash,
     hero: [HomiziColors.brandRedOrange, HomiziColors.brandDarkRed],
     onHero: HomiziColors.white,
+    glow: HomiziColors.brandDeepOrange,
+    photo: 'assets/images/real/apartment.webp',
   );
 
   /// PG owner: deep orange chips over a deep red band.
@@ -90,6 +105,8 @@ class HomiziRolePalette {
     wash: HomiziColors.saffronWash,
     hero: [HomiziColors.brandDeepRed, HomiziColors.brandDarkRed],
     onHero: HomiziColors.white,
+    glow: HomiziColors.brandGolden,
+    photo: 'assets/images/real/bedroom.webp',
   );
 
   /// Broker / property partner: maroon, the most formal of the set.
@@ -101,6 +118,8 @@ class HomiziRolePalette {
     wash: HomiziColors.maroonWash,
     hero: [HomiziColors.brandDarkRed, HomiziColors.maroon],
     onHero: HomiziColors.white,
+    glow: HomiziColors.brandYellow,
+    photo: 'assets/images/real/exterior.webp',
   );
 
   /// Room sharer / home sharer: golden into orange, ink text.
@@ -112,6 +131,8 @@ class HomiziRolePalette {
     wash: HomiziColors.haldiWash,
     hero: [HomiziColors.brandGolden, HomiziColors.brandOrange],
     onHero: HomiziColors.ink,
+    glow: HomiziColors.brandGolden,
+    photo: 'assets/images/real/living_b.webp',
   );
 
   /// Company / property management.
@@ -123,6 +144,8 @@ class HomiziRolePalette {
     wash: HomiziColors.terracottaWash,
     hero: [HomiziColors.brandDeepRed, HomiziColors.maroon],
     onHero: HomiziColors.white,
+    glow: HomiziColors.brandOrange,
+    photo: 'assets/images/home/house.webp',
   );
 
   static const all = [tenant, roommate, owner, pg, broker, sharer, company];

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:homizi/core/brand/indian_patterns.dart';
-import 'package:homizi/core/theme/role_palette.dart';
+import 'package:homizi/core/theme/homizi_colors.dart';
 import 'package:homizi/core/widgets/homizi_tab_header.dart';
 
 /// Wordmark shared by every role home.
@@ -31,27 +30,16 @@ class HomiziHomeBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    // v2: the bar takes the role's wash with a block-print edge, so each
-    // role home reads as its own space. The wordmark stays ink.
-    final palette = HomiziRoleScope.of(context);
+    // v3: a quiet stone bar on every role home; the role shows in the
+    // hero below, not in the chrome.
     return Material(
-      color: palette.wash,
+      color: HomiziColors.cream,
       child: SafeArea(
         bottom: false,
-        child: Stack(
-          children: [
-            HomiziTabHeader(leading: leading, actions: actions, title: title),
-            Positioned(
-              left: 0,
-              right: 0,
-              bottom: 0,
-              child: BlockPrintBorder(
-                color: palette.ink,
-                height: 6,
-                opacity: 0.35,
-              ),
-            ),
-          ],
+        child: HomiziTabHeader(
+          leading: leading,
+          actions: actions,
+          title: title,
         ),
       ),
     );

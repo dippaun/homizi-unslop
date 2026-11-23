@@ -577,7 +577,6 @@ class _ProfileMeScreenState extends ConsumerState<ProfileMeScreen> {
         HomiziStaggerIn(
           child: HomiziHeroBand(
             palette: palette,
-            radius: 24,
             padding: const EdgeInsets.fromLTRB(14, 14, 14, 36),
             child: Row(
               children: [

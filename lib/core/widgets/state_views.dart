@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:homizi/core/brand/homizi_mark.dart';
-import 'package:homizi/core/brand/indian_patterns.dart';
 import 'package:homizi/core/l10n/translate.dart';
 import 'package:homizi/core/network/offline_failure.dart';
 import 'package:homizi/core/theme/homizi_colors.dart';
@@ -282,58 +281,61 @@ class AsyncStateBody extends StatelessWidget {
 class _ArchedPhoto extends StatelessWidget {
   const _ArchedPhoto();
 
+  /// v3 empty-state art: a rounded real-home photo with a white icon badge.
   @override
   Widget build(BuildContext context) {
     final palette = HomiziRoleScope.of(context);
     return SizedBox(
-      width: 200,
-      height: 168,
+      width: 196,
+      height: 150,
       child: Stack(
-        alignment: Alignment.topCenter,
+        clipBehavior: Clip.none,
         children: [
-          Positioned.fill(
-            child: IgnorePointer(
-              child: CustomPaint(
-                painter: KolamPainter(
-                  color: palette.ink,
-                  opacity: 0.16,
-                  gap: 26,
-                ),
+          Positioned(
+            left: 0,
+            top: 0,
+            width: 180,
+            height: 132,
+            child: DecoratedBox(
+              decoration: const BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(22)),
+                boxShadow: [
+                  BoxShadow(
+                    color: HomiziColors.shadowStrong,
+                    blurRadius: 20,
+                    offset: Offset(0, 8),
+                  ),
+                ],
               ),
-            ),
-          ),
-          SizedBox(
-            width: 116,
-            height: 144,
-            child: CustomPaint(
-              foregroundPainter: _ArchLine(palette.accent),
-              child: ClipPath(
-                clipper: const JharokhaClipper(archFraction: 0.34),
+              child: ClipRRect(
+                borderRadius: const BorderRadius.all(Radius.circular(22)),
                 child: Image.asset(
-                  'assets/images/real/living.webp',
+                  palette.photo,
                   fit: BoxFit.cover,
-                  width: 116,
-                  height: 144,
+                  excludeFromSemantics: true,
                 ),
               ),
             ),
           ),
           Positioned(
+            right: 0,
             bottom: 0,
             child: DecoratedBox(
               decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                gradient: palette.heroGradient,
-                border: Border.all(color: HomiziColors.cream, width: 3),
+                color: HomiziColors.white,
+                borderRadius: BorderRadius.circular(16),
+                boxShadow: const [
+                  BoxShadow(
+                    color: HomiziColors.shadowStrong,
+                    blurRadius: 12,
+                    offset: Offset(0, 4),
+                  ),
+                ],
               ),
               child: SizedBox(
                 width: 48,
                 height: 48,
-                child: Icon(
-                  RealLifeIcons.house,
-                  color: palette.onHero,
-                  size: 24,
-                ),
+                child: Icon(RealLifeIcons.house, color: palette.ink, size: 24),
               ),
             ),
           ),
@@ -341,25 +343,4 @@ class _ArchedPhoto extends StatelessWidget {
       ),
     );
   }
-}
-
-class _ArchLine extends CustomPainter {
-  const _ArchLine(this.color);
-
-  final Color color;
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    canvas.drawPath(
-      jharokhaPath(size, 0.34),
-      Paint()
-        ..color = color
-        ..style = PaintingStyle.stroke
-        ..strokeWidth = 2,
-    );
-  }
-
-  @override
-  bool shouldRepaint(covariant _ArchLine oldDelegate) =>
-      oldDelegate.color != color;
 }

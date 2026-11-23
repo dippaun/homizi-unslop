@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:homizi/core/brand/homizi_mark.dart';
-import 'package:homizi/core/brand/indian_patterns.dart';
 import 'package:homizi/core/config/app_config.dart';
 import 'package:homizi/core/config/app_config_provider.dart';
 import 'package:homizi/core/l10n/translate.dart';
@@ -21,7 +20,6 @@ import 'package:homizi/features/auth/auth_contact_mode.dart';
 import 'package:homizi/features/auth/auth_provider_settings.dart';
 import 'package:homizi/features/auth/client_test_login.dart';
 import 'package:homizi/features/auth/login_confirm.dart';
-import 'package:homizi/features/auth/login_skyline.dart';
 import 'package:homizi/features/auth/otp/captcha_token.dart';
 import 'package:homizi/features/auth/otp/hcaptcha_field.dart';
 import 'package:homizi/features/auth/otp/homizi_fields.dart';
@@ -634,61 +632,40 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
         backgroundColor: HomiziColors.cream,
         body: Stack(
           children: [
-            // v2 layers: saffron glow, carved jaali, a kolam at the top
-            // corner and the filled city line behind the line-art skyline.
-            const Positioned.fill(
+            // v3: a dark photo panel of a real Mumbai high-rise behind the
+            // top of the form; the white auth card overlaps it. No patterns.
+            Positioned(
+              left: 0,
+              right: 0,
+              top: 0,
+              height: 300,
               child: IgnorePointer(
-                child: DecoratedBox(
-                  decoration: BoxDecoration(
-                    gradient: RadialGradient(
-                      center: Alignment(0.8, -1.1),
-                      radius: 1.2,
-                      colors: [HomiziColors.saffronWash, HomiziColors.cream],
+                child: Stack(
+                  fit: StackFit.expand,
+                  children: [
+                    Image.asset(
+                      'assets/images/home/apartment.webp',
+                      fit: BoxFit.cover,
+                      alignment: const Alignment(0, -0.2),
+                      excludeFromSemantics: true,
+                      errorBuilder: (context, error, stack) =>
+                          const ColoredBox(color: HomiziColors.ink),
                     ),
-                  ),
+                    DecoratedBox(
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [
+                            HomiziColors.ink.withValues(alpha: 0.72),
+                            HomiziColors.ink.withValues(alpha: 0.9),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
-            ),
-            const Positioned.fill(
-              child: IgnorePointer(
-                child: CustomPaint(
-                  painter: JaaliPainter(opacity: 0.07, cell: 40),
-                ),
-              ),
-            ),
-            const Positioned(
-              right: -30,
-              top: -30,
-              width: 170,
-              height: 170,
-              child: IgnorePointer(
-                child: CustomPaint(
-                  painter: KolamPainter(
-                    color: HomiziColors.brandDeepOrange,
-                    gap: 22,
-                  ),
-                ),
-              ),
-            ),
-            const Positioned(
-              left: 0,
-              right: 0,
-              bottom: 0,
-              height: 110,
-              child: IgnorePointer(
-                child: CustomPaint(
-                  painter: IndianSkylinePainter(
-                    color: HomiziColors.brandOrange,
-                    opacity: 0.12,
-                  ),
-                ),
-              ),
-            ),
-            const Positioned(
-              left: 0,
-              right: 0,
-              bottom: 0,
-              child: LoginSkyline(),
             ),
             SafeArea(
               child: Padding(
@@ -1413,7 +1390,7 @@ class _BrandLockup extends StatelessWidget {
               fontSize: 18,
               fontWeight: FontWeight.w700,
               letterSpacing: 1.2,
-              color: HomiziColors.ink,
+              color: HomiziColors.white,
             ),
           ),
         ],
@@ -1431,14 +1408,13 @@ class _AuthCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return DecoratedBox(
       decoration: BoxDecoration(
-        color: HomiziColors.white.withValues(alpha: 0.94),
-        borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: HomiziColors.line),
+        color: HomiziColors.white,
+        borderRadius: BorderRadius.circular(24),
         boxShadow: const [
           BoxShadow(
-            color: HomiziColors.shadowWarm,
-            blurRadius: 24,
-            offset: Offset(0, 10),
+            color: HomiziColors.shadowStrong,
+            blurRadius: 32,
+            offset: Offset(0, 14),
           ),
         ],
       ),

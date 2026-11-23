@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:homizi/core/brand/indian_patterns.dart';
 import 'package:homizi/core/theme/homizi_colors.dart';
 import 'package:homizi/core/theme/role_palette.dart';
 
-/// Layered role hero: the role gradient, a warm glow, a jaali lattice, a
-/// kolam in the corner, a city skyline on the ground line and a
-/// block-print edge. Text and icons inside take [HomiziRolePalette.onHero].
+/// v3 role hero: a dark ink panel over a real Indian home photo, with a
+/// soft light in the role's [HomiziRolePalette.glow]. Text inside is white;
+/// the scrim keeps the copy side at least 12:1. No patterns.
 class HomiziHeroBand extends StatelessWidget {
   const HomiziHeroBand({
     required this.child,
     this.palette,
-    this.padding = const EdgeInsets.fromLTRB(20, 20, 20, 28),
-    this.radius = 28,
-    this.skyline = true,
-    this.kolam = true,
+    this.padding = const EdgeInsets.fromLTRB(20, 20, 20, 24),
+    this.radius = 24,
+    this.photo,
+    this.photoAlignment = Alignment.centerRight,
     super.key,
   });
 
@@ -21,88 +20,85 @@ class HomiziHeroBand extends StatelessWidget {
   final HomiziRolePalette? palette;
   final EdgeInsets padding;
   final double radius;
-  final bool skyline;
-  final bool kolam;
+
+  /// Overrides the role photo. An empty string shows no photo.
+  final String? photo;
+  final Alignment photoAlignment;
 
   @override
   Widget build(BuildContext context) {
     final p = palette ?? HomiziRoleScope.of(context);
-    final light = p.onHero == HomiziColors.ink;
-    final motif = light ? HomiziColors.brandDeepRed : HomiziColors.white;
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(radius),
-      child: DecoratedBox(
-        decoration: BoxDecoration(gradient: p.heroGradient),
-        child: Stack(
-          children: [
-            Positioned.fill(
-              child: DecoratedBox(
-                decoration: BoxDecoration(
-                  gradient: RadialGradient(
-                    center: const Alignment(0.9, -0.9),
-                    radius: 1.1,
-                    colors: [
-                      HomiziColors.brandGolden.withValues(
-                        alpha: light ? 0.0 : 0.38,
+    final asset = photo ?? p.photo;
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(radius),
+        boxShadow: const [
+          BoxShadow(
+            color: HomiziColors.shadowStrong,
+            blurRadius: 24,
+            offset: Offset(0, 10),
+          ),
+        ],
+      ),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(radius),
+        child: ColoredBox(
+          color: HomiziColors.ink,
+          child: Stack(
+            children: [
+              if (asset.isNotEmpty)
+                Positioned.fill(
+                  child: Image.asset(
+                    asset,
+                    fit: BoxFit.cover,
+                    alignment: photoAlignment,
+                    excludeFromSemantics: true,
+                    errorBuilder: (context, error, stack) =>
+                        const SizedBox.shrink(),
+                  ),
+                ),
+              Positioned.fill(
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [
+                        HomiziColors.ink.withValues(alpha: 0.97),
+                        HomiziColors.ink.withValues(alpha: 0.88),
+                        HomiziColors.ink.withValues(alpha: 0.38),
+                      ],
+                      stops: const [0, 0.5, 1],
+                    ),
+                  ),
+                ),
+              ),
+              Positioned.fill(
+                child: IgnorePointer(
+                  child: DecoratedBox(
+                    decoration: BoxDecoration(
+                      gradient: RadialGradient(
+                        center: const Alignment(1.1, -1.2),
+                        radius: 1.2,
+                        colors: [
+                          p.glow.withValues(alpha: 0.34),
+                          p.glow.withValues(alpha: 0),
+                        ],
                       ),
-                      HomiziColors.brandGolden.withValues(alpha: 0),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-            Positioned.fill(
-              child: IgnorePointer(
-                child: CustomPaint(
-                  painter: JaaliPainter(
-                    color: motif,
-                    opacity: light ? 0.08 : 0.07,
-                    cell: 30,
-                  ),
-                ),
-              ),
-            ),
-            if (kolam)
-              Positioned(
-                right: -18,
-                top: -18,
-                width: 120,
-                height: 120,
-                child: IgnorePointer(
-                  child: CustomPaint(
-                    painter: KolamPainter(
-                      color: motif,
-                      opacity: light ? 0.2 : 0.24,
                     ),
                   ),
                 ),
               ),
-            if (skyline)
-              Positioned(
-                left: 0,
-                right: 0,
-                bottom: 0,
-                height: 56,
-                child: IgnorePointer(
-                  child: CustomPaint(
-                    painter: IndianSkylinePainter(
-                      color: motif,
-                      opacity: light ? 0.14 : 0.16,
-                    ),
+              Padding(
+                padding: padding,
+                child: DefaultTextStyle.merge(
+                  style: const TextStyle(color: HomiziColors.white),
+                  child: IconTheme.merge(
+                    data: const IconThemeData(color: HomiziColors.white),
+                    child: child,
                   ),
                 ),
               ),
-            Padding(
-              padding: padding,
-              child: DefaultTextStyle.merge(
-                style: TextStyle(color: p.onHero),
-                child: IconTheme.merge(
-                  data: IconThemeData(color: p.onHero),
-                  child: child,
-                ),
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -155,8 +151,8 @@ class HomiziRoleChip extends StatelessWidget {
   }
 }
 
-/// Role home intro: eyebrow chip, Poppins title and one line of body on
-/// the role hero band. Reused by host, owner, PG, broker, sharer and
+/// Role home intro: glow eyebrow, Poppins title and one line of body on
+/// the dark role photo hero. Reused by host, owner, PG, broker, sharer and
 /// tenant homes in place of their plain title/body pair.
 class HomiziRoleIntro extends StatelessWidget {
   const HomiziRoleIntro({
@@ -182,14 +178,9 @@ class HomiziRoleIntro extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final p = palette ?? HomiziRoleScope.of(context);
-    // Small eyebrow type: deep red on the yellow heroes, pale haldi on the
-    // red ones (5.0:1 on red orange; full yellow would be 4.0:1).
-    final lift = p.onHero == HomiziColors.ink
-        ? HomiziColors.brandDeepRed
-        : HomiziColors.haldiWash;
     return HomiziHeroBand(
       palette: p,
-      padding: const EdgeInsets.fromLTRB(20, 18, 20, 44),
+      padding: const EdgeInsets.fromLTRB(20, 20, 20, 22),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -197,37 +188,53 @@ class HomiziRoleIntro extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  (eyebrow ?? p.label).toUpperCase(),
-                  style: TextStyle(
-                    fontFamily: 'Inter',
-                    fontSize: 11,
-                    letterSpacing: 1.6,
-                    fontWeight: FontWeight.w700,
-                    color: lift,
-                  ),
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    DecoratedBox(
+                      decoration: BoxDecoration(
+                        color: p.glow,
+                        shape: BoxShape.circle,
+                      ),
+                      child: const SizedBox(width: 6, height: 6),
+                    ),
+                    const SizedBox(width: 8),
+                    Flexible(
+                      child: Text(
+                        (eyebrow ?? p.label).toUpperCase(),
+                        style: TextStyle(
+                          fontFamily: 'Inter',
+                          fontSize: 11,
+                          letterSpacing: 1.4,
+                          fontWeight: FontWeight.w700,
+                          color: p.glow,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-                const SizedBox(height: 6),
+                const SizedBox(height: 10),
                 Text(
                   title,
                   key: titleKey,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontFamily: 'Poppins',
-                    fontSize: 24,
+                    fontSize: 26,
                     height: 1.15,
-                    fontWeight: FontWeight.w700,
-                    color: p.onHero,
+                    letterSpacing: -0.4,
+                    fontWeight: FontWeight.w600,
+                    color: HomiziColors.white,
                   ),
                 ),
                 if (body != null) ...[
                   const SizedBox(height: 8),
                   Text(
                     body!,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontFamily: 'Inter',
                       fontSize: 14,
-                      height: 1.35,
-                      color: p.onHero.withValues(alpha: 0.92),
+                      height: 1.4,
+                      color: HomiziColors.onInkMuted,
                     ),
                   ),
                 ],
@@ -239,14 +246,14 @@ class HomiziRoleIntro extends StatelessWidget {
             const SizedBox(width: 12),
             DecoratedBox(
               decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: p.onHero.withValues(alpha: 0.16),
-                border: Border.all(color: p.onHero.withValues(alpha: 0.4)),
+                borderRadius: BorderRadius.circular(16),
+                color: HomiziColors.inkRaised.withValues(alpha: 0.85),
+                border: Border.all(color: p.glow.withValues(alpha: 0.55)),
               ),
               child: SizedBox(
                 width: 52,
                 height: 52,
-                child: Icon(icon, size: 26, color: p.onHero),
+                child: Icon(icon, size: 24, color: p.glow),
               ),
             ),
           ],
@@ -256,7 +263,7 @@ class HomiziRoleIntro extends StatelessWidget {
   }
 }
 
-/// Round icon disc in the role gradient, for list tiles and cards.
+/// v3 icon tile: rounded square in the role wash with the role ink icon.
 class HomiziRoleIcon extends StatelessWidget {
   const HomiziRoleIcon(this.icon, {this.palette, this.size = 44, super.key});
 
@@ -269,13 +276,13 @@ class HomiziRoleIcon extends StatelessWidget {
     final p = palette ?? HomiziRoleScope.of(context);
     return DecoratedBox(
       decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        gradient: p.heroGradient,
+        borderRadius: BorderRadius.circular(size * 0.32),
+        color: p.wash,
       ),
       child: SizedBox(
         width: size,
         height: size,
-        child: Icon(icon, size: size * 0.5, color: p.onHero),
+        child: Icon(icon, size: size * 0.5, color: p.ink),
       ),
     );
   }

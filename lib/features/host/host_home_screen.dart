@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:homizi/core/brand/indian_patterns.dart';
 import 'package:homizi/core/l10n/translate.dart';
 import 'package:homizi/core/layout/homizi_frame.dart';
 import 'package:homizi/core/routing/route_paths.dart';
@@ -184,9 +183,7 @@ class HostHomeScreen extends ConsumerWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 16),
-            const BlockPrintBorder(height: 8, opacity: 0.35),
-            const SizedBox(height: 16),
+            const SizedBox(height: 20),
             _HostCard(
               tileKey: 'host-become-a-host',
               icon: Icons.home_work_outlined,

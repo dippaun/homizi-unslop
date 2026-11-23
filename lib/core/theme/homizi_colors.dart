@@ -24,30 +24,40 @@ abstract final class HomiziColors {
 
   /// Warm peach wash for selected cards, info panels and empty states.
   /// Replaces the old Post Property lavender (unslop pass 2: no purple).
-  static const Color warmWash = Color(0xFFFFE9D6);
+  static const Color warmWash = Color(0xFFFDEBDC);
 
   static const Color white = Color(0xFFFFFFFF);
 
-  /// Warm Indian page tones (v2). Saffron cream is the app background;
-  /// haldi and terracotta tint role sections; maroon carries deep bands.
+  /// v3 surfaces. [cream] is the neutral stone page (no pattern); white
+  /// cards sit on it; the role washes are light tints for chips and
+  /// selected states only.
   static const Color cream = soft;
-  static const Color creamDeep = Color(0xFFFCEFD9);
-  static const Color haldiWash = Color(0xFFFFF0C2);
-  static const Color saffronWash = Color(0xFFFFE6C7);
-  static const Color terracottaWash = Color(0xFFFBE1D5);
-  static const Color maroonWash = Color(0xFFF7DDD8);
+  static const Color creamDeep = Color(0xFFEDE9E3);
+  static const Color haldiWash = Color(0xFFFFF3C4);
+  static const Color saffronWash = Color(0xFFFDEBDC);
+  static const Color terracottaWash = Color(0xFFFBE6DF);
+  static const Color maroonWash = Color(0xFFF6E4E1);
   static const Color maroon = Color(0xFF5C1008);
 
-  /// Warm hairline on cream.
+  /// Neutral hairline on stone.
   static const Color creamLine = line;
   static const Color surface = white;
 
-  /// Saffron cream page background (v2, was #FAF8F5). Cards sit on it in
-  /// white. Muted text still clears 5.2:1 here.
-  static const Color soft = Color(0xFFFFF8EC);
+  /// Stone page background (v3). Cards sit on it in white. Muted text
+  /// clears 5.1:1 here.
+  static const Color soft = Color(0xFFF5F3F0);
 
   /// Main text. About 16:1 on white.
   static const Color ink = Color(0xFF172033);
+
+  /// v3 dark sections: hero panels, the floating nav and the trust band.
+  static const Color inkDeep = Color(0xFF0E1524);
+
+  /// Raised tile on [ink] (chips and pills inside dark heroes).
+  static const Color inkRaised = Color(0xFF232E45);
+
+  /// Secondary text on [ink] (7.9:1).
+  static const Color onInkMuted = Color(0xFFB9C1D0);
 
   /// Body copy. About 9.4:1 on white.
   static const Color inkSoft = Color(0xFF3A4660);
@@ -56,7 +66,7 @@ abstract final class HomiziColors {
   static const Color muted = Color(0xFF5C677A);
 
   /// Warm sandstone hairline on cream (v2, was #EAE6E1).
-  static const Color line = Color(0xFFF0DFC4);
+  static const Color line = Color(0xFFE6E1DA);
 
   /// Quiet panel and input fill. Deeper cream (v2) so panels still read
   /// on the cream page; muted text clears 5.0:1 here.
@@ -90,7 +100,7 @@ abstract final class HomiziColors {
   static const Color shadowStrong = Color(0x1F172033);
 
   /// Warm terracotta shadow for cards on cream (v2).
-  static const Color shadowWarm = Color(0x29A92310);
+  static const Color shadowWarm = Color(0x1A172033);
   static const Color shadowNight = Color(0x66000000);
 
   static const Color accentDisabled = Color(0x7AF47B0B);

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:homizi/core/brand/indian_patterns.dart';
 import 'package:homizi/core/l10n/translate.dart';
 import 'package:homizi/core/routing/account_prompt.dart';
 import 'package:homizi/core/routing/route_paths.dart';
@@ -86,17 +85,12 @@ class _HomeBody extends ConsumerWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             HomiziStaggerIn(child: _Hero()),
-            SizedBox(height: 16),
+            SizedBox(height: 20),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: _page),
               child: _ActionGrid(),
             ),
-            SizedBox(height: 20),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: _page),
-              child: BlockPrintBorder(height: 10, opacity: 0.4),
-            ),
-            SizedBox(height: 16),
+            SizedBox(height: 28),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: _page),
               child: _RentalStrip(),
@@ -113,8 +107,8 @@ class _HomeBody extends ConsumerWidget {
   }
 }
 
-/// v2 hero: the role gradient band with jaali, kolam and the city
-/// skyline, and the living-room photo framed in a jharokha arch.
+/// v3 hero: a dark panel over a real Mumbai high-rise, the promise in
+/// white Poppins, and the cities HOMIZI covers as quiet pills.
 class _Hero extends StatelessWidget {
   const _Hero();
 
@@ -124,79 +118,21 @@ class _Hero extends StatelessWidget {
       builder: (context, constraints) {
         final width = constraints.maxWidth;
         final heading = width >= 400
-            ? 28.0
+            ? 34.0
             : width >= 360
-            ? 26.0
-            : 22.0;
-        final archWidth = (width - 32) * 0.36;
+            ? 31.0
+            : 26.0;
         return Padding(
-          padding: const EdgeInsets.fromLTRB(_page, 12, _page, 0),
+          padding: const EdgeInsets.fromLTRB(_page, 8, _page, 0),
           child: HomiziHeroBand(
-            padding: const EdgeInsets.fromLTRB(20, 20, 16, 40),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Expanded(child: _HeroCopy(headingSize: heading)),
-                const SizedBox(width: 12),
-                SizedBox(
-                  width: archWidth,
-                  height: archWidth * 1.3,
-                  child: const _ArchPhoto(),
-                ),
-              ],
-            ),
+            palette: HomiziRolePalette.tenant,
+            photo: 'assets/images/home/apartment.webp',
+            photoAlignment: const Alignment(0.6, 0),
+            padding: const EdgeInsets.fromLTRB(20, 24, 20, 20),
+            child: _HeroCopy(headingSize: heading),
           ),
         );
       },
-    );
-  }
-}
-
-/// Photo inside a jharokha arch with a thin golden outline.
-class _ArchPhoto extends StatelessWidget {
-  const _ArchPhoto();
-
-  @override
-  Widget build(BuildContext context) {
-    return const CustomPaint(
-      foregroundPainter: _ArchOutline(),
-      child: ClipPath(
-        clipper: JharokhaClipper(archFraction: 0.36),
-        child: _HeroPhoto(),
-      ),
-    );
-  }
-}
-
-class _ArchOutline extends CustomPainter {
-  const _ArchOutline();
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    final paint = Paint()
-      ..color = HomiziColors.brandYellow.withValues(alpha: 0.9)
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 2;
-    canvas.drawPath(jharokhaPath(size, 0.36), paint);
-  }
-
-  @override
-  bool shouldRepaint(covariant _ArchOutline oldDelegate) => false;
-}
-
-/// Warm living room, cover-fit on the right and faded into the page.
-class _HeroPhoto extends StatelessWidget {
-  const _HeroPhoto();
-
-  @override
-  Widget build(BuildContext context) {
-    return Semantics(
-      label: homiziText(context, 'Living room'),
-      image: true,
-      child: const _CoverPhoto(
-        asset: 'assets/images/real/living_b.webp',
-        alignment: Alignment(0.35, 0),
-      ),
     );
   }
 }
@@ -206,52 +142,100 @@ class _HeroCopy extends StatelessWidget {
 
   final double headingSize;
 
+  static const _cities = ['Mumbai', 'Bengaluru', 'Pune', 'Delhi NCR'];
+
   @override
   Widget build(BuildContext context) {
-    final palette = HomiziRoleScope.of(context);
-    final onHero = palette.onHero;
-    // Second line in haldi on the red heroes, deep red on the yellow ones.
-    final lift = onHero == HomiziColors.ink
-        ? HomiziColors.brandDeepRed
-        : HomiziColors.brandYellow;
     final heading = TextStyle(
       fontFamily: 'Poppins',
       fontSize: headingSize,
-      height: 1.1,
-      fontWeight: FontWeight.w700,
-      color: onHero,
+      height: 1.08,
+      letterSpacing: -0.8,
+      fontWeight: FontWeight.w600,
+      color: HomiziColors.white,
     );
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: [
-        Text(
-          homiziText(context, 'Search').toUpperCase(),
-          style: heading.copyWith(
-            color: onHero == HomiziColors.ink
-                ? HomiziColors.brandDeepRed
-                : HomiziColors.haldiWash,
-            fontSize: 12,
-            letterSpacing: 1.6,
-            fontWeight: FontWeight.w600,
+        DecoratedBox(
+          decoration: BoxDecoration(
+            color: HomiziColors.inkRaised.withValues(alpha: 0.9),
+            borderRadius: BorderRadius.circular(999),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const Icon(
+                  Icons.verified,
+                  size: 14,
+                  color: HomiziColors.brandYellow,
+                ),
+                const SizedBox(width: 6),
+                Text(
+                  homiziText(context, 'Zero brokerage · verified owners'),
+                  style: const TextStyle(
+                    fontFamily: 'Inter',
+                    fontSize: 12,
+                    fontWeight: FontWeight.w600,
+                    color: HomiziColors.white,
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
-        const SizedBox(height: 4),
+        const SizedBox(height: 18),
         Text(homiziText(context, 'Find a place.'), style: heading),
-        const SizedBox(height: 2),
         Text(
           homiziText(context, 'Find your people.'),
-          style: heading.copyWith(color: lift),
+          style: heading.copyWith(color: HomiziColors.brandOrange),
         ),
-        const SizedBox(height: 8),
+        const SizedBox(height: 10),
         Text(
           homiziText(context, 'Rent smarter, live better.'),
-          style: TextStyle(
+          style: const TextStyle(
             fontFamily: 'Inter',
-            fontSize: 14,
-            height: 1.3,
+            fontSize: 15,
+            height: 1.35,
             fontWeight: FontWeight.w500,
-            color: onHero.withValues(alpha: 0.92),
+            color: HomiziColors.onInkMuted,
+          ),
+        ),
+        const SizedBox(height: 22),
+        ExcludeSemantics(
+          child: Wrap(
+            spacing: 8,
+            runSpacing: 8,
+            children: [
+              for (final city in _cities)
+                DecoratedBox(
+                  decoration: BoxDecoration(
+                    color: HomiziColors.white.withValues(alpha: 0.12),
+                    borderRadius: BorderRadius.circular(999),
+                    border: Border.all(
+                      color: HomiziColors.white.withValues(alpha: 0.22),
+                    ),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 12,
+                      vertical: 6,
+                    ),
+                    child: Text(
+                      city,
+                      style: const TextStyle(
+                        fontFamily: 'Inter',
+                        fontSize: 12,
+                        fontWeight: FontWeight.w600,
+                        color: HomiziColors.white,
+                      ),
+                    ),
+                  ),
+                ),
+            ],
           ),
         ),
       ],
@@ -411,6 +395,8 @@ class _ActionGrid extends ConsumerWidget {
   }
 }
 
+/// v3 action card: a white card with the real photo on top, a role-tinted
+/// icon tile, Poppins title and a muted line. No washes over photos.
 class _ActionCard extends StatelessWidget {
   const _ActionCard({required this.action});
 
@@ -418,32 +404,31 @@ class _ActionCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const ink = HomiziColors.ink;
     final palette = action.palette;
     final spoken = [
       homiziText(context, action.title),
       homiziText(context, action.subtitle),
     ].join('. ');
     const titleStyle = TextStyle(
-      fontFamily: 'PlusJakartaSans',
+      fontFamily: 'Poppins',
       fontSize: 15,
-      height: 1.15,
+      height: 1.2,
       fontWeight: FontWeight.w600,
-      color: ink,
+      color: HomiziColors.ink,
     );
     return DecoratedBox(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(_tileRadius),
         boxShadow: const [
           BoxShadow(
-            color: HomiziColors.shadowWarm,
-            blurRadius: 18,
+            color: HomiziColors.shadow,
+            blurRadius: 20,
             offset: Offset(0, 8),
           ),
         ],
       ),
       child: Material(
-        color: palette.wash,
+        color: HomiziColors.white,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(_tileRadius),
         ),
@@ -454,156 +439,95 @@ class _ActionCard extends StatelessWidget {
           child: Semantics(
             button: true,
             label: spoken,
-            child: SizedBox(
-              width: double.infinity,
-              height: 176,
-              child: Stack(
-                children: [
-                  if (action.image != null) _TilePhoto(action: action),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(12, 12, 44, 16),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        DecoratedBox(
-                          decoration: BoxDecoration(
-                            gradient: LinearGradient(colors: palette.hero),
-                            shape: BoxShape.circle,
-                          ),
-                          child: SizedBox(
-                            width: 36,
-                            height: 36,
-                            child: Icon(
-                              action.icon,
-                              size: 20,
-                              color: palette.onHero,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                SizedBox(
+                  height: 104,
+                  child: Stack(
+                    fit: StackFit.expand,
+                    children: [
+                      if (action.image != null)
+                        _CoverPhoto(
+                          asset: action.image!,
+                          alignment: const Alignment(0, -0.1),
+                        )
+                      else
+                        ColoredBox(color: palette.wash),
+                      Positioned(
+                        left: 10,
+                        bottom: 10,
+                        child: ExcludeSemantics(
+                          child: DecoratedBox(
+                            decoration: BoxDecoration(
+                              color: HomiziColors.white,
+                              borderRadius: BorderRadius.circular(12),
+                              boxShadow: const [
+                                BoxShadow(
+                                  color: HomiziColors.shadow,
+                                  blurRadius: 8,
+                                  offset: Offset(0, 2),
+                                ),
+                              ],
+                            ),
+                            child: SizedBox(
+                              width: 34,
+                              height: 34,
+                              child: Icon(
+                                action.icon,
+                                size: 18,
+                                color: palette.ink,
+                              ),
                             ),
                           ),
                         ),
-                        const SizedBox(height: 10),
-                        Stack(
-                          children: [
-                            Text(
-                              ' \n ',
-                              maxLines: 2,
-                              style: titleStyle.copyWith(
-                                color: HomiziColors.clear,
-                              ),
-                            ),
-                            Text(
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(12, 12, 12, 14),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Expanded(
+                            child: Text(
                               homiziText(context, action.title),
                               maxLines: 2,
                               overflow: TextOverflow.ellipsis,
                               style: titleStyle,
                             ),
-                          ],
-                        ),
-                        const SizedBox(height: 4),
-                        Text(
-                          homiziText(context, action.subtitle),
-                          maxLines: 3,
-                          overflow: TextOverflow.ellipsis,
-                          style: const TextStyle(
-                            fontFamily: 'Inter',
-                            fontSize: 12,
-                            height: 1.3,
-                            fontWeight: FontWeight.w500,
-                            color: HomiziColors.inkSoft,
                           ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  const Positioned(
-                    right: 10,
-                    bottom: 10,
-                    child: ExcludeSemantics(
-                      child: DecoratedBox(
-                        decoration: BoxDecoration(
-                          color: HomiziColors.white,
-                          shape: BoxShape.circle,
-                          boxShadow: [
-                            BoxShadow(
-                              color: HomiziColors.shadow,
-                              blurRadius: 6,
-                              offset: Offset(0, 2),
+                          const ExcludeSemantics(
+                            child: Icon(
+                              Icons.arrow_forward,
+                              size: 18,
+                              color: HomiziColors.muted,
                             ),
-                          ],
-                        ),
-                        child: SizedBox(
-                          width: 28,
-                          height: 28,
-                          child: Icon(
-                            Icons.chevron_right,
-                            size: 20,
-                            color: HomiziColors.ink,
                           ),
+                        ],
+                      ),
+                      const SizedBox(height: 4),
+                      Text(
+                        homiziText(context, action.subtitle),
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: const TextStyle(
+                          fontFamily: 'Inter',
+                          fontSize: 12,
+                          height: 1.35,
+                          color: HomiziColors.muted,
                         ),
                       ),
-                    ),
+                    ],
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
-        ),
-      ),
-    );
-  }
-}
-
-class _TilePhoto extends StatelessWidget {
-  const _TilePhoto({required this.action});
-
-  final _HubAction action;
-
-  @override
-  Widget build(BuildContext context) {
-    final asset = action.image;
-    if (asset == null) {
-      return const SizedBox.shrink();
-    }
-    return _EdgePhoto(asset: asset, fade: action.palette.wash);
-  }
-}
-
-class _EdgePhoto extends StatelessWidget {
-  const _EdgePhoto({required this.asset, required this.fade});
-
-  final String asset;
-  final Color fade;
-
-  @override
-  Widget build(BuildContext context) {
-    return Positioned.fill(
-      child: IgnorePointer(
-        child: Stack(
-          fit: StackFit.expand,
-          children: [
-            _CoverPhoto(
-              asset: asset,
-              alignment: asset.endsWith('people.webp')
-                  ? Alignment.center
-                  : const Alignment(0, -0.15),
-            ),
-            DecoratedBox(
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [
-                    fade,
-                    fade,
-                    fade.withValues(alpha: 0.9),
-                    fade.withValues(alpha: 0.4),
-                    fade.withValues(alpha: 0),
-                  ],
-                  // The copy runs to about 70% of the tile, so the wash
-                  // holds until then and the photo shows on the right.
-                  stops: const [0, 0.45, 0.68, 0.86, 1],
-                ),
-              ),
-            ),
-          ],
         ),
       ),
     );
@@ -698,7 +622,7 @@ class _RentalStrip extends ConsumerWidget {
             ),
           ],
         ),
-        const SizedBox(height: 8),
+        const SizedBox(height: 10),
         SizedBox(
           key: const Key('home-rentals'),
           height: 560,
@@ -743,102 +667,78 @@ class _SampleTag extends StatelessWidget {
   }
 }
 
-/// Deep maroon trust band: the cities HOMIZI checks homes in. White type
-/// on maroon clears 9:1.
+/// v3 trust band: a dark ink card with three proof points. White on ink
+/// clears 16:1; the muted line 9:1.
 class _TrustBand extends StatelessWidget {
   const _TrustBand();
 
-  static const _cities = [
-    'Mumbai',
-    'Bengaluru',
-    'Delhi NCR',
-    'Pune',
-    'Hyderabad',
-    'Chennai',
-  ];
-
   @override
   Widget build(BuildContext context) {
-    return ClipRRect(
-      key: const Key('home-trust-band'),
-      borderRadius: BorderRadius.circular(_tileRadius),
-      child: DecoratedBox(
-        decoration: const BoxDecoration(gradient: HomiziGradients.maroon),
-        child: Stack(
+    Widget point(IconData icon, String label) {
+      return Expanded(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Positioned.fill(
-              child: IgnorePointer(
-                child: CustomPaint(
-                  painter: JaaliPainter(
-                    color: HomiziColors.brandGolden,
-                    opacity: 0.1,
-                    cell: 28,
-                  ),
-                ),
+            Icon(icon, size: 20, color: HomiziColors.brandYellow),
+            const SizedBox(height: 8),
+            Text(
+              homiziText(context, label),
+              style: const TextStyle(
+                fontFamily: 'Inter',
+                fontSize: 12,
+                height: 1.3,
+                fontWeight: FontWeight.w600,
+                color: HomiziColors.white,
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    homiziText(context, 'Homes checked in person'),
-                    style: const TextStyle(
-                      fontFamily: 'Poppins',
-                      fontSize: 18,
-                      fontWeight: FontWeight.w600,
-                      color: HomiziColors.white,
-                    ),
-                  ),
-                  const SizedBox(height: 4),
-                  Text(
-                    homiziText(
-                      context,
-                      'Owners verified with Aadhaar, photos taken on site.',
-                    ),
-                    style: const TextStyle(
-                      fontFamily: 'Inter',
-                      fontSize: 13,
-                      height: 1.35,
-                      color: HomiziColors.creamDeep,
-                    ),
-                  ),
-                  const SizedBox(height: 12),
-                  Wrap(
-                    spacing: 8,
-                    runSpacing: 8,
-                    children: [
-                      for (final city in _cities)
-                        DecoratedBox(
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                              color: HomiziColors.brandGolden.withValues(
-                                alpha: 0.7,
-                              ),
-                            ),
-                            borderRadius: BorderRadius.circular(999),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 10,
-                              vertical: 4,
-                            ),
-                            child: Text(
-                              city,
-                              style: const TextStyle(
-                                fontFamily: 'Inter',
-                                fontSize: 12,
-                                fontWeight: FontWeight.w600,
-                                color: HomiziColors.brandYellow,
-                              ),
-                            ),
-                          ),
-                        ),
-                    ],
-                  ),
-                ],
+          ],
+        ),
+      );
+    }
+
+    return DecoratedBox(
+      key: const Key('home-trust-band'),
+      decoration: BoxDecoration(
+        color: HomiziColors.ink,
+        borderRadius: BorderRadius.circular(_tileRadius),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              homiziText(context, 'Homes checked in person'),
+              style: const TextStyle(
+                fontFamily: 'Poppins',
+                fontSize: 18,
+                fontWeight: FontWeight.w600,
+                color: HomiziColors.white,
               ),
+            ),
+            const SizedBox(height: 4),
+            Text(
+              homiziText(
+                context,
+                'Owners verified with Aadhaar, photos taken on site.',
+              ),
+              style: const TextStyle(
+                fontFamily: 'Inter',
+                fontSize: 13,
+                height: 1.35,
+                color: HomiziColors.onInkMuted,
+              ),
+            ),
+            const SizedBox(height: 18),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                point(Icons.verified_user_outlined, 'Aadhaar-verified owners'),
+                const SizedBox(width: 12),
+                point(Icons.photo_camera_outlined, 'Real photos, on site'),
+                const SizedBox(width: 12),
+                point(Icons.currency_rupee, 'No brokerage'),
+              ],
             ),
           ],
         ),

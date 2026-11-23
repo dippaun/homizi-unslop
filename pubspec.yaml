@@ -89,9 +89,6 @@ flutter:
           weight: 600
         - asset: assets/fonts/Poppins-Bold.ttf
           weight: 700
-    - family: YatraOne
-      fonts:
-        - asset: assets/fonts/YatraOne-Regular.ttf
     - family: PlusJakartaSans
       fonts:
         - asset: assets/fonts/PlusJakartaSans-Regular.ttf

@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:homizi/core/brand/indian_patterns.dart';
 import 'package:homizi/core/l10n/translate.dart';
 import 'package:homizi/core/theme/homizi_colors.dart';
 import 'package:homizi/core/widgets/homizi_back.dart';
@@ -773,8 +772,7 @@ class _Hero extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // v2: the state icon sits in a ring of its own colour over a kolam,
-    // like a doorstep design.
+    // v3: the state icon sits in a ring of its own colour.
     return Center(
       child: SizedBox(
         width: 168,
@@ -782,13 +780,6 @@ class _Hero extends StatelessWidget {
         child: Stack(
           alignment: Alignment.center,
           children: [
-            Positioned.fill(
-              child: IgnorePointer(
-                child: CustomPaint(
-                  painter: KolamPainter(color: color, opacity: 0.18, gap: 24),
-                ),
-              ),
-            ),
             Container(
               width: 100,
               height: 100,

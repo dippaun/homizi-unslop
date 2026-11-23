@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:homizi/core/brand/indian_patterns.dart';
 import 'package:homizi/core/config/app_config_provider.dart';
 import 'package:homizi/core/l10n/locale_controller.dart';
 import 'package:homizi/core/routing/app_router.dart';
@@ -171,21 +170,14 @@ class _ChromeState extends State<_Chrome> {
   @override
   Widget build(BuildContext context) {
     final path = _path;
-    // v2: the margin beside the phone frame on wide screens is deep
-    // cream with a carved jaali, so the app never floats on white.
+    // v3: the margin beside the phone frame on wide screens is deep ink,
+    // so the app reads as a lit device on a dark stage.
     return HomiziRoleScope(
       palette: paletteForRoute(path, widget.roleWire),
       child: ColoredBox(
-        color: HomiziColors.creamDeep,
+        color: HomiziColors.inkDeep,
         child: Stack(
           children: [
-            const Positioned.fill(
-              child: IgnorePointer(
-                child: CustomPaint(
-                  painter: JaaliPainter(opacity: 0.07, cell: 48),
-                ),
-              ),
-            ),
             Center(
               child: _PhoneFrame(
                 hideSignIn: widget.hideSignIn,

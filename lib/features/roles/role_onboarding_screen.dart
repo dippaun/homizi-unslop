@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:homizi/core/brand/indian_patterns.dart';
 import 'package:homizi/core/l10n/translate.dart';
 import 'package:homizi/core/theme/homizi_colors.dart';
 import 'package:homizi/core/theme/role_palette.dart';
@@ -220,18 +219,6 @@ class _RoleCard extends StatelessWidget {
           onTap: onTap,
           child: Stack(
             children: [
-              if (selected)
-                Positioned(
-                  right: -26,
-                  bottom: -26,
-                  width: 110,
-                  height: 110,
-                  child: IgnorePointer(
-                    child: CustomPaint(
-                      painter: KolamPainter(color: p.ink, opacity: 0.16),
-                    ),
-                  ),
-                ),
               Padding(
                 padding: const EdgeInsets.symmetric(
                   horizontal: 16,
