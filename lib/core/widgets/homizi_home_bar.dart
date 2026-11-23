@@ -18,8 +18,12 @@ class HomiziHomeBar extends StatelessWidget implements PreferredSizeWidget {
     this.leading,
     this.actions = const [],
     this.title,
+    this.color = HomiziColors.cream,
     super.key,
   });
+
+  /// Bar fill. The v4 home passes a clear colour over its live backdrop.
+  final Color color;
 
   final Widget? leading;
   final List<Widget> actions;
@@ -33,7 +37,7 @@ class HomiziHomeBar extends StatelessWidget implements PreferredSizeWidget {
     // v3: a quiet stone bar on every role home; the role shows in the
     // hero below, not in the chrome.
     return Material(
-      color: HomiziColors.cream,
+      color: color,
       child: SafeArea(
         bottom: false,
         child: HomiziTabHeader(

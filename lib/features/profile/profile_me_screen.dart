@@ -1544,7 +1544,9 @@ class _ProfileMeScreenState extends ConsumerState<ProfileMeScreen> {
                   children: [
                     Flexible(
                       child: Text(
-                        empty ? homiziText(context, 'Add a nickname') : nickname,
+                        empty
+                            ? homiziText(context, 'Add a nickname')
+                            : nickname,
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(

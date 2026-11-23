@@ -83,7 +83,8 @@ class _HomiziKineticLineState extends State<HomiziKineticLine> {
           children: [...previous, ?current],
         ),
         transitionBuilder: (child, animation) {
-          final incoming = child.key == ValueKey('mask-${widget.lines[_index]}') ||
+          final incoming =
+              child.key == ValueKey('mask-${widget.lines[_index]}') ||
               child.key == ValueKey(widget.lines[_index]);
           final slide = Tween<Offset>(
             begin: Offset(0, incoming ? 0.9 : -0.9),

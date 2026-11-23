@@ -39,8 +39,7 @@ class HomiziLiveClock extends StatefulWidget {
 
   final double still;
   final Widget? child;
-  final Widget Function(BuildContext, ValueListenable<double>, Widget?)
-  builder;
+  final Widget Function(BuildContext, ValueListenable<double>, Widget?) builder;
 
   @override
   State<HomiziLiveClock> createState() => _HomiziLiveClockState();
@@ -109,10 +108,7 @@ class HomiziLiveBackdrop extends StatelessWidget {
       HomiziBackdropStyle.livingCity => HomiziLiveClock(
         builder: (context, clock, _) => RepaintBoundary(
           child: CustomPaint(
-            painter: LivingCityPainter(
-              clock: clock,
-              scroll: scrollController,
-            ),
+            painter: LivingCityPainter(clock: clock, scroll: scrollController),
             isComplex: true,
             willChange: true,
           ),
@@ -135,8 +131,17 @@ class HomiziLiveBackdrop extends StatelessWidget {
 }
 
 class _Orb {
-  const _Orb(this.color, this.alpha, this.radius, this.cx, this.cy,
-      this.ax, this.ay, this.speed, this.phase);
+  const _Orb(
+    this.color,
+    this.alpha,
+    this.radius,
+    this.cx,
+    this.cy,
+    this.ax,
+    this.ay,
+    this.speed,
+    this.phase,
+  );
 
   final Color color;
   final double alpha;
@@ -146,16 +151,35 @@ class _Orb {
 
 const _orbs = <_Orb>[
   _Orb(HomiziColors.brandOrange, 0.55, 0.95, 0.92, 0.06, 0.10, 0.05, 0.11, 0),
-  _Orb(HomiziColors.brandVermilion, 0.34, 0.85, 0.05, 0.16, 0.12, 0.06, 0.09, 2),
+  _Orb(
+    HomiziColors.brandVermilion,
+    0.34,
+    0.85,
+    0.05,
+    0.16,
+    0.12,
+    0.06,
+    0.09,
+    2,
+  ),
   _Orb(HomiziColors.brandGolden, 0.42, 0.70, 0.62, 0.34, 0.16, 0.07, 0.13, 4),
   _Orb(HomiziColors.brandYellow, 0.30, 0.55, 0.18, 0.52, 0.14, 0.08, 0.10, 1),
-  _Orb(HomiziColors.brandDeepOrange, 0.26, 0.90, 0.95, 0.72, 0.10, 0.06, 0.08, 3),
+  _Orb(
+    HomiziColors.brandDeepOrange,
+    0.26,
+    0.90,
+    0.95,
+    0.72,
+    0.10,
+    0.06,
+    0.08,
+    3,
+  ),
   _Orb(HomiziColors.brandDeepRed, 0.14, 1.00, 0.10, 0.96, 0.08, 0.04, 0.07, 5),
 ];
 
 class _Block {
-  _Block(this.x, this.w, this.h, this.cols, this.floors, this.tank,
-      this.seed);
+  _Block(this.x, this.w, this.h, this.cols, this.floors, this.tank, this.seed);
 
   final double x, w, h;
   final int cols, floors;
@@ -281,17 +305,9 @@ class LivingCityPainter extends CustomPainter {
           final tx = b.x + b.w * 0.62;
           canvas.drawRect(Rect.fromLTWH(tx, top - 12, 12, 8), line);
           canvas.drawLine(Offset(tx + 2, top - 4), Offset(tx + 2, top), line);
-          canvas.drawLine(
-            Offset(tx + 10, top - 4),
-            Offset(tx + 10, top),
-            line,
-          );
+          canvas.drawLine(Offset(tx + 10, top - 4), Offset(tx + 10, top), line);
         } else {
-          canvas.drawLine(
-            Offset(b.x + 6, top - 9),
-            Offset(b.x + 6, top),
-            line,
-          );
+          canvas.drawLine(Offset(b.x + 6, top - 9), Offset(b.x + 6, top), line);
         }
         // Windows.
         final cw = b.w / b.cols;
@@ -321,12 +337,17 @@ class LivingCityPainter extends CustomPainter {
                 win.center,
                 9,
                 Paint()
-                  ..shader = RadialGradient(
-                    colors: [
-                      HomiziColors.brandYellow.withValues(alpha: 0.45 * glow),
-                      HomiziColors.brandYellow.withValues(alpha: 0),
-                    ],
-                  ).createShader(Rect.fromCircle(center: win.center, radius: 9)),
+                  ..shader =
+                      RadialGradient(
+                        colors: [
+                          HomiziColors.brandYellow.withValues(
+                            alpha: 0.30 * glow,
+                          ),
+                          HomiziColors.brandYellow.withValues(alpha: 0),
+                        ],
+                      ).createShader(
+                        Rect.fromCircle(center: win.center, radius: 9),
+                      ),
               );
               canvas.drawRRect(
                 RRect.fromRectAndRadius(win, const Radius.circular(1.5)),

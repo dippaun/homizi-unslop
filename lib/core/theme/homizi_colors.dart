@@ -121,6 +121,9 @@ abstract final class HomiziColors {
   static const Color livingBase = Color(0xFFFFF3EA);
   static const Color livingBaseDeep = Color(0xFFFFE2CF);
 
+  /// Frosted veil for bars over the backdrop.
+  static const Color livingVeil = Color(0xB3FFF3EA);
+
   /// v4 glass cards over the backdrop. Ink on 86% white over peach is
   /// about 15:1.
   static const Color glass = Color(0xDBFFFFFF);
