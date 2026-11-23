@@ -212,3 +212,61 @@ honour reduced motion.
 **Known gaps.** Wizard steps, chats, verify and settings use the new
 surfaces and type through the theme but were not individually redrawn;
 some older screens still use logo orange for icon accents (non-text).
+
+## v4: "Living city" home (23 Nov 2026)
+
+Deep rejected v3 ("you changed the colour palette only") and asked for
+something creative, live, animated and eye-catching. Scope for this pass
+(his call, 4:17 PM IST): **the homepage only**, plus the profile nickname
+alignment. Other screens are unchanged from v3 until he approves the
+direction.
+
+**Concept.** The home is a living city at dusk. A slow gradient mesh in
+brand oranges and reds drifts behind everything; faint line-art Indian
+apartment blocks (rooftop water tanks included) rise in on arrival and
+parallax as you scroll; their window lights twinkle on and off, as if
+homes are being found. Content floats on it as glass.
+
+**Reusable background.** `lib/ui/kit/live_backdrop.dart`:
+`HomiziLiveBackdrop(style:, scrollController:, child:)`. Styles are an
+enum (`livingCity`, `calm`), so a different concept can be swapped in one
+place once Deep picks a background for plain screens. `LivingCityPainter`
+is one CustomPainter (radial-gradient orbs, no blur filters, ~150 window
+rects), repainting from a single ticker. `homiziLiveMotion(context)` turns
+every loop off under reduced motion and in widget tests.
+
+**Motion kit.** `lib/ui/kit/live_motion.dart`: `HomiziKineticLine`
+(rotating words), `HomiziCountUp` (Indian grouping, optional live
+ticking), `HomiziPulseDot`, `HomiziFloat`, `HomiziKenBurns`,
+`HomiziSpinRing`, `HomiziTilt` (3D tilt to the pointer), `HomiziLiveTicker`.
+
+**Home, top to bottom.**
+- Frosted glass app bar over the backdrop (`extendBodyBehindAppBar`).
+- LIVE pill: pulsing dot + "1,284 homes listed this week" that ticks up.
+- Kinetic headline: "Find a place." then a gradient line cycling
+  "Find your people. / a flatmate. / a PG nearby. / your flat.".
+- Search pill with rotating locality hints ("2 BHK in Koramangala") →
+  `/flats`.
+- Floating photo stack: three real Indian homes fanned, each bobbing on
+  its own loop with Ken Burns; the front card tilts to the pointer; a
+  92% match ring and an "Owner verified · ₹0 brokerage" chip float over it.
+- Live counters (homes live, flatmates looking, ₹0 brokerage) count up.
+- "Explore by city" story bubbles with spinning brand rings → `/flats`.
+- Bento actions: first action is a wide ink Ken Burns feature card; the
+  rest are glass photo tiles with floating icon badges; a lone last tile
+  spans the row. Role filtering and keys are unchanged.
+- Live activity ticker on ink ("Ananya found a flatmate in HSR Layout").
+- Rentals swipe deck (unchanged), then the trust band with a sunrise rim.
+
+**Profile.** The Nickname row now uses the same 110px label column and
+value type as First name / Email; empty shows an inline "Add a nickname ⊕"
+link that opens the editor.
+
+**Contrast.** Ink on the peach mesh 14:1+; kinetic gradient vermilion →
+deep red at 34–38px; white only on ink or ink scrims.
+
+**Tests.** `home_layout_test` pins the v4 structure; map preview golden
+refreshed for the v3 stone page.
+
+**Not done (waiting on Deep).** Nav dock, listing detail, role picker,
+dashboards and the background on other screens.
