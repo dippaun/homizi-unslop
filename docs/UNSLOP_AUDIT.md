@@ -141,3 +141,74 @@ one Back per page; no new screens; no NoBroker branding.
   "Search Properties") are product names used across tests and copy;
   left as they are.
 - The welcome confetti could be reduced to one short burst.
+
+## v3 direction (23 Nov 2026) — replaces the v2 Indian-motif pass
+
+Deep rejected v2: "Indian" meant real Indian flats and houses in the
+listings, not jaali, kolam, block-print, jharokha or skyline patterns, and
+the patterned cream backgrounds read as average. v3 is a new direction,
+not a tweak.
+
+**Reference bar.** Top property apps (Airbnb, Zillow, Housing.com): the
+photo is the product, the chrome is quiet, and one dark surface carries
+the brand.
+
+**Surface system.**
+- Page: neutral stone `#F5F3F0` (`HomiziColors.cream`/`soft`), never
+  white and never patterned. Deeper stone `#EDE9E3` for wells.
+- Cards: white, 20–24px radius, soft ink shadow, no outline.
+- Dark sections: ink `#172033` (`HomiziColors.ink`), `inkDeep` for the
+  wide-screen stage, `inkRaised` for pills on ink, `onInkMuted` (9:1)
+  for secondary text on ink.
+- Role heroes (`HomiziHeroBand` / `HomiziRoleIntro`): an ink panel over a
+  real Indian home photo with a left-to-right ink scrim (copy side ≥12:1)
+  and a soft light in the role's `glow` colour.
+
+**Brand palette, used deliberately.**
+- Orange `#F47B0B`: the active nav pill (ink icon, 5.95:1), the second
+  line of the home promise on ink, accents.
+- Red Orange `#CC3015` → Deep Red `#A92310`: primary action gradient
+  with white text (5.25:1+); small links in red orange.
+- Yellow/Golden: only on ink (11:1 / 8.5:1) for eyebrows, ticks and
+  icons. Never white text on yellow.
+- Role glows (eyebrow, ring, light): tenant orange, flatmate yellow,
+  owner deep orange (4.56:1 on ink), PG golden, partner yellow, sharer
+  golden.
+- Logo orange `#F75620` is no longer used for text (3.3:1 on white);
+  prices are ink.
+- Green only for verification/match; blue only for secondary info.
+
+**Type.** Poppins 600 for display, titles, prices and buttons, with
+slight negative tracking; Inter for body. Yatra One removed.
+
+**Imagery.** Bundled Pexels photos shot in Indian cities (Mumbai,
+Bengaluru, Hyderabad, Noida, Kochi, Goa, Jodhpur, Ahmedabad) replace the
+Western stock in `assets/photos`, `assets/images/real` and
+`assets/images/home`; demo portraits are Indian people. File names and
+sizes are unchanged, so listing data did not move. Sources are in each
+folder's CREDITS file (Pexels License: free, commercial use allowed).
+
+**Screens.**
+- Home: dark photo hero (Mumbai high-rise) with "Zero brokerage ·
+  verified owners", the promise, and city pills; white photo action
+  cards with a tinted icon badge; ink trust band with three proof points.
+- Nav: dark ink bar with rounded top, orange active pill.
+- Listing cards: photo-first, Poppins title, ink price; "Set
+  preferences" is a white pill over photos.
+- Listing detail: gallery, then the facts on a white sheet with rounded
+  top; Poppins ink price; outlined white fact tiles.
+- Role dashboards (owner, PG owner, partner/broker, room sharer, host):
+  the shared dark photo hero with the role glow; owner leads and visits
+  as white cards.
+- Profile: photo, name, role on the role hero; stats in a white card.
+- Role picker: white cards with the role photo as a thumb.
+- Login: dark Mumbai photo panel behind the lockup; white auth card.
+- Empty states: a rounded real-home photo with a white icon badge.
+
+**Motion kept.** Press-scale with light haptic, staggered entrances,
+pull-to-refresh, listing photo Hero into detail, swipe haptics; all
+honour reduced motion.
+
+**Known gaps.** Wizard steps, chats, verify and settings use the new
+surfaces and type through the theme but were not individually redrawn;
+some older screens still use logo orange for icon accents (non-text).
