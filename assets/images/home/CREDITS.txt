@@ -6,3 +6,9 @@ Home mockup photos. Unsplash License. Bundled so the demo does not fetch them.
 - roomies.jpg — photo-1517486808906-6ca8b3f04846
 
 https://unsplash.com/license
+
+
+v3 (Nov 2026): apartment.webp, house.webp and living_room.webp replaced with Pexels photos (Pexels License):
+- apartment.webp — Mumbai high-rise — https://www.pexels.com/photo/30381635/ — aksinfo7 universe
+- house.webp — Bengaluru residential building — https://www.pexels.com/photo/35114454/
+- living_room.webp — Maharashtra duplex living room — https://www.pexels.com/photo/12205231/
