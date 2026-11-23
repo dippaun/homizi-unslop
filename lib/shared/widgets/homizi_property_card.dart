@@ -160,7 +160,7 @@ class _HomiziPropertyCardState extends State<HomiziPropertyCard> {
     }
     return DecoratedBox(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(24),
         boxShadow: const [
           BoxShadow(
             color: HomiziColors.shadow,
@@ -172,7 +172,7 @@ class _HomiziPropertyCardState extends State<HomiziPropertyCard> {
       child: Material(
         key: Key('property-card-${widget.data.id}'),
         color: HomiziColors.white,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
         clipBehavior: Clip.antiAlias,
         child: _full(context),
       ),
@@ -352,6 +352,18 @@ class _HomiziPropertyCardState extends State<HomiziPropertyCard> {
           TextButton(
             key: const Key('set-preferences-for-match'),
             onPressed: widget.onWhy,
+            // v3: a white pill so the prompt reads over any photo.
+            style: TextButton.styleFrom(
+              backgroundColor: HomiziColors.white.withValues(alpha: 0.94),
+              foregroundColor: HomiziColors.ink,
+              shape: const StadiumBorder(),
+              padding: const EdgeInsets.symmetric(horizontal: 12),
+              textStyle: const TextStyle(
+                fontFamily: 'Inter',
+                fontSize: 12,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
             child: Text(
               homiziText(context, 'Set preferences to see your match'),
             ),
@@ -467,6 +479,9 @@ class _HomiziPropertyCardState extends State<HomiziPropertyCard> {
                       ? TextAlign.center
                       : TextAlign.start,
                   style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                    fontFamily: 'Poppins',
+                    fontSize: 18,
+                    letterSpacing: -0.2,
                     color: HomiziColors.ink,
                     fontWeight: FontWeight.w600,
                     height: 1.2,
@@ -522,9 +537,11 @@ class _HomiziPropertyCardState extends State<HomiziPropertyCard> {
             child: Text(
               homiziText(context, widget.data.rentLabel),
               textAlign: TextAlign.end,
-              style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                color: HomiziColors.logoOrange,
+              style: const TextStyle(
+                fontFamily: 'Poppins',
+                fontSize: 16,
                 fontWeight: FontWeight.w600,
+                color: HomiziColors.ink,
               ),
             ),
           ),

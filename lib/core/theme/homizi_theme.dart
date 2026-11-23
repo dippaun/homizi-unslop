@@ -76,7 +76,7 @@ abstract final class HomiziTheme {
         elevation: 0,
         shape: const RoundedRectangleBorder(borderRadius: _radius),
         textStyle: const TextStyle(
-          fontFamily: 'PlusJakartaSans',
+          fontFamily: 'Poppins',
           fontSize: 16,
           fontWeight: FontWeight.w600,
           color: HomiziColors.ink,
@@ -108,7 +108,7 @@ abstract final class HomiziTheme {
         side: const BorderSide(color: HomiziColors.accent, width: 1.5),
         shape: const RoundedRectangleBorder(borderRadius: _radius),
         textStyle: const TextStyle(
-          fontFamily: 'PlusJakartaSans',
+          fontFamily: 'Poppins',
           fontSize: 16,
           fontWeight: FontWeight.w600,
           color: HomiziColors.ink,
@@ -136,7 +136,7 @@ abstract final class HomiziTheme {
         foregroundColor: HomiziColors.ink,
         minimumSize: const Size(48, 48),
         textStyle: const TextStyle(
-          fontFamily: 'PlusJakartaSans',
+          fontFamily: 'Poppins',
           fontSize: 15,
           fontWeight: FontWeight.w600,
         ),
@@ -212,7 +212,11 @@ abstract final class HomiziTheme {
         scrolledUnderElevation: 3,
         centerTitle: false,
         toolbarHeight: 64,
-        titleTextStyle: text.titleLarge?.copyWith(color: HomiziColors.ink),
+        titleTextStyle: text.titleLarge?.copyWith(
+          fontFamily: 'Poppins',
+          fontWeight: FontWeight.w600,
+          color: HomiziColors.ink,
+        ),
       ),
       navigationBarTheme: const NavigationBarThemeData(
         backgroundColor: HomiziColors.cream,
@@ -234,15 +238,16 @@ abstract final class HomiziTheme {
       ),
       splashFactory: InkRipple.splashFactory,
       hoverColor: HomiziColors.accentHover,
+      // v3: white cards lift off the stone page with a soft shadow and
+      // no outline.
       cardTheme: const CardThemeData(
         color: HomiziColors.white,
         surfaceTintColor: Colors.transparent,
-        shadowColor: HomiziColors.shadowWarm,
+        shadowColor: HomiziColors.shadowStrong,
         clipBehavior: Clip.antiAlias,
-        elevation: 1,
+        elevation: 2,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(HomiziRadius.card)),
-          side: BorderSide(color: HomiziColors.creamLine),
+          borderRadius: BorderRadius.all(Radius.circular(HomiziRadius.panel)),
         ),
       ),
       filledButtonTheme: FilledButtonThemeData(style: _filled),

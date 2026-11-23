@@ -218,12 +218,12 @@ class HomiziMatchCard extends StatelessWidget {
               );
         return DecoratedBox(
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(24),
             boxShadow: const [
               BoxShadow(
                 color: HomiziColors.shadow,
-                blurRadius: 18,
-                offset: Offset(0, 8),
+                blurRadius: 24,
+                offset: Offset(0, 10),
               ),
             ],
           ),
@@ -231,7 +231,7 @@ class HomiziMatchCard extends StatelessWidget {
             key: cardKey,
             color: HomiziColors.white,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20),
+              borderRadius: BorderRadius.circular(24),
             ),
             clipBehavior: Clip.antiAlias,
             child: dragged,
@@ -346,9 +346,10 @@ class HomiziMatchCard extends StatelessWidget {
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
-                    fontFamily: 'PlusJakartaSans',
+                    fontFamily: 'Poppins',
                     fontSize: compact ? 15 : 18,
                     height: 1.2,
+                    letterSpacing: -0.2,
                     fontWeight: FontWeight.w600,
                     color: HomiziColors.ink,
                   ),
@@ -386,11 +387,13 @@ class HomiziMatchCard extends StatelessWidget {
               key: priceKey,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
+              // v3: price in ink, the strongest line after the title
+              // (logo orange on white was 3.3:1).
               style: TextStyle(
-                fontFamily: 'PlusJakartaSans',
-                fontSize: compact ? 14 : 16,
+                fontFamily: 'Poppins',
+                fontSize: compact ? 15 : 17,
                 fontWeight: FontWeight.w600,
-                color: HomiziColors.logoOrange,
+                color: HomiziColors.ink,
               ),
             ),
           ],
@@ -601,14 +604,14 @@ class _Chip extends StatelessWidget {
     final background = verified
         ? HomiziColors.successWash
         : marked
-        ? HomiziColors.logoOrange.withValues(alpha: 0.14)
+        ? HomiziColors.saffronWash
         : chip.wash
         ? HomiziColors.accentWash
         : HomiziColors.soft;
     final ink = verified
         ? HomiziColors.success
         : marked
-        ? HomiziColors.logoOrange
+        ? HomiziColors.brandDeepRed
         : HomiziColors.ink;
     return DecoratedBox(
       key: chip.chipKey,

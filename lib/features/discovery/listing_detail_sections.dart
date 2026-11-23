@@ -242,7 +242,11 @@ class ListingPlaceRow extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        const Icon(Icons.location_on, color: HomiziColors.logoOrange, size: 18),
+        const Icon(
+          Icons.location_on,
+          color: HomiziColors.brandDeepOrange,
+          size: 18,
+        ),
         const SizedBox(width: 4),
         Expanded(
           child: Text(
@@ -279,8 +283,10 @@ class ListingPriceBlock extends StatelessWidget {
               TextSpan(
                 text: '₹ ${formatIndianDigits(listing.rentInr)}',
                 style: const TextStyle(
-                  color: HomiziColors.logoOrange,
-                  fontSize: 32,
+                  fontFamily: 'Poppins',
+                  color: HomiziColors.ink,
+                  fontSize: 30,
+                  letterSpacing: -0.6,
                   fontWeight: FontWeight.w600,
                   height: 1.1,
                 ),
@@ -386,12 +392,13 @@ class _SpecTile extends StatelessWidget {
       key: tileKey,
       padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 10),
       decoration: BoxDecoration(
-        color: HomiziColors.soft,
-        borderRadius: BorderRadius.circular(12),
+        color: HomiziColors.white,
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: HomiziColors.line),
       ),
       child: Column(
         children: [
-          Icon(icon, color: HomiziColors.logoOrange, size: 22),
+          Icon(icon, color: HomiziColors.brandDeepOrange, size: 22),
           const SizedBox(height: 6),
           Text(
             homiziText(context, value),
@@ -1355,7 +1362,7 @@ class _ListingWhyMatchState extends State<ListingWhyMatch>
                       child: Text(
                         homiziText(context, 'Why this matches?'),
                         style: const TextStyle(
-                          fontFamily: 'PlusJakartaSans',
+                          fontFamily: 'Poppins',
                           color: HomiziColors.ink,
                           fontWeight: FontWeight.w600,
                           fontSize: 20,
@@ -1394,7 +1401,7 @@ class _ListingWhyMatchState extends State<ListingWhyMatch>
                   ),
                   key: const Key('why-match-summary'),
                   style: const TextStyle(
-                    fontFamily: 'PlusJakartaSans',
+                    fontFamily: 'Poppins',
                     color: HomiziColors.inkSoft,
                     fontWeight: FontWeight.w600,
                   ),
