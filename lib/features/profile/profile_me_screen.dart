@@ -677,9 +677,12 @@ class _ProfileMeScreenState extends ConsumerState<ProfileMeScreen> {
               ),
             ],
           ),
-          child: Padding(
-            padding: const EdgeInsets.all(12),
-            child: _stats(stats),
+          child: SizedBox(
+            width: double.infinity,
+            child: Padding(
+              padding: const EdgeInsets.all(12),
+              child: _stats(stats),
+            ),
           ),
         ),
         if (pgOwner) ...[
