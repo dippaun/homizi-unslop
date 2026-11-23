@@ -148,56 +148,62 @@ class _RoleCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final p = option.palette;
+    // v3: white card with the role's real photo as a rounded thumb and a
+    // role-tinted icon badge; no stripes or patterns.
     return Card(
       key: Key('role-card-${option.role.name}'),
       elevation: 2,
-      color: p.wash,
-      shadowColor: HomiziColors.shadowWarm,
+      color: HomiziColors.white,
+      shadowColor: HomiziColors.shadowStrong,
       clipBehavior: Clip.antiAlias,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20),
-        side: BorderSide(color: p.accent.withValues(alpha: 0.45)),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(22)),
       child: InkWell(
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(22),
         onTap: onTap,
         child: Stack(
           children: [
-            Positioned(
-              left: 0,
-              top: 0,
-              bottom: 0,
-              width: 6,
-              child: DecoratedBox(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: p.hero,
-                  ),
-                ),
-              ),
-            ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(24, 20, 20, 20),
+              padding: const EdgeInsets.fromLTRB(14, 14, 16, 14),
               child: Row(
                 children: [
-                  DecoratedBox(
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      gradient: p.heroGradient,
-                      boxShadow: [
-                        BoxShadow(
-                          color: p.accent.withValues(alpha: 0.35),
-                          blurRadius: 14,
-                          offset: const Offset(0, 6),
+                  SizedBox(
+                    width: 76,
+                    height: 76,
+                    child: Stack(
+                      clipBehavior: Clip.none,
+                      children: [
+                        Positioned.fill(
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(18),
+                            child: Image.asset(
+                              p.photo,
+                              fit: BoxFit.cover,
+                              excludeFromSemantics: true,
+                              errorBuilder: (context, error, stack) =>
+                                  ColoredBox(color: p.wash),
+                            ),
+                          ),
+                        ),
+                        Positioned(
+                          right: -6,
+                          bottom: -6,
+                          child: DecoratedBox(
+                            decoration: BoxDecoration(
+                              color: p.wash,
+                              borderRadius: BorderRadius.circular(12),
+                              border: Border.all(
+                                color: HomiziColors.white,
+                                width: 2,
+                              ),
+                            ),
+                            child: SizedBox(
+                              width: 32,
+                              height: 32,
+                              child: Icon(option.icon, color: p.ink, size: 18),
+                            ),
+                          ),
                         ),
                       ],
-                    ),
-                    child: SizedBox(
-                      width: 60,
-                      height: 60,
-                      child: Icon(option.icon, color: p.onHero, size: 28),
                     ),
                   ),
                   const SizedBox(width: 16),
@@ -208,7 +214,10 @@ class _RoleCard extends StatelessWidget {
                         Text(
                           homiziText(context, option.title),
                           style: Theme.of(context).textTheme.titleLarge
-                              ?.copyWith(fontFamily: 'Poppins'),
+                              ?.copyWith(
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w600,
+                              ),
                         ),
                         const SizedBox(height: 4),
                         Text(homiziText(context, option.benefit)),
@@ -229,7 +238,7 @@ class _RoleCard extends StatelessWidget {
                       ],
                     ),
                   ),
-                  Icon(Icons.chevron_right, color: p.ink),
+                  const Icon(Icons.arrow_forward, color: HomiziColors.muted),
                 ],
               ),
             ),

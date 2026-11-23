@@ -198,8 +198,8 @@ class _RoleCard extends StatelessWidget {
           BoxShadow(
             color: selected
                 ? p.accent.withValues(alpha: 0.3)
-                : HomiziColors.shadowWarm,
-            blurRadius: selected ? 18 : 10,
+                : HomiziColors.shadow,
+            blurRadius: selected ? 18 : 14,
             offset: const Offset(0, 6),
           ),
         ],
@@ -210,7 +210,7 @@ class _RoleCard extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(18),
           side: BorderSide(
-            color: selected ? p.accent : p.accent.withValues(alpha: 0.35),
+            color: selected ? p.accent : HomiziColors.line,
             width: selected ? 2 : 1,
           ),
         ),

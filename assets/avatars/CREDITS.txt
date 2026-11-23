@@ -1,0 +1,9 @@
+Demo profile portraits: Indian people from Pexels, used under the Pexels
+License (https://www.pexels.com/license/). Square-cropped and compressed.
+
+- avatar_01.webp — https://www.pexels.com/photo/39002915/ (Bengaluru)
+- avatar_02.webp — https://www.pexels.com/photo/12366973/
+- avatar_03.webp — https://www.pexels.com/photo/12631107/ (Tamluk, West Bengal)
+- avatar_04.webp — https://www.pexels.com/photo/32831258/ (Jhusi, Uttar Pradesh)
+- avatar_05.webp — https://www.pexels.com/photo/15602469/
+- avatar_06.webp — https://www.pexels.com/photo/36268093/ (Kolkata)

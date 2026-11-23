@@ -165,13 +165,32 @@ class _OwnerOverviewScreenState extends ConsumerState<OwnerOverviewScreen> {
                     Text(homiziText(context, 'No leads yet.'))
                   else
                     for (final lead in _leads.take(5))
-                      ListTile(
-                        contentPadding: EdgeInsets.zero,
-                        title: Text(homiziText(context, lead.displayName)),
-                        subtitle: Text(
-                          homiziText(
-                            context,
-                            '${ownerLeadKindLabel(lead.kind)} · ${ownerLeadStatusLabel(lead.status)}',
+                      Card(
+                        margin: const EdgeInsets.only(bottom: 8),
+                        child: ListTile(
+                          leading: CircleAvatar(
+                            backgroundColor: HomiziColors.terracottaWash,
+                            foregroundColor: HomiziColors.brandDeepRed,
+                            child: Text(
+                              lead.displayName.trim().isEmpty
+                                  ? '?'
+                                  : lead.displayName.trim()[0].toUpperCase(),
+                              style: const TextStyle(
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          ),
+                          trailing: const Icon(
+                            Icons.chevron_right,
+                            color: HomiziColors.muted,
+                          ),
+                          title: Text(homiziText(context, lead.displayName)),
+                          subtitle: Text(
+                            homiziText(
+                              context,
+                              '${ownerLeadKindLabel(lead.kind)} · ${ownerLeadStatusLabel(lead.status)}',
+                            ),
                           ),
                         ),
                       ),
@@ -191,18 +210,20 @@ class _OwnerOverviewScreenState extends ConsumerState<OwnerOverviewScreen> {
                     Text(homiziText(context, 'No visit requests yet.'))
                   else
                     for (final lead in visits.take(5))
-                      ListTile(
-                        contentPadding: EdgeInsets.zero,
-                        leading: const HomiziRoleIcon(
-                          Icons.event_outlined,
-                          palette: HomiziRolePalette.owner,
-                          size: 40,
-                        ),
-                        title: Text(homiziText(context, lead.displayName)),
-                        subtitle: Text(
-                          homiziText(
-                            context,
-                            ownerLeadStatusLabel(lead.status),
+                      Card(
+                        margin: const EdgeInsets.only(bottom: 8),
+                        child: ListTile(
+                          leading: const HomiziRoleIcon(
+                            Icons.event_outlined,
+                            palette: HomiziRolePalette.owner,
+                            size: 40,
+                          ),
+                          title: Text(homiziText(context, lead.displayName)),
+                          subtitle: Text(
+                            homiziText(
+                              context,
+                              ownerLeadStatusLabel(lead.status),
+                            ),
                           ),
                         ),
                       ),

@@ -568,8 +568,8 @@ class _ProfileMeScreenState extends ConsumerState<ProfileMeScreen> {
     final roleLabel = createHost
         ? 'Create profile as host'
         : (_switching ? 'Switching…' : 'Switch to $nextRole');
-    // v2: photo and stats sit on the person's role hero, with the stats
-    // as white cards over the pattern.
+    // v3: the person sits on their role's dark photo hero (photo, name,
+    // role); the activity stats follow as white tiles on the stone page.
     final palette = HomiziRolePalette.forWire(pgOwner ? 'pg' : wire);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -577,19 +577,16 @@ class _ProfileMeScreenState extends ConsumerState<ProfileMeScreen> {
         HomiziStaggerIn(
           child: HomiziHeroBand(
             palette: palette,
-            padding: const EdgeInsets.fromLTRB(14, 14, 14, 36),
+            padding: const EdgeInsets.fromLTRB(18, 20, 18, 20),
             child: Row(
               children: [
                 DecoratedBox(
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    border: Border.all(
-                      color: HomiziColors.brandYellow,
-                      width: 2,
-                    ),
+                    border: Border.all(color: palette.glow, width: 2),
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.all(2),
+                    padding: const EdgeInsets.all(3),
                     child: AnimatedProfilePhoto(
                       key: const Key('profile-photo'),
                       name: name,
@@ -600,14 +597,67 @@ class _ProfileMeScreenState extends ConsumerState<ProfileMeScreen> {
                     ),
                   ),
                 ),
-                const SizedBox(width: 12),
+                const SizedBox(width: 14),
                 Expanded(
-                  child: DefaultTextStyle.merge(
-                    style: const TextStyle(color: HomiziColors.ink),
-                    child: IconTheme.merge(
-                      data: const IconThemeData(color: HomiziColors.ink),
-                      child: _stats(stats),
-                    ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          Flexible(
+                            child: Text(
+                              name,
+                              key: const Key('profile-name'),
+                              style: const TextStyle(
+                                fontFamily: 'Poppins',
+                                fontSize: 22,
+                                height: 1.15,
+                                letterSpacing: -0.3,
+                                fontWeight: FontWeight.w600,
+                                color: HomiziColors.white,
+                              ),
+                            ),
+                          ),
+                          if (_aadhaarVerified) ...[
+                            const SizedBox(width: 6),
+                            const Icon(
+                              Icons.verified,
+                              key: Key('profile-me-verified'),
+                              color: HomiziColors.brandYellow,
+                              size: 20,
+                            ),
+                          ],
+                        ],
+                      ),
+                      const SizedBox(height: 8),
+                      Container(
+                        key: const Key('profile-me-role'),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 10,
+                          vertical: 4,
+                        ),
+                        decoration: BoxDecoration(
+                          color: HomiziColors.white.withValues(alpha: 0.12),
+                          borderRadius: const BorderRadius.all(
+                            Radius.circular(16),
+                          ),
+                          border: Border.all(
+                            color: palette.glow.withValues(alpha: 0.6),
+                          ),
+                        ),
+                        child: Text(
+                          homiziText(
+                            context,
+                            pgOwner ? 'PG owner' : profileRoleChip(wire),
+                          ),
+                          style: TextStyle(
+                            color: palette.glow,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 12,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ],
@@ -615,44 +665,21 @@ class _ProfileMeScreenState extends ConsumerState<ProfileMeScreen> {
           ),
         ),
         const SizedBox(height: 12),
-        Row(
-          children: [
-            Flexible(
-              child: Text(
-                name,
-                key: const Key('profile-name'),
-                style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                  color: HomiziColors.ink,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-            ),
-            if (_aadhaarVerified) ...[
-              const SizedBox(width: 6),
-              const Icon(
-                Icons.verified,
-                key: Key('profile-me-verified'),
-                color: HomiziColors.success,
-                size: 20,
+        DecoratedBox(
+          decoration: BoxDecoration(
+            color: HomiziColors.white,
+            borderRadius: BorderRadius.circular(20),
+            boxShadow: const [
+              BoxShadow(
+                color: HomiziColors.shadow,
+                blurRadius: 16,
+                offset: Offset(0, 6),
               ),
             ],
-          ],
-        ),
-        const SizedBox(height: 6),
-        Container(
-          key: const Key('profile-me-role'),
-          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-          decoration: const BoxDecoration(
-            color: HomiziColors.accentWash,
-            borderRadius: BorderRadius.all(Radius.circular(16)),
           ),
-          child: Text(
-            homiziText(context, pgOwner ? 'PG owner' : profileRoleChip(wire)),
-            style: const TextStyle(
-              color: HomiziColors.ink,
-              fontWeight: FontWeight.w600,
-              fontSize: 12,
-            ),
+          child: Padding(
+            padding: const EdgeInsets.all(12),
+            child: _stats(stats),
           ),
         ),
         if (pgOwner) ...[
@@ -668,13 +695,13 @@ class _ProfileMeScreenState extends ConsumerState<ProfileMeScreen> {
               onPressed: () => unawaited(_editAbout()),
               icon: const Icon(
                 Icons.edit_outlined,
-                color: HomiziColors.logoOrange,
+                color: HomiziColors.brandRedOrange,
               ),
               label: Text(
                 homiziText(context, 'Add a bio'),
                 style: const TextStyle(
-                  fontFamily: 'PlusJakartaSans',
-                  color: HomiziColors.logoOrange,
+                  fontFamily: 'Poppins',
+                  color: HomiziColors.brandRedOrange,
                   fontWeight: FontWeight.w600,
                 ),
               ),
