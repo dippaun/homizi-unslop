@@ -66,6 +66,9 @@ import 'package:homizi/ui/kit/hero_band.dart';
 import 'package:homizi/ui/kit/kit.dart';
 import 'package:homizi/ui/kit/motion_kit.dart';
 
+/// Shared label column for profile detail rows, so values line up.
+const double _labelColumn = 110;
+
 /// Signed-in profile dashboard. The Profile tab and `/profile/me`.
 class ProfileMeScreen extends ConsumerStatefulWidget {
   const ProfileMeScreen({super.key});
@@ -1506,11 +1509,65 @@ class _ProfileMeScreenState extends ConsumerState<ProfileMeScreen> {
           _locked('Last name', _draft.lastName),
           _locked('Email', email, verified: emailVerified && email.isNotEmpty),
           _locked('Phone', phone, verified: phoneVerified && phone.isNotEmpty),
-          _row(
-            'Nickname',
-            _draft.nickname.trim().isEmpty
-                ? 'Add a nickname'
-                : _draft.nickname.trim(),
+          _nicknameRow(),
+        ],
+      ),
+    );
+  }
+
+  /// Nickname sits on the same 110px label column and value type as the
+  /// locked rows above it, so the column lines up. Empty shows an inline
+  /// "Add a nickname" link that opens the editor.
+  Widget _nicknameRow() {
+    final nickname = _draft.nickname.trim();
+    final empty = nickname.isEmpty;
+    return Padding(
+      key: const Key('profile-nickname-row'),
+      padding: const EdgeInsets.only(bottom: 8),
+      child: Row(
+        children: [
+          SizedBox(
+            width: _labelColumn,
+            child: Text(
+              homiziText(context, 'Nickname'),
+              style: const TextStyle(color: HomiziColors.muted),
+            ),
+          ),
+          Expanded(
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: InkWell(
+                borderRadius: BorderRadius.circular(6),
+                onTap: () => unawaited(_editNickname()),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Flexible(
+                      child: Text(
+                        empty ? homiziText(context, 'Add a nickname') : nickname,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          fontFamily: 'PlusJakartaSans',
+                          fontWeight: FontWeight.w600,
+                          color: empty
+                              ? HomiziColors.brandRedOrange
+                              : HomiziColors.ink,
+                        ),
+                      ),
+                    ),
+                    if (empty) ...[
+                      const SizedBox(width: 4),
+                      const Icon(
+                        Icons.add_circle_outline,
+                        size: 16,
+                        color: HomiziColors.brandRedOrange,
+                      ),
+                    ],
+                  ],
+                ),
+              ),
+            ),
           ),
         ],
       ),
@@ -1524,7 +1581,7 @@ class _ProfileMeScreenState extends ConsumerState<ProfileMeScreen> {
       child: Row(
         children: [
           SizedBox(
-            width: 110,
+            width: _labelColumn,
             child: Text(
               homiziText(context, label),
               style: const TextStyle(color: HomiziColors.muted),
@@ -2104,7 +2161,7 @@ class _ProfileMeScreenState extends ConsumerState<ProfileMeScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(
-            width: 120,
+            width: _labelColumn,
             child: Text(
               homiziText(context, label),
               style: Theme.of(

@@ -116,6 +116,20 @@ abstract final class HomiziColors {
   /// Photo scrim behind names on portrait cards.
   static const Color inkScrim = Color(0xF0172033);
 
+  /// v4 "living city" backdrop: warm peach base under drifting orbs.
+  /// Ink on these clears 15:1, so body copy can sit straight on them.
+  static const Color livingBase = Color(0xFFFFF3EA);
+  static const Color livingBaseDeep = Color(0xFFFFE2CF);
+
+  /// v4 glass cards over the backdrop. Ink on 86% white over peach is
+  /// about 15:1.
+  static const Color glass = Color(0xDBFFFFFF);
+  static const Color glassStrong = Color(0xF2FFFFFF);
+  static const Color glassLine = Color(0xB3FFFFFF);
+
+  /// Ink glass for the dark live cards (white text 13:1+).
+  static const Color inkGlass = Color(0xE6172033);
+
   /// Offline map drawing: land, paper roads and parks.
   static const Color mapLand = Color(0xFFE7F0E4);
   static const Color mapPaper = Color(0xFFF7F4EA);
