@@ -1044,35 +1044,47 @@ class _ActionGrid extends ConsumerWidget {
           ),
         for (var index = 0; index < rest.length; index += 2) ...[
           const SizedBox(height: _gap),
-          IntrinsicHeight(
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Expanded(
-                  child: HomiziStaggerIn(
-                    index: index + 4,
-                    child: HomiziPressable(
-                      child: _ActionCard(action: rest[index], slot: index),
+          if (index + 1 >= rest.length)
+            HomiziStaggerIn(
+              index: index + 4,
+              child: HomiziPressable(
+                child: _ActionCard(
+                  action: rest[index],
+                  slot: index,
+                  wide: true,
+                ),
+              ),
+            )
+          else
+            IntrinsicHeight(
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Expanded(
+                    child: HomiziStaggerIn(
+                      index: index + 4,
+                      child: HomiziPressable(
+                        child: _ActionCard(action: rest[index], slot: index),
+                      ),
                     ),
                   ),
-                ),
-                const SizedBox(width: _gap),
-                Expanded(
-                  child: index + 1 < rest.length
-                      ? HomiziStaggerIn(
-                          index: index + 5,
-                          child: HomiziPressable(
-                            child: _ActionCard(
-                              action: rest[index + 1],
-                              slot: index + 1,
+                  const SizedBox(width: _gap),
+                  Expanded(
+                    child: index + 1 < rest.length
+                        ? HomiziStaggerIn(
+                            index: index + 5,
+                            child: HomiziPressable(
+                              child: _ActionCard(
+                                action: rest[index + 1],
+                                slot: index + 1,
+                              ),
                             ),
-                          ),
-                        )
-                      : const SizedBox.shrink(),
-                ),
-              ],
+                          )
+                        : const SizedBox.shrink(),
+                  ),
+                ],
+              ),
             ),
-          ),
         ],
       ],
     );
@@ -1249,10 +1261,13 @@ class _IconBadge extends StatelessWidget {
 /// Bento tile: glass card, real photo with a floating icon badge, Poppins
 /// title and a muted line.
 class _ActionCard extends StatelessWidget {
-  const _ActionCard({required this.action, this.slot = 0});
+  const _ActionCard({required this.action, this.slot = 0, this.wide = false});
 
   final _HubAction action;
   final int slot;
+
+  /// A lone last tile spans the row: photo left, copy right.
+  final bool wide;
 
   @override
   Widget build(BuildContext context) {
@@ -1292,15 +1307,24 @@ class _ActionCard extends StatelessWidget {
           child: Semantics(
             button: true,
             label: spoken,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
+            child: Flex(
+              direction: wide ? Axis.horizontal : Axis.vertical,
+              crossAxisAlignment: wide
+                  ? CrossAxisAlignment.center
+                  : CrossAxisAlignment.stretch,
               children: [
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(6, 6, 6, 0),
+                  padding: EdgeInsets.fromLTRB(
+                    6,
+                    6,
+                    wide ? 0 : 6,
+                    wide ? 6 : 0,
+                  ),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(_tileRadius - 6),
                     child: SizedBox(
                       height: 96,
+                      width: wide ? 132 : null,
                       child: Stack(
                         fit: StackFit.expand,
                         children: [
@@ -1331,45 +1355,48 @@ class _ActionCard extends StatelessWidget {
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(12, 10, 10, 14),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Expanded(
-                            child: Text(
-                              homiziText(context, action.title),
-                              maxLines: 2,
-                              overflow: TextOverflow.ellipsis,
-                              style: titleStyle,
+                _maybeExpand(
+                  wide,
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(12, 10, 10, 14),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Expanded(
+                              child: Text(
+                                homiziText(context, action.title),
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
+                                style: titleStyle,
+                              ),
                             ),
-                          ),
-                          const SizedBox(width: 4),
-                          const ExcludeSemantics(
-                            child: Icon(
-                              Icons.arrow_outward_rounded,
-                              size: 18,
-                              color: HomiziColors.brandRedOrange,
+                            const SizedBox(width: 4),
+                            const ExcludeSemantics(
+                              child: Icon(
+                                Icons.arrow_outward_rounded,
+                                size: 18,
+                                color: HomiziColors.brandRedOrange,
+                              ),
                             ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 4),
-                      Text(
-                        homiziText(context, action.subtitle),
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                        style: const TextStyle(
-                          fontFamily: 'Inter',
-                          fontSize: 12,
-                          height: 1.35,
-                          color: HomiziColors.muted,
+                          ],
                         ),
-                      ),
-                    ],
+                        const SizedBox(height: 4),
+                        Text(
+                          homiziText(context, action.subtitle),
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                          style: const TextStyle(
+                            fontFamily: 'Inter',
+                            fontSize: 12,
+                            height: 1.35,
+                            color: HomiziColors.muted,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],
@@ -1634,3 +1661,6 @@ class _TrustBand extends StatelessWidget {
     );
   }
 }
+
+Widget _maybeExpand(bool expand, Widget child) =>
+    expand ? Expanded(child: child) : child;
