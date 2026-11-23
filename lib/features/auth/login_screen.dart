@@ -641,6 +641,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
               height: 300,
               child: IgnorePointer(
                 child: Stack(
+                  key: const Key('login-photo'),
                   fit: StackFit.expand,
                   children: [
                     Image.asset(
