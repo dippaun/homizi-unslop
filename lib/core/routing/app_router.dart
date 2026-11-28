@@ -6,6 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:homizi/core/config/app_config_provider.dart';
 import 'package:homizi/core/l10n/translate.dart';
+import 'package:homizi/core/motion/homizi_motion.dart';
 import 'package:homizi/core/routing/role_gate.dart';
 import 'package:homizi/core/routing/route_paths.dart';
 import 'package:homizi/core/routing/session_redirect.dart';
@@ -421,8 +422,12 @@ final routerProvider = Provider<GoRouter>((ref) {
       ),
       GoRoute(
         path: '/listing/:id',
-        builder: (context, state) =>
-            ListingDetailScreen(listingId: state.pathParameters['id'] ?? ''),
+        pageBuilder: (context, state) => homiziSpringPage<void>(
+          state: state,
+          child: ListingDetailScreen(
+            listingId: state.pathParameters['id'] ?? '',
+          ),
+        ),
       ),
       GoRoute(
         path: RoutePaths.likes,

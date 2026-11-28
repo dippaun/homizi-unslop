@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:homizi/core/motion/homizi_motion.dart';
 import 'package:homizi/core/theme/flow_accent.dart';
 import 'package:homizi/core/theme/homizi_colors.dart';
 import 'package:homizi/ui/kit/real_life_icons.dart';
@@ -41,7 +42,23 @@ class IconChoiceChip extends StatelessWidget {
       width: selected ? 1.5 : 1,
     );
     if (multi) {
-      return FilterChip(
+      return HomiziPressScale(
+        child: FilterChip(
+          avatar: avatar,
+          label: label,
+          selected: selected,
+          showCheckmark: showCheckmark,
+          selectedColor: wash,
+          checkmarkColor: HomiziColors.ink,
+          backgroundColor: HomiziColors.white,
+          labelStyle: labelStyle,
+          side: side,
+          onSelected: onSelected,
+        ),
+      );
+    }
+    return HomiziPressScale(
+      child: ChoiceChip(
         avatar: avatar,
         label: label,
         selected: selected,
@@ -52,19 +69,7 @@ class IconChoiceChip extends StatelessWidget {
         labelStyle: labelStyle,
         side: side,
         onSelected: onSelected,
-      );
-    }
-    return ChoiceChip(
-      avatar: avatar,
-      label: label,
-      selected: selected,
-      showCheckmark: showCheckmark,
-      selectedColor: wash,
-      checkmarkColor: HomiziColors.ink,
-      backgroundColor: HomiziColors.white,
-      labelStyle: labelStyle,
-      side: side,
-      onSelected: onSelected,
+      ),
     );
   }
 }

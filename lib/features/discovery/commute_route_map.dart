@@ -3,6 +3,7 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:homizi/core/config/app_config.dart';
 import 'package:homizi/core/l10n/translate.dart';
 import 'package:homizi/core/location/location_models.dart';
+import 'package:homizi/core/motion/animated_route.dart';
 import 'package:homizi/core/theme/homizi_colors.dart';
 import 'package:homizi/ui/kit/real_life_icons.dart';
 import 'package:latlong2/latlong.dart';
@@ -113,18 +114,7 @@ class CommuteRouteMap extends StatelessWidget {
           urlTemplate: AppConfig.defaultOsmTileUrl,
           userAgentPackageName: 'in.homizi.app',
         ),
-        PolylineLayer(
-          polylines: [
-            Polyline(
-              points: [
-                LatLng(home.latitude, home.longitude),
-                LatLng(office.latitude, office.longitude),
-              ],
-              color: HomiziColors.logoOrange,
-              strokeWidth: 4,
-            ),
-          ],
-        ),
+        _RouteLayer(home: home, office: office),
         MarkerLayer(
           markers: [
             _pin(home, 'A', HomiziColors.logoOrange),
@@ -137,23 +127,40 @@ class CommuteRouteMap extends StatelessWidget {
     if (key.isEmpty) {
       return tiles;
     }
-    return Image.network(
-      _staticMap(key),
-      fit: BoxFit.cover,
-      width: double.infinity,
-      height: 160,
-      errorBuilder: (context, error, stackTrace) => tiles,
+    final zoom = _zoom(roadKm);
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final box = Size(
+          constraints.maxWidth.isFinite ? constraints.maxWidth : 640,
+          160,
+        );
+        return Stack(
+          fit: StackFit.expand,
+          children: [
+            Image.network(
+              _staticMap(key, mid, zoom),
+              fit: BoxFit.cover,
+              width: double.infinity,
+              height: 160,
+              errorBuilder: (context, error, stackTrace) => tiles,
+            ),
+            HomiziAnimatedRoute(
+              from: staticMapPoint(home, mid, zoom, box),
+              to: staticMapPoint(office, mid, zoom, box),
+            ),
+          ],
+        );
+      },
     );
   }
 
-  String _staticMap(String key) {
-    final path =
-        '${home.latitude},${home.longitude}|${office.latitude},${office.longitude}';
+  String _staticMap(String key, LatLng mid, double zoom) {
+    // Centre and zoom are fixed so the drawn route lines up with the pins.
     return 'https://maps.googleapis.com/maps/api/staticmap'
         '?size=640x320&scale=2&maptype=roadmap'
+        '&center=${mid.latitude},${mid.longitude}&zoom=${zoom.round()}'
         '&markers=color:0xF75620|label:A|${home.latitude},${home.longitude}'
         '&markers=color:0x172033|label:B|${office.latitude},${office.longitude}'
-        '&path=color:0xF75620ff|weight:5|$path'
         '&key=$key';
   }
 
@@ -189,5 +196,48 @@ class CommuteRouteMap extends StatelessWidget {
       return 11;
     }
     return 10;
+  }
+}
+
+/// 0..1 place of [point] inside a [box] showing a 640x320 static map that is
+/// centred on [mid] at [zoom] and cover-fitted.
+Offset staticMapPoint(GeoFix point, LatLng mid, double zoom, Size box) {
+  final z = zoom.roundToDouble();
+  final centre = mercatorPixel(mid.latitude, mid.longitude, z);
+  final pixel = mercatorPixel(point.latitude, point.longitude, z);
+  final image = pixel - centre + const Offset(320, 160);
+  final scale = box.width / box.height > 2 ? box.width / 640 : box.height / 320;
+  final dx = (box.width - 640 * scale) / 2;
+  final dy = (box.height - 320 * scale) / 2;
+  return Offset(
+    (image.dx * scale + dx) / box.width,
+    (image.dy * scale + dy) / box.height,
+  );
+}
+
+/// Draws the A to B route on the live tile map.
+class _RouteLayer extends StatelessWidget {
+  const _RouteLayer({required this.home, required this.office});
+
+  final GeoFix home;
+  final GeoFix office;
+
+  @override
+  Widget build(BuildContext context) {
+    final camera = MapCamera.of(context);
+    final size = camera.nonRotatedSize;
+    if (size.width <= 0 || size.height <= 0) {
+      return const SizedBox.shrink();
+    }
+    Offset unit(GeoFix fix) {
+      final at = camera.latLngToScreenOffset(
+        LatLng(fix.latitude, fix.longitude),
+      );
+      return Offset(at.dx / size.width, at.dy / size.height);
+    }
+
+    return SizedBox.expand(
+      child: HomiziAnimatedRoute(from: unit(home), to: unit(office)),
+    );
   }
 }

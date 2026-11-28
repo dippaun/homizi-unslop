@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:homizi/core/brand/homizi_mark.dart';
 import 'package:homizi/core/l10n/translate.dart';
+import 'package:homizi/core/motion/homizi_motion.dart';
 import 'package:homizi/core/theme/homizi_colors.dart';
 import 'package:homizi/core/widgets/homizi_back.dart';
 import 'package:homizi/core/widgets/listing_widgets.dart';
@@ -17,8 +18,12 @@ class ListingDetailGallery extends StatefulWidget {
     required this.onSave,
     required this.onShare,
     required this.onReport,
+    this.scrollController,
     super.key,
   });
+
+  /// The detail page's list. When set, the photo drifts with a parallax.
+  final ScrollController? scrollController;
 
   final List<String> assets;
   final List<String> labels;
@@ -93,23 +98,22 @@ class _ListingDetailGalleryState extends State<ListingDetailGallery> {
   @override
   Widget build(BuildContext context) {
     final photos = _photos;
-    final height = MediaQuery.sizeOf(context).height;
-    final heroHeight = (height * 0.42).clamp(280, 460).toDouble();
+    final heroHeight = listingHeroHeight(context);
     final route = ModalRoute.of(context);
     final current = route == null || route.isCurrent;
-    final hero = SizedBox(
-      height: heroHeight,
-      width: double.infinity,
-      child: Stack(
-        fit: StackFit.expand,
-        children: [
-          if (photos.isEmpty)
-            const ListingPhoto(fallbackAsset: 'assets/images/real/living.webp')
-          else
-            GestureDetector(
-              key: const Key('listing-hero'),
-              onTap: _open,
-              child: PageView.builder(
+    // Only the photo flies from the card; the buttons fade in with the page.
+    Widget photo = HeroMode(
+      enabled: current && TickerMode.valuesOf(context).enabled,
+      child: Hero(
+        tag: widget.heroTag,
+        curve: homiziSpring,
+        createRectTween: homiziHeroRectTween,
+        flightShuttleBuilder: homiziCardShuttle,
+        child: photos.isEmpty
+            ? const ListingPhoto(
+                fallbackAsset: 'assets/images/real/living.webp',
+              )
+            : PageView.builder(
                 controller: _page,
                 itemCount: photos.length,
                 onPageChanged: (index) => setState(() => _index = index),
@@ -120,7 +124,27 @@ class _ListingDetailGalleryState extends State<ListingDetailGallery> {
                   );
                 },
               ),
-            ),
+      ),
+    );
+    final scroll = widget.scrollController;
+    if (scroll != null) {
+      photo = HomiziParallax(controller: scroll, factor: 0.4, child: photo);
+    }
+    // The tap target sits outside the parallax so its bounds never move.
+    if (photos.isNotEmpty) {
+      photo = GestureDetector(
+        key: const Key('listing-hero'),
+        onTap: _open,
+        child: photo,
+      );
+    }
+    final hero = SizedBox(
+      height: heroHeight,
+      width: double.infinity,
+      child: Stack(
+        fit: StackFit.expand,
+        children: [
+          photo,
           Positioned(
             left: 12,
             right: 12,
@@ -151,10 +175,7 @@ class _ListingDetailGalleryState extends State<ListingDetailGallery> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        HeroMode(
-          enabled: current && TickerMode.valuesOf(context).enabled,
-          child: Hero(tag: widget.heroTag, child: hero),
-        ),
+        hero,
         if (photos.isNotEmpty) ...[
           const SizedBox(height: 12),
           SizedBox(
@@ -308,7 +329,9 @@ class _RoundIconButton extends StatelessWidget {
         padding: EdgeInsets.zero,
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
       ),
-      icon: Icon(icon, size: 20, color: color),
+      icon: HomiziSwap(
+        child: Icon(icon, key: ValueKey(icon), size: 20, color: color),
+      ),
     );
   }
 }
@@ -400,12 +423,15 @@ class _Counter extends StatelessWidget {
         color: HomiziColors.night,
         borderRadius: BorderRadius.circular(12),
       ),
-      child: Text(
-        '${index + 1}/$total',
-        style: const TextStyle(
-          color: HomiziColors.white,
-          fontWeight: FontWeight.w800,
-          fontSize: 13,
+      child: HomiziSwap(
+        child: Text(
+          '${index + 1}/$total',
+          key: ValueKey(index),
+          style: const TextStyle(
+            color: HomiziColors.white,
+            fontWeight: FontWeight.w800,
+            fontSize: 13,
+          ),
         ),
       ),
     );
@@ -519,4 +545,10 @@ class _ListingPhotoGalleryPageState extends State<ListingPhotoGalleryPage> {
       ),
     );
   }
+}
+
+/// Height of the detail photo for this screen.
+double listingHeroHeight(BuildContext context) {
+  final height = MediaQuery.sizeOf(context).height;
+  return (height * 0.42).clamp(280, 460).toDouble();
 }

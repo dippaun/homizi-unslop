@@ -6,6 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:homizi/app.dart';
 import 'package:homizi/core/config/app_config.dart';
 import 'package:homizi/core/config/app_config_provider.dart';
+import 'package:homizi/core/motion/slow_motion.dart';
 import 'package:homizi/core/observability/error_reporting.dart';
 import 'package:homizi/core/routing/session_redirect.dart';
 import 'package:homizi/core/widgets/homizi_error_boundary.dart';
@@ -22,6 +23,7 @@ Future<void> main() async {
 
 Future<void> runHomizi(AppConfig config) async {
   WidgetsFlutterBinding.ensureInitialized();
+  applySlowMotionFromUrl();
   ErrorWidget.builder = homiziErrorWidget;
   final container = ProviderContainer(
     overrides: [appConfigProvider.overrideWithValue(config)],

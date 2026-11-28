@@ -10,6 +10,7 @@ import 'package:homizi/core/l10n/translate.dart';
 import 'package:homizi/core/location/city_locality_field.dart';
 import 'package:homizi/core/location/location_models.dart';
 import 'package:homizi/core/location/place_autocomplete_field.dart';
+import 'package:homizi/core/motion/homizi_motion.dart';
 import 'package:homizi/core/routing/route_paths.dart';
 import 'package:homizi/core/storage/device_string_store.dart';
 import 'package:homizi/core/theme/homizi_colors.dart';
@@ -440,47 +441,56 @@ class _ProfileMeScreenState extends ConsumerState<ProfileMeScreen> {
           variant: PageBackgroundVariant.soft,
           child: RefreshIndicator(
             onRefresh: _load,
-            child: ListView(
-              physics: const AlwaysScrollableScrollPhysics(),
-              padding: const EdgeInsets.fromLTRB(16, 12, 16, 32),
-              children: [
-                if (_error != null)
-                  _panel(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          homiziText(context, _error!),
-                          key: const Key('profile-me-error'),
-                        ),
-                        TextButton(
-                          key: const Key('profile-me-retry'),
-                          onPressed: () => unawaited(_load()),
-                          child: Text(homiziText(context, 'Try again')),
-                        ),
-                      ],
+            child: HomiziStagger(
+              count: 3,
+              child: ListView(
+                physics: const AlwaysScrollableScrollPhysics(),
+                padding: const EdgeInsets.fromLTRB(16, 12, 16, 32),
+                children: [
+                  if (_error != null)
+                    _panel(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            homiziText(context, _error!),
+                            key: const Key('profile-me-error'),
+                          ),
+                          TextButton(
+                            key: const Key('profile-me-retry'),
+                            onPressed: () => unawaited(_load()),
+                            child: Text(homiziText(context, 'Try again')),
+                          ),
+                        ],
+                      ),
+                    ),
+                  HomiziStaggerItem(
+                    index: 0,
+                    child: _header(
+                      name,
+                      wire,
+                      host,
+                      media.photo,
+                      stats,
+                      score,
+                      pgOwner: pgOwner,
                     ),
                   ),
-                _header(
-                  name,
-                  wire,
-                  host,
-                  media.photo,
-                  stats,
-                  score,
-                  pgOwner: pgOwner,
-                ),
-                const SizedBox(height: 8),
-                _tabs(host),
-                const SizedBox(height: 12),
-                switch (_tab) {
-                  1 => _listingsPane(host),
-                  2 => _activityPane(host),
-                  3 => _verification(),
-                  _ => _myProfile(host, pgOwner: pgOwner),
-                },
-                const LogOutButton(),
-              ],
+                  const SizedBox(height: 8),
+                  HomiziStaggerItem(index: 1, child: _tabs(host)),
+                  const SizedBox(height: 12),
+                  HomiziStaggerItem(
+                    index: 2,
+                    child: switch (_tab) {
+                      1 => _listingsPane(host),
+                      2 => _activityPane(host),
+                      3 => _verification(),
+                      _ => _myProfile(host, pgOwner: pgOwner),
+                    },
+                  ),
+                  const LogOutButton(),
+                ],
+              ),
             ),
           ),
         ),

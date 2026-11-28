@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:homizi/core/l10n/translate.dart';
+import 'package:homizi/core/motion/homizi_motion.dart';
 import 'package:homizi/core/routing/account_prompt.dart';
 import 'package:homizi/core/routing/route_paths.dart';
 import 'package:homizi/core/theme/homizi_colors.dart';
@@ -25,11 +26,24 @@ const _page = 16.0;
 const _tileRadius = 20.0;
 
 /// Landing home. Role homes stay on their own routes and in the menu.
-class HomeScreen extends ConsumerWidget {
+class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends ConsumerState<HomeScreen> {
+  final _scroll = ScrollController();
+
+  @override
+  void dispose() {
+    _scroll.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final signedIn = ref.watch(signedInProvider);
     return Align(
       alignment: Alignment.topCenter,
@@ -38,8 +52,12 @@ class HomeScreen extends ConsumerWidget {
         child: Scaffold(
           key: const Key('home-screen'),
           backgroundColor: HomiziColors.white,
-          appBar: HomiziHomeBar(actions: [if (signedIn) const _NotifyButton()]),
-          body: const HomiziErrorBoundary(child: _HomeBody()),
+          extendBodyBehindAppBar: true,
+          appBar: HomiziHomeBar(
+            scrollController: _scroll,
+            actions: [if (signedIn) const _NotifyButton()],
+          ),
+          body: HomiziErrorBoundary(child: _HomeBody(controller: _scroll)),
         ),
       ),
     );
@@ -66,32 +84,48 @@ class _NotifyButton extends ConsumerWidget {
 }
 
 class _HomeBody extends StatelessWidget {
-  const _HomeBody();
+  const _HomeBody({required this.controller});
+
+  final ScrollController controller;
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      key: const Key('home-scroll'),
-      padding: const EdgeInsets.only(bottom: 28),
-      children: const [
-        _Hero(),
-        SizedBox(height: 8),
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: _page),
-          child: _ActionGrid(),
-        ),
-        SizedBox(height: 8),
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: _page),
-          child: _RentalStrip(),
-        ),
-      ],
+    // The bar floats over the list, so the list starts below it.
+    final top = MediaQuery.paddingOf(context).top;
+    return HomiziStagger(
+      count: 3,
+      child: ListView(
+        key: const Key('home-scroll'),
+        controller: controller,
+        padding: EdgeInsets.only(top: top, bottom: 28),
+        children: [
+          HomiziStaggerItem(index: 0, child: _Hero(controller: controller)),
+          const SizedBox(height: 8),
+          const HomiziStaggerItem(
+            index: 1,
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: _page),
+              child: _ActionGrid(),
+            ),
+          ),
+          const SizedBox(height: 8),
+          const HomiziStaggerItem(
+            index: 2,
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: _page),
+              child: _RentalStrip(),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
 
 class _Hero extends StatelessWidget {
-  const _Hero();
+  const _Hero({required this.controller});
+
+  final ScrollController controller;
 
   @override
   Widget build(BuildContext context) {
@@ -113,7 +147,10 @@ class _Hero extends StatelessWidget {
                 right: 0,
                 bottom: 0,
                 width: photoWidth,
-                child: const _HeroPhoto(),
+                child: HomiziParallax(
+                  controller: controller,
+                  child: const _HeroPhoto(),
+                ),
               ),
               Positioned(
                 top: 0,
@@ -366,119 +403,121 @@ class _ActionCard extends StatelessWidget {
       fontWeight: FontWeight.w800,
       color: ink,
     );
-    return DecoratedBox(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(_tileRadius),
-        boxShadow: const [
-          BoxShadow(
-            color: HomiziColors.shadow,
-            blurRadius: 16,
-            offset: Offset(0, 8),
-          ),
-        ],
-      ),
-      child: Material(
-        color: action.color,
-        shape: RoundedRectangleBorder(
+    return HomiziPressScale(
+      child: DecoratedBox(
+        decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(_tileRadius),
+          boxShadow: const [
+            BoxShadow(
+              color: HomiziColors.shadow,
+              blurRadius: 16,
+              offset: Offset(0, 8),
+            ),
+          ],
         ),
-        clipBehavior: Clip.antiAlias,
-        child: InkWell(
-          key: action.cardKey,
-          onTap: () => context.push(action.path),
-          child: Semantics(
-            button: true,
-            label: spoken,
-            child: SizedBox(
-              width: double.infinity,
-              height: 176,
-              child: Stack(
-                children: [
-                  if (action.image != null) _TilePhoto(action: action),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(12, 12, 44, 14),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        DecoratedBox(
-                          decoration: const BoxDecoration(
-                            color: HomiziColors.white,
-                            shape: BoxShape.circle,
-                          ),
-                          child: SizedBox(
-                            width: 36,
-                            height: 36,
-                            child: Icon(
-                              action.icon,
-                              size: 20,
-                              color: HomiziColors.accent,
+        child: Material(
+          color: action.color,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(_tileRadius),
+          ),
+          clipBehavior: Clip.antiAlias,
+          child: InkWell(
+            key: action.cardKey,
+            onTap: () => context.push(action.path),
+            child: Semantics(
+              button: true,
+              label: spoken,
+              child: SizedBox(
+                width: double.infinity,
+                height: 176,
+                child: Stack(
+                  children: [
+                    if (action.image != null) _TilePhoto(action: action),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(12, 12, 44, 14),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          DecoratedBox(
+                            decoration: const BoxDecoration(
+                              color: HomiziColors.white,
+                              shape: BoxShape.circle,
                             ),
-                          ),
-                        ),
-                        const SizedBox(height: 10),
-                        Stack(
-                          children: [
-                            Text(
-                              ' \n ',
-                              maxLines: 2,
-                              style: titleStyle.copyWith(
-                                color: HomiziColors.clear,
+                            child: SizedBox(
+                              width: 36,
+                              height: 36,
+                              child: Icon(
+                                action.icon,
+                                size: 20,
+                                color: HomiziColors.accent,
                               ),
                             ),
-                            Text(
-                              homiziText(context, action.title),
-                              maxLines: 2,
-                              overflow: TextOverflow.ellipsis,
-                              style: titleStyle,
-                            ),
-                          ],
-                        ),
-                        const SizedBox(height: 4),
-                        Text(
-                          homiziText(context, action.subtitle),
-                          maxLines: 3,
-                          overflow: TextOverflow.ellipsis,
-                          style: const TextStyle(
-                            fontFamily: 'Inter',
-                            fontSize: 12,
-                            height: 1.3,
-                            fontWeight: FontWeight.w500,
-                            color: HomiziColors.inkSoft,
                           ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  const Positioned(
-                    right: 10,
-                    bottom: 10,
-                    child: ExcludeSemantics(
-                      child: DecoratedBox(
-                        decoration: BoxDecoration(
-                          color: HomiziColors.white,
-                          shape: BoxShape.circle,
-                          boxShadow: [
-                            BoxShadow(
-                              color: HomiziColors.shadow,
-                              blurRadius: 6,
-                              offset: Offset(0, 2),
+                          const SizedBox(height: 10),
+                          Stack(
+                            children: [
+                              Text(
+                                ' \n ',
+                                maxLines: 2,
+                                style: titleStyle.copyWith(
+                                  color: HomiziColors.clear,
+                                ),
+                              ),
+                              Text(
+                                homiziText(context, action.title),
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
+                                style: titleStyle,
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 4),
+                          Text(
+                            homiziText(context, action.subtitle),
+                            maxLines: 3,
+                            overflow: TextOverflow.ellipsis,
+                            style: const TextStyle(
+                              fontFamily: 'Inter',
+                              fontSize: 12,
+                              height: 1.3,
+                              fontWeight: FontWeight.w500,
+                              color: HomiziColors.inkSoft,
                             ),
-                          ],
-                        ),
-                        child: SizedBox(
-                          width: 28,
-                          height: 28,
-                          child: Icon(
-                            Icons.chevron_right,
-                            size: 20,
-                            color: HomiziColors.ink,
+                          ),
+                        ],
+                      ),
+                    ),
+                    const Positioned(
+                      right: 10,
+                      bottom: 10,
+                      child: ExcludeSemantics(
+                        child: DecoratedBox(
+                          decoration: BoxDecoration(
+                            color: HomiziColors.white,
+                            shape: BoxShape.circle,
+                            boxShadow: [
+                              BoxShadow(
+                                color: HomiziColors.shadow,
+                                blurRadius: 6,
+                                offset: Offset(0, 2),
+                              ),
+                            ],
+                          ),
+                          child: SizedBox(
+                            width: 28,
+                            height: 28,
+                            child: Icon(
+                              Icons.chevron_right,
+                              size: 20,
+                              color: HomiziColors.ink,
+                            ),
                           ),
                         ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),

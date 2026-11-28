@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:homizi/core/l10n/translate.dart';
 import 'package:homizi/core/media/photo_source.dart';
+import 'package:homizi/core/motion/homizi_motion.dart';
 import 'package:homizi/core/theme/homizi_colors.dart';
 import 'package:homizi/core/widgets/listing_widgets.dart';
 import 'package:homizi/features/discovery/homizi_portrait.dart';
@@ -118,7 +119,11 @@ class HomiziPropertyCard extends StatefulWidget {
     this.scrollController,
     this.busy = false,
     this.photoAlignment = Alignment.center,
+    this.heroTag,
   });
+
+  /// When set, the photo flies into the listing page's photo on open.
+  final String? heroTag;
 
   final HomiziPropertyCardData data;
   final HomiziPropertyCardVariant variant;
@@ -337,6 +342,25 @@ class _HomiziPropertyCardState extends State<HomiziPropertyCard> {
     return lower.contains('/avatars/') || lower.contains('avatar_');
   }
 
+  Widget _heroPhoto(Widget photo) {
+    final tag = widget.heroTag;
+    if (tag == null) {
+      return photo;
+    }
+    // Home and Explore keep cards in the shell's indexed stack. Only the
+    // visible branch may register a hero, or the flight throws.
+    return HeroMode(
+      enabled: TickerMode.valuesOf(context).enabled,
+      child: Hero(
+        tag: tag,
+        curve: homiziSpring,
+        createRectTween: homiziHeroRectTween,
+        flightShuttleBuilder: homiziCardShuttle,
+        child: photo,
+      ),
+    );
+  }
+
   Widget _photos(BuildContext context, {required double height}) {
     final photos = _frames();
     final index = _photo.clamp(0, photos.length - 1);
@@ -378,21 +402,23 @@ class _HomiziPropertyCardState extends State<HomiziPropertyCard> {
       child: Stack(
         fit: StackFit.expand,
         children: [
-          PageView.builder(
-            key: Key('property-photos-${widget.data.id}'),
-            itemCount: photos.length,
-            onPageChanged: (next) => setState(() => _photo = next),
-            itemBuilder: (context, i) {
-              return GestureDetector(
-                onTap: widget.onTap,
-                child: ListingPhoto(
-                  asset: photos[i].ref,
-                  fallbackAsset: homiziFallbackPhoto(widget.data.id),
-                  semanticLabel: photos[i].caption,
-                  alignment: widget.photoAlignment,
-                ),
-              );
-            },
+          _heroPhoto(
+            PageView.builder(
+              key: Key('property-photos-${widget.data.id}'),
+              itemCount: photos.length,
+              onPageChanged: (next) => setState(() => _photo = next),
+              itemBuilder: (context, i) {
+                return GestureDetector(
+                  onTap: widget.onTap,
+                  child: ListingPhoto(
+                    asset: photos[i].ref,
+                    fallbackAsset: homiziFallbackPhoto(widget.data.id),
+                    semanticLabel: photos[i].caption,
+                    alignment: widget.photoAlignment,
+                  ),
+                );
+              },
+            ),
           ),
           if (full)
             Positioned(left: 12, top: 12, right: 64, child: badges)

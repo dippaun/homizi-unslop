@@ -1,6 +1,7 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
+import 'package:homizi/core/motion/homizi_motion.dart';
 import 'package:homizi/core/theme/homizi_colors.dart';
 import 'package:homizi/ui/kit/icon_choice_chip.dart';
 import 'package:homizi/ui/kit/real_life_icons.dart';
@@ -42,92 +43,103 @@ class OptionTile extends StatelessWidget {
     return Semantics(
       button: true,
       selected: selected,
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 180),
-        curve: Curves.easeOutCubic,
-        decoration: BoxDecoration(
-          color: selected
-              ? HomiziColors.logoOrange.withValues(alpha: 0.10)
-              : HomiziColors.soft,
-          borderRadius: BorderRadius.circular(16),
-          border: Border.all(
-            color: selected ? HomiziColors.logoOrange : HomiziColors.clear,
-            width: 2,
+      child: HomiziPressScale(
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 180),
+          curve: Curves.easeOutCubic,
+          decoration: BoxDecoration(
+            color: selected
+                ? HomiziColors.logoOrange.withValues(alpha: 0.10)
+                : HomiziColors.soft,
+            borderRadius: BorderRadius.circular(16),
+            border: Border.all(
+              color: selected ? HomiziColors.logoOrange : HomiziColors.clear,
+              width: 2,
+            ),
           ),
-        ),
-        child: Material(
-          color: HomiziColors.clear,
-          borderRadius: BorderRadius.circular(14),
-          child: InkWell(
-            onTap: onTap,
+          child: Material(
+            color: HomiziColors.clear,
             borderRadius: BorderRadius.circular(14),
-            child: Stack(
-              alignment: Alignment.center,
-              children: [
-                SizedBox(
-                  width: double.infinity,
-                  child: ConstrainedBox(
-                    constraints: BoxConstraints(
-                      minHeight: minHeight ?? (dense ? 72 : 112),
-                    ),
-                    child: Padding(
-                      padding: EdgeInsets.fromLTRB(10, dense ? 10 : 14, 10, 12),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          if (illustration != null)
-                            illustration!
-                          else
-                            Icon(glyph, color: artColor, size: dense ? 22 : 28),
-                          SizedBox(height: dense ? 4 : 8),
-                          SizedBox(
-                            width: double.infinity,
-                            child: Text(
-                              label,
-                              textAlign: TextAlign.center,
-                              maxLines: 3,
-                              overflow: TextOverflow.ellipsis,
-                              style: const TextStyle(
-                                fontFamily: 'PlusJakartaSans',
-                                fontWeight: FontWeight.w700,
-                                fontSize: 13,
-                                height: 1.25,
-                                color: HomiziColors.ink,
+            child: InkWell(
+              onTap: onTap,
+              borderRadius: BorderRadius.circular(14),
+              child: Stack(
+                alignment: Alignment.center,
+                children: [
+                  SizedBox(
+                    width: double.infinity,
+                    child: ConstrainedBox(
+                      constraints: BoxConstraints(
+                        minHeight: minHeight ?? (dense ? 72 : 112),
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.fromLTRB(
+                          10,
+                          dense ? 10 : 14,
+                          10,
+                          12,
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            if (illustration != null)
+                              illustration!
+                            else
+                              Icon(
+                                glyph,
+                                color: artColor,
+                                size: dense ? 22 : 28,
                               ),
-                            ),
-                          ),
-                          if (subtitle != null) ...[
-                            const SizedBox(height: 2),
+                            SizedBox(height: dense ? 4 : 8),
                             SizedBox(
                               width: double.infinity,
                               child: Text(
-                                subtitle!,
+                                label,
                                 textAlign: TextAlign.center,
-                                maxLines: subtitleMaxLines,
+                                maxLines: 3,
                                 overflow: TextOverflow.ellipsis,
                                 style: const TextStyle(
-                                  fontSize: 11,
-                                  color: HomiziColors.muted,
+                                  fontFamily: 'PlusJakartaSans',
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: 13,
+                                  height: 1.25,
+                                  color: HomiziColors.ink,
                                 ),
                               ),
                             ),
+                            if (subtitle != null) ...[
+                              const SizedBox(height: 2),
+                              SizedBox(
+                                width: double.infinity,
+                                child: Text(
+                                  subtitle!,
+                                  textAlign: TextAlign.center,
+                                  maxLines: subtitleMaxLines,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: const TextStyle(
+                                    fontSize: 11,
+                                    color: HomiziColors.muted,
+                                  ),
+                                ),
+                              ),
+                            ],
                           ],
-                        ],
+                        ),
                       ),
                     ),
                   ),
-                ),
-                if (selected)
-                  const Positioned(
-                    top: 6,
-                    right: 6,
-                    child: Icon(
-                      Icons.check_circle,
-                      size: 18,
-                      color: HomiziColors.logoOrange,
+                  if (selected)
+                    const Positioned(
+                      top: 6,
+                      right: 6,
+                      child: Icon(
+                        Icons.check_circle,
+                        size: 18,
+                        color: HomiziColors.logoOrange,
+                      ),
                     ),
-                  ),
-              ],
+                ],
+              ),
             ),
           ),
         ),

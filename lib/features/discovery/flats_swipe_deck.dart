@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:homizi/core/l10n/translate.dart';
+import 'package:homizi/core/motion/homizi_motion.dart';
 import 'package:homizi/core/network/offline_failure.dart';
 import 'package:homizi/core/routing/account_prompt.dart';
 import 'package:homizi/core/routing/route_paths.dart';
@@ -486,21 +487,26 @@ class _FlatsSwipeDeckState extends ConsumerState<FlatsSwipeDeck>
                   key: widget.cardKey,
                   fit: StackFit.expand,
                   children: [
-                    HomiziPropertyCard(
-                      data: data,
-                      busy: _busy,
-                      scrollController: _scroll,
-                      onTap: () => context.push(RoutePaths.listing(listing.id)),
-                      onSave: () => unawaited(_heart(listing)),
-                      onWhy: () {
-                        if (!match.showBadge) {
-                          context.push(RoutePaths.priorities);
-                          return;
-                        }
-                        showMatchBreakdown(context, match: match);
-                      },
-                      onContact: () => unawaited(_contact(listing)),
-                      onNearby: () => _openNearby(listing),
+                    HomiziPressScale(
+                      scale: 0.985,
+                      child: HomiziPropertyCard(
+                        heroTag: listing.heroTag,
+                        data: data,
+                        busy: _busy,
+                        scrollController: _scroll,
+                        onTap: () =>
+                            context.push(RoutePaths.listing(listing.id)),
+                        onSave: () => unawaited(_heart(listing)),
+                        onWhy: () {
+                          if (!match.showBadge) {
+                            context.push(RoutePaths.priorities);
+                            return;
+                          }
+                          showMatchBreakdown(context, match: match);
+                        },
+                        onContact: () => unawaited(_contact(listing)),
+                        onNearby: () => _openNearby(listing),
+                      ),
                     ),
                     if (stamp != null)
                       Positioned.fill(child: IgnorePointer(child: stamp)),

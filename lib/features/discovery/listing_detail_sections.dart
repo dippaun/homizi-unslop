@@ -9,6 +9,7 @@ import 'package:homizi/core/format/place_label.dart';
 import 'package:homizi/core/l10n/translate.dart';
 import 'package:homizi/core/location/location_models.dart';
 import 'package:homizi/core/location/location_providers.dart';
+import 'package:homizi/core/motion/homizi_motion.dart';
 import 'package:homizi/core/routing/route_paths.dart';
 import 'package:homizi/core/theme/homizi_colors.dart';
 import 'package:homizi/core/widgets/listing_widgets.dart';
@@ -1664,28 +1665,38 @@ class _BarButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return OutlinedButton(
-      onPressed: onPressed,
-      style: OutlinedButton.styleFrom(
-        foregroundColor: HomiziColors.ink,
-        side: const BorderSide(color: HomiziColors.line),
-        minimumSize: const Size(48, 48),
-        padding: const EdgeInsets.symmetric(horizontal: 10),
-        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(icon, size: 18, color: HomiziColors.ink),
-          const SizedBox(width: 4),
-          Text(
-            homiziText(context, label),
-            style: const TextStyle(
-              color: HomiziColors.ink,
-              fontWeight: FontWeight.w800,
+    return HomiziPressScale(
+      enabled: onPressed != null,
+      child: OutlinedButton(
+        onPressed: onPressed,
+        style: OutlinedButton.styleFrom(
+          foregroundColor: HomiziColors.ink,
+          side: const BorderSide(color: HomiziColors.line),
+          minimumSize: const Size(48, 48),
+          padding: const EdgeInsets.symmetric(horizontal: 10),
+          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            HomiziSwap(
+              child: Icon(
+                icon,
+                key: ValueKey(icon),
+                size: 18,
+                color: HomiziColors.ink,
+              ),
             ),
-          ),
-        ],
+            const SizedBox(width: 4),
+            Text(
+              homiziText(context, label),
+              style: const TextStyle(
+                color: HomiziColors.ink,
+                fontWeight: FontWeight.w800,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -1700,48 +1711,54 @@ class _InterestButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final label = busy ? 'Saving…' : "I'm Interested";
-    return Opacity(
-      opacity: onPressed == null ? 0.5 : 1,
-      child: Material(
-        color: HomiziColors.clear,
-        borderRadius: BorderRadius.circular(14),
-        clipBehavior: Clip.antiAlias,
-        child: InkWell(
-          key: const Key('interested-button'),
-          onTap: onPressed,
-          child: Ink(
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                colors: [HomiziColors.logoOrange, HomiziColors.brandDeepOrange],
+    return HomiziPressScale(
+      enabled: onPressed != null,
+      child: Opacity(
+        opacity: onPressed == null ? 0.5 : 1,
+        child: Material(
+          color: HomiziColors.clear,
+          borderRadius: BorderRadius.circular(14),
+          clipBehavior: Clip.antiAlias,
+          child: InkWell(
+            key: const Key('interested-button'),
+            onTap: onPressed,
+            child: Ink(
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    HomiziColors.logoOrange,
+                    HomiziColors.brandDeepOrange,
+                  ],
+                ),
               ),
-            ),
-            child: SizedBox(
-              height: 48,
-              child: Center(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8),
-                  child: FittedBox(
-                    fit: BoxFit.scaleDown,
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Text(
-                          homiziText(context, label),
-                          style: const TextStyle(
-                            color: HomiziColors.ink,
-                            fontWeight: FontWeight.w800,
-                            fontSize: 15,
+              child: SizedBox(
+                height: 48,
+                child: Center(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8),
+                    child: FittedBox(
+                      fit: BoxFit.scaleDown,
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(
+                            homiziText(context, label),
+                            style: const TextStyle(
+                              color: HomiziColors.ink,
+                              fontWeight: FontWeight.w800,
+                              fontSize: 15,
+                            ),
                           ),
-                        ),
-                        if (!busy) ...[
-                          const SizedBox(width: 6),
-                          const Icon(
-                            Icons.arrow_forward,
-                            size: 18,
-                            color: HomiziColors.ink,
-                          ),
+                          if (!busy) ...[
+                            const SizedBox(width: 6),
+                            const Icon(
+                              Icons.arrow_forward,
+                              size: 18,
+                              color: HomiziColors.ink,
+                            ),
+                          ],
                         ],
-                      ],
+                      ),
                     ),
                   ),
                 ),
