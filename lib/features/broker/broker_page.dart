@@ -21,7 +21,7 @@ class BrokerPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       key: screenKey,
-      backgroundColor: HomiziColors.cream,
+      backgroundColor: HomiziColors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: const HomiziBackButton(),
@@ -56,11 +56,11 @@ class BrokerTapCard extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 12),
       color: HomiziColors.white,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(20),
         side: const BorderSide(color: HomiziColors.line),
       ),
       child: InkWell(
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(20),
         onTap: onTap,
         child: Padding(padding: const EdgeInsets.all(16), child: child),
       ),

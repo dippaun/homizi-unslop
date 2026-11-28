@@ -285,7 +285,7 @@ void main() {
       tester
           .widget<Scaffold>(find.byKey(const Key('partner-dashboard')))
           .backgroundColor,
-      HomiziColors.soft,
+      HomiziColors.white,
     );
     expect(find.textContaining('NoBroker'), findsNothing);
 

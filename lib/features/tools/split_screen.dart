@@ -230,7 +230,7 @@ class _SplitScreenState extends ConsumerState<SplitScreen> {
     final next = await showModalBottomSheet<SplitRoom>(
       context: context,
       isScrollControlled: true,
-      backgroundColor: HomiziColors.cream,
+      backgroundColor: HomiziColors.white,
       builder: (context) =>
           _RoomSheet(title: roomTitle(_rooms, index), room: _rooms[index]),
     );
@@ -375,7 +375,7 @@ class _SplitScreenState extends ConsumerState<SplitScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: HomiziColors.cream,
+      backgroundColor: HomiziColors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: HomiziBackButton(onPressed: _back),
@@ -424,7 +424,7 @@ class _SplitScreenState extends ConsumerState<SplitScreen> {
   TextStyle? _h1(BuildContext context) => Theme.of(context)
       .textTheme
       .headlineSmall
-      ?.copyWith(fontWeight: FontWeight.w600, color: HomiziColors.ink);
+      ?.copyWith(fontWeight: FontWeight.w700, color: HomiziColors.ink);
 
   List<Widget> _setup(BuildContext context) {
     final text = Theme.of(context).textTheme;
@@ -438,9 +438,9 @@ class _SplitScreenState extends ConsumerState<SplitScreen> {
         ),
         style: text.bodyMedium?.copyWith(color: HomiziColors.inkSoft),
       ),
-      const SizedBox(height: 16),
+      const SizedBox(height: 14),
       ClipRRect(
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(18),
         child: AspectRatio(
           aspectRatio: 16 / 9,
           child: Image.asset(
@@ -476,7 +476,7 @@ class _SplitScreenState extends ConsumerState<SplitScreen> {
                   ),
               ],
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: 14),
             Autocomplete<String>(
               initialValue: TextEditingValue(text: _locality.text),
               optionsBuilder: (value) {
@@ -539,7 +539,7 @@ class _SplitScreenState extends ConsumerState<SplitScreen> {
                   '$_people',
                   key: const Key('split-people'),
                   style: text.titleMedium?.copyWith(
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w700,
                   ),
                 ),
                 IconButton(
@@ -618,13 +618,13 @@ class _SplitScreenState extends ConsumerState<SplitScreen> {
         const SizedBox(height: 24),
         Text(
           homiziText(context, 'Your saved splits'),
-          style: text.titleMedium?.copyWith(fontWeight: FontWeight.w600),
+          style: text.titleMedium?.copyWith(fontWeight: FontWeight.w700),
         ),
         for (final split in _history.take(3))
           Container(
             key: Key('split-history-${split.id}'),
             margin: const EdgeInsets.only(top: 10),
-            padding: const EdgeInsets.all(16),
+            padding: const EdgeInsets.all(14),
             decoration: BoxDecoration(
               border: Border.all(color: HomiziColors.line),
               borderRadius: BorderRadius.circular(16),
@@ -697,7 +697,7 @@ class _SplitScreenState extends ConsumerState<SplitScreen> {
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
           color: HomiziColors.successWash,
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: BorderRadius.circular(18),
         ),
         child: Row(
           children: [
@@ -714,7 +714,7 @@ class _SplitScreenState extends ConsumerState<SplitScreen> {
                   Text(
                     '${formatInr(_home.rentInr)} / ${homiziText(context, 'month')}',
                     style: text.headlineSmall?.copyWith(
-                      fontWeight: FontWeight.w600,
+                      fontWeight: FontWeight.w700,
                       color: HomiziColors.ink,
                     ),
                   ),
@@ -739,7 +739,7 @@ class _SplitScreenState extends ConsumerState<SplitScreen> {
           ],
         ),
       ),
-      const SizedBox(height: 16),
+      const SizedBox(height: 14),
       Row(
         children: [
           for (final mode in SplitMode.values) ...[
@@ -766,7 +766,7 @@ class _SplitScreenState extends ConsumerState<SplitScreen> {
       const SizedBox(height: 4),
       Container(
         key: const Key('split-total-check'),
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
         decoration: BoxDecoration(
           color: ok ? HomiziColors.successWash : HomiziColors.errorWash,
           borderRadius: BorderRadius.circular(16),
@@ -785,7 +785,7 @@ class _SplitScreenState extends ConsumerState<SplitScreen> {
                     : homiziText(context, outcome.problem!),
                 key: const Key('split-total'),
                 style: text.titleMedium?.copyWith(
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w700,
                   color: ok ? HomiziColors.ink : HomiziColors.error,
                 ),
               ),
@@ -832,7 +832,7 @@ class _SplitScreenState extends ConsumerState<SplitScreen> {
       ),
       const SizedBox(height: 12),
       Container(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(14),
         decoration: BoxDecoration(
           color: HomiziColors.soft,
           borderRadius: BorderRadius.circular(16),
@@ -932,7 +932,7 @@ class _SplitScreenState extends ConsumerState<SplitScreen> {
       ),
       const SizedBox(height: 16),
       Container(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(14),
         decoration: BoxDecoration(
           border: Border.all(color: HomiziColors.line),
           borderRadius: BorderRadius.circular(16),
@@ -954,7 +954,7 @@ class _SplitScreenState extends ConsumerState<SplitScreen> {
                     ),
                     Text(
                       formatInr(share.totalInr),
-                      style: const TextStyle(fontWeight: FontWeight.w600),
+                      style: const TextStyle(fontWeight: FontWeight.w700),
                     ),
                   ],
                 ),
@@ -986,7 +986,7 @@ class _SplitScreenState extends ConsumerState<SplitScreen> {
       else
         Container(
           key: const Key('split-paid'),
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.all(14),
           decoration: BoxDecoration(
             color: HomiziColors.successWash,
             borderRadius: BorderRadius.circular(16),
@@ -1003,7 +1003,7 @@ class _SplitScreenState extends ConsumerState<SplitScreen> {
                   ),
                   style: const TextStyle(
                     color: HomiziColors.success,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w700,
                   ),
                 ),
               ),
@@ -1041,7 +1041,7 @@ class _Steps extends StatelessWidget {
     const labels = ['Home', 'Rooms', 'Result', 'Agree'];
     final at = step.index;
     return Padding(
-      padding: const EdgeInsets.only(bottom: 16, top: 4),
+      padding: const EdgeInsets.only(bottom: 14, top: 4),
       child: Row(
         children: [
           for (var i = 0; i < labels.length; i++) ...[
@@ -1063,7 +1063,7 @@ class _Steps extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 11,
                       color: i <= at ? HomiziColors.ink : HomiziColors.muted,
-                      fontWeight: i == at ? FontWeight.w600 : FontWeight.w500,
+                      fontWeight: i == at ? FontWeight.w700 : FontWeight.w500,
                     ),
                   ),
                 ],
@@ -1094,7 +1094,7 @@ class _Section extends StatelessWidget {
       color: HomiziColors.white,
       shape: RoundedRectangleBorder(
         side: const BorderSide(color: HomiziColors.line),
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(18),
       ),
       child: Padding(
         padding: const EdgeInsets.all(16),
@@ -1108,7 +1108,7 @@ class _Section extends StatelessWidget {
                 Text(
                   homiziText(context, title),
                   style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w700,
                     color: HomiziColors.brandRedOrange,
                   ),
                 ),
@@ -1145,7 +1145,9 @@ class _GradientButton extends StatelessWidget {
       opacity: enabled || busy ? 1 : 0.5,
       child: DecoratedBox(
         decoration: BoxDecoration(
-          gradient: HomiziGradients.action,
+          gradient: const LinearGradient(
+            colors: [HomiziColors.logoOrange, HomiziColors.brandRedOrange],
+          ),
           borderRadius: BorderRadius.circular(16),
         ),
         child: Material(
@@ -1179,7 +1181,7 @@ class _GradientButton extends StatelessWidget {
                               overflow: TextOverflow.ellipsis,
                               style: const TextStyle(
                                 color: HomiziColors.white,
-                                fontWeight: FontWeight.w600,
+                                fontWeight: FontWeight.w700,
                                 fontSize: 16,
                               ),
                             ),
@@ -1220,16 +1222,16 @@ class _RoomCard extends StatelessWidget {
         border: Border.all(
           color: room.isMaster ? HomiziColors.brandOrange : HomiziColors.line,
         ),
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(18),
       ),
       child: Column(
         children: [
           InkWell(
             key: Key('split-room-$index'),
-            borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
+            borderRadius: const BorderRadius.vertical(top: Radius.circular(18)),
             onTap: onEdit,
             child: Padding(
-              padding: const EdgeInsets.fromLTRB(16, 16, 8, 6),
+              padding: const EdgeInsets.fromLTRB(14, 14, 8, 6),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -1245,7 +1247,7 @@ class _RoomCard extends StatelessWidget {
                         Text(
                           homiziText(context, title),
                           style: text.titleMedium?.copyWith(
-                            fontWeight: FontWeight.w600,
+                            fontWeight: FontWeight.w700,
                             color: HomiziColors.ink,
                           ),
                         ),
@@ -1276,7 +1278,7 @@ class _RoomCard extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.fromLTRB(48, 0, 16, 12),
+            padding: const EdgeInsets.fromLTRB(46, 0, 14, 12),
             child: Row(
               children: [
                 const Icon(
@@ -1360,7 +1362,7 @@ class _RoomSheetState extends State<_RoomSheet> {
           children: [
             Text(
               homiziText(context, widget.title),
-              style: text.titleLarge?.copyWith(fontWeight: FontWeight.w600),
+              style: text.titleLarge?.copyWith(fontWeight: FontWeight.w700),
             ),
             const SizedBox(height: 12),
             Text(homiziText(context, 'Room size'), style: text.titleSmall),
@@ -1458,16 +1460,24 @@ class _ModeTab extends StatelessWidget {
       button: true,
       child: InkWell(
         key: Key('split-mode-${mode.wire}'),
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(14),
         onTap: onTap,
         child: Container(
           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 6),
           decoration: BoxDecoration(
-            color: selected ? HomiziColors.ink : HomiziColors.white,
+            gradient: selected
+                ? const LinearGradient(
+                    colors: [
+                      HomiziColors.logoOrange,
+                      HomiziColors.brandRedOrange,
+                    ],
+                  )
+                : null,
+            color: selected ? null : HomiziColors.white,
             border: Border.all(
-              color: selected ? HomiziColors.ink : HomiziColors.line,
+              color: selected ? HomiziColors.logoOrange : HomiziColors.line,
             ),
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(14),
           ),
           child: Column(
             children: [
@@ -1475,7 +1485,7 @@ class _ModeTab extends StatelessWidget {
                 homiziText(context, mode.label),
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w700,
                   fontSize: 13,
                   color: selected ? HomiziColors.white : HomiziColors.ink,
                 ),
@@ -1484,7 +1494,7 @@ class _ModeTab extends StatelessWidget {
                 homiziText(context, mode.hint),
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontSize: 11,
+                  fontSize: 10.5,
                   color: selected ? HomiziColors.white : HomiziColors.muted,
                 ),
               ),
@@ -1536,7 +1546,7 @@ class _PersonRow extends StatelessWidget {
             child: Text(
               initial,
               style: TextStyle(
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w700,
                 color: index == 0 ? HomiziColors.white : HomiziColors.ink,
               ),
             ),
@@ -1548,7 +1558,7 @@ class _PersonRow extends StatelessWidget {
               children: [
                 Text(
                   share.name,
-                  style: text.titleSmall?.copyWith(fontWeight: FontWeight.w600),
+                  style: text.titleSmall?.copyWith(fontWeight: FontWeight.w700),
                 ),
                 Text(
                   homiziText(context, roomLabel),
@@ -1587,7 +1597,7 @@ class _PersonRow extends StatelessWidget {
               formatInr(share.totalInr),
               key: Key('split-amount-$index'),
               style: text.titleMedium?.copyWith(
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w700,
                 color: HomiziColors.ink,
               ),
             ),
@@ -1624,10 +1634,10 @@ class _HowItWorks extends StatelessWidget {
     ];
     return Container(
       key: const Key('split-how'),
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
         border: Border.all(color: HomiziColors.line),
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(18),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -1635,14 +1645,14 @@ class _HowItWorks extends StatelessWidget {
           Text(
             homiziText(context, 'How the split works'),
             style: text.titleMedium?.copyWith(
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w700,
               color: HomiziColors.brandRedOrange,
             ),
           ),
           const SizedBox(height: 8),
           for (final (icon, line) in points)
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 4),
+              padding: const EdgeInsets.symmetric(vertical: 5),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

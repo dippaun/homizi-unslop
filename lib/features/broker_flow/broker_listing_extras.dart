@@ -58,7 +58,7 @@ class ListedByBrokerBadge extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
       decoration: BoxDecoration(
         color: HomiziColors.accentWash,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(20),
         border: Border.all(color: HomiziColors.accent),
       ),
       child: Row(
@@ -70,7 +70,7 @@ class ListedByBrokerBadge extends StatelessWidget {
             homiziText(context, 'Listed by Broker'),
             style: const TextStyle(
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w700,
               fontSize: 13,
             ),
           ),
@@ -97,7 +97,7 @@ class BrokerOwnerAuthorisation extends ConsumerWidget {
           homiziText(context, 'Owner authorisation'),
           style: Theme.of(context).textTheme.titleSmall?.copyWith(
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w700,
           ),
         ),
         const SizedBox(height: 4),

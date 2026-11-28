@@ -74,17 +74,17 @@ class _ProfileInquiriesScreenState
     final activity = _activity;
     return Scaffold(
       key: const Key('profile-inquiries-screen'),
-      backgroundColor: HomiziColors.cream,
+      backgroundColor: HomiziColors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: HomiziColors.cream,
+        backgroundColor: HomiziColors.white,
         surfaceTintColor: HomiziColors.white,
         leading: const HomiziBackButton(),
         title: Text(
           homiziText(context, 'Inquiries'),
           style: Theme.of(context).textTheme.titleMedium?.copyWith(
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w800,
           ),
         ),
       ),
@@ -129,7 +129,7 @@ class _ProfileInquiriesScreenState
                         homiziText(context, request.city),
                         style: const TextStyle(
                           color: HomiziColors.ink,
-                          fontWeight: FontWeight.w600,
+                          fontWeight: FontWeight.w800,
                         ),
                       ),
                       subtitle: Text(

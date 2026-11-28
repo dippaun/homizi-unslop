@@ -198,7 +198,7 @@ class _ProfileHubScreenState extends ConsumerState<ProfileHubScreen> {
 
     return MinTouchScope(
       child: Scaffold(
-        backgroundColor: HomiziColors.cream,
+        backgroundColor: HomiziColors.white,
         body: Column(
           children: [
             Expanded(
@@ -315,7 +315,7 @@ class _ProfileHubScreenState extends ConsumerState<ProfileHubScreen> {
                             clipBehavior: Clip.antiAlias,
                             shape: const RoundedRectangleBorder(
                               borderRadius: BorderRadius.vertical(
-                                top: Radius.circular(20),
+                                top: Radius.circular(28),
                               ),
                             ),
                             child: Padding(
@@ -513,7 +513,7 @@ class _ProfileHubScreenState extends ConsumerState<ProfileHubScreen> {
                                     homiziText(
                                       context,
                                       score.complete
-                                          ? 'Profile complete'
+                                          ? 'Profile complete ✓'
                                           : '${score.percent}% ${score.line}',
                                     ),
                                     key: const Key('profile-completion'),
@@ -735,7 +735,7 @@ class _ProfileHubScreenState extends ConsumerState<ProfileHubScreen> {
                         tooltip: homiziText(context, 'Share'),
                         onPressed: _share,
                         style: IconButton.styleFrom(
-                          backgroundColor: HomiziColors.cream,
+                          backgroundColor: HomiziColors.white,
                           foregroundColor: HomiziColors.ink,
                           side: const BorderSide(
                             color: HomiziColors.accent,
@@ -893,7 +893,7 @@ class _QuickAction extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
                 style: Theme.of(context).textTheme.labelMedium?.copyWith(
                   color: HomiziColors.ink,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w700,
                 ),
               ),
             ],

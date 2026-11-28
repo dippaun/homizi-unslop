@@ -18,7 +18,7 @@ class RecentlyViewedScreen extends ConsumerWidget {
     final recent = ref.watch(recentlyViewedProvider);
     final hasHomes = recent.asData?.value.isNotEmpty ?? false;
     return Scaffold(
-      backgroundColor: HomiziColors.cream,
+      backgroundColor: HomiziColors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: const HomiziBackButton(),

@@ -43,11 +43,11 @@ class _ProfileGapsScreenState extends State<ProfileGapsScreen> {
     final gaps = score.gaps;
     return Scaffold(
       key: const Key('profile-gaps-screen'),
-      backgroundColor: HomiziColors.cream,
+      backgroundColor: HomiziColors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: const HomiziBackButton(),
-        backgroundColor: HomiziColors.cream,
+        backgroundColor: HomiziColors.white,
         surfaceTintColor: HomiziColors.white,
         title: Text(homiziText(context, 'Finish your profile')),
       ),
@@ -58,9 +58,9 @@ class _ProfileGapsScreenState extends State<ProfileGapsScreen> {
             homiziText(context, '${score.percent}%'),
             key: const Key('profile-gaps-percent'),
             style: const TextStyle(
-              fontFamily: 'Poppins',
+              fontFamily: 'PlusJakartaSans',
               fontSize: 32,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
               color: HomiziColors.logoOrange,
             ),
           ),
@@ -81,7 +81,7 @@ class _ProfileGapsScreenState extends State<ProfileGapsScreen> {
             homiziText(
               context,
               score.complete
-                  ? 'Profile complete'
+                  ? 'Profile complete ✓'
                   : 'These are the only details still missing. Saved answers stay as they are.',
             ),
             style: const TextStyle(color: HomiziColors.inkSoft, height: 1.4),
@@ -91,7 +91,7 @@ class _ProfileGapsScreenState extends State<ProfileGapsScreen> {
             const ListTile(
               key: Key('profile-gaps-done'),
               leading: Icon(Icons.check_circle, color: HomiziColors.success),
-              title: Text('Profile complete'),
+              title: Text('Profile complete ✓'),
             )
           else
             for (final gap in gaps)
@@ -108,7 +108,7 @@ class _ProfileGapsScreenState extends State<ProfileGapsScreen> {
                     ),
                     title: Text(
                       homiziText(context, profileGapTitle(gap)),
-                      style: const TextStyle(fontWeight: FontWeight.w600),
+                      style: const TextStyle(fontWeight: FontWeight.w800),
                     ),
                     subtitle: Text(homiziText(context, profileGapDetail(gap))),
                     trailing: const Icon(Icons.chevron_right),

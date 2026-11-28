@@ -102,7 +102,7 @@ class _SwipeScreenState extends ConsumerState<SwipeScreen> {
       );
     }
     return Scaffold(
-      backgroundColor: HomiziColors.cream,
+      backgroundColor: HomiziColors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: const HomiziBackButton(),
@@ -139,7 +139,7 @@ class _SwipeScreenState extends ConsumerState<SwipeScreen> {
                   child: Text(
                     'Sample',
                     key: Key('people-sample-tag'),
-                    style: TextStyle(fontWeight: FontWeight.w600),
+                    style: TextStyle(fontWeight: FontWeight.w700),
                   ),
                 ),
               ),

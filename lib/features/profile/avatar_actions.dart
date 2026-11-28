@@ -149,7 +149,7 @@ Future<void> chooseProfilePhoto({
 }) {
   return showModalBottomSheet<void>(
     context: context,
-    backgroundColor: HomiziColors.cream,
+    backgroundColor: HomiziColors.white,
     showDragHandle: true,
     builder: (sheetContext) {
       final hasPhoto = photoRef != null && photoRef.isNotEmpty;
@@ -298,7 +298,7 @@ class _CenteredPhoto extends StatelessWidget {
                     textTheme: theme.textTheme.copyWith(
                       titleSmall: theme.textTheme.headlineSmall?.copyWith(
                         color: HomiziColors.ink,
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w800,
                       ),
                     ),
                   ),
@@ -319,7 +319,7 @@ class _CenteredPhoto extends StatelessWidget {
               tooltip: homiziText(context, 'Choose photo'),
               onPressed: () => unawaited(row._openPhotoMenu(context)),
               style: IconButton.styleFrom(
-                backgroundColor: HomiziColors.cream,
+                backgroundColor: HomiziColors.white,
                 foregroundColor: HomiziColors.ink,
                 side: const BorderSide(color: HomiziColors.accent, width: 1.5),
                 minimumSize: const Size(48, 48),

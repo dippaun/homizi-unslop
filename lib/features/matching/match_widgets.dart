@@ -23,10 +23,10 @@ class MatchScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: HomiziColors.cream,
+      backgroundColor: HomiziColors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: HomiziColors.cream,
+        backgroundColor: HomiziColors.white,
         foregroundColor: HomiziColors.ink,
         leading: const HomiziBackButton(),
         title: Text(homiziText(context, title)),
@@ -57,13 +57,13 @@ class MatchPill extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
           decoration: BoxDecoration(
             color: tone.background,
-            borderRadius: BorderRadius.circular(16),
+            borderRadius: BorderRadius.circular(20),
           ),
           child: Text(
             homiziText(context, '${breakdown.score}% Match'),
             style: TextStyle(
               color: tone.foreground,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
             ),
           ),
         ),
@@ -71,19 +71,19 @@ class MatchPill extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
           decoration: BoxDecoration(
             color: tone.background,
-            borderRadius: BorderRadius.circular(16),
+            borderRadius: BorderRadius.circular(20),
           ),
           child: Text(
             homiziText(context, breakdown.colourName),
             style: TextStyle(
               color: tone.foreground,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w700,
             ),
           ),
         ),
         Text(
           homiziText(context, breakdown.bandLabel),
-          style: TextStyle(color: tone.foreground, fontWeight: FontWeight.w600),
+          style: TextStyle(color: tone.foreground, fontWeight: FontWeight.w700),
         ),
       ],
     );
@@ -101,7 +101,7 @@ class VerifyBadge extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
       decoration: BoxDecoration(
         color: HomiziColors.successWash,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(20),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
@@ -112,7 +112,7 @@ class VerifyBadge extends StatelessWidget {
             homiziText(context, label),
             style: const TextStyle(
               color: HomiziColors.success,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w700,
             ),
           ),
         ],
@@ -172,7 +172,7 @@ class _LegendRow extends StatelessWidget {
                 homiziText(context, matchStrengthLabel(strength)),
                 style: const TextStyle(
                   color: HomiziColors.ink,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w800,
                 ),
               ),
               Text(
@@ -215,7 +215,7 @@ class FactorBar extends StatelessWidget {
             homiziText(context, '$label $percent%'),
             style: const TextStyle(
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w700,
             ),
           ),
           const SizedBox(height: 4),

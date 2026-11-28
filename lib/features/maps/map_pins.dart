@@ -18,13 +18,13 @@ class PricePin extends StatelessWidget {
       elevation: 2,
       shadowColor: HomiziColors.shadowStrong,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(20),
         side: const BorderSide(color: HomiziColors.accent, width: 1.4),
       ),
       child: InkWell(
         onTap: onTap,
         customBorder: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: BorderRadius.circular(20),
         ),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
@@ -32,7 +32,7 @@ class PricePin extends StatelessWidget {
             label,
             style: Theme.of(context).textTheme.labelLarge?.copyWith(
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w700,
             ),
           ),
         ),

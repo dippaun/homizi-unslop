@@ -269,10 +269,10 @@ class _ContactOtpScreenState extends ConsumerState<ContactOtpScreen> {
               fallback: shownContact(session.contact).phone,
             );
       return Scaffold(
-        backgroundColor: HomiziColors.cream,
+        backgroundColor: HomiziColors.white,
         appBar: AppBar(
           automaticallyImplyLeading: false,
-          backgroundColor: HomiziColors.cream,
+          backgroundColor: HomiziColors.white,
           leading: const HomiziBackButton(),
           title: Text(homiziText(context, _email ? 'Email' : 'Mobile')),
         ),
@@ -301,9 +301,9 @@ class _ContactOtpScreenState extends ConsumerState<ContactOtpScreen> {
     if (!_email && !phoneOn && !config.hasPhoneTestNumbers) {
       return MinTouchScope(
         child: Scaffold(
-          backgroundColor: HomiziColors.cream,
+          backgroundColor: HomiziColors.white,
           appBar: AppBar(
-            backgroundColor: HomiziColors.cream,
+            backgroundColor: HomiziColors.white,
             surfaceTintColor: HomiziColors.white,
             automaticallyImplyLeading: false,
             leading: const HomiziBackButton(),
@@ -327,7 +327,7 @@ class _ContactOtpScreenState extends ConsumerState<ContactOtpScreen> {
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.titleMedium?.copyWith(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w700,
                   ),
                 ),
               ],
@@ -338,9 +338,9 @@ class _ContactOtpScreenState extends ConsumerState<ContactOtpScreen> {
     }
     return MinTouchScope(
       child: Scaffold(
-        backgroundColor: HomiziColors.cream,
+        backgroundColor: HomiziColors.white,
         appBar: AppBar(
-          backgroundColor: HomiziColors.cream,
+          backgroundColor: HomiziColors.white,
           surfaceTintColor: HomiziColors.white,
           automaticallyImplyLeading: false,
           leading: const HomiziBackButton(),
@@ -393,7 +393,7 @@ class _ContactOtpScreenState extends ConsumerState<ContactOtpScreen> {
                             key: const Key('verify-phone-prompt'),
                             style: const TextStyle(
                               color: HomiziColors.ink,
-                              fontWeight: FontWeight.w600,
+                              fontWeight: FontWeight.w800,
                             ),
                           ),
                         ),

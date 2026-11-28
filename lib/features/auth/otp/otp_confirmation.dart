@@ -44,7 +44,7 @@ class OtpConfirmation extends StatelessWidget {
                   textAlign: TextAlign.center,
                   style: text.headlineSmall?.copyWith(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w800,
                   ),
                 ),
                 if (note != null && note.isNotEmpty) ...[
@@ -60,7 +60,7 @@ class OtpConfirmation extends StatelessWidget {
                 const SizedBox(height: HomiziSpace.xl),
                 DecoratedBox(
                   decoration: BoxDecoration(
-                    color: HomiziColors.logoOrange,
+                    gradient: otpBadgeGradient,
                     borderRadius: BorderRadius.circular(HomiziSpace.radius),
                   ),
                   child: FilledButton(
@@ -73,7 +73,7 @@ class OtpConfirmation extends StatelessWidget {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(HomiziSpace.radius),
                       ),
-                      textStyle: const TextStyle(fontWeight: FontWeight.w600),
+                      textStyle: const TextStyle(fontWeight: FontWeight.w800),
                     ),
                     onPressed: onContinue,
                     child: Text(homiziText(context, 'Continue')),

@@ -14,7 +14,6 @@ import 'package:homizi/features/discovery/discovery_controller.dart';
 import 'package:homizi/features/discovery/feed_controller.dart';
 import 'package:homizi/features/discovery/listing_card.dart';
 import 'package:homizi/features/shell/min_touch.dart';
-import 'package:homizi/ui/kit/motion_kit.dart';
 
 class SavedScreen extends ConsumerWidget {
   const SavedScreen({super.key});
@@ -39,7 +38,7 @@ class SavedScreen extends ConsumerWidget {
 
     return MinTouchScope(
       child: Scaffold(
-        backgroundColor: HomiziColors.cream,
+        backgroundColor: HomiziColors.white,
         appBar: AppBar(
           automaticallyImplyLeading: false,
           leading: const HomiziBackButton(),
@@ -76,19 +75,14 @@ class SavedScreen extends ConsumerWidget {
                       unawaited(ref.read(discoveryProvider.notifier).refresh());
                     }
                   },
-                  child: HomiziRefresh(
-                    onRefresh: () =>
-                        ref.read(discoveryProvider.notifier).refresh(),
-                    child: ListView(
-                      physics: const AlwaysScrollableScrollPhysics(),
-                      padding: const EdgeInsets.all(16),
-                      children: [
-                        for (final listing in listings) ...[
-                          ListingCard(listing: listing),
-                          const SizedBox(height: 12),
-                        ],
+                  child: ListView(
+                    padding: const EdgeInsets.all(16),
+                    children: [
+                      for (final listing in listings) ...[
+                        ListingCard(listing: listing),
+                        const SizedBox(height: 12),
                       ],
-                    ),
+                    ],
                   ),
                 ),
               ),

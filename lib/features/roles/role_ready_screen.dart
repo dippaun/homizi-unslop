@@ -50,9 +50,9 @@ class RoleReadyScreen extends ConsumerWidget {
             "You're all set",
             key: Key('role-ready-title'),
             style: TextStyle(
-              fontFamily: 'Poppins',
+              fontFamily: 'PlusJakartaSans',
               fontSize: 28,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
               color: HomiziColors.ink,
             ),
           ),
@@ -73,7 +73,7 @@ class RoleReadyScreen extends ConsumerWidget {
                 'My listings',
                 style: TextStyle(
                   color: HomiziColors.ink,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w700,
                 ),
               ),
             ),

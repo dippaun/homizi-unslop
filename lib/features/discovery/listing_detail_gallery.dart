@@ -301,7 +301,7 @@ class _RoundIconButton extends StatelessWidget {
       tooltip: homiziText(context, tooltip),
       onPressed: onPressed,
       style: IconButton.styleFrom(
-        backgroundColor: HomiziColors.cream,
+        backgroundColor: HomiziColors.white,
         foregroundColor: color,
         fixedSize: const Size(40, 40),
         minimumSize: const Size(40, 40),
@@ -364,7 +364,7 @@ class _VerifiedPropertyBadge extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
       decoration: BoxDecoration(
         color: HomiziColors.success,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(20),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
@@ -375,7 +375,7 @@ class _VerifiedPropertyBadge extends StatelessWidget {
             homiziText(context, 'Verified Property'),
             style: const TextStyle(
               color: HomiziColors.onSuccess,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
               fontSize: 12,
             ),
           ),
@@ -404,7 +404,7 @@ class _Counter extends StatelessWidget {
         '${index + 1}/$total',
         style: const TextStyle(
           color: HomiziColors.white,
-          fontWeight: FontWeight.w600,
+          fontWeight: FontWeight.w800,
           fontSize: 13,
         ),
       ),
@@ -498,7 +498,7 @@ class _ListingPhotoGalleryPageState extends State<ListingPhotoGalleryPage> {
                           homiziText(context, label),
                           style: const TextStyle(
                             color: HomiziColors.ink,
-                            fontWeight: FontWeight.w600,
+                            fontWeight: FontWeight.w700,
                           ),
                         ),
                       ),
@@ -506,7 +506,7 @@ class _ListingPhotoGalleryPageState extends State<ListingPhotoGalleryPage> {
                         '${_index + 1}/${widget.assets.length}',
                         style: const TextStyle(
                           color: HomiziColors.ink,
-                          fontWeight: FontWeight.w600,
+                          fontWeight: FontWeight.w800,
                         ),
                       ),
                     ],

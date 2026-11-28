@@ -38,11 +38,11 @@ class RoommateMatchScreen extends StatelessWidget {
     return MinTouchScope(
       child: Scaffold(
         key: Key(mutual ? 'roommate-match' : 'roommate-sent'),
-        backgroundColor: HomiziColors.cream,
+        backgroundColor: HomiziColors.white,
         appBar: AppBar(
           automaticallyImplyLeading: false,
           leading: const HomiziBackButton(),
-          backgroundColor: HomiziColors.cream,
+          backgroundColor: HomiziColors.white,
           surfaceTintColor: HomiziColors.white,
         ),
         body: RepaintBoundary(
@@ -69,7 +69,7 @@ class RoommateMatchScreen extends StatelessWidget {
                   textAlign: TextAlign.center,
                   style: theme.textTheme.headlineMedium?.copyWith(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w800,
                   ),
                 ),
                 const SizedBox(height: 12),
@@ -151,11 +151,11 @@ class RoommateMaybeScreen extends StatelessWidget {
       child: MinTouchScope(
         child: Scaffold(
           key: const Key('roommate-maybe'),
-          backgroundColor: HomiziColors.cream,
+          backgroundColor: HomiziColors.white,
           appBar: AppBar(
             automaticallyImplyLeading: false,
             leading: const HomiziBackButton(),
-            backgroundColor: HomiziColors.cream,
+            backgroundColor: HomiziColors.white,
             surfaceTintColor: HomiziColors.white,
           ),
           body: ListView(
@@ -171,7 +171,7 @@ class RoommateMaybeScreen extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: theme.textTheme.headlineMedium?.copyWith(
                   color: HomiziColors.ink,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w800,
                 ),
               ),
               const SizedBox(height: 12),
@@ -215,11 +215,11 @@ class RoommateRequirementsSavedScreen extends ConsumerWidget {
     return MinTouchScope(
       child: Scaffold(
         key: const Key('roommate-requirements-saved'),
-        backgroundColor: HomiziColors.cream,
+        backgroundColor: HomiziColors.white,
         appBar: AppBar(
           automaticallyImplyLeading: false,
           leading: const HomiziBackButton(),
-          backgroundColor: HomiziColors.cream,
+          backgroundColor: HomiziColors.white,
         ),
         body: SavedSummaryCard(
           title: 'Preferences saved',

@@ -3,7 +3,6 @@ import 'package:homizi/core/brand/homizi_mark.dart';
 import 'package:homizi/core/l10n/translate.dart';
 import 'package:homizi/core/network/offline_failure.dart';
 import 'package:homizi/core/theme/homizi_colors.dart';
-import 'package:homizi/core/theme/role_palette.dart';
 import 'package:homizi/features/demo/demo_copy.dart';
 import 'package:homizi/features/demo/demo_success.dart';
 import 'package:homizi/ui/kit/real_life_icons.dart';
@@ -132,10 +131,33 @@ class EmptyState extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              // v2: the photo sits in a jharokha arch over a kolam, with the
-              // house icon on a role-gradient disc at its foot.
-              const _ArchedPhoto(),
+              Container(
+                width: 64,
+                height: 64,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: HomiziColors.logoOrange.withValues(alpha: 0.12),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: const Icon(
+                  RealLifeIcons.house,
+                  color: HomiziColors.logoOrange,
+                  size: 30,
+                ),
+              ),
               const SizedBox(height: 16),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(16),
+                child: Image.asset(
+                  'assets/images/real/living.webp',
+                  height: 96,
+                  width: 160,
+                  fit: BoxFit.cover,
+                ),
+              ),
+              const SizedBox(height: 16),
+              const HomiziMark(),
+              const SizedBox(height: 12),
               Text(
                 homiziText(context, title),
                 textAlign: TextAlign.center,
@@ -275,72 +297,5 @@ class AsyncStateBody extends StatelessWidget {
       ),
       ViewStatus.ready => child,
     };
-  }
-}
-
-class _ArchedPhoto extends StatelessWidget {
-  const _ArchedPhoto();
-
-  /// v3 empty-state art: a rounded real-home photo with a white icon badge.
-  @override
-  Widget build(BuildContext context) {
-    final palette = HomiziRoleScope.of(context);
-    return SizedBox(
-      width: 196,
-      height: 150,
-      child: Stack(
-        clipBehavior: Clip.none,
-        children: [
-          Positioned(
-            left: 0,
-            top: 0,
-            width: 180,
-            height: 132,
-            child: DecoratedBox(
-              decoration: const BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(22)),
-                boxShadow: [
-                  BoxShadow(
-                    color: HomiziColors.shadowStrong,
-                    blurRadius: 20,
-                    offset: Offset(0, 8),
-                  ),
-                ],
-              ),
-              child: ClipRRect(
-                borderRadius: const BorderRadius.all(Radius.circular(22)),
-                child: Image.asset(
-                  palette.photo,
-                  fit: BoxFit.cover,
-                  excludeFromSemantics: true,
-                ),
-              ),
-            ),
-          ),
-          Positioned(
-            right: 0,
-            bottom: 0,
-            child: DecoratedBox(
-              decoration: BoxDecoration(
-                color: HomiziColors.white,
-                borderRadius: BorderRadius.circular(16),
-                boxShadow: const [
-                  BoxShadow(
-                    color: HomiziColors.shadowStrong,
-                    blurRadius: 12,
-                    offset: Offset(0, 4),
-                  ),
-                ],
-              ),
-              child: SizedBox(
-                width: 48,
-                height: 48,
-                child: Icon(RealLifeIcons.house, color: palette.ink, size: 24),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
   }
 }

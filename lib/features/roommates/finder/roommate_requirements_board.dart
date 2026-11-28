@@ -69,7 +69,7 @@ class _RoommateRequirementsBoardState extends State<RoommateRequirementsBoard> {
     }
     final picked = await showModalBottomSheet<RoommateAskId>(
       context: context,
-      backgroundColor: HomiziColors.cream,
+      backgroundColor: HomiziColors.white,
       builder: (context) => SafeArea(
         child: ListView(
           key: const Key('roommate-add-sheet'),
@@ -80,7 +80,7 @@ class _RoommateRequirementsBoardState extends State<RoommateRequirementsBoard> {
               homiziText(context, 'Add a preference'),
               style: Theme.of(context).textTheme.titleMedium?.copyWith(
                 color: HomiziColors.ink,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w800,
               ),
             ),
             const SizedBox(height: 8),
@@ -110,7 +110,7 @@ class _RoommateRequirementsBoardState extends State<RoommateRequirementsBoard> {
     final next = await showModalBottomSheet<RoommateAsk>(
       context: context,
       isScrollControlled: true,
-      backgroundColor: HomiziColors.cream,
+      backgroundColor: HomiziColors.white,
       builder: (context) => _AskEditSheet(
         value: _draft,
         id: id,
@@ -174,14 +174,14 @@ class _RoommateRequirementsBoardState extends State<RoommateRequirementsBoard> {
                     homiziText(context, 'Add more preferences'),
                     style: const TextStyle(
                       color: HomiziColors.logoOrange,
-                      fontWeight: FontWeight.w600,
+                      fontWeight: FontWeight.w800,
                     ),
                   ),
                   style: OutlinedButton.styleFrom(
                     side: const BorderSide(color: HomiziColors.logoOrange),
                     minimumSize: const Size.fromHeight(48),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
+                      borderRadius: BorderRadius.circular(14),
                     ),
                   ),
                 ),
@@ -189,7 +189,7 @@ class _RoommateRequirementsBoardState extends State<RoommateRequirementsBoard> {
                   const SizedBox(height: 12),
                   Material(
                     color: HomiziColors.accentWash,
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: BorderRadius.circular(14),
                     child: SwitchListTile(
                       key: const Key('roommate-post-profile'),
                       contentPadding: const EdgeInsets.symmetric(
@@ -199,7 +199,7 @@ class _RoommateRequirementsBoardState extends State<RoommateRequirementsBoard> {
                         homiziText(context, 'Publish my roommate profile'),
                         style: const TextStyle(
                           color: HomiziColors.ink,
-                          fontWeight: FontWeight.w600,
+                          fontWeight: FontWeight.w800,
                         ),
                       ),
                       subtitle: Text(
@@ -378,7 +378,7 @@ class _AskEditSheetState extends State<_AskEditSheet> {
                 homiziText(context, roommateAskTitle(id)),
                 style: Theme.of(context).textTheme.titleLarge?.copyWith(
                   color: HomiziColors.ink,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w800,
                 ),
               ),
               if (roommateAskNote(id) != null) ...[
@@ -642,14 +642,14 @@ class _IconTile extends StatelessWidget {
     return Material(
       color: selected ? HomiziColors.accentWash : HomiziColors.white,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(14),
         side: BorderSide(
           color: selected ? HomiziColors.logoOrange : HomiziColors.line,
         ),
       ),
       child: InkWell(
         key: tileKey,
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(14),
         onTap: onTap,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
@@ -662,7 +662,7 @@ class _IconTile extends StatelessWidget {
                 label,
                 style: const TextStyle(
                   color: HomiziColors.ink,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w700,
                 ),
               ),
             ],

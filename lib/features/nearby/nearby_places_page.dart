@@ -85,17 +85,17 @@ class _NearbyPlacesPageState extends ConsumerState<NearbyPlacesPage> {
     ].where((part) => part.isNotEmpty).join(', ');
     return Scaffold(
       key: const Key('nearby-places-page'),
-      backgroundColor: HomiziColors.cream,
+      backgroundColor: HomiziColors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: HomiziColors.cream,
+        backgroundColor: HomiziColors.white,
         surfaceTintColor: HomiziColors.white,
         leading: const HomiziBackButton(),
         title: Text(
           homiziText(context, 'Nearby places'),
           style: const TextStyle(
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w800,
           ),
         ),
       ),
@@ -129,7 +129,7 @@ class _NearbyPlacesPageState extends ConsumerState<NearbyPlacesPage> {
                   size: 18,
                 ),
                 label: Text(homiziText(context, place)),
-                backgroundColor: HomiziColors.cream,
+                backgroundColor: HomiziColors.white,
                 side: const BorderSide(color: HomiziColors.line),
               ),
             ),
@@ -199,7 +199,7 @@ class _Fallback extends StatelessWidget {
   Widget build(BuildContext context) {
     return ColoredBox(
       key: const Key('nearby-map-fallback'),
-      color: HomiziColors.mapBlank,
+      color: const Color(0xFFF4F1EA),
       child: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -214,13 +214,13 @@ class _Fallback extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
               decoration: BoxDecoration(
                 color: HomiziColors.white,
-                borderRadius: BorderRadius.circular(16),
+                borderRadius: BorderRadius.circular(20),
               ),
               child: Text(
                 label,
                 style: const TextStyle(
                   color: HomiziColors.ink,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w800,
                 ),
               ),
             ),

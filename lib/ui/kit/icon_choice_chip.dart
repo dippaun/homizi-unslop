@@ -26,9 +26,9 @@ class IconChoiceChip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final post = FlowAccentScope.active(context);
-    final color = post ? HomiziColors.brandDeepRed : HomiziColors.logoOrange;
+    final color = post ? HomiziColors.homiziPurple : HomiziColors.logoOrange;
     final wash = post
-        ? HomiziColors.warmWash
+        ? HomiziColors.homiziLavender
         : HomiziColors.logoOrange.withValues(alpha: 0.10);
     final avatar = Icon(
       icon ?? iconForChoice(_labelText(label)),
@@ -48,7 +48,7 @@ class IconChoiceChip extends StatelessWidget {
         showCheckmark: showCheckmark,
         selectedColor: wash,
         checkmarkColor: HomiziColors.ink,
-        backgroundColor: HomiziColors.cream,
+        backgroundColor: HomiziColors.white,
         labelStyle: labelStyle,
         side: side,
         onSelected: onSelected,
@@ -61,7 +61,7 @@ class IconChoiceChip extends StatelessWidget {
       showCheckmark: showCheckmark,
       selectedColor: wash,
       checkmarkColor: HomiziColors.ink,
-      backgroundColor: HomiziColors.cream,
+      backgroundColor: HomiziColors.white,
       labelStyle: labelStyle,
       side: side,
       onSelected: onSelected,

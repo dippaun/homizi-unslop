@@ -22,6 +22,8 @@ import 'package:homizi/features/listings/domain/poster_kind.dart';
 import 'package:homizi/features/office/office_repository.dart';
 import 'package:homizi/features/office/remember_office.dart';
 import 'package:homizi/features/personalize/personalization.dart';
+import 'package:homizi/features/profile/shared_answers.dart';
+import 'package:homizi/features/profile_create/profile_create_store.dart';
 import 'package:homizi/features/search_properties/best_matches_deck.dart';
 import 'package:homizi/features/search_properties/search_choice_icons.dart';
 import 'package:homizi/features/search_properties/search_draft.dart';
@@ -66,6 +68,7 @@ class _SearchPropertiesScreenState
   var _step = 0;
   var _busy = false;
   var _holdWizard = false;
+  var _expandLifestyle = false;
 
   /// Steps where Continue was pressed with questions missing. Their cards
   /// show what is still needed.
@@ -116,6 +119,11 @@ class _SearchPropertiesScreenState
 
   Future<void> _restore() async {
     final saved = await ref.read(propertySearchStoreProvider).read();
+    await ref.read(profileCreateStoreProvider).restoreDevice();
+    final shared = searchWithSharedProfile(
+      const PropertySearch(),
+      ref.read(profileCreateStoreProvider).draft,
+    );
     if (!mounted) {
       return;
     }
@@ -130,15 +138,29 @@ class _SearchPropertiesScreenState
                 ? const <RankedHome>[]
                 : rankHomes(listings: listings, search: saved),
           );
+      if (!mounted) {
+        return;
+      }
       context.go(RoutePaths.searchMatches);
+      return;
+    }
+    if (!mounted) {
       return;
     }
     setState(() {
       _holdWizard = false;
       if (saved != null) {
         _place.text = saved.placeQuery;
-        _draft = saved;
+        _draft = searchWithSharedProfile(
+          saved,
+          ref.read(profileCreateStoreProvider).draft,
+        );
         _answered = {...SearchQuestion.all};
+      } else {
+        _draft = shared;
+        if (shared.placeQuery.trim().isNotEmpty) {
+          _place.text = shared.placeQuery;
+        }
       }
     });
   }
@@ -159,6 +181,104 @@ class _SearchPropertiesScreenState
   );
 
   void _edit(PropertySearch next) => setState(() => _draft = next);
+
+  Widget _lifestyleEditor() {
+    return Column(
+      children: [
+        _savedOrEditor(
+          label: 'Smoking',
+          known: _draft.smoking != LifestyleChoice.noPreference,
+          value: _draft.smoking.label,
+          editor: _LifestyleRow(
+            label: 'Smoking',
+            values: LifestyleChoice.values,
+            selected: _draft.smoking,
+            text: (value) => value.label,
+            onChanged: (value) => _editShared(_draft.copyWith(smoking: value)),
+          ),
+        ),
+        _savedOrEditor(
+          label: 'Drinking',
+          known: _draft.drinking != LifestyleChoice.noPreference,
+          value: _draft.drinking.label,
+          editor: _LifestyleRow(
+            label: 'Drinking',
+            values: LifestyleChoice.values,
+            selected: _draft.drinking,
+            text: (value) => value.label,
+            onChanged: (value) => _editShared(_draft.copyWith(drinking: value)),
+          ),
+        ),
+        _savedOrEditor(
+          label: 'Food',
+          known: _draft.food != FoodChoice.noPreference,
+          value: _draft.food.label,
+          editor: _LifestyleRow(
+            label: 'Food',
+            values: FoodChoice.values,
+            selected: _draft.food,
+            text: (value) => value.label,
+            onChanged: (value) => _editShared(_draft.copyWith(food: value)),
+          ),
+        ),
+        _savedOrEditor(
+          label: 'Cooking',
+          known: _draft.cooking != CookingChoice.noPreference,
+          value: _draft.cooking.label,
+          editor: _LifestyleRow(
+            label: 'Cooking',
+            values: CookingChoice.values,
+            selected: _draft.cooking,
+            text: (value) => value.label,
+            onChanged: (value) => _edit(_draft.copyWith(cooking: value)),
+          ),
+        ),
+        _savedOrEditor(
+          label: 'Cleaning',
+          known: _draft.cleaning != CleaningChoice.noPreference,
+          value: _draft.cleaning.label,
+          editor: _LifestyleRow(
+            label: 'Cleaning',
+            values: CleaningChoice.values,
+            selected: _draft.cleaning,
+            text: (value) => value.label,
+            onChanged: (value) => _edit(_draft.copyWith(cleaning: value)),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _savedOrEditor({
+    required String label,
+    required bool known,
+    required String value,
+    required Widget editor,
+  }) {
+    if (!known || _expandLifestyle) {
+      return editor;
+    }
+    return ListTile(
+      contentPadding: EdgeInsets.zero,
+      title: Text('$label · $value'),
+      trailing: const Icon(Icons.edit_outlined, color: HomiziColors.logoOrange),
+      onTap: () => setState(() => _expandLifestyle = true),
+    );
+  }
+
+  void _editShared(PropertySearch next) {
+    _edit(next);
+    final store = ref.read(profileCreateStoreProvider);
+    final profile = store.draft.copyWith(
+      smoking: profileChoiceForLifestyle(next.smoking),
+      drinking: profileChoiceForLifestyle(next.drinking),
+      food: profileChoiceForFood(next.food),
+    );
+    unawaited(() async {
+      await store.save(profile);
+      await publishSharedAnswers(ref, profile);
+    }());
+  }
 
   void _answer(String question, PropertySearch next) {
     setState(() {
@@ -483,7 +603,7 @@ class _SearchPropertiesScreenState
                 const SizedBox(height: 8),
                 const Text(
                   'Preferred distance from office/work',
-                  style: TextStyle(fontWeight: FontWeight.w600),
+                  style: TextStyle(fontWeight: FontWeight.w700),
                 ),
                 const SizedBox(height: 8),
                 OptionGrid(
@@ -579,45 +699,7 @@ class _SearchPropertiesScreenState
           _Card(
             number: 7,
             title: 'Lifestyle Preference',
-            child: Column(
-              children: [
-                _LifestyleRow(
-                  label: 'Smoking',
-                  values: LifestyleChoice.values,
-                  selected: _draft.smoking,
-                  text: (value) => value.label,
-                  onChanged: (value) => _edit(_draft.copyWith(smoking: value)),
-                ),
-                _LifestyleRow(
-                  label: 'Drinking',
-                  values: LifestyleChoice.values,
-                  selected: _draft.drinking,
-                  text: (value) => value.label,
-                  onChanged: (value) => _edit(_draft.copyWith(drinking: value)),
-                ),
-                _LifestyleRow(
-                  label: 'Food',
-                  values: FoodChoice.values,
-                  selected: _draft.food,
-                  text: (value) => value.label,
-                  onChanged: (value) => _edit(_draft.copyWith(food: value)),
-                ),
-                _LifestyleRow(
-                  label: 'Cooking',
-                  values: CookingChoice.values,
-                  selected: _draft.cooking,
-                  text: (value) => value.label,
-                  onChanged: (value) => _edit(_draft.copyWith(cooking: value)),
-                ),
-                _LifestyleRow(
-                  label: 'Cleaning',
-                  values: CleaningChoice.values,
-                  selected: _draft.cleaning,
-                  text: (value) => value.label,
-                  onChanged: (value) => _edit(_draft.copyWith(cleaning: value)),
-                ),
-              ],
-            ),
+            child: _lifestyleEditor(),
           ),
         ];
       case 3:
@@ -669,12 +751,24 @@ class _SearchPropertiesScreenState
           _Card(
             number: 11,
             title: 'Property Rules & Restrictions',
-            child: _Checks(
-              options: searchRules,
-              selected: _draft.rules,
-              noneLabel: 'No Preference',
-              onChanged: (next) => _edit(_draft.copyWith(rules: next)),
-            ),
+            child: _draft.rules.isNotEmpty && !_expandLifestyle
+                ? Wrap(
+                    spacing: 8,
+                    children: [
+                      for (final rule in _draft.rules)
+                        ActionChip(
+                          label: Text(rule),
+                          onPressed: () =>
+                              setState(() => _expandLifestyle = true),
+                        ),
+                    ],
+                  )
+                : _Checks(
+                    options: searchRules,
+                    selected: _draft.rules,
+                    noneLabel: 'No Preference',
+                    onChanged: (next) => _edit(_draft.copyWith(rules: next)),
+                  ),
           ),
           _Card(
             number: 12,
@@ -778,7 +872,7 @@ class _SearchPropertiesScreenState
                           Text(
                             value,
                             style: const TextStyle(
-                              fontWeight: FontWeight.w600,
+                              fontWeight: FontWeight.w700,
                               color: HomiziColors.ink,
                             ),
                           ),
@@ -814,7 +908,7 @@ class _SearchPropertiesScreenState
     if (_holdWizard) {
       return const Scaffold(
         key: Key('search-properties-screen'),
-        backgroundColor: HomiziColors.cream,
+        backgroundColor: HomiziColors.white,
         body: PrefsSkeleton(),
       );
     }
@@ -824,10 +918,10 @@ class _SearchPropertiesScreenState
     final last = _step == searchConfirmStep;
     return Scaffold(
       key: const Key('search-properties-screen'),
-      backgroundColor: HomiziColors.cream,
+      backgroundColor: HomiziColors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: HomiziColors.cream,
+        backgroundColor: HomiziColors.white,
         leading: const HomiziBackButton(),
         title: const Text('Search Properties'),
         actions: [
@@ -907,7 +1001,7 @@ class _SearchPropertiesScreenState
                                 width: 1.5,
                               ),
                               shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(12),
+                                borderRadius: BorderRadius.circular(14),
                               ),
                             ),
                             onPressed: () => _open(_step - 1),
@@ -915,7 +1009,7 @@ class _SearchPropertiesScreenState
                               'Back',
                               style: TextStyle(
                                 fontFamily: 'PlusJakartaSans',
-                                fontWeight: FontWeight.w600,
+                                fontWeight: FontWeight.w800,
                                 color: HomiziColors.ink,
                               ),
                             ),
@@ -933,7 +1027,7 @@ class _SearchPropertiesScreenState
                                   foregroundColor: HomiziColors.ink,
                                   minimumSize: const Size.fromHeight(52),
                                   shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(12),
+                                    borderRadius: BorderRadius.circular(14),
                                   ),
                                 ),
                                 onPressed: _busy
@@ -959,7 +1053,7 @@ class _SearchPropertiesScreenState
                                   textAlign: TextAlign.center,
                                   style: const TextStyle(
                                     fontFamily: 'PlusJakartaSans',
-                                    fontWeight: FontWeight.w600,
+                                    fontWeight: FontWeight.w800,
                                     color: HomiziColors.ink,
                                   ),
                                 ),
@@ -971,7 +1065,7 @@ class _SearchPropertiesScreenState
                                   foregroundColor: HomiziColors.ink,
                                   minimumSize: const Size.fromHeight(52),
                                   shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(12),
+                                    borderRadius: BorderRadius.circular(14),
                                   ),
                                 ),
                                 onPressed: _continue,
@@ -982,7 +1076,7 @@ class _SearchPropertiesScreenState
                                   textAlign: TextAlign.center,
                                   style: const TextStyle(
                                     fontFamily: 'PlusJakartaSans',
-                                    fontWeight: FontWeight.w600,
+                                    fontWeight: FontWeight.w800,
                                     color: HomiziColors.ink,
                                   ),
                                 ),
@@ -1234,7 +1328,7 @@ class _LifestyleRow<T> extends StatelessWidget {
             label,
             style: const TextStyle(
               fontFamily: 'PlusJakartaSans',
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
               color: HomiziColors.ink,
             ),
           ),
@@ -1280,7 +1374,7 @@ class _NearbyHints extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
             decoration: BoxDecoration(
               color: HomiziColors.white,
-              borderRadius: BorderRadius.circular(16),
+              borderRadius: BorderRadius.circular(20),
             ),
             child: Row(
               mainAxisSize: MainAxisSize.min,
@@ -1292,7 +1386,7 @@ class _NearbyHints extends StatelessWidget {
                   style: const TextStyle(
                     color: HomiziColors.ink,
                     fontSize: 12,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w700,
                   ),
                 ),
               ],

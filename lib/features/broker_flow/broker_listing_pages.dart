@@ -95,10 +95,10 @@ class BrokerListingIntro extends StatelessWidget {
         const SizedBox(height: 8),
         Container(
           width: double.infinity,
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
           decoration: BoxDecoration(
             color: HomiziColors.accent,
-            borderRadius: BorderRadius.circular(16),
+            borderRadius: BorderRadius.circular(18),
           ),
           child: const Row(
             children: [
@@ -110,14 +110,14 @@ class BrokerListingIntro extends StatelessWidget {
                       'List with Confidence',
                       style: TextStyle(
                         color: HomiziColors.ink,
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w700,
                       ),
                     ),
                     Text(
                       'Rent Faster',
                       style: TextStyle(
                         color: HomiziColors.ink,
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w800,
                         fontSize: 22,
                       ),
                     ),
@@ -161,7 +161,7 @@ class _Benefit extends StatelessWidget {
                   homiziText(context, title),
                   style: const TextStyle(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w700,
                   ),
                 ),
                 Text(
@@ -200,7 +200,7 @@ class BrokerIntentPage extends StatelessWidget {
           homiziText(context, 'I want to list'),
           style: Theme.of(context).textTheme.titleMedium?.copyWith(
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w800,
           ),
         ),
         const SizedBox(height: 10),
@@ -262,7 +262,7 @@ class BrokerLocationPage extends StatelessWidget {
           homiziText(context, 'City'),
           style: const TextStyle(
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w700,
           ),
         ),
         const SizedBox(height: 8),
@@ -294,7 +294,7 @@ class BrokerLocationPage extends StatelessWidget {
           homiziText(context, 'Property Type'),
           style: const TextStyle(
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w700,
           ),
         ),
         const SizedBox(height: 8),
@@ -337,7 +337,7 @@ class BrokerLocationPage extends StatelessWidget {
           homiziText(context, 'Property Configuration'),
           style: const TextStyle(
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w700,
           ),
         ),
         const SizedBox(height: 8),
@@ -361,7 +361,7 @@ class BrokerLocationPage extends StatelessWidget {
           homiziText(context, 'Area Available for Rent'),
           style: const TextStyle(
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w700,
           ),
         ),
         const SizedBox(height: 8),
@@ -922,12 +922,12 @@ class BrokerReviewPage extends StatelessWidget {
       children: [
         ClipRRect(
           key: const Key('broker-review-card'),
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: BorderRadius.circular(18),
           child: DecoratedBox(
             decoration: BoxDecoration(
               color: HomiziColors.white,
               border: Border.all(color: HomiziColors.line),
-              borderRadius: BorderRadius.circular(16),
+              borderRadius: BorderRadius.circular(18),
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -954,7 +954,7 @@ class BrokerReviewPage extends StatelessWidget {
                   ],
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(16),
+                  padding: const EdgeInsets.all(14),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -963,7 +963,7 @@ class BrokerReviewPage extends StatelessWidget {
                         style: Theme.of(context).textTheme.headlineSmall
                             ?.copyWith(
                               color: HomiziColors.ink,
-                              fontWeight: FontWeight.w600,
+                              fontWeight: FontWeight.w800,
                             ),
                       ),
                       const SizedBox(height: 4),
@@ -976,7 +976,7 @@ class BrokerReviewPage extends StatelessWidget {
                         ),
                         style: const TextStyle(
                           color: HomiziColors.ink,
-                          fontWeight: FontWeight.w600,
+                          fontWeight: FontWeight.w700,
                         ),
                       ),
                       Text(
@@ -1063,7 +1063,7 @@ class BrokerPublishedPage extends StatelessWidget {
           ),
           style: const TextStyle(
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w800,
             fontSize: 20,
           ),
         ),
@@ -1126,7 +1126,7 @@ class _ChoiceTile extends StatelessWidget {
                       homiziText(context, title),
                       style: const TextStyle(
                         color: HomiziColors.ink,
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w700,
                       ),
                     ),
                     Text(
@@ -1190,7 +1190,7 @@ class _MapSketch extends StatelessWidget {
                       homiziText(context, label),
                       style: const TextStyle(
                         color: HomiziColors.ink,
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w700,
                       ),
                     ),
                   ),
@@ -1373,7 +1373,7 @@ class _PhotoTile extends StatelessWidget {
                 borderRadius: BorderRadius.circular(8),
               ),
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 4),
+                padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 3),
                 child: Text(
                   homiziText(context, '$index. $label'),
                   maxLines: 1,
@@ -1381,7 +1381,7 @@ class _PhotoTile extends StatelessWidget {
                   style: const TextStyle(
                     color: HomiziColors.ink,
                     fontSize: 11,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w700,
                   ),
                 ),
               ),
@@ -1410,7 +1410,7 @@ Widget _label(BuildContext context, String text) {
       homiziText(context, text),
       style: const TextStyle(
         color: HomiziColors.ink,
-        fontWeight: FontWeight.w600,
+        fontWeight: FontWeight.w700,
       ),
     ),
   );

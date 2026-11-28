@@ -114,7 +114,7 @@ class _NearbyPlacesPreviewState extends ConsumerState<NearbyPlacesPreview> {
                 homiziText(context, 'Nearby places'),
                 style: Theme.of(context).textTheme.titleMedium?.copyWith(
                   color: HomiziColors.ink,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w800,
                 ),
               ),
             ),
@@ -125,7 +125,7 @@ class _NearbyPlacesPreviewState extends ConsumerState<NearbyPlacesPreview> {
                 homiziText(context, 'See all'),
                 style: const TextStyle(
                   color: HomiziColors.logoOrange,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w800,
                 ),
               ),
             ),

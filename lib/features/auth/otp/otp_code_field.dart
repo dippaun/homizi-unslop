@@ -3,7 +3,6 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:homizi/core/theme/homizi_colors.dart';
-import 'package:homizi/core/theme/homizi_theme.dart';
 import 'package:homizi/features/auth/otp/otp_attempt.dart';
 
 /// A 6-digit code field. Paste lands in the one text field.
@@ -225,7 +224,7 @@ class _OtpBox extends StatelessWidget {
       height: 54,
       decoration: BoxDecoration(
         color: fill,
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(14),
         border: Border.all(color: border, width: width),
         boxShadow: state == _BoxState.active
             ? const [
@@ -240,7 +239,7 @@ class _OtpBox extends StatelessWidget {
             key: ValueKey('digit-$digit'),
             tween: Tween(begin: digit.isEmpty ? 1 : 0.4, end: 1),
             duration: const Duration(milliseconds: 200),
-            curve: HomiziMotion.curve,
+            curve: Curves.easeOutBack,
             builder: (context, scale, child) =>
                 Transform.scale(scale: scale, child: child),
             child: Text(
@@ -248,7 +247,7 @@ class _OtpBox extends StatelessWidget {
               key: boxKey,
               style: Theme.of(context).textTheme.titleLarge?.copyWith(
                 color: textColor,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w800,
               ),
             ),
           ),

@@ -38,7 +38,7 @@ class _AnimatedProfilePhotoState extends State<AnimatedProfilePhoto>
     _spin = AnimationController(
       vsync: this,
       duration: const Duration(seconds: 8),
-    );
+    )..repeat();
   }
 
   @override
@@ -105,7 +105,15 @@ class _RingPainter extends CustomPainter {
     final stroke = size.width * 0.045;
     final rect = (Offset.zero & size).deflate(stroke / 2);
     final paint = Paint()
-      ..color = HomiziColors.logoOrange
+      ..shader = SweepGradient(
+        transform: GradientRotation(turn * math.pi * 2),
+        colors: const [
+          HomiziColors.logoOrange,
+          HomiziColors.brandGolden,
+          HomiziColors.brandDeepOrange,
+          HomiziColors.logoOrange,
+        ],
+      ).createShader(rect)
       ..style = PaintingStyle.stroke
       ..strokeWidth = stroke
       ..strokeCap = StrokeCap.round;

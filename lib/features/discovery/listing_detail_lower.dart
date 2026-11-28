@@ -111,8 +111,12 @@ class _ListingCostCardState extends State<ListingCostCard> {
     ];
     return DecoratedBox(
       decoration: BoxDecoration(
-        color: HomiziColors.white,
-        borderRadius: BorderRadius.circular(16),
+        gradient: const LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [Color(0xFFFFF1E8), Color(0xFFF3EEFF)],
+        ),
+        borderRadius: BorderRadius.circular(20),
         boxShadow: const [
           BoxShadow(
             color: HomiziColors.shadow,
@@ -125,7 +129,7 @@ class _ListingCostCardState extends State<ListingCostCard> {
         color: HomiziColors.clear,
         child: InkWell(
           key: const Key('listing-cost-section'),
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: BorderRadius.circular(20),
           onTap: () => setState(() => _open = !_open),
           child: Padding(
             padding: const EdgeInsets.all(16),
@@ -144,7 +148,7 @@ class _ListingCostCardState extends State<ListingCostCard> {
                         homiziText(context, 'Cost of renting'),
                         style: const TextStyle(
                           color: HomiziColors.ink,
-                          fontWeight: FontWeight.w600,
+                          fontWeight: FontWeight.w800,
                           fontSize: 16,
                         ),
                       ),
@@ -180,7 +184,7 @@ class _ListingCostCardState extends State<ListingCostCard> {
                                       Icon(
                                         line.$1,
                                         size: 18,
-                                        color: HomiziColors.brandDeepRed,
+                                        color: HomiziColors.homiziPurple,
                                       ),
                                       const SizedBox(width: 8),
                                       Expanded(
@@ -199,7 +203,7 @@ class _ListingCostCardState extends State<ListingCostCard> {
                                             : Key('listing-cost-${line.$2}'),
                                         style: const TextStyle(
                                           color: HomiziColors.ink,
-                                          fontWeight: FontWeight.w600,
+                                          fontWeight: FontWeight.w800,
                                         ),
                                       ),
                                     ],
@@ -213,7 +217,7 @@ class _ListingCostCardState extends State<ListingCostCard> {
                                       'Move-in total',
                                       style: TextStyle(
                                         color: HomiziColors.ink,
-                                        fontWeight: FontWeight.w600,
+                                        fontWeight: FontWeight.w800,
                                       ),
                                     ),
                                   ),
@@ -222,7 +226,7 @@ class _ListingCostCardState extends State<ListingCostCard> {
                                     key: const Key('listing-cost-move-in'),
                                     style: const TextStyle(
                                       color: HomiziColors.ink,
-                                      fontWeight: FontWeight.w600,
+                                      fontWeight: FontWeight.w800,
                                     ),
                                   ),
                                 ],
@@ -259,7 +263,7 @@ class _CountUp extends StatelessWidget {
         homiziText(context, '$label ${formatInr(value)}'),
         style: const TextStyle(
           color: HomiziColors.inkSoft,
-          fontWeight: FontWeight.w600,
+          fontWeight: FontWeight.w700,
         ),
       );
     }
@@ -272,7 +276,7 @@ class _CountUp extends StatelessWidget {
           homiziText(context, '$label ${formatInr(amount.round())}'),
           style: const TextStyle(
             color: HomiziColors.inkSoft,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w700,
           ),
         );
       },
@@ -305,7 +309,7 @@ List<ListingFact> listingFactTiles(Listing listing) {
         icon: Icons.stairs_outlined,
         label: 'Floor',
         value: floor,
-        tint: HomiziColors.soft,
+        tint: const Color(0xFFFFE8DC),
       ),
     );
   }
@@ -316,7 +320,7 @@ List<ListingFact> listingFactTiles(Listing listing) {
         icon: Icons.groups_outlined,
         label: 'Open to',
         value: open,
-        tint: HomiziColors.soft,
+        tint: const Color(0xFFF3EEFF),
       ),
     );
   }
@@ -326,7 +330,7 @@ List<ListingFact> listingFactTiles(Listing listing) {
         icon: Icons.chair_outlined,
         label: 'Furnishing',
         value: listing.furnishingLabel,
-        tint: HomiziColors.soft,
+        tint: const Color(0xFFFFF6D8),
       ),
     );
   }
@@ -335,7 +339,7 @@ List<ListingFact> listingFactTiles(Listing listing) {
       icon: Icons.local_parking_outlined,
       label: 'Parking',
       value: listing.parking ? 'Available' : 'No parking',
-      tint: HomiziColors.soft,
+      tint: const Color(0xFFE7F6EC),
     ),
   );
   if (listing.bhkLabel.trim().isNotEmpty) {
@@ -344,7 +348,7 @@ List<ListingFact> listingFactTiles(Listing listing) {
         icon: Icons.apartment_outlined,
         label: 'Home',
         value: listing.bhkLabel,
-        tint: HomiziColors.soft,
+        tint: const Color(0xFFE8F1FF),
       ),
     );
   }
@@ -355,7 +359,7 @@ List<ListingFact> listingFactTiles(Listing listing) {
         icon: Icons.bathtub_outlined,
         label: 'Bath',
         value: bath,
-        tint: HomiziColors.soft,
+        tint: const Color(0xFFE7F6F4),
       ),
     );
   }
@@ -366,7 +370,7 @@ List<ListingFact> listingFactTiles(Listing listing) {
         icon: Icons.square_foot,
         label: 'Area',
         value: '$area sq ft',
-        tint: HomiziColors.soft,
+        tint: const Color(0xFFFFE8DC),
       ),
     );
   }
@@ -376,7 +380,7 @@ List<ListingFact> listingFactTiles(Listing listing) {
         icon: Icons.event_outlined,
         label: 'Lease',
         value: '${listing.leaseMonths} months',
-        tint: HomiziColors.soft,
+        tint: const Color(0xFFF3EEFF),
       ),
     );
   }
@@ -442,7 +446,7 @@ class _FactTile extends StatelessWidget {
             style: const TextStyle(
               color: HomiziColors.inkSoft,
               fontSize: 11,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w700,
             ),
           ),
           const SizedBox(height: 2),
@@ -450,7 +454,7 @@ class _FactTile extends StatelessWidget {
             homiziText(context, fact.value),
             style: const TextStyle(
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
               fontSize: 13,
             ),
           ),
@@ -511,8 +515,10 @@ class ListingPrivacyCard extends StatelessWidget {
       key: gate.showsContact ? null : const Key('contact-gate'),
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: HomiziColors.white,
-        borderRadius: BorderRadius.circular(16),
+        gradient: const LinearGradient(
+          colors: [Color(0xFFFFF7F2), Color(0xFFF6F3FF)],
+        ),
+        borderRadius: BorderRadius.circular(20),
         border: Border.all(color: HomiziColors.line),
       ),
       child: Column(
@@ -520,7 +526,7 @@ class ListingPrivacyCard extends StatelessWidget {
         children: [
           const Row(
             children: [
-              Icon(Icons.shield_outlined, color: HomiziColors.brandDeepRed),
+              Icon(Icons.shield_outlined, color: HomiziColors.homiziPurple),
               SizedBox(width: 8),
               Icon(
                 Icons.lock_outline,
@@ -533,7 +539,7 @@ class ListingPrivacyCard extends StatelessWidget {
                   'Private until you agree',
                   style: TextStyle(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w800,
                   ),
                 ),
               ),
@@ -588,7 +594,9 @@ class ListingMessageButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return DecoratedBox(
       decoration: BoxDecoration(
-        gradient: HomiziGradients.action,
+        gradient: const LinearGradient(
+          colors: [HomiziColors.brandRedOrange, HomiziColors.homiziPurple],
+        ),
         borderRadius: BorderRadius.circular(16),
         boxShadow: const [
           BoxShadow(
@@ -618,7 +626,7 @@ class ListingMessageButton extends StatelessWidget {
                   homiziText(context, 'Message'),
                   style: const TextStyle(
                     color: HomiziColors.white,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w800,
                     fontSize: 16,
                   ),
                 ),

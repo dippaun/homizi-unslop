@@ -68,7 +68,7 @@ class ToolsScreen extends StatelessWidget {
       ),
     ];
     return Scaffold(
-      backgroundColor: HomiziColors.cream,
+      backgroundColor: HomiziColors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: const HomiziBackButton(),
@@ -97,7 +97,7 @@ class ToolsScreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(12),
                         onTap: () => context.push(tool.path),
                         child: Padding(
-                          padding: const EdgeInsets.all(20),
+                          padding: const EdgeInsets.all(18),
                           child: Row(
                             children: [
                               CircleAvatar(

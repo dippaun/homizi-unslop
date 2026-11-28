@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:homizi/core/theme/homizi_colors.dart';
 
 /// Marks a subtree as the Post Property flow so shared listing widgets can
-/// pick up the warm selection wash without changing the rest of the app.
+/// pick up lavender selection without changing the rest of the app.
 class FlowAccentScope extends InheritedWidget {
   const FlowAccentScope({required super.child, super.key});
 

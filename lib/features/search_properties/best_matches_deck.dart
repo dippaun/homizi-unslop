@@ -15,6 +15,7 @@ import 'package:homizi/features/discovery/discovery_controller.dart';
 import 'package:homizi/features/discovery/discovery_gateway.dart';
 import 'package:homizi/features/discovery/domain/listing.dart';
 import 'package:homizi/features/discovery/match_breakdown_sheet.dart';
+import 'package:homizi/features/matching/homizi_ai_loader.dart';
 import 'package:homizi/features/matching/match_controller.dart';
 import 'package:homizi/features/nearby/nearby.dart';
 import 'package:homizi/features/post_analyzer/property_card_data.dart';
@@ -256,12 +257,6 @@ class _BestMatchesDeckState extends ConsumerState<BestMatchesDeck>
   }
 
   Future<void> _commit(BestMatchSwipe decision) async {
-    // v2: a firm tap for interest, a light tick for skip or later.
-    if (decision == BestMatchSwipe.interested) {
-      unawaited(HapticFeedback.mediumImpact());
-    } else {
-      unawaited(HapticFeedback.selectionClick());
-    }
     if (_busy || _index >= widget.homes.length) {
       return;
     }
@@ -447,7 +442,7 @@ class _BestMatchesDeckState extends ConsumerState<BestMatchesDeck>
     final current = done || total == 0 ? null : widget.homes[_index];
     return Scaffold(
       key: const Key('search-matches-screen'),
-      backgroundColor: HomiziColors.cream,
+      backgroundColor: HomiziColors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: const HomiziBackButton(),
@@ -493,21 +488,22 @@ class _BestMatchesDeckState extends ConsumerState<BestMatchesDeck>
                 ),
               ),
             Expanded(
-              child: total == 0
-                  ? widget.loading
-                        ? const _CardSkeleton()
-                        : EmptyState(
-                            title: 'No homes in this search',
-                            message:
-                                'None of the published homes match these filters. Widen the budget or clear a rule.',
-                            actionLabel: 'Edit search',
-                            onAction: () => context.push(
-                              '${RoutePaths.searchStart}?edit=1',
-                            ),
-                          )
-                  : done
-                  ? _Done(total: total, onOpen: _open)
-                  : _card(current!),
+              child: HomiziAiMatchGate(
+                loading: widget.loading && total == 0,
+                kind: HomiziAiKind.homes,
+                child: total == 0
+                    ? EmptyState(
+                        title: 'No homes published yet',
+                        message:
+                            'When a home is published it shows up here, including a low match.',
+                        actionLabel: 'Edit search',
+                        onAction: () =>
+                            context.push('${RoutePaths.searchStart}?edit=1'),
+                      )
+                    : done
+                    ? _Done(total: total, onOpen: _open)
+                    : _card(current!),
+              ),
             ),
             if (current != null) const _Hint(),
           ],
@@ -529,17 +525,17 @@ class _BestMatchesDeckState extends ConsumerState<BestMatchesDeck>
     return Padding(
       padding: const EdgeInsets.fromLTRB(12, 4, 12, 4),
       child: ClipRRect(
-        borderRadius: const BorderRadius.all(Radius.circular(20)),
+        borderRadius: const BorderRadius.all(Radius.circular(24)),
         child: Stack(
           fit: StackFit.expand,
           children: [
             if (_index + 1 < widget.homes.length)
               const Padding(
-                padding: EdgeInsets.fromLTRB(16, 16, 16, 0),
+                padding: EdgeInsets.fromLTRB(14, 16, 14, 0),
                 child: DecoratedBox(
                   decoration: BoxDecoration(
                     color: HomiziColors.soft,
-                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                    borderRadius: BorderRadius.all(Radius.circular(24)),
                     border: Border.fromBorderSide(
                       BorderSide(color: HomiziColors.line),
                     ),
@@ -639,60 +635,6 @@ String seenAllLine(int total) {
   return "You've seen all $total matches";
 }
 
-class _CardSkeleton extends StatelessWidget {
-  const _CardSkeleton();
-
-  @override
-  Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.fromLTRB(12, 4, 12, 4),
-      child: DecoratedBox(
-        decoration: BoxDecoration(
-          color: HomiziColors.white,
-          borderRadius: BorderRadius.all(Radius.circular(20)),
-          border: Border.fromBorderSide(BorderSide(color: HomiziColors.line)),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            DecoratedBox(
-              decoration: BoxDecoration(
-                color: HomiziColors.mist,
-                borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-              ),
-              child: SizedBox(height: 210, width: double.infinity),
-            ),
-            SizedBox(height: 16),
-            _SkeletonLine(width: 180),
-            SizedBox(height: 10),
-            _SkeletonLine(width: 120),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class _SkeletonLine extends StatelessWidget {
-  const _SkeletonLine({required this.width});
-
-  final double width;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 16),
-      child: DecoratedBox(
-        decoration: const BoxDecoration(
-          color: HomiziColors.mist,
-          borderRadius: BorderRadius.all(Radius.circular(8)),
-        ),
-        child: SizedBox(width: width, height: 14),
-      ),
-    );
-  }
-}
-
 class _Hint extends StatelessWidget {
   const _Hint();
 
@@ -707,7 +649,7 @@ class _Hint extends StatelessWidget {
         style: const TextStyle(
           color: HomiziColors.inkSoft,
           fontSize: 13,
-          fontWeight: FontWeight.w600,
+          fontWeight: FontWeight.w700,
         ),
       ),
     );
@@ -740,7 +682,7 @@ class _Done extends StatelessWidget {
               textAlign: TextAlign.center,
               style: const TextStyle(
                 color: HomiziColors.ink,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w800,
                 fontSize: 18,
               ),
             ),
@@ -796,14 +738,14 @@ class _Stamp extends StatelessWidget {
               ),
               child: Padding(
                 padding: const EdgeInsets.symmetric(
-                  horizontal: 16,
+                  horizontal: 14,
                   vertical: 8,
                 ),
                 child: Text(
                   label,
                   style: TextStyle(
                     color: foreground,
-                    fontWeight: FontWeight.w700,
+                    fontWeight: FontWeight.w800,
                     fontSize: 22,
                     letterSpacing: 1.1,
                   ),

@@ -65,10 +65,10 @@ class PrioritiesScreen extends ConsumerWidget {
     return RepaintBoundary(
       key: const Key('priority-shot'),
       child: Scaffold(
-        backgroundColor: HomiziColors.cream,
+        backgroundColor: HomiziColors.white,
         appBar: AppBar(
           automaticallyImplyLeading: false,
-          backgroundColor: HomiziColors.cream,
+          backgroundColor: HomiziColors.white,
           foregroundColor: HomiziColors.ink,
           leading: HomiziBackButton(
             onPressed: () {
@@ -125,7 +125,7 @@ class _SavedChangePrompt extends StatelessWidget {
         key: const Key('priority-saved-prompt'),
         style: const TextStyle(
           color: HomiziColors.ink,
-          fontWeight: FontWeight.w600,
+          fontWeight: FontWeight.w700,
         ),
       ),
     );
@@ -174,7 +174,7 @@ class _CityQuestionState extends State<_CityQuestion> {
             style: const TextStyle(
               fontFamily: 'PlusJakartaSans',
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
               fontSize: 16,
             ),
           ),
@@ -238,7 +238,7 @@ class _Header extends StatelessWidget {
                   key: const Key('priority-title'),
                   style: const TextStyle(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w700,
                     fontSize: 20,
                   ),
                 ),
@@ -705,7 +705,7 @@ class _TenantPrioritiesState extends ConsumerState<_TenantPriorities> {
   ) async {
     final picked = await showModalBottomSheet<PriorityCriterion>(
       context: context,
-      backgroundColor: HomiziColors.cream,
+      backgroundColor: HomiziColors.white,
       builder: (context) => SafeArea(
         child: ListView(
           key: const Key('priority-add-sheet'),
@@ -742,7 +742,7 @@ class _TenantPrioritiesState extends ConsumerState<_TenantPriorities> {
     final next = await showModalBottomSheet<SearchPriorities>(
       context: context,
       isScrollControlled: true,
-      backgroundColor: HomiziColors.cream,
+      backgroundColor: HomiziColors.white,
       builder: (context) => _TenantEditSheet(
         value: draft,
         criterion: c,
@@ -1187,18 +1187,12 @@ class _LifestyleFormState extends State<_LifestyleForm> {
             'required': 'I have pets',
             'undisclosed': 'Prefer not to say',
           }, (v) => value.copyWith(pets: v)),
-          pick(
-            'schedule',
-            'Sleep schedule',
-            value.schedule,
-            const {
-              'early': 'Early',
-              'flexible': 'Flexible',
-              'night': 'Night',
-              'undisclosed': 'Prefer not to say',
-            },
-            (v) => value.copyWith(schedule: v),
-          ),
+          pick('schedule', 'Sleep schedule', value.schedule, const {
+            'early': 'Early',
+            'flexible': 'Flexible',
+            'night': 'Night',
+            'undisclosed': 'Prefer not to say',
+          }, (v) => value.copyWith(schedule: v)),
           pick('work', 'Work style', value.workStyle, const {
             'office': 'Office',
             'hybrid': 'Hybrid',
@@ -1418,7 +1412,7 @@ class _HostPrioritiesState extends ConsumerState<_HostPriorities> {
   ) async {
     final picked = await showModalBottomSheet<HostCriterion>(
       context: context,
-      backgroundColor: HomiziColors.cream,
+      backgroundColor: HomiziColors.white,
       builder: (context) => SafeArea(
         child: ListView(
           key: const Key('priority-add-sheet'),
@@ -1451,7 +1445,7 @@ class _HostPrioritiesState extends ConsumerState<_HostPriorities> {
     final next = await showModalBottomSheet<HostTenantPriorities>(
       context: context,
       isScrollControlled: true,
-      backgroundColor: HomiziColors.cream,
+      backgroundColor: HomiziColors.white,
       builder: (context) => _HostEditSheet(
         value: draft,
         criterion: c,

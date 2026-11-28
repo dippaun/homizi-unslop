@@ -71,7 +71,7 @@ class DemoSuccessScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       key: const Key('demo-success-screen'),
-      backgroundColor: HomiziColors.cream,
+      backgroundColor: HomiziColors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: HomiziBackButton(onPressed: () => leaveDemoSuccess(context)),

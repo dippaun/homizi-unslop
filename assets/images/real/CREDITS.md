@@ -15,8 +15,15 @@ https://www.pexels.com/license/
 | `kitchen.webp` | Ahmedabad kitchen | https://www.pexels.com/photo/traditional-indian-kitchen-with-red-cabinets-31944364/ — Fahad Puthawala |
 | `bedroom.webp` | Noida bedroom | https://www.pexels.com/photo/bedroom-with-room-and-sofa-19826090/ — Dhruv Garg |
 | `people.webp` | Couple at home | https://www.pexels.com/photo/delighted-indian-couple-hugging-on-sofa-in-cozy-apartment-4307963/ — Ketut Subiyanto |
-| `living_b.webp` | Kochi living room | https://www.pexels.com/photo/33452539/ |
-| `dining.webp` | Bengaluru living room | https://www.pexels.com/photo/38084669/ — Vidit Goel |
-| `bedroom_b.webp` | Minimalist bedroom | https://www.pexels.com/photo/35229096/ |
-| `bath.webp` | Bathroom with health faucet | https://www.pexels.com/photo/6636244/ |
-| `balcony.webp` | Balcony with plants | https://www.pexels.com/photo/17627570/ |
+| `balcony.webp` | Person on a Mumbai balcony | https://www.pexels.com/photo/stylish-young-man-posing-on-a-balcony-in-mumbai-29040103/ — Farhan Khan |
+
+## Unsplash License
+
+https://unsplash.com/license
+
+| File | Source photo |
+| --- | --- |
+| `living_b.webp` | https://unsplash.com/photos/1600210492486-724fe5c67fb0 |
+| `dining.webp` | https://unsplash.com/photos/1554995207-c18c203602cb |
+| `bedroom_b.webp` | https://unsplash.com/photos/1616594039964-ae9021a400a0 |
+| `bath.webp` | https://unsplash.com/photos/1552321554-5fefe8c9ef14 |

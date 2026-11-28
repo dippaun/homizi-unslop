@@ -8,7 +8,6 @@ import 'package:homizi/core/l10n/translate.dart';
 import 'package:homizi/core/routing/route_paths.dart';
 import 'package:homizi/core/supabase/missing_relation.dart';
 import 'package:homizi/core/theme/homizi_colors.dart';
-import 'package:homizi/core/theme/role_palette.dart';
 import 'package:homizi/core/widgets/homizi_home_bar.dart';
 import 'package:homizi/core/widgets/listing_widgets.dart';
 import 'package:homizi/core/widgets/split_section.dart';
@@ -197,7 +196,7 @@ class _ChatInboxScreenState extends ConsumerState<ChatInboxScreen> {
     return MinTouchScope(
       child: Scaffold(
         key: const Key('chat-inbox-screen'),
-        backgroundColor: HomiziColors.cream,
+        backgroundColor: HomiziColors.white,
         appBar: widget.embedded ? null : const HomiziHomeBar(),
         body: _loading
             ? const LoadingState(message: 'Opening the conversation…')
@@ -215,21 +214,17 @@ class _ChatInboxScreenState extends ConsumerState<ChatInboxScreen> {
                           color: HomiziColors.muted,
                         ),
                         filled: true,
-                        fillColor: HomiziColors.white,
+                        fillColor: HomiziColors.mist,
                         border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20),
-                          borderSide: const BorderSide(
-                            color: HomiziColors.line,
-                          ),
+                          borderRadius: BorderRadius.circular(24),
+                          borderSide: BorderSide.none,
                         ),
                         enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20),
-                          borderSide: const BorderSide(
-                            color: HomiziColors.line,
-                          ),
+                          borderRadius: BorderRadius.circular(24),
+                          borderSide: BorderSide.none,
                         ),
                         focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20),
+                          borderRadius: BorderRadius.circular(24),
                           borderSide: const BorderSide(
                             color: HomiziColors.accent,
                             width: 1.5,
@@ -276,41 +271,35 @@ class _ChatInboxScreenState extends ConsumerState<ChatInboxScreen> {
       for (final row in visible)
         if (!_roommateChat(row)) row,
     ];
-    return RefreshIndicator(
-      color: HomiziColors.brandRedOrange,
-      backgroundColor: HomiziColors.white,
-      onRefresh: _load,
-      child: ListView(
-        key: const Key('chat-inbox-list'),
-        physics: const AlwaysScrollableScrollPhysics(),
-        padding: const EdgeInsets.fromLTRB(16, 12, 16, 24),
-        children: [
-          SplitSection(
-            sectionKey: const Key('chat-section-roommates'),
-            icon: Icons.groups_outlined,
-            title: 'Roommates',
-            count: roommates.length,
-            tint: HomiziColors.white,
-            accent: HomiziRolePalette.roommate.ink,
-            emptyLine: searching
-                ? 'No roommate chats match this search.'
-                : 'No roommate chats yet. Message someone from their profile.',
-            children: [for (final row in roommates) _thread(context, row, now)],
-          ),
-          SplitSection(
-            sectionKey: const Key('chat-section-flats'),
-            icon: Icons.apartment_outlined,
-            title: 'Flats',
-            count: flats.length,
-            tint: HomiziColors.white,
-            accent: HomiziRolePalette.tenant.ink,
-            emptyLine: searching
-                ? 'No flat chats match this search.'
-                : 'No flat chats yet. Message an owner, broker, or PG from their listing.',
-            children: [for (final row in flats) _thread(context, row, now)],
-          ),
-        ],
-      ),
+    return ListView(
+      key: const Key('chat-inbox-list'),
+      padding: const EdgeInsets.fromLTRB(16, 12, 16, 24),
+      children: [
+        SplitSection(
+          sectionKey: const Key('chat-section-roommates'),
+          icon: Icons.groups_outlined,
+          title: 'Roommates',
+          count: roommates.length,
+          tint: HomiziColors.homiziLavender,
+          accent: HomiziColors.homiziPurple,
+          emptyLine: searching
+              ? 'No roommate chats match this search.'
+              : 'No roommate chats yet. Message someone from their profile.',
+          children: [for (final row in roommates) _thread(context, row, now)],
+        ),
+        SplitSection(
+          sectionKey: const Key('chat-section-flats'),
+          icon: Icons.apartment_outlined,
+          title: 'Flats',
+          count: flats.length,
+          tint: HomiziColors.accentWash,
+          accent: HomiziColors.logoOrange,
+          emptyLine: searching
+              ? 'No flat chats match this search.'
+              : 'No flat chats yet. Message an owner, broker, or PG from their listing.',
+          children: [for (final row in flats) _thread(context, row, now)],
+        ),
+      ],
     );
   }
 
@@ -368,7 +357,7 @@ class _ChatInboxScreenState extends ConsumerState<ChatInboxScreen> {
                           overflow: TextOverflow.ellipsis,
                           style: const TextStyle(
                             color: HomiziColors.ink,
-                            fontWeight: FontWeight.w600,
+                            fontWeight: FontWeight.w700,
                           ),
                         ),
                       ),
@@ -456,7 +445,7 @@ class _UnreadBadge extends StatelessWidget {
             style: const TextStyle(
               color: HomiziColors.ink,
               fontSize: 11,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w700,
             ),
           ),
         ),

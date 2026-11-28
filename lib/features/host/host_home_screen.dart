@@ -5,12 +5,9 @@ import 'package:homizi/core/l10n/translate.dart';
 import 'package:homizi/core/layout/homizi_frame.dart';
 import 'package:homizi/core/routing/route_paths.dart';
 import 'package:homizi/core/theme/homizi_colors.dart';
-import 'package:homizi/core/theme/role_palette.dart';
 import 'package:homizi/core/widgets/homizi_home_bar.dart';
 import 'package:homizi/features/host/host_navigation.dart';
 import 'package:homizi/features/roles/role_switch_bar.dart';
-import 'package:homizi/ui/kit/hero_band.dart';
-import 'package:homizi/ui/kit/motion_kit.dart';
 
 class _Tile {
   const _Tile({
@@ -164,23 +161,22 @@ class HostHomeScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       key: const Key('host-home-screen'),
-      backgroundColor: HomiziColors.cream,
+      backgroundColor: HomiziColors.white,
       appBar: const HomiziHomeBar(),
       body: HomiziFrame(
         child: ListView(
           padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
           children: [
             const RoleSwitchBar(),
-            HomiziStaggerIn(
-              child: HomiziRoleIntro(
-                palette: HomiziRolePalette.owner,
-                eyebrow: homiziText(context, 'Owner and host'),
-                icon: Icons.vpn_key_outlined,
-                title: homiziText(context, 'Your homes'),
-                body: homiziText(
-                  context,
-                  'List a home in Bengaluru, Mumbai, Pune, or your city. HOMIZI does not charge brokerage.',
-                ),
+            Text(
+              homiziText(context, 'Your homes'),
+              style: Theme.of(context).textTheme.headlineSmall,
+            ),
+            const SizedBox(height: 8),
+            Text(
+              homiziText(
+                context,
+                'List a home in Bengaluru, Mumbai, Pune, or your city. HOMIZI does not charge brokerage.',
               ),
             ),
             const SizedBox(height: 20),
@@ -201,22 +197,19 @@ class HostHomeScreen extends ConsumerWidget {
               onTap: () => openHostProfile(context, ref),
             ),
             const SizedBox(height: 12),
-            for (final (index, tile) in _tiles.indexed) ...[
-              HomiziStaggerIn(
-                index: index + 2,
-                child: _HostCard(
-                  tileKey: tile.tileKey,
-                  icon: tile.icon,
-                  title: tile.title,
-                  benefit: tile.benefit,
-                  onTap: () {
-                    if (tile.shell) {
-                      context.go(tile.path);
-                    } else {
-                      context.push(tile.path);
-                    }
-                  },
-                ),
+            for (final tile in _tiles) ...[
+              _HostCard(
+                tileKey: tile.tileKey,
+                icon: tile.icon,
+                title: tile.title,
+                benefit: tile.benefit,
+                onTap: () {
+                  if (tile.shell) {
+                    context.go(tile.path);
+                  } else {
+                    context.push(tile.path);
+                  }
+                },
               ),
               const SizedBox(height: 12),
             ],
@@ -244,43 +237,38 @@ class _HostCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return HomiziPressable(
-      child: Card(
-        key: Key(tileKey),
-        color: HomiziColors.white,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-        child: InkWell(
-          borderRadius: BorderRadius.circular(16),
-          onTap: onTap,
-          child: Padding(
-            padding: const EdgeInsets.all(20),
-            child: Row(
-              children: [
-                HomiziRoleIcon(
-                  icon,
-                  palette: HomiziRolePalette.owner,
-                  size: 52,
+    return Card(
+      key: Key(tileKey),
+      color: HomiziColors.white,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(20),
+        onTap: onTap,
+        child: Padding(
+          padding: const EdgeInsets.all(20),
+          child: Row(
+            children: [
+              CircleAvatar(
+                radius: 26,
+                backgroundColor: HomiziColors.accentWash,
+                child: Icon(icon, color: HomiziColors.accent),
+              ),
+              const SizedBox(width: 16),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      homiziText(context, title),
+                      style: Theme.of(context).textTheme.titleMedium,
+                    ),
+                    const SizedBox(height: 4),
+                    Text(homiziText(context, benefit)),
+                  ],
                 ),
-                const SizedBox(width: 16),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        homiziText(context, title),
-                        style: Theme.of(context).textTheme.titleMedium,
-                      ),
-                      const SizedBox(height: 4),
-                      Text(homiziText(context, benefit)),
-                    ],
-                  ),
-                ),
-                const Icon(
-                  Icons.chevron_right,
-                  color: HomiziColors.brandDeepRed,
-                ),
-              ],
-            ),
+              ),
+              const Icon(Icons.chevron_right, color: HomiziColors.ink),
+            ],
           ),
         ),
       ),

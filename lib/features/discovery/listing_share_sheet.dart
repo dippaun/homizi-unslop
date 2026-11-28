@@ -151,7 +151,7 @@ class _ShareSheet extends StatelessWidget {
     return DecoratedBox(
       decoration: const BoxDecoration(
         color: HomiziColors.white,
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+        borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
       ),
       child: SafeArea(
         child: Padding(
@@ -177,7 +177,7 @@ class _ShareSheet extends StatelessWidget {
                 style: const TextStyle(
                   fontFamily: 'PlusJakartaSans',
                   color: HomiziColors.ink,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w800,
                   fontSize: 18,
                 ),
               ),
@@ -256,7 +256,7 @@ class _ShareTile extends StatelessWidget {
             style: const TextStyle(
               color: HomiziColors.ink,
               fontSize: 11,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w700,
             ),
           ),
         ],

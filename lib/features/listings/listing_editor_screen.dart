@@ -1176,7 +1176,7 @@ class _ListingEditorScreenState extends ConsumerState<ListingEditorScreen> {
                               style: const TextStyle(
                                 fontFamily: 'PlusJakartaSans',
                                 color: HomiziColors.ink,
-                                fontWeight: FontWeight.w600,
+                                fontWeight: FontWeight.w800,
                                 fontSize: 22,
                               ),
                             ),
@@ -1198,7 +1198,7 @@ class _ListingEditorScreenState extends ConsumerState<ListingEditorScreen> {
                               style: const TextStyle(
                                 fontFamily: 'PlusJakartaSans',
                                 color: HomiziColors.ink,
-                                fontWeight: FontWeight.w600,
+                                fontWeight: FontWeight.w800,
                                 fontSize: 22,
                               ),
                             ),
@@ -1588,7 +1588,7 @@ class _ListingEditorScreenState extends ConsumerState<ListingEditorScreen> {
                               tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                               alignment: Alignment.centerLeft,
                               textStyle: const TextStyle(
-                                fontWeight: FontWeight.w600,
+                                fontWeight: FontWeight.w700,
                               ),
                             ),
                             onPressed: _pointsAtField(shownNote)
@@ -1701,9 +1701,9 @@ class _ListingEditorScreenState extends ConsumerState<ListingEditorScreen> {
       child: Theme(
         data: theme.copyWith(
           chipTheme: theme.chipTheme.copyWith(
-            backgroundColor: HomiziColors.cream,
-            selectedColor: HomiziColors.warmWash,
-            checkmarkColor: HomiziColors.brandDeepRed,
+            backgroundColor: HomiziColors.white,
+            selectedColor: HomiziColors.homiziLavender,
+            checkmarkColor: HomiziColors.homiziPurple,
             labelStyle: const TextStyle(color: HomiziColors.ink),
             secondaryLabelStyle: const TextStyle(color: HomiziColors.ink),
             side: const BorderSide(color: HomiziColors.line),

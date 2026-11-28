@@ -5,14 +5,11 @@ import 'package:homizi/core/format/inr.dart';
 import 'package:homizi/core/l10n/translate.dart';
 import 'package:homizi/core/routing/route_paths.dart';
 import 'package:homizi/core/theme/homizi_colors.dart';
-import 'package:homizi/core/theme/role_palette.dart';
 import 'package:homizi/features/discovery/poster_badge.dart';
 import 'package:homizi/features/listings/domain/poster_kind.dart';
 import 'package:homizi/features/listings/published_search.dart';
 import 'package:homizi/features/post_property/post_property_chrome.dart';
 import 'package:homizi/features/shared_home/host_shared_home_screen.dart';
-import 'package:homizi/ui/kit/hero_band.dart';
-import 'package:homizi/ui/kit/motion_kit.dart';
 
 /// PG owner's own homes and real join requests.
 ///
@@ -31,26 +28,23 @@ class PgOwnerHome extends ConsumerWidget {
     final requests = ref.watch(hostJoinRequestsProvider);
     return Scaffold(
       key: const Key('pg-owner-home'),
-      backgroundColor: HomiziColors.cream,
+      backgroundColor: HomiziColors.white,
       appBar: const PostPropertyBar(),
       body: ListView(
         padding: const EdgeInsets.fromLTRB(16, 8, 16, 32),
         children: [
           const PosterKindBadge(kind: posterPg),
           const SizedBox(height: 10),
-          HomiziStaggerIn(
-            child: HomiziRoleIntro(
-              palette: HomiziRolePalette.pg,
-              eyebrow: homiziText(context, 'PG owner'),
-              icon: Icons.night_shelter_outlined,
-              title: homiziText(context, 'Your PGs'),
-              body: homiziText(
-                context,
-                'Beds, meals and house rules in one place. Requests land below.',
-              ),
+          Text(
+            homiziText(context, 'Your PGs'),
+            style: const TextStyle(
+              fontFamily: 'PlusJakartaSans',
+              fontSize: 26,
+              fontWeight: FontWeight.w800,
+              color: HomiziColors.ink,
             ),
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: 12),
           if (published.isEmpty)
             _EmptyPg(onAdd: () => context.push('${RoutePaths.postPg}?list=1'))
           else
@@ -61,13 +55,13 @@ class PgOwnerHome extends ConsumerWidget {
                 rent: home.listing.rentInr,
                 onTap: () => context.push(RoutePaths.listing(home.listing.id)),
               ),
-          const SizedBox(height: 20),
+          const SizedBox(height: 18),
           Text(
             homiziText(context, 'Requests'),
             style: const TextStyle(
-              fontFamily: 'Poppins',
+              fontFamily: 'PlusJakartaSans',
               fontSize: 20,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
               color: HomiziColors.ink,
             ),
           ),
@@ -118,27 +112,26 @@ class _EmptyPg extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       key: const Key('pg-owner-empty'),
-      padding: const EdgeInsets.all(20),
+      padding: const EdgeInsets.all(18),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
-        color: HomiziColors.saffronWash,
-        border: Border.all(color: HomiziColors.creamLine),
+        borderRadius: BorderRadius.circular(24),
+        gradient: const LinearGradient(
+          colors: [Color(0xFFFFF1E4), Color(0xFFFFE0C2)],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Icon(
-            Icons.night_shelter,
-            color: HomiziColors.brandDeepRed,
-            size: 36,
-          ),
+          const Icon(Icons.night_shelter, color: Color(0xFF9A4B12), size: 36),
           const SizedBox(height: 8),
           Text(
             homiziText(context, 'Add your PG'),
             style: const TextStyle(
-              fontFamily: 'Poppins',
+              fontFamily: 'PlusJakartaSans',
               fontSize: 22,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
               color: HomiziColors.ink,
             ),
           ),
@@ -150,7 +143,7 @@ class _EmptyPg extends StatelessWidget {
             ),
             style: const TextStyle(color: HomiziColors.inkSoft, height: 1.35),
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: 14),
           PostGradientButton(
             buttonKey: const Key('pg-add'),
             label: 'Add your PG',
@@ -182,24 +175,23 @@ class _PgCard extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 10),
       child: Material(
         color: HomiziColors.white,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(20),
         child: InkWell(
           onTap: onTap,
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: BorderRadius.circular(20),
           child: Ink(
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(16),
-              border: Border.all(color: HomiziColors.line),
-              color: HomiziColors.white,
+              borderRadius: BorderRadius.circular(20),
+              border: Border.all(color: const Color(0xFFFFD7B0)),
+              gradient: const LinearGradient(
+                colors: [Color(0xFFFFFBF6), Color(0xFFFFF1E4)],
+              ),
             ),
             child: Padding(
-              padding: const EdgeInsets.all(16),
+              padding: const EdgeInsets.all(14),
               child: Row(
                 children: [
-                  const Icon(
-                    Icons.night_shelter,
-                    color: HomiziColors.brandDeepRed,
-                  ),
+                  const Icon(Icons.night_shelter, color: Color(0xFF9A4B12)),
                   const SizedBox(width: 12),
                   Expanded(
                     child: Column(
@@ -208,7 +200,7 @@ class _PgCard extends StatelessWidget {
                         Text(
                           title,
                           style: const TextStyle(
-                            fontWeight: FontWeight.w600,
+                            fontWeight: FontWeight.w800,
                             color: HomiziColors.ink,
                           ),
                         ),
@@ -221,7 +213,7 @@ class _PgCard extends StatelessWidget {
                   ),
                   Text(
                     formatInr(rent),
-                    style: const TextStyle(fontWeight: FontWeight.w600),
+                    style: const TextStyle(fontWeight: FontWeight.w800),
                   ),
                 ],
               ),
@@ -250,12 +242,12 @@ class _RequestNote extends StatelessWidget {
       key: const Key('pg-requests-empty'),
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: HomiziColors.soft,
-        borderRadius: BorderRadius.circular(16),
+        color: const Color(0xFFF4F7FF),
+        borderRadius: BorderRadius.circular(20),
       ),
       child: Row(
         children: [
-          Icon(icon, color: HomiziColors.brandDeepRed),
+          Icon(icon, color: HomiziColors.homiziPurple),
           const SizedBox(width: 12),
           Expanded(
             child: Column(
@@ -264,7 +256,7 @@ class _RequestNote extends StatelessWidget {
                 Text(
                   homiziText(context, title),
                   style: const TextStyle(
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w800,
                     color: HomiziColors.ink,
                   ),
                 ),
@@ -295,14 +287,14 @@ class _RequestCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(bottom: 8),
       child: Container(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(14),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16),
-          color: HomiziColors.soft,
+          borderRadius: BorderRadius.circular(18),
+          color: const Color(0xFFF7F3FF),
         ),
         child: Row(
           children: [
-            const Icon(Icons.person, color: HomiziColors.brandDeepRed),
+            const Icon(Icons.person, color: HomiziColors.homiziPurple),
             const SizedBox(width: 12),
             Expanded(
               child: Column(
@@ -310,7 +302,7 @@ class _RequestCard extends StatelessWidget {
                 children: [
                   Text(
                     name,
-                    style: const TextStyle(fontWeight: FontWeight.w600),
+                    style: const TextStyle(fontWeight: FontWeight.w800),
                   ),
                   Text(detail),
                 ],

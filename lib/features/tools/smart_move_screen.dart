@@ -124,7 +124,7 @@ class _SmartMoveScreenState extends ConsumerState<SmartMoveScreen> {
     final theme = Theme.of(context);
     return Scaffold(
       key: const Key('smart-move-screen'),
-      backgroundColor: HomiziColors.cream,
+      backgroundColor: HomiziColors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: const HomiziBackButton(),
@@ -144,7 +144,7 @@ class _SmartMoveScreenState extends ConsumerState<SmartMoveScreen> {
                       'Live now. Move later. Keep more of your rent.',
                     ),
                     style: theme.textTheme.titleLarge?.copyWith(
-                      fontWeight: FontWeight.w600,
+                      fontWeight: FontWeight.w800,
                     ),
                   ),
                   const SizedBox(height: 8),
@@ -166,7 +166,7 @@ class _SmartMoveScreenState extends ConsumerState<SmartMoveScreen> {
                   Container(
                     key: const Key('smart-move-disclaimer'),
                     width: double.infinity,
-                    padding: const EdgeInsets.all(16),
+                    padding: const EdgeInsets.all(14),
                     decoration: BoxDecoration(
                       color: HomiziColors.warningWash,
                       borderRadius: BorderRadius.circular(HomiziSpace.radius),
@@ -189,7 +189,7 @@ class _SmartMoveScreenState extends ConsumerState<SmartMoveScreen> {
                   Text(
                     homiziText(context, 'Illustrative calculator'),
                     style: theme.textTheme.titleMedium?.copyWith(
-                      fontWeight: FontWeight.w600,
+                      fontWeight: FontWeight.w800,
                     ),
                   ),
                   const SizedBox(height: 8),
@@ -238,7 +238,7 @@ class _SmartMoveScreenState extends ConsumerState<SmartMoveScreen> {
                         ),
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.all(20),
+                        padding: const EdgeInsets.all(18),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -281,7 +281,7 @@ class _SmartMoveScreenState extends ConsumerState<SmartMoveScreen> {
                   Text(
                     homiziText(context, "I'm interested"),
                     style: theme.textTheme.titleMedium?.copyWith(
-                      fontWeight: FontWeight.w600,
+                      fontWeight: FontWeight.w800,
                     ),
                   ),
                   const SizedBox(height: 4),
@@ -392,7 +392,7 @@ class _StatRow extends StatelessWidget {
           value,
           key: Key(valueKey),
           style: theme.textTheme.titleMedium?.copyWith(
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w800,
             color: emphasize ? HomiziColors.accent : HomiziColors.ink,
           ),
         ),

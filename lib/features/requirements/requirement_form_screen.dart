@@ -415,7 +415,7 @@ class _RequirementFormScreenState extends ConsumerState<RequirementFormScreen> {
   Widget build(BuildContext context) {
     if (_loading) {
       return const Scaffold(
-        backgroundColor: HomiziColors.cream,
+        backgroundColor: HomiziColors.white,
         body: Center(
           child: CircularProgressIndicator(key: Key('requirement-loading')),
         ),
@@ -433,7 +433,7 @@ class _RequirementFormScreenState extends ConsumerState<RequirementFormScreen> {
     ];
     return MinTouchScope(
       child: Scaffold(
-        backgroundColor: HomiziColors.cream,
+        backgroundColor: HomiziColors.white,
         appBar: AppBar(
           automaticallyImplyLeading: false,
           leading: HomiziBackButton(

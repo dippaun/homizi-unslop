@@ -90,7 +90,7 @@ class _JoinStatusScreenState extends ConsumerState<JoinStatusScreen> {
         : ref.watch(sharedHomesProvider).byId(request.homeId);
     final title = switch (request?.status) {
       JoinStatus.accepted =>
-        _showHome ? 'Your shared home' : 'Request accepted',
+        _showHome ? 'Your shared home' : 'Request accepted!',
       JoinStatus.movedIn => 'Welcome home',
       JoinStatus.declined => 'Request declined',
       JoinStatus.withdrawn => 'Request withdrawn',
@@ -156,14 +156,14 @@ class _JoinStatusScreenState extends ConsumerState<JoinStatusScreen> {
     final notifier = ref.read(joinRequestsProvider.notifier);
     return [
       const ShDoneMark(icon: Icons.mark_email_read_outlined),
-      const SizedBox(height: 16),
+      const SizedBox(height: 14),
       Text(
         homiziText(context, 'Join request sent'),
         key: const Key('join-sent'),
         textAlign: TextAlign.center,
         style: text.headlineSmall?.copyWith(
           color: HomiziColors.success,
-          fontWeight: FontWeight.w600,
+          fontWeight: FontWeight.w700,
         ),
       ),
       const SizedBox(height: 8),
@@ -187,7 +187,7 @@ class _JoinStatusScreenState extends ConsumerState<JoinStatusScreen> {
         textAlign: TextAlign.center,
         style: text.bodySmall,
       ),
-      const SizedBox(height: 20),
+      const SizedBox(height: 18),
       if (request.sample)
         ShGradientButton(
           buttonKey: const Key('join-sample-reply'),
@@ -256,14 +256,14 @@ class _JoinStatusScreenState extends ConsumerState<JoinStatusScreen> {
           ShAvatar(initial: first.isEmpty ? 'H' : first[0], size: 64),
         ],
       ),
-      const SizedBox(height: 16),
+      const SizedBox(height: 14),
       Text(
-        '${homiziText(context, 'You')} & ${request.hostName} ${homiziText(context, 'are a match')}',
+        '${homiziText(context, 'You')} & ${request.hostName} ${homiziText(context, 'are a match!')}',
         key: const Key('join-accepted'),
         textAlign: TextAlign.center,
         style: text.headlineSmall?.copyWith(
           color: HomiziColors.success,
-          fontWeight: FontWeight.w600,
+          fontWeight: FontWeight.w700,
         ),
       ),
       const SizedBox(height: 8),
@@ -280,7 +280,7 @@ class _JoinStatusScreenState extends ConsumerState<JoinStatusScreen> {
           style: const TextStyle(color: HomiziColors.muted),
         ),
       ],
-      const SizedBox(height: 20),
+      const SizedBox(height: 18),
       if (match != null)
         ShGreenButton(
           buttonKey: const Key('join-chat'),
@@ -344,7 +344,7 @@ class _JoinStatusScreenState extends ConsumerState<JoinStatusScreen> {
         SizedBox(
           height: 170,
           child: ClipRRect(
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(14),
             child: ListingPhoto(
               asset: home.listing.photoAssets.isEmpty
                   ? null
@@ -425,14 +425,14 @@ class _JoinStatusScreenState extends ConsumerState<JoinStatusScreen> {
     final text = Theme.of(context).textTheme;
     return [
       const ShDoneMark(),
-      const SizedBox(height: 16),
+      const SizedBox(height: 14),
       Text(
-        homiziText(context, 'You are moving in'),
+        homiziText(context, 'You are moving in!'),
         key: const Key('join-moved-in'),
         textAlign: TextAlign.center,
         style: text.headlineSmall?.copyWith(
           color: HomiziColors.success,
-          fontWeight: FontWeight.w600,
+          fontWeight: FontWeight.w700,
         ),
       ),
       const SizedBox(height: 8),
@@ -450,7 +450,7 @@ class _JoinStatusScreenState extends ConsumerState<JoinStatusScreen> {
           style: const TextStyle(color: HomiziColors.muted),
         ),
       ],
-      const SizedBox(height: 20),
+      const SizedBox(height: 18),
       ShGreenButton(
         buttonKey: const Key('join-done'),
         icon: Icons.home,
@@ -475,7 +475,7 @@ class _JoinStatusScreenState extends ConsumerState<JoinStatusScreen> {
   List<Widget> _closed(JoinRequest request) {
     return [
       const ShDoneMark(icon: Icons.do_not_disturb_on_outlined),
-      const SizedBox(height: 16),
+      const SizedBox(height: 14),
       Text(
         homiziText(
           context,
@@ -487,7 +487,7 @@ class _JoinStatusScreenState extends ConsumerState<JoinStatusScreen> {
         textAlign: TextAlign.center,
         style: Theme.of(context).textTheme.titleMedium,
       ),
-      const SizedBox(height: 20),
+      const SizedBox(height: 18),
       ShGradientButton(
         buttonKey: const Key('join-other-homes'),
         icon: Icons.search,

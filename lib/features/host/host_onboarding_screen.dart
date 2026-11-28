@@ -566,10 +566,10 @@ class _HostOnboardingScreenState extends ConsumerState<HostOnboardingScreen> {
     final last = _step == hostOnboardingStepCount - 1;
     return Scaffold(
       key: const Key('host-onboarding-screen'),
-      backgroundColor: HomiziColors.cream,
+      backgroundColor: HomiziColors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: HomiziColors.cream,
+        backgroundColor: HomiziColors.white,
         surfaceTintColor: HomiziColors.white,
         leading: IconButton(
           key: const Key('host-onboard-back'),
@@ -609,7 +609,7 @@ class _HostOnboardingScreenState extends ConsumerState<HostOnboardingScreen> {
                             style: Theme.of(context).textTheme.headlineSmall
                                 ?.copyWith(
                                   color: HomiziColors.ink,
-                                  fontWeight: FontWeight.w600,
+                                  fontWeight: FontWeight.w800,
                                 ),
                           ),
                           const SizedBox(height: 8),
@@ -1057,7 +1057,7 @@ class _Intro extends StatelessWidget {
               'List today. Find great people. Live better.',
               style: TextStyle(
                 color: HomiziColors.ink,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w800,
               ),
             ),
           ),
@@ -1084,10 +1084,10 @@ class _RoleCard extends StatelessWidget {
       color: selected ? HomiziColors.accentWash : HomiziColors.white,
       elevation: selected ? 0 : 2,
       shadowColor: HomiziColors.shadowStrong,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       child: InkWell(
         key: Key('host-role-${role.wire}'),
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(20),
         onTap: onTap,
         child: Padding(
           padding: const EdgeInsets.all(16),
@@ -1100,7 +1100,7 @@ class _RoleCard extends StatelessWidget {
                     Text(
                       homiziText(context, role.title),
                       style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w700,
                       ),
                     ),
                     const SizedBox(height: 4),

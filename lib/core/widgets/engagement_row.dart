@@ -79,7 +79,7 @@ class EngagementRow extends StatelessWidget {
                           style: const TextStyle(
                             fontFamily: 'PlusJakartaSans',
                             color: HomiziColors.ink,
-                            fontWeight: FontWeight.w600,
+                            fontWeight: FontWeight.w800,
                             fontSize: 14,
                           ),
                         ),
@@ -100,7 +100,7 @@ class EngagementRow extends StatelessWidget {
                             overflow: TextOverflow.ellipsis,
                             style: const TextStyle(
                               color: HomiziColors.ink,
-                              fontWeight: FontWeight.w600,
+                              fontWeight: FontWeight.w700,
                               fontSize: 12,
                             ),
                           ),
@@ -145,7 +145,7 @@ class EngagementRow extends StatelessWidget {
                               overflow: TextOverflow.ellipsis,
                               style: const TextStyle(
                                 color: HomiziColors.success,
-                                fontWeight: FontWeight.w600,
+                                fontWeight: FontWeight.w800,
                                 fontSize: 13,
                               ),
                             ),
@@ -203,7 +203,7 @@ class _Highlight extends StatelessWidget {
     return DecoratedBox(
       decoration: BoxDecoration(
         color: HomiziColors.soft,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(20),
       ),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
@@ -211,13 +211,13 @@ class _Highlight extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Icon(icon, size: 12, color: HomiziColors.logoOrange),
-            const SizedBox(width: 4),
+            const SizedBox(width: 3),
             Text(
               homiziText(context, label),
               style: const TextStyle(
                 color: HomiziColors.ink,
-                fontSize: 11,
-                fontWeight: FontWeight.w600,
+                fontSize: 10,
+                fontWeight: FontWeight.w700,
               ),
             ),
           ],

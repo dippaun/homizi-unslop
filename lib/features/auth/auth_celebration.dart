@@ -8,7 +8,6 @@ import 'package:homizi/core/l10n/translate.dart';
 import 'package:homizi/core/routing/route_paths.dart';
 import 'package:homizi/core/routing/sign_in_gate.dart';
 import 'package:homizi/core/theme/homizi_colors.dart';
-import 'package:homizi/core/theme/homizi_theme.dart';
 import 'package:homizi/features/auth/login_confirm.dart';
 import 'package:homizi/features/auth/registration_gate.dart';
 import 'package:homizi/features/host/host_intent.dart';
@@ -47,7 +46,7 @@ class _AuthCelebrationState extends ConsumerState<AuthCelebration>
     final random = math.Random(7);
     const colors = <Color>[
       HomiziColors.logoOrange,
-      HomiziColors.brandDeepRed,
+      HomiziColors.homiziPurple,
       HomiziColors.brandYellow,
       HomiziColors.brandGolden,
       HomiziColors.brandDeepOrange,
@@ -211,8 +210,8 @@ class _AuthCelebrationState extends ConsumerState<AuthCelebration>
         gate.asData?.value == true;
     final name = _name;
     final headline = first
-        ? (name.isEmpty ? 'Welcome home' : 'Welcome home, $name')
-        : (name.isEmpty ? 'Welcome back' : 'Welcome back, $name');
+        ? (name.isEmpty ? 'Welcome home! 🎉' : 'Welcome home, $name! 🎉')
+        : (name.isEmpty ? 'Welcome back!' : 'Welcome back, $name!');
     return Stack(
       fit: StackFit.expand,
       children: [
@@ -238,10 +237,10 @@ class _AuthCelebrationState extends ConsumerState<AuthCelebration>
                     key: const Key('signup-confirmed'),
                     textAlign: TextAlign.center,
                     style: const TextStyle(
-                      fontFamily: 'Poppins',
-                      fontSize: 32,
+                      fontFamily: 'PlusJakartaSans',
+                      fontSize: 34,
                       height: 1.15,
-                      fontWeight: FontWeight.w600,
+                      fontWeight: FontWeight.w800,
                       color: HomiziColors.ink,
                     ),
                   ),
@@ -257,16 +256,16 @@ class _AuthCelebrationState extends ConsumerState<AuthCelebration>
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   const _HouseMark(),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 18),
                   Text(
                     homiziText(context, headline),
                     key: const Key('signup-confirmed'),
                     textAlign: TextAlign.center,
                     style: const TextStyle(
-                      fontFamily: 'Poppins',
-                      fontSize: 28,
+                      fontFamily: 'PlusJakartaSans',
+                      fontSize: 30,
                       height: 1.15,
-                      fontWeight: FontWeight.w600,
+                      fontWeight: FontWeight.w800,
                       color: HomiziColors.ink,
                     ),
                   ),
@@ -289,16 +288,16 @@ class _AuthCelebrationState extends ConsumerState<AuthCelebration>
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const _HouseMark(),
-                const SizedBox(height: 20),
+                const SizedBox(height: 18),
                 Text(
                   homiziText(context, headline),
                   key: const Key('signup-confirmed-card'),
                   textAlign: TextAlign.center,
                   style: const TextStyle(
-                    fontFamily: 'Poppins',
+                    fontFamily: 'PlusJakartaSans',
                     fontSize: 28,
                     height: 1.15,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w800,
                     color: HomiziColors.ink,
                   ),
                 ),
@@ -314,7 +313,7 @@ class _AuthCelebrationState extends ConsumerState<AuthCelebration>
                     height: 1.35,
                   ),
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 18),
                 const Wrap(
                   alignment: WrapAlignment.center,
                   spacing: 8,
@@ -324,10 +323,7 @@ class _AuthCelebrationState extends ConsumerState<AuthCelebration>
                       label: 'Verified people',
                       icon: Icons.verified_outlined,
                     ),
-                    _Chip(
-                      label: 'Smart matches',
-                      icon: Icons.handshake_outlined,
-                    ),
+                    _Chip(label: 'Smart matches', icon: Icons.auto_awesome),
                     _Chip(label: 'Private contact', icon: Icons.lock_outline),
                   ],
                 ),
@@ -345,7 +341,7 @@ class _AuthCelebrationState extends ConsumerState<AuthCelebration>
                     minimumSize: const Size.fromHeight(48),
                     side: const BorderSide(color: HomiziColors.line),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
+                      borderRadius: BorderRadius.circular(14),
                     ),
                   ),
                   onPressed: () => _goHome(rememberReturn: false),
@@ -369,7 +365,7 @@ class _HouseMark extends StatelessWidget {
     return TweenAnimationBuilder<double>(
       tween: Tween(begin: reduce ? 1 : 0.7, end: 1),
       duration: reduce ? Duration.zero : const Duration(milliseconds: 520),
-      curve: HomiziMotion.curve,
+      curve: Curves.easeOutBack,
       builder: (context, scale, child) {
         return Transform.scale(scale: scale, child: child);
       },
@@ -416,7 +412,7 @@ class _Chip extends StatelessWidget {
             Text(
               homiziText(context, label),
               style: const TextStyle(
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w700,
                 color: HomiziColors.ink,
                 fontSize: 13,
               ),
@@ -443,24 +439,26 @@ class _PrimaryButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return DecoratedBox(
       decoration: BoxDecoration(
-        gradient: HomiziGradients.action,
-        borderRadius: BorderRadius.circular(12),
+        gradient: const LinearGradient(
+          colors: [HomiziColors.logoOrange, HomiziColors.brandDeepOrange],
+        ),
+        borderRadius: BorderRadius.circular(14),
       ),
       child: FilledButton(
         key: buttonKey,
         style: FilledButton.styleFrom(
           backgroundColor: HomiziColors.clear,
-          foregroundColor: HomiziColors.white,
+          foregroundColor: HomiziColors.ink,
           shadowColor: HomiziColors.clear,
           minimumSize: const Size.fromHeight(48),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(14),
           ),
         ),
         onPressed: onPressed,
         child: Text(
           homiziText(context, label),
-          style: const TextStyle(fontWeight: FontWeight.w600),
+          style: const TextStyle(fontWeight: FontWeight.w800),
         ),
       ),
     );
@@ -499,7 +497,7 @@ class _BlastPainter extends CustomPainter {
 
   static const _streamerColors = <Color>[
     HomiziColors.logoOrange,
-    HomiziColors.brandDeepRed,
+    HomiziColors.homiziPurple,
     HomiziColors.brandYellow,
     HomiziColors.brandGolden,
   ];

@@ -145,13 +145,9 @@ class HomiziMatchCard extends StatelessWidget {
     this.linesKey,
     this.badgesKey,
     this.semanticLabel,
-    this.heroTag,
   });
 
   final String title;
-
-  /// Flies the photo into the detail page that shares this tag.
-  final String? heroTag;
   final String? price;
   final String? locality;
   final List<String> photos;
@@ -222,8 +218,8 @@ class HomiziMatchCard extends StatelessWidget {
             boxShadow: const [
               BoxShadow(
                 color: HomiziColors.shadow,
-                blurRadius: 24,
-                offset: Offset(0, 10),
+                blurRadius: 18,
+                offset: Offset(0, 8),
               ),
             ],
           ),
@@ -263,18 +259,6 @@ class HomiziMatchCard extends StatelessWidget {
     );
   }
 
-  Widget _heroed(BuildContext context, Widget child) {
-    final tag = heroTag;
-    if (tag == null) {
-      return child;
-    }
-    // Cards in a hidden shell branch must not register a hero.
-    return HeroMode(
-      enabled: TickerMode.valuesOf(context).enabled,
-      child: Hero(tag: tag, child: child),
-    );
-  }
-
   Widget _photo(BuildContext context) {
     final seed = photoSeed ?? title;
     final frames = homiziCardPhotos(photos, seed: seed, person: person);
@@ -293,23 +277,19 @@ class HomiziMatchCard extends StatelessWidget {
     return Stack(
       fit: StackFit.expand,
       children: [
-        _heroed(
-          context,
-          frames.isEmpty
-              ? ListingPhoto(
-                  fallbackAsset: fallback,
-                  semanticLabel: label,
-                  alignment: person
-                      ? const Alignment(0, -0.3)
-                      : Alignment.center,
-                )
-              : frames.length == 1
-              ? frameAt(0)
-              : PageView.builder(
-                  itemCount: frames.length,
-                  itemBuilder: (context, index) => frameAt(index),
-                ),
-        ),
+        if (frames.isEmpty)
+          ListingPhoto(
+            fallbackAsset: fallback,
+            semanticLabel: label,
+            alignment: person ? const Alignment(0, -0.3) : Alignment.center,
+          )
+        else if (frames.length == 1)
+          frameAt(0)
+        else
+          PageView.builder(
+            itemCount: frames.length,
+            itemBuilder: (context, index) => frameAt(index),
+          ),
         if (matchPercent != null)
           Positioned(
             left: 12,
@@ -346,11 +326,10 @@ class HomiziMatchCard extends StatelessWidget {
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
-                    fontFamily: 'Poppins',
+                    fontFamily: 'PlusJakartaSans',
                     fontSize: compact ? 15 : 18,
                     height: 1.2,
-                    letterSpacing: -0.2,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w800,
                     color: HomiziColors.ink,
                   ),
                 ),
@@ -387,13 +366,11 @@ class HomiziMatchCard extends StatelessWidget {
               key: priceKey,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
-              // v3: price in ink, the strongest line after the title
-              // (logo orange on white was 3.3:1).
               style: TextStyle(
-                fontFamily: 'Poppins',
-                fontSize: compact ? 15 : 17,
-                fontWeight: FontWeight.w600,
-                color: HomiziColors.ink,
+                fontFamily: 'PlusJakartaSans',
+                fontSize: compact ? 14 : 16,
+                fontWeight: FontWeight.w800,
+                color: HomiziColors.logoOrange,
               ),
             ),
           ],
@@ -433,7 +410,7 @@ class HomiziMatchCard extends StatelessWidget {
               homiziText(context, strengthLabel),
               style: TextStyle(
                 fontFamily: 'Inter',
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w700,
                 color: _strengthColor(matchPercent, importantMismatch),
               ),
             ),
@@ -488,7 +465,7 @@ class HomiziMatchCard extends StatelessWidget {
                         homiziText(context, badge),
                         style: const TextStyle(
                           fontFamily: 'Inter',
-                          fontWeight: FontWeight.w600,
+                          fontWeight: FontWeight.w700,
                           color: HomiziColors.success,
                           fontSize: 12,
                         ),
@@ -604,14 +581,14 @@ class _Chip extends StatelessWidget {
     final background = verified
         ? HomiziColors.successWash
         : marked
-        ? HomiziColors.saffronWash
+        ? HomiziColors.logoOrange.withValues(alpha: 0.14)
         : chip.wash
         ? HomiziColors.accentWash
         : HomiziColors.soft;
     final ink = verified
         ? HomiziColors.success
         : marked
-        ? HomiziColors.brandDeepRed
+        ? HomiziColors.logoOrange
         : HomiziColors.ink;
     return DecoratedBox(
       key: chip.chipKey,
@@ -622,7 +599,7 @@ class _Chip extends StatelessWidget {
       child: Padding(
         padding: EdgeInsets.symmetric(
           horizontal: compact ? 8 : 10,
-          vertical: compact ? 4 : 4,
+          vertical: compact ? 3 : 5,
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
@@ -631,18 +608,14 @@ class _Chip extends StatelessWidget {
               Icon(chip.icon, size: compact ? 13 : 15, color: ink),
               const SizedBox(width: 4),
             ],
-            Flexible(
-              child: Text(
-                homiziText(context, chip.label),
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(
-                  fontFamily: 'Inter',
-                  fontSize: compact ? 11 : 12,
-                  height: 1.2,
-                  fontWeight: FontWeight.w600,
-                  color: ink,
-                ),
+            Text(
+              homiziText(context, chip.label),
+              style: TextStyle(
+                fontFamily: 'Inter',
+                fontSize: compact ? 11 : 12,
+                height: 1.2,
+                fontWeight: FontWeight.w700,
+                color: ink,
               ),
             ),
           ],
@@ -678,18 +651,18 @@ class _MatchPill extends StatelessWidget {
       key: matchKey,
       decoration: BoxDecoration(
         color: fill.background,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(20),
       ),
       child: Padding(
         padding: EdgeInsets.symmetric(
           horizontal: compact ? 8 : 10,
-          vertical: compact ? 4 : 4,
+          vertical: compact ? 3 : 5,
         ),
         child: Text(
           homiziText(context, '$percent% Match'),
           style: TextStyle(
             fontFamily: 'PlusJakartaSans',
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w800,
             fontSize: compact ? 11 : 13,
             color: fill.foreground,
           ),
@@ -727,7 +700,7 @@ class _Action extends StatelessWidget {
             child: Icon(action.icon, size: 20, color: iconColor),
           )
         : Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -737,7 +710,7 @@ class _Action extends StatelessWidget {
                   homiziText(context, action.label!),
                   style: const TextStyle(
                     fontFamily: 'PlusJakartaSans',
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w800,
                     color: HomiziColors.ink,
                   ),
                 ),

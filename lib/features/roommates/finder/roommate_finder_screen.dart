@@ -12,6 +12,7 @@ import 'package:homizi/core/widgets/state_views.dart';
 import 'package:homizi/features/account/account_providers.dart';
 import 'package:homizi/features/account/live_account_sync.dart';
 import 'package:homizi/features/discovery/domain/discovery_state.dart';
+import 'package:homizi/features/matching/homizi_ai_loader.dart';
 import 'package:homizi/features/profile_create/verification_gate.dart';
 import 'package:homizi/features/requirements/domain/requirement_draft.dart';
 import 'package:homizi/features/roommates/finder/finder_catalog.dart';
@@ -46,6 +47,7 @@ class _RoommateFinderScreenState extends ConsumerState<RoommateFinderScreen> {
   var _wants = false;
   var _editWant = false;
   var _post = 'allow';
+  var _postAsked = false;
 
   @override
   void initState() {
@@ -67,12 +69,16 @@ class _RoommateFinderScreenState extends ConsumerState<RoommateFinderScreen> {
           return;
         }
         final posted = brief?['profilePosted'] == true;
+        final asked = brief?['postAsked'] == true;
         final saved = await readDeviceString(roommatePostChoiceKey);
         if (!mounted) {
           return;
         }
         final allow = posted || saved == 'allow';
-        setState(() => _post = allow ? 'allow' : 'decline');
+        setState(() {
+          _postAsked = asked || saved == 'allow' || saved == 'decline';
+          _post = allow ? 'allow' : 'decline';
+        });
       }
       if (ref.read(finderProvider).people.isEmpty) {
         await ref.read(finderProvider.notifier).load();
@@ -94,7 +100,10 @@ class _RoommateFinderScreenState extends ConsumerState<RoommateFinderScreen> {
     if (!mounted) {
       return;
     }
-    setState(() => _post = allow ? 'allow' : 'decline');
+    setState(() {
+      _postAsked = true;
+      _post = allow ? 'allow' : 'decline';
+    });
   }
 
   Future<RoommateAsk> _withMainProfile(RoommateAsk ask) async {
@@ -207,7 +216,7 @@ class _RoommateFinderScreenState extends ConsumerState<RoommateFinderScreen> {
     return MinTouchScope(
       child: Scaffold(
         key: const Key('roommate-screen'),
-        backgroundColor: HomiziColors.cream,
+        backgroundColor: HomiziColors.white,
         floatingActionButton: posted
             ? FloatingActionButton.extended(
                 key: const Key('roommate-preferences'),
@@ -232,9 +241,18 @@ class _RoommateFinderScreenState extends ConsumerState<RoommateFinderScreen> {
   bool get _signedIn => ref.watch(signedInProvider);
 
   Widget _page(FinderSnapshot snapshot) {
-    if (snapshot.loading && snapshot.people.isEmpty) {
-      return const LoadingState(message: 'Finding roommates…');
+    if (_wants || !_askReady) {
+      return _loaded(snapshot);
     }
+    final loading = snapshot.loading && snapshot.people.isEmpty;
+    return HomiziAiMatchGate(
+      loading: loading,
+      kind: HomiziAiKind.roommates,
+      child: _loaded(snapshot),
+    );
+  }
+
+  Widget _loaded(FinderSnapshot snapshot) {
     if (snapshot.error != null && snapshot.people.isEmpty) {
       return ErrorState(
         title: 'Roommates did not load',
@@ -264,7 +282,7 @@ class _RoommateFinderScreenState extends ConsumerState<RoommateFinderScreen> {
     final deck = snapshot.people.isEmpty && !_signedIn
         ? narrowed
         : snapshot.deck;
-    final optedOut = _signedIn && _post == 'decline';
+    final optedOut = _signedIn && !_postAsked && _post == 'decline';
     return Column(
       key: const Key('roommate-scroll'),
       children: [
@@ -450,7 +468,7 @@ class _OptInCard extends StatelessWidget {
                   ),
                   style: const TextStyle(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w700,
                   ),
                 ),
               ),

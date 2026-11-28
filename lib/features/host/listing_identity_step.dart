@@ -188,7 +188,7 @@ class ListingIdentityStep extends ConsumerWidget {
           color: HomiziColors.white,
           elevation: 1,
           shadowColor: HomiziColors.shadow,
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: BorderRadius.circular(20),
           clipBehavior: Clip.antiAlias,
           child: SwitchListTile(
             key: const Key('host-photo-toggle'),
@@ -224,7 +224,7 @@ class ListingIdentityStep extends ConsumerWidget {
                 homiziText(context, 'Verify later'),
                 style: const TextStyle(
                   fontFamily: 'PlusJakartaSans',
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w800,
                 ),
               ),
             ),
@@ -469,7 +469,7 @@ class ListingIdentityStep extends ConsumerWidget {
       child: DecoratedBox(
         decoration: flowCard(),
         child: Padding(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.all(14),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -477,7 +477,7 @@ class ListingIdentityStep extends ConsumerWidget {
                 homiziText(context, title),
                 style: const TextStyle(
                   fontFamily: 'PlusJakartaSans',
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w800,
                   color: HomiziColors.ink,
                 ),
               ),
@@ -522,7 +522,7 @@ class _VerifiedAadhaar extends StatelessWidget {
       child: DecoratedBox(
         decoration: flowCard(color: HomiziColors.successWash),
         child: Padding(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.all(14),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -537,7 +537,7 @@ class _VerifiedAadhaar extends StatelessWidget {
                       style: const TextStyle(
                         fontFamily: 'PlusJakartaSans',
                         color: HomiziColors.success,
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w800,
                         fontSize: 16,
                       ),
                     ),

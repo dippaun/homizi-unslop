@@ -24,7 +24,7 @@ class FlowWordmark extends StatelessWidget {
                 style: const TextStyle(
                   fontFamily: 'PlusJakartaSans',
                   color: HomiziColors.accent,
-                  fontWeight: FontWeight.w700,
+                  fontWeight: FontWeight.w800,
                   fontSize: 16,
                   letterSpacing: 0.4,
                 ),
@@ -62,7 +62,7 @@ class FlowStepPill extends StatelessWidget {
     return DecoratedBox(
       decoration: BoxDecoration(
         color: HomiziColors.accent,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(20),
       ),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
@@ -72,7 +72,7 @@ class FlowStepPill extends StatelessWidget {
           style: const TextStyle(
             fontFamily: 'PlusJakartaSans',
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w800,
             fontSize: 12,
           ),
         ),
@@ -119,7 +119,7 @@ class FlowPage extends StatelessWidget {
     return FlowAccentScope(
       child: Scaffold(
         key: pageKey,
-        backgroundColor: HomiziColors.cream,
+        backgroundColor: HomiziColors.white,
         body: PageBackground(
           variant: pageVariantFor(headline ?? badge ?? 'host-flow'),
           child: SafeArea(
@@ -151,7 +151,7 @@ class FlowPage extends StatelessWidget {
                               style: const TextStyle(
                                 fontFamily: 'PlusJakartaSans',
                                 color: HomiziColors.ink,
-                                fontWeight: FontWeight.w600,
+                                fontWeight: FontWeight.w800,
                               ),
                             ),
                           )
@@ -176,8 +176,8 @@ class FlowPage extends StatelessWidget {
                           style: const TextStyle(
                             fontFamily: 'PlusJakartaSans',
                             color: HomiziColors.ink,
-                            fontWeight: FontWeight.w600,
-                            fontSize: 24,
+                            fontWeight: FontWeight.w800,
+                            fontSize: 26,
                             height: 1.15,
                           ),
                         ),
@@ -226,10 +226,10 @@ class FlowBanner extends StatelessWidget {
     return DecoratedBox(
       decoration: BoxDecoration(
         color: HomiziColors.accent,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(28),
       ),
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(20, 16, 20, 16),
+        padding: const EdgeInsets.fromLTRB(18, 16, 18, 16),
         child: Row(
           children: [
             Expanded(
@@ -238,7 +238,7 @@ class FlowBanner extends StatelessWidget {
                 style: const TextStyle(
                   fontFamily: 'PlusJakartaSans',
                   color: HomiziColors.ink,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w800,
                   fontSize: 18,
                   height: 1.2,
                 ),
@@ -279,8 +279,14 @@ class FlowContinueButton extends StatelessWidget {
         height: 52,
         child: DecoratedBox(
           decoration: BoxDecoration(
-            gradient: onPressed == null ? null : HomiziGradients.action,
-            color: onPressed == null ? HomiziColors.accentDisabled : null,
+            gradient: LinearGradient(
+              colors: [
+                HomiziColors.logoOrange,
+                onPressed == null
+                    ? HomiziColors.accentDisabled
+                    : HomiziColors.brandVermilion,
+              ],
+            ),
             borderRadius: BorderRadius.circular(16),
           ),
           child: Material(
@@ -301,12 +307,10 @@ class FlowContinueButton extends StatelessWidget {
                       )
                     : Text(
                         homiziText(context, label),
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontFamily: 'PlusJakartaSans',
-                          fontWeight: FontWeight.w600,
-                          color: onPressed == null
-                              ? HomiziColors.ink
-                              : HomiziColors.white,
+                          fontWeight: FontWeight.w800,
+                          color: HomiziColors.ink,
                         ),
                       ),
               ),
@@ -340,7 +344,7 @@ class FlowContinueButton extends StatelessWidget {
                 homiziText(context, label),
                 style: const TextStyle(
                   fontFamily: 'PlusJakartaSans',
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w800,
                 ),
               ),
       ),
@@ -351,7 +355,7 @@ class FlowContinueButton extends StatelessWidget {
 BoxDecoration flowCard({Color? color}) {
   return BoxDecoration(
     color: color ?? HomiziColors.white,
-    borderRadius: BorderRadius.circular(16),
+    borderRadius: BorderRadius.circular(20),
     boxShadow: const [
       BoxShadow(
         color: HomiziColors.shadowSoft,

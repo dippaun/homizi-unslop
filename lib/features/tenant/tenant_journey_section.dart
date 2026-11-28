@@ -22,7 +22,7 @@ class TenantJourneySection extends ConsumerWidget {
         Text(
           homiziText(context, 'Your tenant home'),
           style: theme.textTheme.titleLarge?.copyWith(
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w800,
           ),
         ),
         const SizedBox(height: 4),
@@ -79,7 +79,7 @@ class _EntryCard extends StatelessWidget {
                     Text(
                       homiziText(context, entry.label),
                       style: theme.textTheme.titleMedium?.copyWith(
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w800,
                       ),
                     ),
                     const SizedBox(height: 4),

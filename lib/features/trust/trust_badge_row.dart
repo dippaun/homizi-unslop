@@ -75,7 +75,7 @@ class _TrustChip extends StatelessWidget {
       label: Text(homiziText(context, label)),
       labelStyle: Theme.of(context).textTheme.labelLarge?.copyWith(
         color: emphasize ? HomiziColors.success : scheme.onSurface,
-        fontWeight: emphasize ? FontWeight.w600 : null,
+        fontWeight: emphasize ? FontWeight.w700 : null,
       ),
       side: BorderSide(
         color: emphasize ? HomiziColors.success : scheme.outlineVariant,

@@ -105,7 +105,7 @@ class _HostVisitsScreenState extends ConsumerState<HostVisitsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: const Key('host-visits-screen'),
-      backgroundColor: HomiziColors.cream,
+      backgroundColor: HomiziColors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: const HomiziBackButton(),

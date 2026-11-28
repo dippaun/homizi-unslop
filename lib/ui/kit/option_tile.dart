@@ -2,7 +2,6 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:homizi/core/theme/homizi_colors.dart';
-import 'package:homizi/core/theme/role_palette.dart';
 import 'package:homizi/ui/kit/icon_choice_chip.dart';
 import 'package:homizi/ui/kit/real_life_icons.dart';
 
@@ -38,10 +37,7 @@ class OptionTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // v2: tiles are white cards on cream; the selected one takes the
-    // route's role wash, accent edge and ink.
-    final palette = HomiziRoleScope.of(context);
-    final artColor = selected ? palette.ink : HomiziColors.inkSoft;
+    final artColor = selected ? HomiziColors.logoOrange : HomiziColors.inkSoft;
     final glyph = _choiceGlyph(label, icon);
     return Semantics(
       button: true,
@@ -50,28 +46,21 @@ class OptionTile extends StatelessWidget {
         duration: const Duration(milliseconds: 180),
         curve: Curves.easeOutCubic,
         decoration: BoxDecoration(
-          color: selected ? palette.wash : HomiziColors.white,
+          color: selected
+              ? HomiziColors.logoOrange.withValues(alpha: 0.10)
+              : HomiziColors.soft,
           borderRadius: BorderRadius.circular(16),
           border: Border.all(
-            color: selected ? palette.accent : HomiziColors.line,
-            width: selected ? 2 : 1,
+            color: selected ? HomiziColors.logoOrange : HomiziColors.clear,
+            width: 2,
           ),
-          boxShadow: [
-            BoxShadow(
-              color: selected
-                  ? palette.accent.withValues(alpha: 0.22)
-                  : HomiziColors.shadowWarm.withValues(alpha: 0.08),
-              blurRadius: selected ? 14 : 8,
-              offset: const Offset(0, 4),
-            ),
-          ],
         ),
         child: Material(
           color: HomiziColors.clear,
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(14),
           child: InkWell(
             onTap: onTap,
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(14),
             child: Stack(
               alignment: Alignment.center,
               children: [
@@ -82,7 +71,7 @@ class OptionTile extends StatelessWidget {
                       minHeight: minHeight ?? (dense ? 72 : 112),
                     ),
                     child: Padding(
-                      padding: EdgeInsets.fromLTRB(10, dense ? 10 : 16, 10, 12),
+                      padding: EdgeInsets.fromLTRB(10, dense ? 10 : 14, 10, 12),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -100,7 +89,7 @@ class OptionTile extends StatelessWidget {
                               overflow: TextOverflow.ellipsis,
                               style: const TextStyle(
                                 fontFamily: 'PlusJakartaSans',
-                                fontWeight: FontWeight.w600,
+                                fontWeight: FontWeight.w700,
                                 fontSize: 13,
                                 height: 1.25,
                                 color: HomiziColors.ink,
@@ -129,13 +118,13 @@ class OptionTile extends StatelessWidget {
                   ),
                 ),
                 if (selected)
-                  Positioned(
+                  const Positioned(
                     top: 6,
                     right: 6,
                     child: Icon(
                       Icons.check_circle,
                       size: 18,
-                      color: palette.ink,
+                      color: HomiziColors.logoOrange,
                     ),
                   ),
               ],

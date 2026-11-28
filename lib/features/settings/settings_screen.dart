@@ -164,7 +164,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
     };
     return MinTouchScope(
       child: Scaffold(
-        backgroundColor: HomiziColors.cream,
+        backgroundColor: HomiziColors.white,
         appBar: AppBar(
           automaticallyImplyLeading: false,
           leading: const HomiziBackButton(),
@@ -533,7 +533,7 @@ class _SettingsHeading extends StatelessWidget {
         homiziText(context, title),
         style: Theme.of(context).textTheme.titleSmall?.copyWith(
           color: HomiziColors.ink,
-          fontWeight: FontWeight.w600,
+          fontWeight: FontWeight.w800,
         ),
       ),
     );

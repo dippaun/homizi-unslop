@@ -102,7 +102,7 @@ class _OwnerContactFieldsState extends ConsumerState<OwnerContactFields> {
           style: const TextStyle(
             fontFamily: 'PlusJakartaSans',
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w800,
             fontSize: 22,
           ),
         ),
@@ -187,7 +187,7 @@ class _PostChannelOtpState extends ConsumerState<PostChannelOtp> {
           homiziText(context, 'Verify contact'),
           style: const TextStyle(
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w800,
           ),
         ),
         const SizedBox(height: 4),
@@ -218,7 +218,7 @@ class _PostChannelOtpState extends ConsumerState<PostChannelOtp> {
                 color: contact.mobileVerified
                     ? HomiziColors.success
                     : HomiziColors.ink,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w700,
               ),
             ),
           ),
@@ -243,7 +243,7 @@ class _PostChannelOtpState extends ConsumerState<PostChannelOtp> {
                 color: contact.emailVerified
                     ? HomiziColors.success
                     : HomiziColors.ink,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w700,
               ),
             ),
           ),
@@ -275,7 +275,7 @@ class OwnerVerifyPanel extends ConsumerWidget {
           style: const TextStyle(
             fontFamily: 'PlusJakartaSans',
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w800,
             fontSize: 22,
           ),
         ),
@@ -380,14 +380,14 @@ class _Doc extends StatelessWidget {
         homiziText(context, title),
         style: const TextStyle(
           color: HomiziColors.ink,
-          fontWeight: FontWeight.w600,
+          fontWeight: FontWeight.w700,
         ),
       ),
       trailing: Text(
         homiziText(context, done ? 'Added' : 'Upload'),
         style: TextStyle(
           color: done ? HomiziColors.success : HomiziColors.inkSoft,
-          fontWeight: FontWeight.w600,
+          fontWeight: FontWeight.w700,
         ),
       ),
     );

@@ -25,10 +25,10 @@ class BriefLiveScreen extends StatelessWidget {
     final theme = Theme.of(context);
     return Scaffold(
       key: const Key('brief-live'),
-      backgroundColor: HomiziColors.cream,
+      backgroundColor: HomiziColors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: HomiziColors.cream,
+        backgroundColor: HomiziColors.white,
         leading: const HomiziBackButton(),
         title: Text(homiziText(context, 'Published')),
       ),
@@ -63,7 +63,7 @@ class BriefLiveScreen extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: theme.textTheme.headlineSmall?.copyWith(
                   color: HomiziColors.ink,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w700,
                 ),
               ),
               if (place.trim().isNotEmpty) ...[

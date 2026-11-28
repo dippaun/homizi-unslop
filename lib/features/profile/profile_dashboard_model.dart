@@ -69,10 +69,10 @@ class ProfileCompleteness {
 
   String get line {
     if (percent >= 100) {
-      return 'Profile complete';
+      return 'Profile complete ✓';
     }
     if (percent >= 80) {
-      return 'Complete your profile to see more matches';
+      return 'Almost there! Complete your profile to get 3+ more matches.';
     }
     return 'Complete your profile to get better matches.';
   }

@@ -43,7 +43,7 @@ class ProfileRoleSelect extends StatelessWidget {
             fontFamily: 'PlusJakartaSans',
             fontSize: 13,
             height: 1.3,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w700,
             color: HomiziColors.logoOrange,
           ),
         ),
@@ -51,10 +51,10 @@ class ProfileRoleSelect extends StatelessWidget {
         Text(
           homiziText(context, heading),
           style: const TextStyle(
-            fontFamily: 'Poppins',
+            fontFamily: 'PlusJakartaSans',
             fontSize: 28,
             height: 1.12,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w800,
             color: HomiziColors.ink,
           ),
         ),
@@ -73,7 +73,7 @@ class ProfileRoleSelect extends StatelessWidget {
           const SizedBox(height: 16),
           ProfileCreateProgress(step: step),
         ],
-        const SizedBox(height: 20),
+        const SizedBox(height: 18),
         OptionGrid(
           minTileWidth: 148,
           maxColumns: 2,

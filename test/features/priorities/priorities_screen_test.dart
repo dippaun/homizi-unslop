@@ -82,7 +82,7 @@ void main() {
       400,
       scrollable: find.byType(Scrollable).last,
     );
-    expect(find.text('How it works'), findsOneWidget);
+    expect(find.text('How It Works'), findsOneWidget);
     expect(find.byKey(const Key('priority-type-explainer')), findsOneWidget);
 
     await tester.ensureVisible(find.byKey(const Key('priority-save')));

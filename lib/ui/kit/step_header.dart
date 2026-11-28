@@ -73,7 +73,7 @@ class StepHeader extends StatelessWidget {
             key: fractionKey,
             style: const TextStyle(
               fontFamily: 'PlusJakartaSans',
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w700,
               fontSize: 13,
               color: HomiziColors.muted,
             ),

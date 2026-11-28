@@ -79,10 +79,10 @@ class CompatibilityChip extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       color: HomiziColors.accent,
-      borderRadius: BorderRadius.circular(16),
+      borderRadius: BorderRadius.circular(18),
       child: InkWell(
         key: Key('compatibility-chip-$seekerId'),
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(18),
         onTap: onPressed,
         child: ConstrainedBox(
           constraints: const BoxConstraints(
@@ -100,7 +100,7 @@ class CompatibilityChip extends StatelessWidget {
                   '$score%',
                   style: Theme.of(context).textTheme.titleMedium?.copyWith(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w800,
                     height: 1.1,
                   ),
                 ),
@@ -108,7 +108,7 @@ class CompatibilityChip extends StatelessWidget {
                   homiziText(context, 'match'),
                   style: Theme.of(context).textTheme.labelLarge?.copyWith(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w700,
                     height: 1.1,
                   ),
                 ),
@@ -156,7 +156,7 @@ class RoommateSwipeCard extends StatelessWidget {
                     homiziText(context, like ? 'Interested' : 'Pass'),
                     style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                       color: HomiziColors.ink,
-                      fontWeight: FontWeight.w600,
+                      fontWeight: FontWeight.w800,
                     ),
                   ),
                 ),

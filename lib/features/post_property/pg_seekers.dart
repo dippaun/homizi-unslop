@@ -135,9 +135,9 @@ class PgSeekerHome extends ConsumerWidget {
         Text(
           homiziText(context, 'People looking for a PG'),
           style: const TextStyle(
-            fontFamily: 'Poppins',
-            fontSize: 24,
-            fontWeight: FontWeight.w600,
+            fontFamily: 'PlusJakartaSans',
+            fontSize: 26,
+            fontWeight: FontWeight.w800,
             color: HomiziColors.ink,
           ),
         ),
@@ -149,7 +149,7 @@ class PgSeekerHome extends ConsumerWidget {
           ),
           style: const TextStyle(color: HomiziColors.inkSoft, height: 1.35),
         ),
-        const SizedBox(height: 16),
+        const SizedBox(height: 14),
         seekers.when(
           loading: () => const Padding(
             padding: EdgeInsets.symmetric(vertical: 24),
@@ -212,15 +212,17 @@ class _SeekerCard extends ConsumerWidget {
         padding: const EdgeInsets.only(bottom: 10),
         child: Material(
           color: HomiziColors.white,
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: BorderRadius.circular(20),
           child: Ink(
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(16),
-              border: Border.all(color: HomiziColors.line),
-              color: HomiziColors.white,
+              borderRadius: BorderRadius.circular(20),
+              border: Border.all(color: const Color(0xFFFFD7B0)),
+              gradient: const LinearGradient(
+                colors: [Color(0xFFFFFBF6), Color(0xFFFFF1E4)],
+              ),
             ),
             child: Padding(
-              padding: const EdgeInsets.fromLTRB(16, 16, 16, 10),
+              padding: const EdgeInsets.fromLTRB(14, 14, 14, 10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -229,7 +231,7 @@ class _SeekerCard extends ConsumerWidget {
                     key: Key('pg-seeker-${seeker.userId}'),
                     style: const TextStyle(
                       fontFamily: 'PlusJakartaSans',
-                      fontWeight: FontWeight.w600,
+                      fontWeight: FontWeight.w800,
                       fontSize: 18,
                       color: HomiziColors.ink,
                     ),
@@ -251,7 +253,7 @@ class _SeekerCard extends ConsumerWidget {
                     seeker.budget,
                     style: const TextStyle(
                       color: HomiziColors.ink,
-                      fontWeight: FontWeight.w600,
+                      fontWeight: FontWeight.w700,
                     ),
                   ),
                   Align(
@@ -288,26 +290,24 @@ class _EmptySeekers extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       key: const Key('pg-seeker-empty'),
-      padding: const EdgeInsets.all(20),
+      padding: const EdgeInsets.all(18),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
-        color: HomiziColors.warmWash,
+        borderRadius: BorderRadius.circular(24),
+        gradient: const LinearGradient(
+          colors: [Color(0xFFFFF1E4), Color(0xFFFFE0C2)],
+        ),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Icon(
-            Icons.person_search,
-            color: HomiziColors.brandDeepRed,
-            size: 36,
-          ),
+          const Icon(Icons.person_search, color: Color(0xFF9A4B12), size: 36),
           const SizedBox(height: 8),
           Text(
             homiziText(context, title),
             style: const TextStyle(
-              fontFamily: 'Poppins',
+              fontFamily: 'PlusJakartaSans',
               fontSize: 20,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
               color: HomiziColors.ink,
             ),
           ),

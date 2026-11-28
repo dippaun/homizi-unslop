@@ -269,7 +269,7 @@ class HostSpecFlow extends StatelessWidget {
         DecoratedBox(
           decoration: flowCard(color: HomiziColors.accentWash),
           child: Padding(
-            padding: const EdgeInsets.all(16),
+            padding: const EdgeInsets.all(14),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -281,7 +281,7 @@ class HostSpecFlow extends StatelessWidget {
                       homiziText(context, 'Add Multiple Roles'),
                       style: const TextStyle(
                         fontFamily: 'PlusJakartaSans',
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w800,
                         color: HomiziColors.ink,
                       ),
                     ),
@@ -322,7 +322,7 @@ class HostSpecFlow extends StatelessWidget {
           homiziText(context, 'Basic Information'),
           style: const TextStyle(
             fontFamily: 'PlusJakartaSans',
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w800,
             color: HomiziColors.ink,
             fontSize: 16,
           ),
@@ -564,7 +564,7 @@ class HostSpecFlow extends StatelessWidget {
         color: HomiziColors.white,
         elevation: 1,
         shadowColor: HomiziColors.shadow,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(20),
         clipBehavior: Clip.antiAlias,
         child: Theme(
           data: Theme.of(context).copyWith(dividerColor: HomiziColors.clear),
@@ -574,7 +574,7 @@ class HostSpecFlow extends StatelessWidget {
               homiziText(context, title),
               style: const TextStyle(
                 fontFamily: 'PlusJakartaSans',
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w800,
                 color: HomiziColors.ink,
                 fontSize: 14,
               ),
@@ -681,7 +681,7 @@ class HostSpecFlow extends StatelessWidget {
           homiziText(context, 'Example'),
           style: const TextStyle(
             fontFamily: 'PlusJakartaSans',
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w800,
             color: HomiziColors.ink,
           ),
         ),
@@ -757,7 +757,7 @@ class HostSpecFlow extends StatelessWidget {
           Text(
             homiziText(context, status.label),
             key: Key('host-auth-status-${kind.wire}'),
-            style: TextStyle(color: color, fontWeight: FontWeight.w600),
+            style: TextStyle(color: color, fontWeight: FontWeight.w700),
           ),
           if (status != PropertyAuthStatus.verified)
             TextButton(
@@ -788,7 +788,7 @@ class HostSpecFlow extends StatelessWidget {
               key: titleKey,
               style: const TextStyle(
                 fontFamily: 'PlusJakartaSans',
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w800,
                 fontSize: 13,
                 color: HomiziColors.ink,
               ),
@@ -862,7 +862,7 @@ class HostSpecFlow extends StatelessWidget {
                       homiziText(context, name),
                       style: const TextStyle(
                         fontFamily: 'PlusJakartaSans',
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w800,
                         color: HomiziColors.ink,
                       ),
                     ),
@@ -878,7 +878,7 @@ class HostSpecFlow extends StatelessWidget {
                       homiziText(context, 'Verified'),
                       style: const TextStyle(
                         color: HomiziColors.success,
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w700,
                         fontSize: 12,
                       ),
                     ),
@@ -956,7 +956,7 @@ class HostSpecFlow extends StatelessWidget {
               DecoratedBox(
                 decoration: BoxDecoration(
                   color: HomiziColors.accent,
-                  borderRadius: BorderRadius.circular(16),
+                  borderRadius: BorderRadius.circular(20),
                 ),
                 child: Padding(
                   padding: const EdgeInsets.symmetric(
@@ -967,7 +967,7 @@ class HostSpecFlow extends StatelessWidget {
                     homiziText(context, label),
                     style: const TextStyle(
                       color: HomiziColors.ink,
-                      fontWeight: FontWeight.w600,
+                      fontWeight: FontWeight.w800,
                     ),
                   ),
                 ),
@@ -1016,7 +1016,7 @@ class _HostIntro extends StatelessWidget {
                 children: [
                   for (final point in points)
                     Padding(
-                      padding: const EdgeInsets.only(bottom: 16),
+                      padding: const EdgeInsets.only(bottom: 14),
                       child: Row(
                         children: [
                           Icon(point.$1, color: point.$2),
@@ -1026,7 +1026,7 @@ class _HostIntro extends StatelessWidget {
                               homiziText(context, point.$3),
                               style: const TextStyle(
                                 fontFamily: 'PlusJakartaSans',
-                                fontWeight: FontWeight.w600,
+                                fontWeight: FontWeight.w700,
                                 color: HomiziColors.ink,
                               ),
                             ),
@@ -1093,14 +1093,14 @@ class _RoleTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       color: selected ? tone.$3 : HomiziColors.white,
-      borderRadius: BorderRadius.circular(16),
+      borderRadius: BorderRadius.circular(20),
       child: InkWell(
         key: Key('host-role-${role.wire}'),
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(20),
         onTap: onTap,
         child: Ink(
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16),
+            borderRadius: BorderRadius.circular(20),
             border: Border.all(
               color: selected ? tone.$2 : HomiziColors.line,
               width: selected ? 2 : 1,
@@ -1117,7 +1117,7 @@ class _RoleTile extends StatelessWidget {
                   homiziText(context, role.title),
                   style: const TextStyle(
                     fontFamily: 'PlusJakartaSans',
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w800,
                     color: HomiziColors.ink,
                   ),
                 ),
@@ -1183,7 +1183,7 @@ class _CategoryProfiles extends StatelessWidget {
                                 homiziText(context, example.name),
                                 style: const TextStyle(
                                   fontFamily: 'PlusJakartaSans',
-                                  fontWeight: FontWeight.w600,
+                                  fontWeight: FontWeight.w800,
                                   color: HomiziColors.ink,
                                 ),
                               ),

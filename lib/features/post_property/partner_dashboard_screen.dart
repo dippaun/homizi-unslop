@@ -38,7 +38,7 @@ class PartnerDashboardScreen extends ConsumerWidget {
             style: const TextStyle(
               fontFamily: 'PlusJakartaSans',
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
               fontSize: 28,
             ),
           ),
@@ -71,7 +71,7 @@ class PartnerDashboardScreen extends ConsumerWidget {
             homiziText(context, 'Recent Enquiries'),
             style: const TextStyle(
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
               fontSize: 18,
             ),
           ),
@@ -105,8 +105,8 @@ class PartnerListingsScreen extends ConsumerWidget {
             style: const TextStyle(
               fontFamily: 'PlusJakartaSans',
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w600,
-              fontSize: 24,
+              fontWeight: FontWeight.w800,
+              fontSize: 26,
             ),
           ),
           const SizedBox(height: 12),
@@ -171,8 +171,8 @@ class PartnerEnquiriesScreen extends StatelessWidget {
             style: const TextStyle(
               fontFamily: 'PlusJakartaSans',
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w600,
-              fontSize: 24,
+              fontWeight: FontWeight.w800,
+              fontSize: 26,
             ),
           ),
           const SizedBox(height: 8),
@@ -196,9 +196,9 @@ class _Banner extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderRadius.circular(16),
+      borderRadius: BorderRadius.circular(20),
       child: DecoratedBox(
-        decoration: const BoxDecoration(color: HomiziColors.ink),
+        decoration: const BoxDecoration(gradient: postPropertyGradient),
         child: Padding(
           padding: const EdgeInsets.all(16),
           child: Column(
@@ -209,7 +209,7 @@ class _Banner extends StatelessWidget {
                 style: const TextStyle(
                   color: HomiziColors.ink,
                   fontFamily: 'PlusJakartaSans',
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w800,
                   fontSize: 18,
                 ),
               ),
@@ -225,7 +225,7 @@ class _Banner extends StatelessWidget {
               FilledButton(
                 key: const Key('post-add-property'),
                 style: FilledButton.styleFrom(
-                  backgroundColor: HomiziColors.cream,
+                  backgroundColor: HomiziColors.white,
                   foregroundColor: HomiziColors.ink,
                 ),
                 onPressed: onAdd,
@@ -255,11 +255,11 @@ class _Stat extends StatelessWidget {
     return DecoratedBox(
       key: statKey,
       decoration: BoxDecoration(
-        color: HomiziColors.warmWash,
+        color: HomiziColors.homiziLavender,
         borderRadius: BorderRadius.circular(16),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(14),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -268,7 +268,7 @@ class _Stat extends StatelessWidget {
               style: const TextStyle(
                 color: HomiziColors.ink,
                 fontFamily: 'PlusJakartaSans',
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w800,
                 fontSize: 24,
               ),
             ),
@@ -301,7 +301,7 @@ class _EnquiryTile extends StatelessWidget {
         child: Row(
           children: [
             CircleAvatar(
-              backgroundColor: HomiziColors.warmWash,
+              backgroundColor: HomiziColors.homiziLavender,
               backgroundImage: AssetImage(enquiry.avatar),
             ),
             const SizedBox(width: 12),
@@ -313,7 +313,7 @@ class _EnquiryTile extends StatelessWidget {
                     enquiry.name,
                     style: const TextStyle(
                       color: HomiziColors.ink,
-                      fontWeight: FontWeight.w600,
+                      fontWeight: FontWeight.w800,
                     ),
                   ),
                   Text(

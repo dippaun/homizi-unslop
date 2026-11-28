@@ -69,7 +69,7 @@ class RangeSliderField extends StatelessWidget {
           key: valueKey,
           style: const TextStyle(
             fontFamily: 'PlusJakartaSans',
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w800,
             fontSize: 22,
             color: HomiziColors.ink,
           ),
@@ -162,7 +162,7 @@ class _PresetChip extends StatelessWidget {
           ? HomiziColors.logoOrange.withValues(alpha: 0.10)
           : HomiziColors.soft,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(20),
         side: BorderSide(
           color: selected ? HomiziColors.logoOrange : HomiziColors.clear,
           width: 1.5,
@@ -170,14 +170,14 @@ class _PresetChip extends StatelessWidget {
       ),
       child: InkWell(
         onTap: onTap,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(20),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
           child: Text(
             preset.label,
             style: const TextStyle(
               fontFamily: 'PlusJakartaSans',
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w700,
               fontSize: 13,
               color: HomiziColors.ink,
             ),

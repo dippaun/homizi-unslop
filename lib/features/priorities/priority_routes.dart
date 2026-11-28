@@ -56,10 +56,10 @@ class PrioritiesSavedScreen extends ConsumerWidget {
     return RepaintBoundary(
       key: const Key('priority-saved-shot'),
       child: Scaffold(
-        backgroundColor: HomiziColors.cream,
+        backgroundColor: HomiziColors.white,
         appBar: AppBar(
           automaticallyImplyLeading: false,
-          backgroundColor: HomiziColors.cream,
+          backgroundColor: HomiziColors.white,
           foregroundColor: HomiziColors.ink,
           leading: HomiziBackButton(
             onPressed: () => context.go(RoutePaths.home),
@@ -92,7 +92,7 @@ class _Saved extends StatelessWidget {
                 style: const TextStyle(
                   color: HomiziColors.ink,
                   fontSize: 20,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w700,
                 ),
               ),
               Text(
@@ -159,7 +159,7 @@ class _TenantSummary extends ConsumerWidget {
           homiziText(context, 'Match preview (based on your priorities)'),
           style: Theme.of(context).textTheme.titleMedium?.copyWith(
             color: HomiziColors.brandDeepRed,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w700,
           ),
         ),
         const SizedBox(height: 8),
@@ -175,7 +175,7 @@ class _TenantSummary extends ConsumerWidget {
                 homiziText(context, prompt.text),
                 style: const TextStyle(
                   color: HomiziColors.brandDeepRed,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w800,
                 ),
               ),
             ),
@@ -331,7 +331,7 @@ class _SummaryRow extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       key: rowKey,
-      padding: const EdgeInsets.symmetric(vertical: 4),
+      padding: const EdgeInsets.symmetric(vertical: 5),
       child: Row(
         children: [
           PriorityBadge(rank: rank),
@@ -356,7 +356,7 @@ class _SummaryRow extends StatelessWidget {
                           homiziText(context, '$label: $value'),
                           style: const TextStyle(
                             color: HomiziColors.ink,
-                            fontWeight: FontWeight.w600,
+                            fontWeight: FontWeight.w700,
                             fontSize: 14,
                           ),
                         ),
@@ -396,7 +396,7 @@ class _BetterMatches extends StatelessWidget {
     ];
     return Container(
       key: const Key('priority-better-matches'),
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
         color: HomiziColors.successWash,
         borderRadius: BorderRadius.circular(16),
@@ -406,13 +406,13 @@ class _BetterMatches extends StatelessWidget {
         children: [
           Row(
             children: [
-              const Icon(Icons.handshake_outlined, color: HomiziColors.success),
+              const Icon(Icons.auto_awesome, color: HomiziColors.success),
               const SizedBox(width: 8),
               Text(
                 homiziText(context, 'Get better matches'),
                 style: const TextStyle(
                   color: HomiziColors.ink,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w700,
                 ),
               ),
             ],
@@ -517,7 +517,7 @@ class _ReadinessRing extends StatelessWidget {
                 style: const TextStyle(
                   color: HomiziColors.ink,
                   fontSize: 32,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w700,
                 ),
               ),
             ],
@@ -542,7 +542,13 @@ class _RingPainter extends CustomPainter {
       ..strokeWidth = 14;
     canvas.drawArc(rect.deflate(8), 0, math.pi * 2, false, track);
     final arc = Paint()
-      ..color = HomiziColors.success
+      ..shader = const SweepGradient(
+        colors: [
+          HomiziColors.brandYellow,
+          HomiziColors.logoOrange,
+          HomiziColors.success,
+        ],
+      ).createShader(rect)
       ..style = PaintingStyle.stroke
       ..strokeCap = StrokeCap.round
       ..strokeWidth = 14;

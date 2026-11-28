@@ -3,7 +3,7 @@ import 'package:homizi/core/theme/homizi_colors.dart';
 import 'package:homizi/core/widgets/listing_widgets.dart';
 
 /// Face portrait. Cover is clipped to a circle and anchored at the top
-/// so the face stays in frame. The ring is solid Homizi orange.
+/// so the face stays in frame. The ring is the Homizi orange-purple mark.
 class HomiziPortrait extends StatelessWidget {
   const HomiziPortrait({
     required this.photo,
@@ -33,10 +33,14 @@ class HomiziPortrait extends StatelessWidget {
             padding: const EdgeInsets.all(4),
             decoration: const BoxDecoration(
               shape: BoxShape.circle,
-              color: HomiziColors.logoOrange,
+              gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [HomiziColors.logoOrange, HomiziColors.homiziPurple],
+              ),
             ),
             child: Container(
-              padding: const EdgeInsets.all(4),
+              padding: const EdgeInsets.all(3),
               decoration: const BoxDecoration(
                 color: HomiziColors.white,
                 shape: BoxShape.circle,

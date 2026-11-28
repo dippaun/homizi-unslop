@@ -13,10 +13,10 @@ class FlowPlaceholderScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       key: Key('flow-placeholder-${flow.toLowerCase()}'),
-      backgroundColor: HomiziColors.cream,
+      backgroundColor: HomiziColors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: HomiziColors.cream,
+        backgroundColor: HomiziColors.white,
         surfaceTintColor: HomiziColors.white,
         leading: const HomiziBackButton(),
         title: Text(homiziText(context, flow)),

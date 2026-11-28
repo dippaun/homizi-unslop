@@ -136,7 +136,7 @@ class _JoinRequestScreenState extends ConsumerState<JoinRequestScreen> {
       children: [
         Text(
           '${home.tag} · ${home.place}',
-          style: text.titleMedium?.copyWith(fontWeight: FontWeight.w600),
+          style: text.titleMedium?.copyWith(fontWeight: FontWeight.w700),
         ),
         const SizedBox(height: 4),
         Text(
@@ -243,7 +243,7 @@ class _JoinRequestScreenState extends ConsumerState<JoinRequestScreen> {
                   mode == JoinMode.group
                       ? '${homiziText(context, 'You')} +${_group - 1}'
                       : homiziText(context, 'You'),
-                  style: const TextStyle(fontWeight: FontWeight.w600),
+                  style: const TextStyle(fontWeight: FontWeight.w700),
                 ),
                 Text('(${shortInr(share)})'),
               ],
@@ -256,7 +256,7 @@ class _JoinRequestScreenState extends ConsumerState<JoinRequestScreen> {
               children: [
                 ShAvatar(initial: mate?.initial ?? 'H', size: 64),
                 const SizedBox(height: 6),
-                Text(host, style: const TextStyle(fontWeight: FontWeight.w600)),
+                Text(host, style: const TextStyle(fontWeight: FontWeight.w700)),
                 Text(
                   homiziText(
                     context,
@@ -283,7 +283,7 @@ class _JoinRequestScreenState extends ConsumerState<JoinRequestScreen> {
             children: [for (final check in checks) ShCheckRow(check: check)],
           ),
         ),
-        const SizedBox(height: 16),
+        const SizedBox(height: 14),
         TextField(
           key: const Key('join-first-name'),
           controller: _name,
@@ -366,11 +366,11 @@ class _Option extends StatelessWidget {
             color: selected ? HomiziColors.brandOrange : HomiziColors.line,
             width: selected ? 2 : 1,
           ),
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: BorderRadius.circular(18),
         ),
         child: InkWell(
           key: optionKey,
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: BorderRadius.circular(18),
           onTap: enabled ? onTap : null,
           child: Padding(
             padding: const EdgeInsets.all(16),
@@ -389,7 +389,7 @@ class _Option extends StatelessWidget {
                           Text(
                             homiziText(context, title),
                             style: Theme.of(context).textTheme.titleMedium
-                                ?.copyWith(fontWeight: FontWeight.w600),
+                                ?.copyWith(fontWeight: FontWeight.w700),
                           ),
                           const SizedBox(height: 4),
                           Text(homiziText(context, body)),

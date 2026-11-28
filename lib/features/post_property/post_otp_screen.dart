@@ -128,8 +128,8 @@ class _PostOtpScreenState extends ConsumerState<PostOtpScreen> {
                 style: const TextStyle(
                   fontFamily: 'PlusJakartaSans',
                   color: HomiziColors.ink,
-                  fontWeight: FontWeight.w600,
-                  fontSize: 24,
+                  fontWeight: FontWeight.w800,
+                  fontSize: 26,
                 ),
               ),
               const SizedBox(height: 8),

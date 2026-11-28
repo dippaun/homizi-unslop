@@ -410,7 +410,7 @@ class _EditProfileScreenState extends ConsumerState<EditProfileScreen> {
                 homiziText(context, 'Change profile photo'),
                 style: const TextStyle(
                   color: HomiziColors.logoOrange,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w700,
                 ),
               ),
             ),
@@ -562,7 +562,7 @@ class _EditProfileScreenState extends ConsumerState<EditProfileScreen> {
               homiziText(context, 'Profile information'),
               style: Theme.of(context).textTheme.titleSmall?.copyWith(
                 color: HomiziColors.ink,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w800,
               ),
             ),
           ),
@@ -723,7 +723,7 @@ class _FormRow extends StatelessWidget {
           key: rowKey,
           onTap: onTap,
           child: Padding(
-            padding: const EdgeInsets.fromLTRB(16, 12, 12, 12),
+            padding: const EdgeInsets.fromLTRB(16, 13, 12, 13),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

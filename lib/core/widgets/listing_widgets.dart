@@ -173,7 +173,7 @@ class InitialsPortrait extends StatelessWidget {
           initials(name),
           style: Theme.of(context).textTheme.headlineMedium?.copyWith(
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w800,
           ),
         ),
       ),
@@ -211,7 +211,17 @@ class PhotoShimmer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const DecoratedBox(
-      decoration: BoxDecoration(color: HomiziColors.mist),
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [
+            HomiziColors.mist,
+            HomiziColors.accentWash,
+            HomiziColors.mist,
+          ],
+        ),
+      ),
       child: Center(child: HomiziMark(size: 36)),
     );
   }
@@ -357,7 +367,7 @@ class ListingGallery extends StatelessWidget {
         itemExtent: width < 48 ? 48 : width * 0.86,
         itemSnapping: true,
         shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(20)),
+          borderRadius: BorderRadius.all(Radius.circular(28)),
         ),
         children: [
           for (var index = 0; index < photos.length; index++)
@@ -658,7 +668,7 @@ class PersonPhoto extends StatelessWidget {
         initials(name),
         style: TextStyle(
           color: HomiziColors.ink,
-          fontWeight: FontWeight.w600,
+          fontWeight: FontWeight.w800,
           fontSize: side * 0.34,
         ),
       ),

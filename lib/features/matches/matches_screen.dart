@@ -87,7 +87,7 @@ class MatchesScreen extends ConsumerWidget {
 
     return MinTouchScope(
       child: Scaffold(
-        backgroundColor: HomiziColors.cream,
+        backgroundColor: HomiziColors.white,
         appBar: AppBar(
           automaticallyImplyLeading: false,
           leading: const HomiziBackButton(),
@@ -217,7 +217,7 @@ class MatchesScreen extends ConsumerWidget {
                                             scoreListing: scoreListing,
                                           ),
                                         ],
-                                        const SizedBox(height: 16),
+                                        const SizedBox(height: 14),
                                         ContactGatePanel(
                                           gate: match.contact,
                                           matchId: match.matchId,

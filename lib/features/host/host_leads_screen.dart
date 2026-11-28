@@ -125,7 +125,7 @@ class _HostLeadsScreenState extends ConsumerState<HostLeadsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: const Key('host-leads-screen'),
-      backgroundColor: HomiziColors.cream,
+      backgroundColor: HomiziColors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: const HomiziBackButton(),

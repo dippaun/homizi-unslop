@@ -122,7 +122,7 @@ class ContactVerifyBadge extends StatelessWidget {
                   key: badgeKey,
                   style: theme.textTheme.bodySmall?.copyWith(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w700,
                   ),
                 ),
                 const SizedBox(height: 2),
@@ -142,13 +142,13 @@ class ContactVerifyBadge extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
               decoration: BoxDecoration(
                 color: HomiziColors.successWash,
-                borderRadius: BorderRadius.circular(16),
+                borderRadius: BorderRadius.circular(20),
               ),
               child: const Text(
                 'Verified',
                 style: TextStyle(
                   color: HomiziColors.ink,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w700,
                   fontSize: 12,
                 ),
               ),
@@ -160,7 +160,7 @@ class ContactVerifyBadge extends StatelessWidget {
                 backgroundColor: HomiziColors.logoOrange,
                 foregroundColor: HomiziColors.ink,
                 visualDensity: VisualDensity.compact,
-                padding: const EdgeInsets.symmetric(horizontal: 16),
+                padding: const EdgeInsets.symmetric(horizontal: 14),
                 minimumSize: const Size(0, 36),
                 shape: const StadiumBorder(),
               ),

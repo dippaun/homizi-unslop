@@ -166,7 +166,7 @@ class _SeekerMatchesScreenState extends ConsumerState<SeekerMatchesScreen> {
         .length;
     return Scaffold(
       key: const Key('interested-seekers'),
-      backgroundColor: HomiziColors.cream,
+      backgroundColor: HomiziColors.white,
       appBar: HomiziHomeBar(
         leading: const HomiziBackButton(key: Key('seekers-back')),
         actions: [
@@ -230,7 +230,7 @@ class _SeekerMatchesScreenState extends ConsumerState<SeekerMatchesScreen> {
                           style: Theme.of(context).textTheme.headlineSmall
                               ?.copyWith(
                                 color: HomiziColors.ink,
-                                fontWeight: FontWeight.w600,
+                                fontWeight: FontWeight.w800,
                               ),
                         ),
                         const SizedBox(height: 4),
@@ -359,7 +359,7 @@ class _SeekerMatchesScreenState extends ConsumerState<SeekerMatchesScreen> {
   Future<void> _openFilter() async {
     final next = await showModalBottomSheet<SeekerListFilter>(
       context: context,
-      backgroundColor: HomiziColors.cream,
+      backgroundColor: HomiziColors.white,
       builder: (context) => _FilterSheet(initial: _filter),
     );
     if (next == null || !mounted) {
@@ -523,7 +523,7 @@ class _MenuChip extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         decoration: BoxDecoration(
           color: HomiziColors.soft,
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(14),
         ),
         child: Row(
           mainAxisSize: expand ? MainAxisSize.max : MainAxisSize.min,
@@ -625,7 +625,7 @@ class _Tab extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: selected ? HomiziColors.ink : HomiziColors.muted,
-                  fontWeight: selected ? FontWeight.w600 : FontWeight.w500,
+                  fontWeight: selected ? FontWeight.w800 : FontWeight.w500,
                   fontSize: 11,
                 ),
               ),
@@ -719,7 +719,7 @@ class _FilterSheetState extends State<_FilterSheet> {
             homiziText(context, 'Filter seekers'),
             style: Theme.of(context).textTheme.titleMedium?.copyWith(
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
             ),
           ),
           const SizedBox(height: 8),
@@ -798,10 +798,10 @@ class _SetPrioritiesBanner extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 12),
       child: Material(
         color: HomiziColors.accentWash,
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(14),
         child: InkWell(
           key: const Key('seekers-set-priorities'),
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(14),
           onTap: onTap,
           child: Padding(
             padding: const EdgeInsets.all(12),
@@ -850,29 +850,34 @@ class _TopTabs extends StatelessWidget {
       final selected = index == i;
       return Expanded(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 4),
+          padding: const EdgeInsets.symmetric(horizontal: 3),
           child: Material(
             color: selected ? null : HomiziColors.soft,
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(14),
             child: Ink(
               decoration: selected
                   ? BoxDecoration(
-                      color: HomiziColors.ink,
-                      borderRadius: BorderRadius.circular(12),
+                      gradient: const LinearGradient(
+                        colors: [
+                          HomiziColors.logoOrange,
+                          HomiziColors.brandRedOrange,
+                        ],
+                      ),
+                      borderRadius: BorderRadius.circular(14),
                     )
                   : null,
               child: InkWell(
                 key: key,
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: BorderRadius.circular(14),
                 onTap: () => onChanged(i),
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 12),
+                  padding: const EdgeInsets.symmetric(vertical: 11),
                   child: Text(
                     homiziText(context, label),
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: selected ? HomiziColors.white : HomiziColors.ink,
-                      fontWeight: FontWeight.w600,
+                      fontWeight: FontWeight.w700,
                       fontSize: 13,
                     ),
                   ),
@@ -1029,7 +1034,7 @@ class _Fact extends StatelessWidget {
           Icon(icon, size: 18, color: HomiziColors.logoOrange),
           Text(
             homiziText(context, label),
-            style: const TextStyle(color: HomiziColors.muted, fontSize: 11),
+            style: const TextStyle(color: HomiziColors.muted, fontSize: 10),
           ),
           Text(
             homiziText(context, value),
@@ -1038,7 +1043,7 @@ class _Fact extends StatelessWidget {
             overflow: TextOverflow.ellipsis,
             style: const TextStyle(
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w700,
               fontSize: 11,
             ),
           ),

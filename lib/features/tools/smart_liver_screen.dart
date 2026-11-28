@@ -95,7 +95,7 @@ class _SmartLiverScreenState extends ConsumerState<SmartLiverScreen> {
     final result = _result;
     return Scaffold(
       key: const Key('smart-liver-screen'),
-      backgroundColor: HomiziColors.cream,
+      backgroundColor: HomiziColors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: const HomiziBackButton(),
@@ -170,14 +170,14 @@ class _SmartLiverScreenState extends ConsumerState<SmartLiverScreen> {
                         ),
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.all(20),
+                        padding: const EdgeInsets.all(18),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
                               homiziText(context, 'Healthy rent range'),
                               style: Theme.of(context).textTheme.titleMedium
-                                  ?.copyWith(fontWeight: FontWeight.w600),
+                                  ?.copyWith(fontWeight: FontWeight.w800),
                             ),
                             const SizedBox(height: 8),
                             Text(
@@ -186,7 +186,7 @@ class _SmartLiverScreenState extends ConsumerState<SmartLiverScreen> {
                               style: Theme.of(context).textTheme.headlineSmall
                                   ?.copyWith(
                                     color: HomiziColors.ink,
-                                    fontWeight: FontWeight.w600,
+                                    fontWeight: FontWeight.w800,
                                   ),
                             ),
                             const SizedBox(height: 8),
@@ -202,7 +202,7 @@ class _SmartLiverScreenState extends ConsumerState<SmartLiverScreen> {
                             const SizedBox(height: 12),
                             Container(
                               width: double.infinity,
-                              padding: const EdgeInsets.all(16),
+                              padding: const EdgeInsets.all(14),
                               decoration: BoxDecoration(
                                 color: HomiziColors.accentWash,
                                 borderRadius: BorderRadius.circular(

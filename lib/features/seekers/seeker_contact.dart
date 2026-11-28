@@ -75,7 +75,7 @@ Future<void> showSeekerContactSheet(
   final first = profile.name.split(' ').first;
   return showModalBottomSheet<void>(
     context: context,
-    backgroundColor: HomiziColors.cream,
+    backgroundColor: HomiziColors.white,
     builder: (sheet) => SafeArea(
       child: Padding(
         key: const Key('seeker-contact-sheet'),
@@ -108,7 +108,7 @@ Future<void> showSeekerContactSheet(
             FilledButton(
               key: const Key('seeker-contact-chat'),
               style: FilledButton.styleFrom(
-                backgroundColor: HomiziColors.brandRedOrange,
+                backgroundColor: HomiziColors.logoOrange,
                 foregroundColor: HomiziColors.white,
                 minimumSize: const Size.fromHeight(46),
               ),
@@ -145,8 +145,12 @@ class SeekerPriorityBreakdown extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Container(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-            decoration: const BoxDecoration(color: HomiziColors.ink),
+            padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                colors: [HomiziColors.logoOrange, HomiziColors.brandRedOrange],
+              ),
+            ),
             child: Text(
               homiziText(
                 context,
@@ -154,7 +158,7 @@ class SeekerPriorityBreakdown extends StatelessWidget {
               ),
               style: const TextStyle(
                 color: HomiziColors.white,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w700,
               ),
             ),
           ),

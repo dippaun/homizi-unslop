@@ -81,7 +81,7 @@ class RoommateMatchRow extends StatelessWidget {
                         style: const TextStyle(
                           fontFamily: 'PlusJakartaSans',
                           color: HomiziColors.ink,
-                          fontWeight: FontWeight.w600,
+                          fontWeight: FontWeight.w800,
                           fontSize: 15,
                         ),
                       ),
@@ -135,19 +135,19 @@ class RoommateMatchRow extends StatelessWidget {
                           ),
                           decoration: BoxDecoration(
                             color: HomiziColors.successWash,
-                            borderRadius: BorderRadius.circular(16),
+                            borderRadius: BorderRadius.circular(20),
                           ),
                           child: Text(
                             '$percent%',
                             style: const TextStyle(
                               color: HomiziColors.success,
-                              fontWeight: FontWeight.w600,
+                              fontWeight: FontWeight.w800,
                               fontSize: 12,
                             ),
                           ),
                         )
                       else
-                        const SizedBox(height: 20),
+                        const SizedBox(height: 18),
                       const SizedBox(height: 6),
                       SizedBox(
                         height: 18,
@@ -216,7 +216,7 @@ class RoommateSuggestedGrid extends StatelessWidget {
                   homiziText(context, 'Matched roommates'),
                   style: const TextStyle(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w800,
                     fontSize: 18,
                   ),
                 ),
@@ -245,7 +245,7 @@ class RoommateSuggestedGrid extends StatelessWidget {
                   homiziText(context, 'See All'),
                   style: const TextStyle(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w800,
                   ),
                 ),
               ),
@@ -332,7 +332,7 @@ class _RoommateMatchesPageState extends State<RoommateMatchesPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: const Key('roommate-matches-page'),
-      backgroundColor: HomiziColors.cream,
+      backgroundColor: HomiziColors.white,
       appBar: AppBar(title: Text(homiziText(context, 'Matched roommates'))),
       body: ListView.separated(
         padding: const EdgeInsets.fromLTRB(8, 8, 8, 24),
@@ -410,7 +410,7 @@ class _MiniAction extends StatelessWidget {
       onPressed: onPressed,
       child: Text(
         homiziText(context, label),
-        style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 12),
+        style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 12),
       ),
     );
   }

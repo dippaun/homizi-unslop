@@ -141,7 +141,7 @@ class ProfileVerificationBadges extends StatelessWidget {
             side: const BorderSide(color: profileVerifiedGreen),
             labelStyle: Theme.of(context).textTheme.labelLarge?.copyWith(
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w700,
             ),
           ),
       ],

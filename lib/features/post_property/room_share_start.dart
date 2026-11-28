@@ -6,16 +6,14 @@ import 'package:go_router/go_router.dart';
 import 'package:homizi/core/l10n/translate.dart';
 import 'package:homizi/core/routing/route_paths.dart';
 import 'package:homizi/core/routing/sign_in_gate.dart';
-import 'package:homizi/core/theme/role_palette.dart';
+import 'package:homizi/core/theme/homizi_colors.dart';
 import 'package:homizi/features/auth/registration_gate.dart';
 import 'package:homizi/features/post_property/post_property_chooser_screen.dart';
 import 'package:homizi/features/post_property/post_property_chrome.dart';
 import 'package:homizi/features/post_property/post_resume.dart';
 import 'package:homizi/features/roles/role_provider.dart';
 import 'package:homizi/features/session/sign_in_source.dart';
-import 'package:homizi/ui/kit/hero_band.dart';
 import 'package:homizi/ui/kit/kit.dart';
-import 'package:homizi/ui/kit/motion_kit.dart';
 
 /// Tenant "Post your property" starts here. Shared room or full house,
 /// then registration if it is not finished, then the listing flow.
@@ -64,17 +62,22 @@ class _RoomShareStartState extends ConsumerState<RoomShareStart> {
       body: ListView(
         padding: const EdgeInsets.fromLTRB(20, 8, 20, 24),
         children: [
-          HomiziStaggerIn(
-            child: HomiziRoleIntro(
-              palette: HomiziRolePalette.sharer,
-              eyebrow: homiziText(context, 'Room sharer'),
-              icon: Icons.bedroom_parent_outlined,
-              title: homiziText(context, 'What are you sharing?'),
-              body: homiziText(
-                context,
-                'A room in the home you already live in, or the whole house.',
-              ),
+          Text(
+            homiziText(context, 'What are you sharing?'),
+            style: const TextStyle(
+              fontFamily: 'PlusJakartaSans',
+              fontSize: 26,
+              fontWeight: FontWeight.w800,
+              color: HomiziColors.ink,
             ),
+          ),
+          const SizedBox(height: 8),
+          Text(
+            homiziText(
+              context,
+              'A room in the home you already live in, or the whole house.',
+            ),
+            style: const TextStyle(color: HomiziColors.inkSoft, height: 1.35),
           ),
           const SizedBox(height: 16),
           OptionGrid(

@@ -85,7 +85,7 @@ class _StaffServiceLeadsScreenState
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: HomiziColors.cream,
+      backgroundColor: HomiziColors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: const HomiziBackButton(),

@@ -187,7 +187,7 @@ class _HomiziPropertyCardState extends State<HomiziPropertyCard> {
         Expanded(
           child: ListView(
             controller: widget.scrollController,
-            padding: const EdgeInsets.fromLTRB(16, 16, 16, 16),
+            padding: const EdgeInsets.fromLTRB(16, 14, 16, 16),
             children: [
               _titleRow(context),
               if (data.cityNote != null) ...[
@@ -352,18 +352,6 @@ class _HomiziPropertyCardState extends State<HomiziPropertyCard> {
           TextButton(
             key: const Key('set-preferences-for-match'),
             onPressed: widget.onWhy,
-            // v3: a white pill so the prompt reads over any photo.
-            style: TextButton.styleFrom(
-              backgroundColor: HomiziColors.white.withValues(alpha: 0.94),
-              foregroundColor: HomiziColors.ink,
-              shape: const StadiumBorder(),
-              padding: const EdgeInsets.symmetric(horizontal: 12),
-              textStyle: const TextStyle(
-                fontFamily: 'Inter',
-                fontSize: 12,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
             child: Text(
               homiziText(context, 'Set preferences to see your match'),
             ),
@@ -375,7 +363,7 @@ class _HomiziPropertyCardState extends State<HomiziPropertyCard> {
     if (widget.data.person) {
       final photo = (widget.data.hostAvatarRef ?? photos.first.ref).trim();
       return ColoredBox(
-        color: HomiziColors.warmWash,
+        color: const Color(0xFFFFF6EE),
         child: Center(
           child: HomiziPortrait(
             photo: photo,
@@ -479,11 +467,8 @@ class _HomiziPropertyCardState extends State<HomiziPropertyCard> {
                       ? TextAlign.center
                       : TextAlign.start,
                   style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                    fontFamily: 'Poppins',
-                    fontSize: 18,
-                    letterSpacing: -0.2,
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w800,
                     height: 1.2,
                   ),
                 ),
@@ -493,17 +478,17 @@ class _HomiziPropertyCardState extends State<HomiziPropertyCard> {
                     key: Key('property-badge-${widget.data.id}'),
                     padding: const EdgeInsets.symmetric(
                       horizontal: 8,
-                      vertical: 4,
+                      vertical: 3,
                     ),
                     decoration: BoxDecoration(
                       color: HomiziColors.accentWash,
-                      borderRadius: BorderRadius.circular(16),
+                      borderRadius: BorderRadius.circular(20),
                     ),
                     child: Text(
                       homiziText(context, widget.data.badge!),
                       style: const TextStyle(
                         color: HomiziColors.ink,
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w800,
                         fontSize: 12,
                       ),
                     ),
@@ -537,11 +522,9 @@ class _HomiziPropertyCardState extends State<HomiziPropertyCard> {
             child: Text(
               homiziText(context, widget.data.rentLabel),
               textAlign: TextAlign.end,
-              style: const TextStyle(
-                fontFamily: 'Poppins',
-                fontSize: 16,
-                fontWeight: FontWeight.w600,
-                color: HomiziColors.ink,
+              style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                color: HomiziColors.logoOrange,
+                fontWeight: FontWeight.w800,
               ),
             ),
           ),
@@ -585,7 +568,7 @@ class _HomiziPropertyCardState extends State<HomiziPropertyCard> {
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
             decoration: BoxDecoration(
               color: HomiziColors.successWash,
-              borderRadius: BorderRadius.circular(16),
+              borderRadius: BorderRadius.circular(20),
             ),
             child: Row(
               mainAxisSize: MainAxisSize.min,
@@ -597,7 +580,7 @@ class _HomiziPropertyCardState extends State<HomiziPropertyCard> {
                   style: const TextStyle(
                     color: HomiziColors.success,
                     fontSize: 12,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w700,
                   ),
                 ),
               ],
@@ -634,7 +617,7 @@ class _HomiziPropertyCardState extends State<HomiziPropertyCard> {
           ),
           style: const TextStyle(
             color: HomiziColors.success,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w800,
             fontSize: 14,
           ),
         ),
@@ -672,7 +655,7 @@ class _HomiziPropertyCardState extends State<HomiziPropertyCard> {
                     style: const TextStyle(
                       color: HomiziColors.onSuccess,
                       fontSize: 12,
-                      fontWeight: FontWeight.w600,
+                      fontWeight: FontWeight.w800,
                     ),
                   ),
                 ),
@@ -701,7 +684,7 @@ class _HomiziPropertyCardState extends State<HomiziPropertyCard> {
           homiziText(context, 'Why this match'),
           style: const TextStyle(
             color: HomiziColors.success,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w800,
             fontSize: 14,
           ),
         ),
@@ -764,7 +747,7 @@ class _HomiziPropertyCardState extends State<HomiziPropertyCard> {
                           style: const TextStyle(
                             color: HomiziColors.ink,
                             fontSize: 12,
-                            fontWeight: FontWeight.w600,
+                            fontWeight: FontWeight.w700,
                           ),
                         ),
                       ),
@@ -801,7 +784,7 @@ class _HomiziPropertyCardState extends State<HomiziPropertyCard> {
                   homiziText(context, data.hostName),
                   style: const TextStyle(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w800,
                     fontSize: 15,
                   ),
                 ),
@@ -827,7 +810,7 @@ class _HomiziPropertyCardState extends State<HomiziPropertyCard> {
                             style: TextStyle(
                               color: HomiziColors.success,
                               fontSize: 12,
-                              fontWeight: FontWeight.w600,
+                              fontWeight: FontWeight.w700,
                             ),
                           ),
                         ],
@@ -847,7 +830,7 @@ class _HomiziPropertyCardState extends State<HomiziPropertyCard> {
                             style: TextStyle(
                               color: HomiziColors.success,
                               fontSize: 12,
-                              fontWeight: FontWeight.w600,
+                              fontWeight: FontWeight.w700,
                             ),
                           ),
                         ],
@@ -868,7 +851,7 @@ class _HomiziPropertyCardState extends State<HomiziPropertyCard> {
                           style: TextStyle(
                             color: HomiziColors.warning,
                             fontSize: 12,
-                            fontWeight: FontWeight.w600,
+                            fontWeight: FontWeight.w700,
                           ),
                         ),
                       ),
@@ -927,7 +910,7 @@ class _HomiziPropertyCardState extends State<HomiziPropertyCard> {
       initial,
       style: const TextStyle(
         color: HomiziColors.ink,
-        fontWeight: FontWeight.w600,
+        fontWeight: FontWeight.w800,
       ),
     );
   }
@@ -940,7 +923,7 @@ class _HomiziPropertyCardState extends State<HomiziPropertyCard> {
           homiziText(context, widget.data.placesTitle),
           style: const TextStyle(
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w800,
             fontSize: 14,
           ),
         ),
@@ -965,7 +948,7 @@ class _HomiziPropertyCardState extends State<HomiziPropertyCard> {
                         style: const TextStyle(
                           color: HomiziColors.ink,
                           fontSize: 11,
-                          fontWeight: FontWeight.w600,
+                          fontWeight: FontWeight.w700,
                         ),
                       ),
                     ),
@@ -1013,7 +996,7 @@ class _HomiziPropertyCardState extends State<HomiziPropertyCard> {
               ),
               minimumSize: const Size(48, 48),
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(28),
               ),
             ),
             icon: const Icon(Icons.close),
@@ -1031,7 +1014,7 @@ class _HomiziPropertyCardState extends State<HomiziPropertyCard> {
               foregroundColor: HomiziColors.ink,
               minimumSize: const Size(48, 48),
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(28),
               ),
             ),
             icon: const Icon(Icons.favorite),
@@ -1053,16 +1036,16 @@ class _MatchBadge extends StatelessWidget {
   Widget build(BuildContext context) {
     final badge = Container(
       key: Key('property-match-$percent'),
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
       decoration: BoxDecoration(
         color: HomiziColors.success,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(20),
       ),
       child: Text(
         homiziText(context, '$percent% Match'),
         style: const TextStyle(
           color: HomiziColors.onSuccess,
-          fontWeight: FontWeight.w600,
+          fontWeight: FontWeight.w800,
           fontSize: 13,
         ),
       ),
@@ -1087,22 +1070,22 @@ class _RoommateBadge extends StatelessWidget {
     return DecoratedBox(
       key: const Key('roommate-seeker-badge'),
       decoration: BoxDecoration(
-        color: HomiziColors.infoWash,
+        color: const Color(0xFFE4E0FF),
         borderRadius: BorderRadius.circular(999),
       ),
       child: const Padding(
-        padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+        padding: EdgeInsets.symmetric(horizontal: 8, vertical: 3),
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(Icons.groups_outlined, size: 14, color: HomiziColors.info),
+            Icon(Icons.groups_outlined, size: 14, color: Color(0xFF3D2E8C)),
             SizedBox(width: 4),
             Text(
               'Roommate',
               style: TextStyle(
-                color: HomiziColors.info,
+                color: Color(0xFF3D2E8C),
                 fontSize: 12,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w800,
               ),
             ),
           ],
@@ -1118,10 +1101,10 @@ class _VerifiedListing extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 5),
       decoration: BoxDecoration(
         color: HomiziColors.white,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(20),
       ),
       child: const Row(
         mainAxisSize: MainAxisSize.min,
@@ -1134,7 +1117,7 @@ class _VerifiedListing extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
               style: TextStyle(
                 color: HomiziColors.ink,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w700,
                 fontSize: 12,
               ),
             ),

@@ -26,7 +26,6 @@ import 'package:homizi/features/matching/match_controller.dart';
 import 'package:homizi/features/nearby/nearby_places_preview.dart';
 import 'package:homizi/features/post_analyzer/property_card_data.dart';
 import 'package:homizi/features/post_analyzer/property_match_adapter.dart';
-import 'package:homizi/features/search_properties/search_draft.dart';
 import 'package:homizi/features/search_properties/search_store.dart';
 import 'package:homizi/shared/widgets/homizi_property_card.dart';
 
@@ -82,14 +81,7 @@ class _PropertySwipePageState extends ConsumerState<PropertySwipePage>
     );
     final place = ref.watch(browsePlaceProvider);
     final source = _source(discovery.listings);
-    final openFilters = filters.copyWith(clearCity: true);
-    final visible = orderListingsByCity([
-      for (final listing in source)
-        if (savedSearch == null
-            ? openFilters.matches(listing)
-            : homeMatchesSearch(listing, savedSearch))
-          listing,
-    ], place.city);
+    final visible = orderListingsByCity(source, place.city);
     final scored = [
       for (final listing in visible)
         if (!_gone.contains(listing.id) &&
@@ -592,11 +584,11 @@ class _Chips extends StatelessWidget {
                 labelStyle: TextStyle(
                   color: HomiziColors.ink,
                   fontWeight: selected == chip
-                      ? FontWeight.w600
+                      ? FontWeight.w800
                       : FontWeight.w600,
                 ),
                 selectedColor: HomiziColors.accent,
-                backgroundColor: HomiziColors.cream,
+                backgroundColor: HomiziColors.white,
                 side: BorderSide(
                   color: selected == chip
                       ? HomiziColors.accent
@@ -659,7 +651,7 @@ class _Deck extends StatelessWidget {
                 child: DecoratedBox(
                   decoration: BoxDecoration(
                     color: HomiziColors.white,
-                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                    borderRadius: BorderRadius.all(Radius.circular(24)),
                     border: Border.fromBorderSide(
                       BorderSide(color: HomiziColors.line),
                     ),
@@ -717,7 +709,7 @@ class PropertyDetailPreview extends StatelessWidget {
         automaticallyImplyLeading: false,
         leading: const _PopBack(),
         title: Text(homiziText(context, data.title)),
-        backgroundColor: HomiziColors.cream,
+        backgroundColor: HomiziColors.white,
         foregroundColor: HomiziColors.ink,
         elevation: 0,
       ),
@@ -771,12 +763,12 @@ class InterestSentPage extends StatelessWidget {
     final host = hostName.trim().isEmpty ? 'The host' : hostName.trim();
     return Scaffold(
       key: const Key('property-interest-sent'),
-      backgroundColor: HomiziColors.cream,
+      backgroundColor: HomiziColors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: const _PopBack(),
         title: Text(homiziText(context, 'Interest sent')),
-        backgroundColor: HomiziColors.cream,
+        backgroundColor: HomiziColors.white,
         foregroundColor: HomiziColors.ink,
         elevation: 0,
       ),
@@ -791,7 +783,7 @@ class InterestSentPage extends StatelessWidget {
             style: const TextStyle(
               color: HomiziColors.ink,
               fontSize: 24,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
             ),
           ),
           const SizedBox(height: 8),

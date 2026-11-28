@@ -350,7 +350,7 @@ class _PartnerFlowScreenState extends ConsumerState<PartnerFlowScreen> {
                 key: const Key('post-partner-note'),
                 style: const TextStyle(
                   color: HomiziColors.error,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w700,
                 ),
               ),
             ),
@@ -419,7 +419,7 @@ class _PartnerFlowScreenState extends ConsumerState<PartnerFlowScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         ClipRRect(
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: BorderRadius.circular(20),
           child: Image.asset(
             'assets/images/home/apartment.webp',
             height: 140,
@@ -433,8 +433,8 @@ class _PartnerFlowScreenState extends ConsumerState<PartnerFlowScreen> {
           style: const TextStyle(
             fontFamily: 'PlusJakartaSans',
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w600,
-            fontSize: 24,
+            fontWeight: FontWeight.w800,
+            fontSize: 26,
             height: 1.15,
           ),
         ),
@@ -443,7 +443,7 @@ class _PartnerFlowScreenState extends ConsumerState<PartnerFlowScreen> {
           homiziText(context, 'Select Partner Type'),
           style: const TextStyle(
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w700,
             fontSize: 16,
           ),
         ),
@@ -493,7 +493,7 @@ class _PartnerFlowScreenState extends ConsumerState<PartnerFlowScreen> {
           style: const TextStyle(
             fontFamily: 'PlusJakartaSans',
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w800,
             fontSize: 22,
           ),
         ),
@@ -548,7 +548,7 @@ class _PartnerFlowScreenState extends ConsumerState<PartnerFlowScreen> {
             homiziText(context, 'Already have an account? Sign in'),
             style: const TextStyle(
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w700,
             ),
           ),
         ),
@@ -570,7 +570,7 @@ class _PartnerFlowScreenState extends ConsumerState<PartnerFlowScreen> {
           style: const TextStyle(
             fontFamily: 'PlusJakartaSans',
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w800,
             fontSize: 22,
           ),
         ),
@@ -665,7 +665,7 @@ class _PartnerFlowScreenState extends ConsumerState<PartnerFlowScreen> {
           style: const TextStyle(
             fontFamily: 'PlusJakartaSans',
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w800,
             fontSize: 22,
           ),
         ),
@@ -734,11 +734,11 @@ class _TypeTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: selected ? HomiziColors.warmWash : HomiziColors.white,
+      color: selected ? HomiziColors.homiziLavender : HomiziColors.white,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
         side: BorderSide(
-          color: selected ? HomiziColors.brandDeepRed : HomiziColors.line,
+          color: selected ? HomiziColors.homiziPurple : HomiziColors.line,
         ),
       ),
       child: InkWell(
@@ -746,7 +746,7 @@ class _TypeTile extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
         onTap: onTap,
         child: Padding(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.all(14),
           child: Row(
             children: [
               Icon(icon, color: HomiziColors.logoOrange),
@@ -759,7 +759,7 @@ class _TypeTile extends StatelessWidget {
                       homiziText(context, title),
                       style: const TextStyle(
                         color: HomiziColors.ink,
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w800,
                       ),
                     ),
                     Text(
@@ -775,7 +775,7 @@ class _TypeTile extends StatelessWidget {
               Icon(
                 selected ? Icons.radio_button_checked : Icons.radio_button_off,
                 color: selected
-                    ? HomiziColors.brandDeepRed
+                    ? HomiziColors.homiziPurple
                     : HomiziColors.muted,
               ),
             ],
@@ -814,7 +814,7 @@ class _DocRow extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
         onTap: onTap,
         child: Padding(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.all(14),
           child: Row(
             children: [
               Icon(
@@ -827,7 +827,7 @@ class _DocRow extends StatelessWidget {
                   homiziText(context, title),
                   style: const TextStyle(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w700,
                   ),
                 ),
               ),
@@ -838,7 +838,7 @@ class _DocRow extends StatelessWidget {
                 ),
                 style: TextStyle(
                   color: done ? HomiziColors.success : HomiziColors.inkSoft,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w700,
                 ),
               ),
             ],

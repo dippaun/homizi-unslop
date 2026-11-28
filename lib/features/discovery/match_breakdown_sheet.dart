@@ -14,7 +14,7 @@ Future<void> showMatchBreakdown(
   return showModalBottomSheet<void>(
     context: context,
     showDragHandle: true,
-    backgroundColor: HomiziColors.cream,
+    backgroundColor: HomiziColors.white,
     isScrollControlled: true,
     builder: (sheetContext) {
       return MatchBreakdownSheet(
@@ -81,7 +81,7 @@ class MatchBreakdownSheet extends StatelessWidget {
             child: Row(
               children: [
                 AnimatedMatchRing(percent: match.score, size: 84),
-                const SizedBox(width: 16),
+                const SizedBox(width: 14),
                 Expanded(
                   child: Text(
                     homiziText(context, 'Why this match'),
@@ -89,7 +89,7 @@ class MatchBreakdownSheet extends StatelessWidget {
                     style: theme.textTheme.titleLarge?.copyWith(
                       fontFamily: 'PlusJakartaSans',
                       color: HomiziColors.ink,
-                      fontWeight: FontWeight.w600,
+                      fontWeight: FontWeight.w800,
                     ),
                   ),
                 ),
@@ -105,7 +105,7 @@ class MatchBreakdownSheet extends StatelessWidget {
                 DecoratedBox(
                   decoration: BoxDecoration(
                     color: tone.background,
-                    borderRadius: BorderRadius.circular(16),
+                    borderRadius: BorderRadius.circular(20),
                   ),
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
@@ -116,7 +116,7 @@ class MatchBreakdownSheet extends StatelessWidget {
                       homiziText(context, match.label),
                       style: theme.textTheme.labelLarge?.copyWith(
                         color: tone.foreground,
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w800,
                       ),
                     ),
                   ),
@@ -144,7 +144,7 @@ class MatchBreakdownSheet extends StatelessWidget {
                 key: const Key('match-must-have-cap'),
                 style: theme.textTheme.bodyMedium?.copyWith(
                   color: HomiziColors.error,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w700,
                 ),
               ),
             ),
@@ -164,7 +164,7 @@ class MatchBreakdownSheet extends StatelessWidget {
                     homiziText(context, 'Add your missing preferences'),
                     style: const TextStyle(
                       color: HomiziColors.brandDeepRed,
-                      fontWeight: FontWeight.w600,
+                      fontWeight: FontWeight.w800,
                     ),
                   ),
                 ),
@@ -186,7 +186,7 @@ class MatchBreakdownSheet extends StatelessWidget {
                 key: const Key('match-preferences-title'),
                 style: theme.textTheme.titleMedium?.copyWith(
                   color: HomiziColors.ink,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w800,
                 ),
               ),
             ),
@@ -207,7 +207,7 @@ class MatchBreakdownSheet extends StatelessWidget {
                         homiziText(context, line),
                         style: const TextStyle(
                           fontFamily: 'PlusJakartaSans',
-                          fontWeight: FontWeight.w600,
+                          fontWeight: FontWeight.w700,
                           color: HomiziColors.ink,
                         ),
                       ),
@@ -226,7 +226,7 @@ class MatchBreakdownSheet extends StatelessWidget {
                   homiziText(context, 'Edit preferences'),
                   style: const TextStyle(
                     color: HomiziColors.brandDeepRed,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w800,
                   ),
                 ),
               ),
@@ -287,7 +287,7 @@ class _FactorRow extends StatelessWidget {
                         style: const TextStyle(
                           fontFamily: 'PlusJakartaSans',
                           color: HomiziColors.ink,
-                          fontWeight: FontWeight.w600,
+                          fontWeight: FontWeight.w800,
                         ),
                       ),
                       Text(
@@ -305,7 +305,7 @@ class _FactorRow extends StatelessWidget {
                   style: theme.textTheme.titleSmall?.copyWith(
                     fontFamily: 'PlusJakartaSans',
                     color: color,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w800,
                   ),
                 ),
               ],

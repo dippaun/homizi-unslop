@@ -8,7 +8,6 @@ import 'package:homizi/core/location/location_models.dart'
 import 'package:homizi/core/location/place_autocomplete_field.dart';
 import 'package:homizi/core/theme/flow_accent.dart';
 import 'package:homizi/core/theme/homizi_colors.dart';
-import 'package:homizi/core/theme/homizi_theme.dart';
 import 'package:homizi/core/widgets/homizi_date_field.dart';
 import 'package:homizi/features/broker/broker_chip.dart';
 import 'package:homizi/features/listings/domain/listing_draft.dart';
@@ -34,7 +33,7 @@ InputDecoration listingFieldDecoration(
   String? helper,
 }) {
   final accent = FlowAccentScope.active(context)
-      ? HomiziColors.brandDeepRed
+      ? HomiziColors.homiziPurple
       : HomiziColors.logoOrange;
   return InputDecoration(
     labelText: homiziText(context, label),
@@ -70,7 +69,7 @@ class ListingTitleField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final accent = FlowAccentScope.active(context)
-        ? HomiziColors.brandDeepRed
+        ? HomiziColors.homiziPurple
         : HomiziColors.logoOrange;
     return wizardAnchor(
       context,
@@ -197,7 +196,7 @@ class _HostIntentPair extends StatelessWidget {
         'Shared Space (I am an existing tenant)',
         'Looking for a flatmate / roomie',
         Icons.groups_outlined,
-        HomiziColors.warmWash,
+        HomiziColors.homiziLavender,
       ),
     ];
     return Row(
@@ -234,15 +233,15 @@ class _HostIntentCard extends StatelessWidget {
     return TweenAnimationBuilder<double>(
       tween: Tween(begin: 0.94, end: 1),
       duration: const Duration(milliseconds: 420),
-      curve: HomiziMotion.curve,
+      curve: Curves.easeOutBack,
       builder: (context, scale, child) =>
           Transform.scale(scale: scale, child: child),
       child: Material(
         color: selected ? HomiziColors.logoOrange : option.$5,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(22),
         child: InkWell(
           key: Key('listing-intent-${option.$1}'),
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: BorderRadius.circular(22),
           onTap: onTap,
           child: Padding(
             padding: const EdgeInsets.all(16),
@@ -262,7 +261,7 @@ class _HostIntentCard extends StatelessWidget {
                   style: TextStyle(
                     fontFamily: 'PlusJakartaSans',
                     color: selected ? HomiziColors.white : HomiziColors.ink,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w800,
                     fontSize: 16,
                     height: 1.2,
                   ),
@@ -588,7 +587,7 @@ class NearbyStep extends StatelessWidget {
                 size: 18,
               ),
               label: Text(homiziText(context, where)),
-              backgroundColor: HomiziColors.cream,
+              backgroundColor: HomiziColors.white,
               side: const BorderSide(color: HomiziColors.line),
             ),
           ],
@@ -696,7 +695,7 @@ class _NearbyRowState extends State<_NearbyRow> {
                       homiziText(context, nearbyKindLabel(place.kind)),
                       style: const TextStyle(
                         fontFamily: 'PlusJakartaSans',
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w800,
                         color: HomiziColors.ink,
                       ),
                     ),
@@ -753,7 +752,7 @@ class _NearbyRowState extends State<_NearbyRow> {
                             textAlign: TextAlign.end,
                             style: const TextStyle(
                               color: HomiziColors.ink,
-                              fontWeight: FontWeight.w600,
+                              fontWeight: FontWeight.w700,
                               fontSize: 13,
                             ),
                           ),
@@ -1049,7 +1048,7 @@ class RulesStep extends StatelessWidget {
           homiziText(context, 'Occupant schedule'),
           style: const TextStyle(
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w800,
           ),
         ),
         const SizedBox(height: 8),
@@ -1633,7 +1632,7 @@ class PhotosStep extends StatelessWidget {
             ),
             if (index < photoSequence.length - 1)
               const Padding(
-                padding: EdgeInsets.only(left: 20),
+                padding: EdgeInsets.only(left: 18),
                 child: Icon(
                   Icons.arrow_downward,
                   size: 16,
@@ -1756,13 +1755,13 @@ class _PrivateFlatNote extends StatelessWidget {
       key: const Key('listing-flat-private'),
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
       decoration: BoxDecoration(
-        color: HomiziColors.warmWash,
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: HomiziColors.brandDeepRed),
+        color: const Color(0xFFF3ECFF),
+        borderRadius: BorderRadius.circular(14),
+        border: Border.all(color: HomiziColors.homiziPurple),
       ),
       child: Row(
         children: [
-          const Icon(Icons.lock_outline, color: HomiziColors.brandDeepRed),
+          const Icon(Icons.lock_outline, color: HomiziColors.homiziPurple),
           const SizedBox(width: 8),
           Expanded(
             child: Text(
@@ -1772,7 +1771,7 @@ class _PrivateFlatNote extends StatelessWidget {
               ),
               style: const TextStyle(
                 color: HomiziColors.ink,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w700,
               ),
             ),
           ),
@@ -1837,7 +1836,7 @@ class _ChoiceLabel extends StatelessWidget {
             homiziText(context, label),
             style: const TextStyle(
               fontFamily: 'PlusJakartaSans',
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
               color: HomiziColors.ink,
             ),
           ),

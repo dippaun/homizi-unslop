@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:homizi/core/theme/homizi_colors.dart';
-import 'package:homizi/core/theme/role_palette.dart';
 
 /// A single progress header: "Step 2 of 5", the current title, and a
 /// segmented bar that fits a phone. Segments do not scroll or clip.
@@ -56,7 +55,7 @@ class StepProgress extends StatelessWidget {
             key: captionKey,
             style: const TextStyle(
               fontFamily: 'PlusJakartaSans',
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w700,
               fontSize: 13,
               color: HomiziColors.muted,
             ),
@@ -66,7 +65,7 @@ class StepProgress extends StatelessWidget {
             titles[safeIndex],
             style: const TextStyle(
               fontFamily: 'PlusJakartaSans',
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
               fontSize: 22,
               height: 1.2,
               color: HomiziColors.ink,
@@ -130,12 +129,11 @@ class _Segment extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // v2: steps take the role palette; finished steps carry its gradient.
-    final palette = HomiziRoleScope.of(context);
-    final lit = !locked && (selected || done);
     final color = locked
         ? HomiziColors.line
-        : (lit ? palette.accent : palette.accent.withValues(alpha: 0.28));
+        : (selected || done
+              ? HomiziColors.logoOrange
+              : HomiziColors.logoOrange.withValues(alpha: 0.28));
     return Semantics(
       button: true,
       selected: selected,
@@ -155,7 +153,6 @@ class _Segment extends StatelessWidget {
               height: selected ? 8 : 6,
               decoration: BoxDecoration(
                 color: color,
-                gradient: lit ? LinearGradient(colors: palette.hero) : null,
                 borderRadius: BorderRadius.circular(99),
               ),
             ),

@@ -7,11 +7,9 @@ import 'package:homizi/core/l10n/locale_controller.dart';
 import 'package:homizi/core/routing/app_router.dart';
 import 'package:homizi/core/theme/homizi_colors.dart';
 import 'package:homizi/core/theme/homizi_theme.dart';
-import 'package:homizi/core/theme/role_palette.dart';
 import 'package:homizi/core/widgets/homizi_error_boundary.dart';
 import 'package:homizi/features/demo/demo_copy.dart';
 import 'package:homizi/features/personalize/personalization.dart';
-import 'package:homizi/features/roles/role_provider.dart';
 import 'package:homizi/features/session/session_reset.dart';
 import 'package:homizi/features/shell/glassy_nav_bar.dart';
 import 'package:homizi/features/shell/homizi_nav.dart';
@@ -28,7 +26,6 @@ class HomiziApp extends ConsumerWidget {
     final locale = ref.watch(localeProvider);
     final hideSignIn = ref.watch(appConfigProvider).demoSkipLogin;
     final themeMode = ref.watch(themeModeProvider);
-    final role = ref.watch(currentRoleProvider);
     ref.watch(personalizationProvider);
     ref.watch(sessionIsolationProvider);
     return MaterialApp.router(
@@ -45,7 +42,6 @@ class HomiziApp extends ConsumerWidget {
         return _Chrome(
           router: router,
           hideSignIn: hideSignIn,
-          roleWire: role == null ? null : homiziRoleWire(role),
           child: HomiziErrorBoundary(
             child: child ?? const HomiziErrorFallback(detail: ''),
           ),
@@ -66,13 +62,11 @@ class _Chrome extends StatefulWidget {
     required this.router,
     required this.hideSignIn,
     required this.child,
-    this.roleWire,
   });
 
   final GoRouter router;
   final bool hideSignIn;
   final Widget child;
-  final String? roleWire;
 
   @override
   State<_Chrome> createState() => _ChromeState();
@@ -170,24 +164,15 @@ class _ChromeState extends State<_Chrome> {
   @override
   Widget build(BuildContext context) {
     final path = _path;
-    // v3: the margin beside the phone frame on wide screens is deep ink,
-    // so the app reads as a lit device on a dark stage.
-    return HomiziRoleScope(
-      palette: paletteForRoute(path, widget.roleWire),
-      child: ColoredBox(
-        color: HomiziColors.inkDeep,
-        child: Stack(
-          children: [
-            Center(
-              child: _PhoneFrame(
-                hideSignIn: widget.hideSignIn,
-                nav: showHomiziNav(path)
-                    ? HomiziBottomNav(path: path, router: widget.router)
-                    : null,
-                child: widget.child,
-              ),
-            ),
-          ],
+    return ColoredBox(
+      color: HomiziColors.white,
+      child: Center(
+        child: _PhoneFrame(
+          hideSignIn: widget.hideSignIn,
+          nav: showHomiziNav(path)
+              ? HomiziBottomNav(path: path, router: widget.router)
+              : null,
+          child: widget.child,
         ),
       ),
     );

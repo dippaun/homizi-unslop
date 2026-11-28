@@ -154,7 +154,7 @@ class _OccupancySearchScreenState extends ConsumerState<OccupancySearchScreen> {
           children: [
             Text(
               homiziText(context, title),
-              style: text.headlineSmall?.copyWith(fontWeight: FontWeight.w600),
+              style: text.headlineSmall?.copyWith(fontWeight: FontWeight.w700),
             ),
             const SizedBox(height: 4),
             Text(homiziText(context, subtitle), style: text.bodyMedium),
@@ -229,7 +229,7 @@ class _OccupancySearchScreenState extends ConsumerState<OccupancySearchScreen> {
         const SizedBox(height: 12),
         _groupStepper(),
       ],
-      const SizedBox(height: 16),
+      const SizedBox(height: 14),
       ShSection(
         title: 'Desired occupancy',
         icon: Icons.bed_outlined,
@@ -248,7 +248,7 @@ class _OccupancySearchScreenState extends ConsumerState<OccupancySearchScreen> {
           ],
         ),
       ),
-      const SizedBox(height: 16),
+      const SizedBox(height: 14),
       ShSection(
         title: 'Preference',
         icon: Icons.tune,
@@ -308,7 +308,7 @@ class _OccupancySearchScreenState extends ConsumerState<OccupancySearchScreen> {
           ],
         ),
       ),
-      const SizedBox(height: 16),
+      const SizedBox(height: 14),
       ShSection(
         title: 'Looking for',
         icon: Icons.home_outlined,
@@ -355,7 +355,7 @@ class _OccupancySearchScreenState extends ConsumerState<OccupancySearchScreen> {
         Text(
           '${_need.groupSize}',
           key: const Key('occ-group-size'),
-          style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
+          style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 16),
         ),
         IconButton(
           key: const Key('occ-group-plus'),
@@ -468,7 +468,7 @@ class _OccupancySearchScreenState extends ConsumerState<OccupancySearchScreen> {
       trailing: Text(
         date == null ? homiziText(context, 'Pick a date') : formatMoveIn(date),
         style: const TextStyle(
-          fontWeight: FontWeight.w600,
+          fontWeight: FontWeight.w700,
           color: HomiziColors.ink,
         ),
       ),
@@ -488,7 +488,7 @@ class _OccupancySearchScreenState extends ConsumerState<OccupancySearchScreen> {
             Text(
               '${_need.ageMin} – ${_need.ageMax} ${homiziText(context, 'years')}',
               key: const Key('roomie-age-label'),
-              style: const TextStyle(fontWeight: FontWeight.w600),
+              style: const TextStyle(fontWeight: FontWeight.w700),
             ),
           ],
         ),
@@ -573,10 +573,10 @@ class _OccupancySearchScreenState extends ConsumerState<OccupancySearchScreen> {
               padding: const EdgeInsets.only(bottom: 10),
               child: Material(
                 color: HomiziColors.soft,
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: BorderRadius.circular(14),
                 child: InkWell(
                   key: Key(row.$1),
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: BorderRadius.circular(14),
                   onTap: () => _find(row.$6),
                   child: Padding(
                     padding: const EdgeInsets.all(10),
@@ -599,7 +599,7 @@ class _OccupancySearchScreenState extends ConsumerState<OccupancySearchScreen> {
                               Text(
                                 homiziText(context, row.$3),
                                 style: text.titleSmall?.copyWith(
-                                  fontWeight: FontWeight.w600,
+                                  fontWeight: FontWeight.w700,
                                 ),
                               ),
                               Text(
@@ -631,10 +631,10 @@ class _OccupancySearchScreenState extends ConsumerState<OccupancySearchScreen> {
   Widget _hostCard(BuildContext context) {
     return Material(
       color: HomiziColors.accentWash,
-      borderRadius: BorderRadius.circular(16),
+      borderRadius: BorderRadius.circular(18),
       child: InkWell(
         key: const Key('occ-post-home'),
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(18),
         onTap: () => context.push(SharedHomePaths.host),
         child: Padding(
           padding: const EdgeInsets.all(16),
@@ -652,7 +652,7 @@ class _OccupancySearchScreenState extends ConsumerState<OccupancySearchScreen> {
                     Text(
                       homiziText(context, 'Hosts, owners and existing tenants'),
                       style: const TextStyle(
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w700,
                         color: HomiziColors.ink,
                       ),
                     ),

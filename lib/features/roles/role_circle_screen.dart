@@ -18,10 +18,10 @@ class RoleCircleScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       key: const Key('role-circle-screen'),
-      backgroundColor: HomiziColors.cream,
+      backgroundColor: HomiziColors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: HomiziColors.cream,
+        backgroundColor: HomiziColors.white,
         surfaceTintColor: HomiziColors.white,
         leading: const HomiziBackButton(),
         title: Text(homiziText(context, 'Create your profile')),
@@ -36,9 +36,9 @@ class RoleCircleScreen extends ConsumerWidget {
               Text(
                 homiziText(context, 'How will you use HOMIZI?'),
                 style: const TextStyle(
-                  fontFamily: 'Poppins',
+                  fontFamily: 'PlusJakartaSans',
                   fontSize: 22,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w800,
                   color: HomiziColors.ink,
                 ),
               ),
@@ -248,7 +248,7 @@ class _Circle extends StatelessWidget {
                 fontFamily: 'PlusJakartaSans',
                 fontSize: 14,
                 height: 1.2,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w800,
                 color: HomiziColors.ink,
               ),
             ),

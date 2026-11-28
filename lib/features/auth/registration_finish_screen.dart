@@ -6,7 +6,6 @@ import 'package:go_router/go_router.dart';
 import 'package:homizi/core/l10n/translate.dart';
 import 'package:homizi/core/routing/route_paths.dart';
 import 'package:homizi/core/theme/homizi_colors.dart';
-import 'package:homizi/core/theme/homizi_theme.dart';
 import 'package:homizi/features/auth/registration_gate.dart';
 import 'package:homizi/features/post_property/post_resume.dart';
 import 'package:homizi/features/profile_create/profile_create_draft.dart';
@@ -141,7 +140,7 @@ class _RegistrationFinishScreenState
       });
       return const Scaffold(
         key: Key('registration-skip-complete'),
-        backgroundColor: HomiziColors.cream,
+        backgroundColor: HomiziColors.white,
         body: SizedBox.shrink(),
       );
     }
@@ -158,13 +157,13 @@ class _RegistrationFinishScreenState
         });
       }
       return const Scaffold(
-        backgroundColor: HomiziColors.cream,
+        backgroundColor: HomiziColors.white,
         body: SizedBox.shrink(),
       );
     }
     return Scaffold(
       key: const Key('registration-finish-screen'),
-      backgroundColor: HomiziColors.cream,
+      backgroundColor: HomiziColors.white,
       body: PageBackground(
         variant: PageBackgroundVariant.soft,
         child: SafeArea(
@@ -237,7 +236,7 @@ class _RegistrationFinishScreenState
           TweenAnimationBuilder<double>(
             tween: Tween(begin: 0.6, end: 1),
             duration: const Duration(milliseconds: 420),
-            curve: HomiziMotion.curve,
+            curve: Curves.easeOutBack,
             builder: (context, scale, child) {
               return Transform.scale(scale: scale, child: child);
             },
@@ -253,9 +252,9 @@ class _RegistrationFinishScreenState
             key: const Key('registration-success'),
             textAlign: TextAlign.center,
             style: const TextStyle(
-              fontFamily: 'Poppins',
+              fontFamily: 'PlusJakartaSans',
               fontSize: 28,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
               color: HomiziColors.ink,
             ),
           ),

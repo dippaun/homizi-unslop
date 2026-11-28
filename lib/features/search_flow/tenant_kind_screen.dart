@@ -16,7 +16,7 @@ class TenantKindScreen extends ConsumerWidget {
     final stay = ref.watch(flowPrefsProvider).stay;
     return Scaffold(
       key: const Key('tenant-kind-screen'),
-      backgroundColor: HomiziColors.cream,
+      backgroundColor: HomiziColors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: const HomiziBackButton(),
@@ -32,7 +32,7 @@ class TenantKindScreen extends ConsumerWidget {
               Text(
                 homiziText(context, 'What are you looking for?'),
                 style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w800,
                   color: HomiziColors.ink,
                 ),
               ),
@@ -155,7 +155,7 @@ class _StayTile extends StatelessWidget {
                         style: const TextStyle(
                           fontFamily: 'PlusJakartaSans',
                           fontSize: 16,
-                          fontWeight: FontWeight.w600,
+                          fontWeight: FontWeight.w800,
                           color: HomiziColors.ink,
                         ),
                       ),

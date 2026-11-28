@@ -87,7 +87,7 @@ class _RoommateDeckCardState extends State<RoommateDeckCard>
       key: Key('roommate-open-${person.id}'),
       color: HomiziColors.ink,
       clipBehavior: Clip.antiAlias,
-      borderRadius: const BorderRadius.all(Radius.circular(20)),
+      borderRadius: const BorderRadius.all(Radius.circular(28)),
       child: InkWell(
         onTap: widget.quiet ? null : widget.onOpen,
         child: Stack(
@@ -104,9 +104,9 @@ class _RoommateDeckCardState extends State<RoommateDeckCard>
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   colors: [
-                    HomiziColors.clear,
-                    HomiziColors.clear,
-                    HomiziColors.inkScrim,
+                    Color(0x00000000),
+                    Color(0x00000000),
+                    Color(0xF0172033),
                   ],
                   stops: [0.28, 0.48, 1],
                 ),
@@ -140,8 +140,8 @@ class _RoommateDeckCardState extends State<RoommateDeckCard>
                     style: const TextStyle(
                       fontFamily: 'PlusJakartaSans',
                       color: HomiziColors.white,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 28,
+                      fontWeight: FontWeight.w800,
+                      fontSize: 30,
                     ),
                   ),
                   const SizedBox(height: 4),
@@ -253,7 +253,7 @@ class _Reasons extends StatelessWidget {
           style: const TextStyle(
             fontFamily: 'PlusJakartaSans',
             color: HomiziColors.white,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w800,
           ),
         ),
         const SizedBox(height: 6),
@@ -279,7 +279,7 @@ class _Reasons extends StatelessWidget {
                 child: Row(
                   children: [
                     const Icon(
-                      Icons.handshake_outlined,
+                      Icons.auto_awesome,
                       size: 16,
                       color: HomiziColors.logoOrange,
                     ),
@@ -362,7 +362,7 @@ class _FactChip extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
                 style: const TextStyle(
                   color: HomiziColors.ink,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w700,
                   fontSize: 13,
                 ),
               ),
@@ -383,7 +383,7 @@ class _LifeChip extends StatelessWidget {
   Widget build(BuildContext context) {
     return DecoratedBox(
       decoration: BoxDecoration(
-        color: HomiziColors.warmWash,
+        color: HomiziColors.homiziLavender,
         borderRadius: BorderRadius.circular(999),
       ),
       child: Padding(
@@ -391,13 +391,13 @@ class _LifeChip extends StatelessWidget {
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(_icon(label), size: 16, color: HomiziColors.brandDeepRed),
+            Icon(_icon(label), size: 16, color: HomiziColors.homiziPurple),
             const SizedBox(width: 4),
             Text(
               label,
               style: const TextStyle(
                 color: HomiziColors.ink,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w700,
                 fontSize: 13,
               ),
             ),

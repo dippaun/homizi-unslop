@@ -28,7 +28,7 @@ class FormSection extends StatelessWidget {
       padding: const EdgeInsets.all(16),
       decoration: const BoxDecoration(
         color: HomiziColors.white,
-        borderRadius: BorderRadius.all(Radius.circular(16)),
+        borderRadius: BorderRadius.all(Radius.circular(20)),
         boxShadow: [
           BoxShadow(
             color: HomiziColors.shadowSoft,
@@ -63,7 +63,7 @@ class FormSection extends StatelessWidget {
                     title,
                     style: const TextStyle(
                       fontFamily: 'PlusJakartaSans',
-                      fontWeight: FontWeight.w600,
+                      fontWeight: FontWeight.w800,
                       fontSize: 16,
                       height: 1.25,
                       color: HomiziColors.ink,

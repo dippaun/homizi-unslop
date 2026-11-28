@@ -73,8 +73,8 @@ class OwnerPostedScreen extends ConsumerWidget {
             style: const TextStyle(
               fontFamily: 'PlusJakartaSans',
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w600,
-              fontSize: 24,
+              fontWeight: FontWeight.w800,
+              fontSize: 26,
             ),
           ),
           const SizedBox(height: 8),
@@ -83,7 +83,7 @@ class OwnerPostedScreen extends ConsumerWidget {
             textAlign: TextAlign.center,
             style: const TextStyle(
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w700,
               fontSize: 18,
             ),
           ),
@@ -95,7 +95,7 @@ class OwnerPostedScreen extends ConsumerWidget {
               textAlign: TextAlign.center,
               style: const TextStyle(
                 color: HomiziColors.inkSoft,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w700,
               ),
             ),
           ],
@@ -140,7 +140,7 @@ class OwnerPostedScreen extends ConsumerWidget {
               homiziText(context, 'Back to Home'),
               style: const TextStyle(
                 color: HomiziColors.ink,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w700,
               ),
             ),
           ),
@@ -172,13 +172,13 @@ class PartnerSuccessScreen extends ConsumerWidget {
           ),
           const SizedBox(height: 12),
           Text(
-            homiziText(context, 'Registration complete'),
+            homiziText(context, 'Registration Successful!'),
             textAlign: TextAlign.center,
             style: const TextStyle(
               fontFamily: 'PlusJakartaSans',
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w600,
-              fontSize: 24,
+              fontWeight: FontWeight.w800,
+              fontSize: 26,
             ),
           ),
           const SizedBox(height: 8),
@@ -195,11 +195,11 @@ class PartnerSuccessScreen extends ConsumerWidget {
           const SizedBox(height: 16),
           DecoratedBox(
             decoration: BoxDecoration(
-              color: HomiziColors.warmWash,
+              color: HomiziColors.homiziLavender,
               borderRadius: BorderRadius.circular(16),
             ),
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
               child: Row(
                 children: [
                   Expanded(
@@ -218,7 +218,7 @@ class PartnerSuccessScreen extends ConsumerWidget {
                           key: const Key('post-application-id'),
                           style: const TextStyle(
                             color: HomiziColors.ink,
-                            fontWeight: FontWeight.w600,
+                            fontWeight: FontWeight.w800,
                             fontSize: 18,
                           ),
                         ),
@@ -274,7 +274,7 @@ class PartnerSuccessScreen extends ConsumerWidget {
               homiziText(context, 'Back to Home'),
               style: const TextStyle(
                 color: HomiziColors.ink,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w700,
               ),
             ),
           ),

@@ -68,7 +68,7 @@ class _MutualInterestScreenState extends ConsumerState<MutualInterestScreen> {
       await showModalBottomSheet<void>(
         context: context,
         isScrollControlled: true,
-        backgroundColor: HomiziColors.cream,
+        backgroundColor: HomiziColors.white,
         builder: (context) =>
             RoommateBreakdownSheet(seeker: seeker, score: score),
       );
@@ -87,7 +87,7 @@ class _MutualInterestScreenState extends ConsumerState<MutualInterestScreen> {
     return MinTouchScope(
       child: Scaffold(
         key: const Key('flatmate-mutual-screen'),
-        backgroundColor: HomiziColors.cream,
+        backgroundColor: HomiziColors.white,
         appBar: AppBar(
           automaticallyImplyLeading: false,
           leading: const HomiziBackButton(),
@@ -171,13 +171,13 @@ class _SplitRentPrompt extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       color: HomiziColors.accentWash,
-      borderRadius: BorderRadius.circular(16),
+      borderRadius: BorderRadius.circular(18),
       child: InkWell(
         key: const Key('mutual-split-rent'),
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(18),
         onTap: onTap,
         child: Padding(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.all(14),
           child: Row(
             children: [
               const Icon(
@@ -192,7 +192,7 @@ class _SplitRentPrompt extends StatelessWidget {
                     Text(
                       homiziText(context, 'Moving in together?'),
                       style: const TextStyle(
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w800,
                         color: HomiziColors.ink,
                       ),
                     ),

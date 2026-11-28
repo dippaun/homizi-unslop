@@ -55,7 +55,7 @@ class CommuteRouteMap extends StatelessWidget {
           homiziText(context, 'About $kmLabel km · A home, B office'),
           style: const TextStyle(
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w700,
             fontSize: 12,
           ),
         ),
@@ -68,7 +68,7 @@ class CommuteRouteMap extends StatelessWidget {
               DecoratedBox(
                 decoration: BoxDecoration(
                   color: HomiziColors.soft,
-                  borderRadius: BorderRadius.circular(16),
+                  borderRadius: BorderRadius.circular(20),
                 ),
                 child: Padding(
                   padding: const EdgeInsets.symmetric(
@@ -85,7 +85,7 @@ class CommuteRouteMap extends StatelessWidget {
                         style: const TextStyle(
                           color: HomiziColors.ink,
                           fontSize: 11,
-                          fontWeight: FontWeight.w600,
+                          fontWeight: FontWeight.w700,
                         ),
                       ),
                     ],
@@ -169,7 +169,7 @@ class CommuteRouteMap extends StatelessWidget {
             label,
             style: const TextStyle(
               color: HomiziColors.white,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
               fontSize: 12,
             ),
           ),

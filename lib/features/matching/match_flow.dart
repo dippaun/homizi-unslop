@@ -33,7 +33,7 @@ class MatchHubScreen extends StatelessWidget {
               homiziText(context, 'Simple. Smart. Social.'),
               style: theme.textTheme.headlineSmall?.copyWith(
                 color: HomiziColors.ink,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w800,
               ),
             ),
           ),
@@ -42,7 +42,7 @@ class MatchHubScreen extends StatelessWidget {
             homiziText(context, 'Find the Right Place. Meet the Right People.'),
             style: theme.textTheme.titleMedium?.copyWith(
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w700,
             ),
           ),
           const SizedBox(height: 16),
@@ -61,7 +61,7 @@ class MatchHubScreen extends StatelessWidget {
             homiziText(context, 'Smart Matching for Better Living'),
             style: theme.textTheme.titleLarge?.copyWith(
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
             ),
           ),
           const SizedBox(height: 8),
@@ -104,7 +104,7 @@ class MatchHubScreen extends StatelessWidget {
           Text(
             homiziText(context, 'How matching works'),
             style: theme.textTheme.titleMedium?.copyWith(
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
               color: HomiziColors.ink,
             ),
           ),
@@ -153,7 +153,7 @@ class _HubChip extends StatelessWidget {
   Widget build(BuildContext context) {
     return Chip(
       label: Text(homiziText(context, label)),
-      backgroundColor: HomiziColors.cream,
+      backgroundColor: HomiziColors.white,
       side: const BorderSide(color: HomiziColors.line),
     );
   }
@@ -183,7 +183,7 @@ class _Step extends StatelessWidget {
             radius: 14,
             child: Text(
               number,
-              style: const TextStyle(fontWeight: FontWeight.w600),
+              style: const TextStyle(fontWeight: FontWeight.w800),
             ),
           ),
           const SizedBox(width: 10),
@@ -195,7 +195,7 @@ class _Step extends StatelessWidget {
                   homiziText(context, title),
                   style: const TextStyle(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w800,
                   ),
                 ),
                 Text(
@@ -365,7 +365,7 @@ class MatchConfirmScreen extends StatelessWidget {
             style: const TextStyle(
               color: HomiziColors.ink,
               fontSize: 24,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
             ),
           ),
           const SizedBox(height: 8),

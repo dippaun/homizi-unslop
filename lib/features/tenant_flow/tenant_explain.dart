@@ -36,7 +36,7 @@ class TenantIntroPage extends StatelessWidget {
             homiziText(context, 'Smart Matching'),
             style: theme.textTheme.headlineMedium?.copyWith(
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
               height: 1.05,
             ),
           ),
@@ -44,7 +44,7 @@ class TenantIntroPage extends StatelessWidget {
             homiziText(context, 'for Better Living'),
             style: theme.textTheme.headlineMedium?.copyWith(
               color: HomiziColors.accent,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
               height: 1.05,
             ),
           ),
@@ -85,7 +85,7 @@ class TenantIntroPage extends StatelessWidget {
           ),
           const SizedBox(height: 8),
           ClipRRect(
-            borderRadius: BorderRadius.circular(16),
+            borderRadius: BorderRadius.circular(20),
             child: const SizedBox(
               height: 220,
               child: ListingPhoto(
@@ -97,7 +97,7 @@ class TenantIntroPage extends StatelessWidget {
           const SizedBox(height: 12),
           Container(
             width: double.infinity,
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
             decoration: BoxDecoration(
               color: HomiziColors.accent,
               borderRadius: BorderRadius.circular(16),
@@ -109,7 +109,7 @@ class TenantIntroPage extends StatelessWidget {
               ),
               style: const TextStyle(
                 color: HomiziColors.ink,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w800,
                 fontFamily: 'PlusJakartaSans',
                 fontSize: 16,
                 height: 1.25,
@@ -209,7 +209,7 @@ class TenantPrioritiesExplainPage extends StatelessWidget {
               color: HomiziColors.mist,
             ),
             TenantPoint(
-              icon: Icons.handshake_outlined,
+              icon: Icons.auto_awesome,
               label: 'Get better matches',
               color: HomiziColors.accentWash,
             ),
@@ -262,7 +262,7 @@ class _RankPreview extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
       decoration: BoxDecoration(
         color: HomiziColors.white,
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(14),
         border: Border.all(color: HomiziColors.line),
       ),
       child: Row(
@@ -273,7 +273,7 @@ class _RankPreview extends StatelessWidget {
             foregroundColor: HomiziColors.ink,
             child: Text(
               '$rank',
-              style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 12),
+              style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 12),
             ),
           ),
           const SizedBox(width: 8),
@@ -287,7 +287,7 @@ class _RankPreview extends StatelessWidget {
                   homiziText(context, title),
                   style: const TextStyle(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w800,
                     fontFamily: 'PlusJakartaSans',
                   ),
                 ),
@@ -306,7 +306,7 @@ class _RankPreview extends StatelessWidget {
             homiziText(context, 'Priority $rank'),
             style: const TextStyle(
               color: HomiziColors.accent,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
               fontSize: 12,
               fontFamily: 'PlusJakartaSans',
             ),
@@ -373,7 +373,7 @@ class TenantHowPage extends StatelessWidget {
           ),
           const SizedBox(height: 8),
           ClipRRect(
-            borderRadius: BorderRadius.circular(16),
+            borderRadius: BorderRadius.circular(18),
             child: const SizedBox(
               height: 160,
               child: ListingPhoto(
@@ -387,7 +387,7 @@ class TenantHowPage extends StatelessWidget {
             homiziText(context, 'Right People. Right Places. Happier Living.'),
             style: Theme.of(context).textTheme.titleMedium?.copyWith(
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
             ),
           ),
         ],
@@ -525,7 +525,7 @@ class _ResultCard extends StatelessWidget {
                   homiziText(context, pick.title),
                   style: const TextStyle(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w800,
                     fontFamily: 'PlusJakartaSans',
                   ),
                 ),
@@ -601,7 +601,7 @@ class TenantScorePage extends StatelessWidget {
                 homiziText(context, shown.title),
                 style: const TextStyle(
                   color: HomiziColors.ink,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w800,
                   fontFamily: 'PlusJakartaSans',
                 ),
               ),
@@ -617,7 +617,7 @@ class TenantScorePage extends StatelessWidget {
               homiziText(context, 'Key Match Factors'),
               style: const TextStyle(
                 color: HomiziColors.ink,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w800,
                 fontFamily: 'PlusJakartaSans',
                 fontSize: 16,
               ),
@@ -633,7 +633,7 @@ class TenantScorePage extends StatelessWidget {
               ),
               style: const TextStyle(
                 color: HomiziColors.ink,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w800,
                 fontFamily: 'PlusJakartaSans',
                 fontSize: 16,
               ),
@@ -757,7 +757,7 @@ class _Band extends StatelessWidget {
     };
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
         color: wash,
         borderRadius: BorderRadius.circular(16),
@@ -779,7 +779,7 @@ class _Band extends StatelessWidget {
                   range,
                   style: TextStyle(
                     color: mark,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w800,
                     fontFamily: 'PlusJakartaSans',
                   ),
                 ),
@@ -787,7 +787,7 @@ class _Band extends StatelessWidget {
                   homiziText(context, title),
                   style: const TextStyle(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w800,
                     fontFamily: 'PlusJakartaSans',
                     fontSize: 16,
                   ),
@@ -836,7 +836,7 @@ class TenantHappierPage extends StatelessWidget {
           Text(
             homiziText(context, 'Better Matches'),
             style: theme.textTheme.headlineMedium?.copyWith(
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
               height: 1.05,
             ),
           ),
@@ -844,7 +844,7 @@ class TenantHappierPage extends StatelessWidget {
             homiziText(context, 'Happier People'),
             style: theme.textTheme.headlineMedium?.copyWith(
               color: HomiziColors.accent,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
               height: 1.05,
             ),
           ),
@@ -887,7 +887,7 @@ class TenantHappierPage extends StatelessWidget {
               homiziText(context, 'Find Your Perfect Match with Homizi'),
               style: const TextStyle(
                 color: HomiziColors.ink,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w800,
                 fontFamily: 'PlusJakartaSans',
                 fontSize: 18,
               ),
@@ -929,8 +929,8 @@ class TenantJourneyHubPage extends StatelessWidget {
               'Simple. Smart. Social.',
               style: TextStyle(
                 color: HomiziColors.ink,
-                fontWeight: FontWeight.w600,
-                fontFamily: 'Poppins',
+                fontWeight: FontWeight.w800,
+                fontFamily: 'PlusJakartaSans',
                 fontSize: 22,
               ),
             ),
@@ -940,7 +940,7 @@ class TenantJourneyHubPage extends StatelessWidget {
             homiziText(context, 'Find the Right Place. Meet the Right People.'),
             style: const TextStyle(
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w700,
               fontFamily: 'PlusJakartaSans',
             ),
           ),
@@ -1006,11 +1006,11 @@ class _HubChip extends StatelessWidget {
   Widget build(BuildContext context) {
     return Chip(
       label: Text(homiziText(context, label)),
-      backgroundColor: HomiziColors.cream,
+      backgroundColor: HomiziColors.white,
       side: const BorderSide(color: HomiziColors.line),
       labelStyle: const TextStyle(
         color: HomiziColors.ink,
-        fontWeight: FontWeight.w600,
+        fontWeight: FontWeight.w700,
       ),
     );
   }

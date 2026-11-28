@@ -141,7 +141,7 @@ class ProfilePhotoViewer extends StatelessWidget {
                       homiziText(context, 'Change photo'),
                       style: const TextStyle(
                         color: HomiziColors.logoOrange,
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w700,
                         fontSize: 16,
                       ),
                     ),

@@ -188,7 +188,7 @@ class ListingTitleBlock extends StatelessWidget {
             homiziText(context, listing.title),
             style: Theme.of(context).textTheme.headlineSmall?.copyWith(
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
             ),
           ),
         ),
@@ -213,17 +213,17 @@ class _MatchPill extends MatchBadge {
     final tone = matchTone(match.score);
     return Material(
       color: tone.background,
-      borderRadius: BorderRadius.circular(16),
+      borderRadius: BorderRadius.circular(20),
       child: InkWell(
         onTap: onTap,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(20),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
           child: Text(
             homiziText(context, match.label),
             style: TextStyle(
               color: tone.foreground,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
               fontSize: 13,
             ),
           ),
@@ -242,11 +242,7 @@ class ListingPlaceRow extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        const Icon(
-          Icons.location_on,
-          color: HomiziColors.brandDeepOrange,
-          size: 18,
-        ),
+        const Icon(Icons.location_on, color: HomiziColors.logoOrange, size: 18),
         const SizedBox(width: 4),
         Expanded(
           child: Text(
@@ -283,11 +279,9 @@ class ListingPriceBlock extends StatelessWidget {
               TextSpan(
                 text: '₹ ${formatIndianDigits(listing.rentInr)}',
                 style: const TextStyle(
-                  fontFamily: 'Poppins',
-                  color: HomiziColors.ink,
-                  fontSize: 30,
-                  letterSpacing: -0.6,
-                  fontWeight: FontWeight.w600,
+                  color: HomiziColors.logoOrange,
+                  fontSize: 32,
+                  fontWeight: FontWeight.w800,
                   height: 1.1,
                 ),
               ),
@@ -392,13 +386,12 @@ class _SpecTile extends StatelessWidget {
       key: tileKey,
       padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 10),
       decoration: BoxDecoration(
-        color: HomiziColors.white,
-        borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: HomiziColors.line),
+        color: HomiziColors.soft,
+        borderRadius: BorderRadius.circular(14),
       ),
       child: Column(
         children: [
-          Icon(icon, color: HomiziColors.brandDeepOrange, size: 22),
+          Icon(icon, color: HomiziColors.logoOrange, size: 22),
           const SizedBox(height: 6),
           Text(
             homiziText(context, value),
@@ -407,7 +400,7 @@ class _SpecTile extends StatelessWidget {
             overflow: TextOverflow.ellipsis,
             style: const TextStyle(
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
               fontSize: 12,
             ),
           ),
@@ -441,7 +434,7 @@ class ListingAmenityGrid extends StatelessWidget {
           homiziText(context, 'Amenities'),
           style: Theme.of(context).textTheme.titleMedium?.copyWith(
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w800,
           ),
         ),
         const SizedBox(height: 10),
@@ -486,7 +479,7 @@ class ListingAmenityGrid extends StatelessWidget {
                             overflow: TextOverflow.ellipsis,
                             style: const TextStyle(
                               color: HomiziColors.ink,
-                              fontWeight: FontWeight.w600,
+                              fontWeight: FontWeight.w700,
                               fontSize: 12,
                             ),
                           ),
@@ -772,7 +765,7 @@ class _ListingOfficeCommuteState extends ConsumerState<ListingOfficeCommute> {
             homiziText(context, 'Commute from Office'),
             style: const TextStyle(
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
               fontSize: 13,
             ),
           ),
@@ -815,7 +808,7 @@ class _ListingOfficeCommuteState extends ConsumerState<ListingOfficeCommute> {
         key: const Key('listing-saved-office'),
         style: const TextStyle(
           color: HomiziColors.ink,
-          fontWeight: FontWeight.w600,
+          fontWeight: FontWeight.w800,
         ),
       );
     }
@@ -833,7 +826,7 @@ class _ListingOfficeCommuteState extends ConsumerState<ListingOfficeCommute> {
           onPressed: () => unawaited(_addOffice()),
           child: Text(
             homiziText(context, 'Add office'),
-            style: const TextStyle(fontWeight: FontWeight.w600),
+            style: const TextStyle(fontWeight: FontWeight.w800),
           ),
         ),
       );
@@ -850,7 +843,7 @@ class _ListingOfficeCommuteState extends ConsumerState<ListingOfficeCommute> {
       key: const Key('listing-office-minutes'),
       style: const TextStyle(
         color: HomiziColors.ink,
-        fontWeight: FontWeight.w600,
+        fontWeight: FontWeight.w800,
       ),
     );
   }
@@ -942,7 +935,7 @@ class _ListingNearbyMiniState extends ConsumerState<ListingNearbyMini> {
                 homiziText(context, 'Nearby Places'),
                 style: const TextStyle(
                   color: HomiziColors.ink,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w800,
                   fontSize: 13,
                 ),
               ),
@@ -1023,7 +1016,7 @@ class _NearbyPlaceRow extends StatelessWidget {
       child: DecoratedBox(
         decoration: BoxDecoration(
           color: HomiziColors.soft,
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: BorderRadius.circular(20),
         ),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
@@ -1045,7 +1038,7 @@ class _NearbyPlaceRow extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                   style: const TextStyle(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w700,
                     fontSize: 12,
                   ),
                 ),
@@ -1055,7 +1048,7 @@ class _NearbyPlaceRow extends StatelessWidget {
                   row.kmLabel,
                   style: const TextStyle(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w800,
                     fontSize: 11,
                   ),
                 ),
@@ -1161,7 +1154,7 @@ class ListingHostRow extends ConsumerWidget {
                           overflow: TextOverflow.ellipsis,
                           style: const TextStyle(
                             color: HomiziColors.ink,
-                            fontWeight: FontWeight.w600,
+                            fontWeight: FontWeight.w800,
                             fontSize: 16,
                           ),
                         ),
@@ -1200,9 +1193,9 @@ class ListingHostRow extends ConsumerWidget {
             key: const Key('listing-view-profile'),
             style: OutlinedButton.styleFrom(
               foregroundColor: HomiziColors.ink,
-              backgroundColor: HomiziColors.cream,
+              backgroundColor: HomiziColors.white,
               side: const BorderSide(color: HomiziColors.line),
-              padding: const EdgeInsets.symmetric(horizontal: 16),
+              padding: const EdgeInsets.symmetric(horizontal: 14),
               minimumSize: const Size(48, 40),
               tapTargetSize: MaterialTapTargetSize.shrinkWrap,
             ),
@@ -1211,7 +1204,7 @@ class ListingHostRow extends ConsumerWidget {
               homiziText(context, 'View Profile >'),
               style: const TextStyle(
                 color: HomiziColors.ink,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w700,
                 fontSize: 13,
               ),
             ),
@@ -1244,7 +1237,7 @@ class _PendingHostBadge extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       key: const Key('listing-verification-pending'),
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
       decoration: BoxDecoration(
         color: HomiziColors.warningWash,
         borderRadius: BorderRadius.circular(12),
@@ -1253,7 +1246,7 @@ class _PendingHostBadge extends StatelessWidget {
         homiziText(context, 'Verification pending'),
         style: const TextStyle(
           color: HomiziColors.warning,
-          fontWeight: FontWeight.w600,
+          fontWeight: FontWeight.w700,
           fontSize: 12,
         ),
       ),
@@ -1268,7 +1261,7 @@ class _VerifiedHostBadge extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       key: const Key('listing-verified-host'),
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
       decoration: BoxDecoration(
         color: HomiziColors.success,
         borderRadius: BorderRadius.circular(12),
@@ -1285,7 +1278,7 @@ class _VerifiedHostBadge extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
               style: const TextStyle(
                 color: HomiziColors.onSuccess,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w800,
                 fontSize: 11,
               ),
             ),
@@ -1331,17 +1324,17 @@ class _ListingWhyMatchState extends State<ListingWhyMatch>
     final missing = chips.where((chip) => chip.fit == _WhyFit.missing).length;
     return Material(
       color: HomiziColors.white,
-      borderRadius: BorderRadius.circular(20),
+      borderRadius: BorderRadius.circular(24),
       child: InkWell(
         key: const Key('listing-why-match'),
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(24),
         onTap: () => showMatchBreakdown(context, match: widget.match),
         child: Semantics(
           label: widget.listing.title,
           child: Ink(
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
+              borderRadius: BorderRadius.circular(24),
               border: Border.all(color: HomiziColors.line),
               boxShadow: const [
                 BoxShadow(
@@ -1362,9 +1355,9 @@ class _ListingWhyMatchState extends State<ListingWhyMatch>
                       child: Text(
                         homiziText(context, 'Why this matches?'),
                         style: const TextStyle(
-                          fontFamily: 'Poppins',
+                          fontFamily: 'PlusJakartaSans',
                           color: HomiziColors.ink,
-                          fontWeight: FontWeight.w600,
+                          fontWeight: FontWeight.w800,
                           fontSize: 20,
                           height: 1.15,
                         ),
@@ -1401,9 +1394,9 @@ class _ListingWhyMatchState extends State<ListingWhyMatch>
                   ),
                   key: const Key('why-match-summary'),
                   style: const TextStyle(
-                    fontFamily: 'Poppins',
+                    fontFamily: 'PlusJakartaSans',
                     color: HomiziColors.inkSoft,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w700,
                   ),
                 ),
               ],
@@ -1476,7 +1469,7 @@ class _WhyIcon extends StatelessWidget {
       _WhyFit.missed => (
         Icons.cancel,
         HomiziColors.logoOrange,
-        HomiziColors.warmWash,
+        const Color(0xFFFFF1E8),
       ),
       _WhyFit.missing => (
         Icons.add_circle,
@@ -1572,7 +1565,7 @@ class ListingCostSection extends StatelessWidget {
           homiziText(context, 'Cost of renting'),
           style: const TextStyle(
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w800,
           ),
         ),
         subtitle: Text(
@@ -1689,7 +1682,7 @@ class _BarButton extends StatelessWidget {
             homiziText(context, label),
             style: const TextStyle(
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
             ),
           ),
         ],
@@ -1711,13 +1704,17 @@ class _InterestButton extends StatelessWidget {
       opacity: onPressed == null ? 0.5 : 1,
       child: Material(
         color: HomiziColors.clear,
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(14),
         clipBehavior: Clip.antiAlias,
         child: InkWell(
           key: const Key('interested-button'),
           onTap: onPressed,
           child: Ink(
-            decoration: const BoxDecoration(gradient: HomiziGradients.action),
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                colors: [HomiziColors.logoOrange, HomiziColors.brandDeepOrange],
+              ),
+            ),
             child: SizedBox(
               height: 48,
               child: Center(
@@ -1731,8 +1728,8 @@ class _InterestButton extends StatelessWidget {
                         Text(
                           homiziText(context, label),
                           style: const TextStyle(
-                            color: HomiziColors.white,
-                            fontWeight: FontWeight.w600,
+                            color: HomiziColors.ink,
+                            fontWeight: FontWeight.w800,
                             fontSize: 15,
                           ),
                         ),
@@ -1741,7 +1738,7 @@ class _InterestButton extends StatelessWidget {
                           const Icon(
                             Icons.arrow_forward,
                             size: 18,
-                            color: HomiziColors.white,
+                            color: HomiziColors.ink,
                           ),
                         ],
                       ],

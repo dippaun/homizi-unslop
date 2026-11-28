@@ -48,7 +48,7 @@ Future<void> guardVerifiedAction(
   final proceed = await showModalBottomSheet<bool>(
     context: context,
     showDragHandle: true,
-    backgroundColor: HomiziColors.cream,
+    backgroundColor: HomiziColors.white,
     builder: (sheetContext) {
       return SafeArea(
         child: Padding(
@@ -62,7 +62,7 @@ Future<void> guardVerifiedAction(
                 homiziText(sheetContext, 'Verify to continue'),
                 style: Theme.of(sheetContext).textTheme.headlineSmall?.copyWith(
                   color: HomiziColors.ink,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w700,
                 ),
               ),
               const SizedBox(height: 8),

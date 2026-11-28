@@ -256,7 +256,7 @@ void main() {
 
     expect(find.byType(BackButton), findsOneWidget);
     final scaffold = tester.widget<Scaffold>(find.byType(Scaffold));
-    expect(scaffold.backgroundColor, HomiziColors.cream);
+    expect(scaffold.backgroundColor, HomiziColors.white);
     expect(HomiziColors.accent, HomiziColors.brandOrange);
     expect(HomiziColors.accent, isNot(const Color(0xFFF75620)));
     final buttonContext = tester.element(find.byKey(const Key('send-code')));

@@ -407,7 +407,7 @@ class _SwipeCard extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
               style: const TextStyle(
                 color: HomiziColors.ink,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w700,
               ),
             ),
           ),
@@ -438,7 +438,7 @@ class _CaughtUp extends StatelessWidget {
         key: const Key('home-swipe-done'),
         decoration: BoxDecoration(
           color: HomiziColors.white,
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(28),
           boxShadow: const [
             BoxShadow(
               color: HomiziColors.shadow,
@@ -468,9 +468,9 @@ class _CaughtUp extends StatelessWidget {
                 homiziText(context, 'You are caught up'),
                 textAlign: TextAlign.center,
                 style: const TextStyle(
-                  fontFamily: 'Poppins',
+                  fontFamily: 'PlusJakartaSans',
                   fontSize: 22,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w800,
                   color: HomiziColors.ink,
                 ),
               ),

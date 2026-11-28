@@ -79,7 +79,7 @@ class _TenantLikesScreenState extends ConsumerState<TenantLikesScreen> {
     return MinTouchScope(
       child: Scaffold(
         key: const Key('tenant-likes-screen'),
-        backgroundColor: HomiziColors.cream,
+        backgroundColor: HomiziColors.white,
         body: PageBackground(
           variant: PageBackgroundVariant.soft,
           child: SafeArea(
@@ -121,7 +121,7 @@ class _TenantLikesScreenState extends ConsumerState<TenantLikesScreen> {
                       ),
                       CompartmentSpec(
                         tileKey: const Key('likes-tab-matches'),
-                        icon: Icons.handshake_outlined,
+                        icon: Icons.auto_awesome,
                         label: 'Matches',
                         count: matched,
                       ),
@@ -201,8 +201,8 @@ class _LikedPane extends ConsumerWidget {
           icon: Icons.groups_outlined,
           title: 'Roommates',
           count: people.length,
-          tint: HomiziColors.warmWash,
-          accent: HomiziColors.brandDeepRed,
+          tint: HomiziColors.homiziLavender,
+          accent: HomiziColors.homiziPurple,
           emptyLine:
               'No roommate likes yet. People you mark Interested show up here.',
           children: [
@@ -286,8 +286,8 @@ class _MatchesPane extends ConsumerWidget {
           icon: Icons.groups_outlined,
           title: 'Roommates',
           count: people.length,
-          tint: HomiziColors.warmWash,
-          accent: HomiziColors.brandDeepRed,
+          tint: HomiziColors.homiziLavender,
+          accent: HomiziColors.homiziPurple,
           emptyLine:
               'No roommate matches yet. A match appears when you are both interested.',
           children: [

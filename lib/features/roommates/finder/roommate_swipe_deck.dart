@@ -170,8 +170,6 @@ class _RoommateSwipeDeckState extends State<RoommateSwipeDeck>
   }
 
   Future<void> _commit(_Move move) async {
-    // v2: a light tick as the card leaves.
-    unawaited(HapticFeedback.selectionClick());
     final person = _current;
     if (_busy || person == null) {
       return;
@@ -283,7 +281,7 @@ class _RoommateSwipeDeckState extends State<RoommateSwipeDeck>
       children: [
         if (widget.people.length > 1)
           Padding(
-            padding: const EdgeInsets.fromLTRB(16, 20, 16, 24),
+            padding: const EdgeInsets.fromLTRB(14, 18, 14, 24),
             child: Transform.scale(
               scale: 0.95,
               child: IgnorePointer(
@@ -397,14 +395,14 @@ class _Stamp extends StatelessWidget {
               ),
               child: Padding(
                 padding: const EdgeInsets.symmetric(
-                  horizontal: 16,
+                  horizontal: 14,
                   vertical: 8,
                 ),
                 child: Text(
                   label,
                   style: TextStyle(
                     color: foreground,
-                    fontWeight: FontWeight.w700,
+                    fontWeight: FontWeight.w800,
                     fontSize: 22,
                     letterSpacing: 1.1,
                   ),

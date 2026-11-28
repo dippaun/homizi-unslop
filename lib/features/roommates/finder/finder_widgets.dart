@@ -16,7 +16,7 @@ String finderHeadline(int? percent) {
     return 'Set preferences to see your match';
   }
   if (matchStrength(percent) == MatchStrength.strong && percent >= 85) {
-    return 'Strong match';
+    return 'Great Match!';
   }
   return matchStrengthLabel(matchStrength(percent));
 }
@@ -149,7 +149,7 @@ class _RoundAction extends StatelessWidget {
           homiziText(context, label!),
           style: const TextStyle(
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w700,
             fontSize: 12,
           ),
         ),
@@ -264,7 +264,7 @@ class _RoommateFilterSheetState extends State<RoommateFilterSheet> {
         child: Material(
           key: const Key('roommate-filter-sheet'),
           color: HomiziColors.white,
-          borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
+          borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
           child: ListView(
             padding: EdgeInsets.fromLTRB(20, 12, 20, 16 + bottom),
             shrinkWrap: true,
@@ -284,7 +284,7 @@ class _RoommateFilterSheetState extends State<RoommateFilterSheet> {
                 homiziText(context, 'Filter Roommates'),
                 style: theme.textTheme.titleLarge?.copyWith(
                   color: HomiziColors.ink,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w800,
                 ),
               ),
               const SizedBox(height: 16),
@@ -376,17 +376,12 @@ class _RoommateFilterSheetState extends State<RoommateFilterSheet> {
                   occasionalDrinking: false,
                 ),
               ),
-              _choice(
-                'Sleep',
-                _draft.sleep,
-                const {
-                  'any': 'Any',
-                  'early': 'Early',
-                  'flexible': 'Flexible',
-                  'night': 'Night',
-                },
-                (value) => _draft = _draft.copyWith(sleep: value),
-              ),
+              _choice('Sleep', _draft.sleep, const {
+                'any': 'Any',
+                'early': 'Early',
+                'flexible': 'Flexible',
+                'night': 'Night',
+              }, (value) => _draft = _draft.copyWith(sleep: value)),
               _choice(
                 'Cleanliness',
                 '${_draft.cleanliness}',
@@ -394,34 +389,24 @@ class _RoommateFilterSheetState extends State<RoommateFilterSheet> {
                 (value) =>
                     _draft = _draft.copyWith(cleanliness: int.parse(value)),
               ),
-              _choice(
-                'Guests',
-                _draft.guests,
-                const {
-                  'any': 'Any',
-                  'rare': 'Rare',
-                  'sometimes': 'Sometimes',
-                  'often': 'Often',
-                },
-                (value) => _draft = _draft.copyWith(guests: value),
-              ),
+              _choice('Guests', _draft.guests, const {
+                'any': 'Any',
+                'rare': 'Rare',
+                'sometimes': 'Sometimes',
+                'often': 'Often',
+              }, (value) => _draft = _draft.copyWith(guests: value)),
               _choice(
                 'Pets',
                 _draft.petFriendly ? 'ok' : 'any',
                 const {'any': 'Any', 'ok': 'Pet friendly'},
                 (value) => _draft = _draft.copyWith(petFriendly: value == 'ok'),
               ),
-              _choice(
-                'Work from home',
-                _draft.wfh,
-                const {
-                  'any': 'Any',
-                  'home': 'Home',
-                  'hybrid': 'Hybrid',
-                  'office': 'Office',
-                },
-                (value) => _draft = _draft.copyWith(wfh: value),
-              ),
+              _choice('Work from home', _draft.wfh, const {
+                'any': 'Any',
+                'home': 'Home',
+                'hybrid': 'Hybrid',
+                'office': 'Office',
+              }, (value) => _draft = _draft.copyWith(wfh: value)),
               Text(
                 homiziText(
                   context,
@@ -429,7 +414,7 @@ class _RoommateFilterSheetState extends State<RoommateFilterSheet> {
                 ),
                 style: const TextStyle(
                   color: HomiziColors.ink,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w700,
                 ),
               ),
               RangeSlider(
@@ -547,7 +532,7 @@ class _RoommateFilterSheetState extends State<RoommateFilterSheet> {
             label,
             style: const TextStyle(
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w700,
             ),
           ),
           const SizedBox(height: 6),

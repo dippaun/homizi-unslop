@@ -67,9 +67,9 @@ class HomiziWordmark extends StatelessWidget {
   Widget build(BuildContext context) {
     final word = homiziText(context, 'HOMIZI');
     const style = TextStyle(
-      fontFamily: 'Poppins',
+      fontFamily: 'PlusJakartaSans',
       fontSize: 20,
-      fontWeight: FontWeight.w700,
+      fontWeight: FontWeight.w800,
       letterSpacing: 0.6,
       color: HomiziColors.ink,
     );

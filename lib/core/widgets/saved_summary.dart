@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:homizi/core/l10n/translate.dart';
 import 'package:homizi/core/theme/homizi_colors.dart';
-import 'package:homizi/core/theme/homizi_theme.dart';
 
 /// Shown while saved preferences are read. Never the input form.
 class PrefsSkeleton extends StatelessWidget {
@@ -159,7 +158,7 @@ class SavedSummaryCard extends StatelessWidget {
         icon: const Icon(Icons.edit_outlined),
         label: Text(
           homiziText(context, editLabel),
-          style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
+          style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 16),
         ),
       ),
     );
@@ -232,7 +231,7 @@ class _SavedBadge extends StatelessWidget {
     return TweenAnimationBuilder<double>(
       tween: Tween(begin: 0, end: 1),
       duration: const Duration(milliseconds: 420),
-      curve: HomiziMotion.curve,
+      curve: Curves.easeOutBack,
       builder: (context, value, child) {
         return Opacity(
           opacity: value.clamp(0, 1),
@@ -263,7 +262,7 @@ class _SavedBadge extends StatelessWidget {
               style: const TextStyle(
                 fontFamily: 'PlusJakartaSans',
                 color: HomiziColors.success,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w800,
                 fontSize: 22,
               ),
             ),
@@ -307,12 +306,16 @@ class _SavedTile extends StatelessWidget {
   Widget _filled(BuildContext context, (Color, Color) palette) {
     return DecoratedBox(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(16),
-        color: palette.$1,
+        borderRadius: BorderRadius.circular(18),
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [palette.$1, HomiziColors.white],
+        ),
         border: Border.all(color: palette.$2.withValues(alpha: 0.45)),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(14),
         child: Row(
           children: [
             DecoratedBox(
@@ -336,7 +339,7 @@ class _SavedTile extends StatelessWidget {
                     style: const TextStyle(
                       color: HomiziColors.inkSoft,
                       fontSize: 12,
-                      fontWeight: FontWeight.w600,
+                      fontWeight: FontWeight.w700,
                     ),
                   ),
                   const SizedBox(height: 2),
@@ -345,7 +348,7 @@ class _SavedTile extends StatelessWidget {
                     style: const TextStyle(
                       fontFamily: 'PlusJakartaSans',
                       color: HomiziColors.ink,
-                      fontWeight: FontWeight.w600,
+                      fontWeight: FontWeight.w800,
                       fontSize: 16,
                     ),
                   ),
@@ -375,8 +378,8 @@ class _SavedTile extends StatelessWidget {
   const pairs = <(Color, Color)>[
     (HomiziColors.accentWash, HomiziColors.logoOrange),
     (HomiziColors.successWash, HomiziColors.success),
-    (HomiziColors.warmWash, HomiziColors.brandDeepRed),
-    (HomiziColors.warmWash, HomiziColors.brandDeepOrange),
+    (HomiziColors.homiziLavender, HomiziColors.homiziPurple),
+    (Color(0xFFFFF1E8), HomiziColors.brandDeepOrange),
   ];
   return pairs[index % pairs.length];
 }

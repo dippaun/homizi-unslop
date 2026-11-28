@@ -23,11 +23,11 @@ class SeekerConfirmScreen extends StatelessWidget {
     final theme = Theme.of(context);
     return Scaffold(
       key: const Key('seeker-confirm'),
-      backgroundColor: HomiziColors.cream,
+      backgroundColor: HomiziColors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: const HomiziBackButton(),
-        backgroundColor: HomiziColors.cream,
+        backgroundColor: HomiziColors.white,
         foregroundColor: HomiziColors.ink,
         elevation: 0,
       ),
@@ -48,7 +48,7 @@ class SeekerConfirmScreen extends StatelessWidget {
                 homiziText(context, title),
                 style: theme.textTheme.headlineSmall?.copyWith(
                   color: HomiziColors.ink,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w800,
                 ),
               ),
               const SizedBox(height: 12),
@@ -73,7 +73,7 @@ class SeekerConfirmScreen extends StatelessWidget {
                     homiziText(context, actionLabel!),
                     style: const TextStyle(
                       fontFamily: 'PlusJakartaSans',
-                      fontWeight: FontWeight.w600,
+                      fontWeight: FontWeight.w700,
                       fontSize: 16,
                       color: HomiziColors.ink,
                     ),

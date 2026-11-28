@@ -34,7 +34,7 @@ class ListingPostedScreen extends StatelessWidget {
     final theme = Theme.of(context);
     return Scaffold(
       key: const Key('listing-posted'),
-      backgroundColor: HomiziColors.cream,
+      backgroundColor: HomiziColors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: const HomiziBackButton(),
@@ -48,7 +48,7 @@ class ListingPostedScreen extends StatelessWidget {
             padding: const EdgeInsets.fromLTRB(20, 16, 20, 32),
             children: [
               ClipRRect(
-                borderRadius: BorderRadius.circular(16),
+                borderRadius: BorderRadius.circular(20),
                 child: Image.asset(
                   draft.photos.isEmpty
                       ? 'assets/images/real/living.webp'
@@ -86,7 +86,7 @@ class ListingPostedScreen extends StatelessWidget {
                 ),
                 style: theme.textTheme.headlineSmall?.copyWith(
                   color: HomiziColors.ink,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w700,
                 ),
               ),
               const SizedBox(height: 6),

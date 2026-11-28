@@ -35,7 +35,7 @@ class OwnerDashboardScreen extends ConsumerWidget {
     final listings = ref.watch(ownerListingsProvider);
     return Scaffold(
       key: const Key('owner-dashboard'),
-      backgroundColor: HomiziColors.cream,
+      backgroundColor: HomiziColors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: const HomiziBackButton(),
@@ -231,7 +231,7 @@ class _OwnerListingCardState extends ConsumerState<_OwnerListingCard> {
         context: context,
         showDragHandle: true,
         isScrollControlled: true,
-        backgroundColor: HomiziColors.cream,
+        backgroundColor: HomiziColors.white,
         builder: (sheetContext) {
           return DraggableScrollableSheet(
             expand: false,

@@ -18,7 +18,7 @@ class VerifyLaterNudge extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
       ),
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(16, 16, 16, 12),
+        padding: const EdgeInsets.fromLTRB(16, 14, 16, 12),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -26,7 +26,7 @@ class VerifyLaterNudge extends StatelessWidget {
               homiziText(context, 'Verify your profile to get more responses'),
               style: Theme.of(context).textTheme.titleSmall?.copyWith(
                 color: HomiziColors.success,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w700,
               ),
             ),
             const SizedBox(height: 8),

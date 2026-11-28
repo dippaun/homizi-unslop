@@ -19,6 +19,7 @@ import 'package:homizi/features/account/account_providers.dart';
 import 'package:homizi/features/account/auth_contact.dart';
 import 'package:homizi/features/account/live_account_sync.dart';
 import 'package:homizi/features/auth/auth_provider_settings.dart';
+import 'package:homizi/features/auth/demo_login.dart';
 import 'package:homizi/features/auth/otp/indian_phone.dart';
 import 'package:homizi/features/auth/otp/otp_attempt.dart';
 import 'package:homizi/features/auth/otp/otp_messages.dart';
@@ -26,8 +27,10 @@ import 'package:homizi/features/auth/otp/phone_otp_channel.dart';
 import 'package:homizi/features/auth/otp/whatsapp_style_icon.dart';
 import 'package:homizi/features/auth/registration_gate.dart';
 import 'package:homizi/features/demo/demo_success.dart';
+import 'package:homizi/features/office/office_repository.dart';
 import 'package:homizi/features/office/saved_office_field.dart';
 import 'package:homizi/features/profile/occupation_picker.dart';
+import 'package:homizi/features/profile/shared_answers.dart';
 import 'package:homizi/features/profile_create/own_verification.dart';
 import 'package:homizi/features/profile_create/profile_create_draft.dart';
 import 'package:homizi/features/profile_create/profile_create_store.dart';
@@ -49,24 +52,32 @@ import 'package:homizi/ui/kit/kit.dart';
 const _stepTitles = <String>[
   'Select Your Role',
   'Basic Information',
+  'Your office',
   'Language Known',
   'Verify Contact',
   'Aadhaar Verification',
   'Selfie Verification',
   'Choose Your Profile Photo',
   'Lifestyle & Preferences',
+  'Budget and move-in',
+  'House rules',
+  'Your home',
   'Terms & Completion',
 ];
 
 const _stepDetails = <String>[
   'Choose one or more roles (Tenant, Owner/Host, Property Partner, Home-Sharer).',
-  'Add Full Name (verification only), Nick Name + Surname (public), DOB (DD/MM/YYYY, year mandatory), Gender and Occupation.',
+  'Name, date of birth, occupation, company, and the city you live in.',
+  'Save the workplace commute uses. You can change it later from Profile.',
   'Select your preferred languages (e.g., Hindi, English, Marathi, Gujarati).',
   'Verify your mobile number and email with OTP.',
   'Verify your identity using Aadhaar with OTP.',
   'Capture a live selfie for identity verification (used only for verification and kept private).',
   'Choose a profile photo to appear on your public profile or use your verified selfie (optional).',
-  'Share your living and lifestyle preferences to find better matches.',
+  'Smoking, drinking, food, cooking, cleaning, pets, sleep, guests, and work style.',
+  'Monthly budget and when you want to move.',
+  'What the home should allow. Skip any rule you do not mind.',
+  'Listing a home comes after this. The same profile is used on the listing.',
   'Accept terms, privacy policy and consent. Your verified profile is ready.',
 ];
 
@@ -99,6 +110,11 @@ class _ProfileCreateScreenState extends ConsumerState<ProfileCreateScreen> {
   final _mobileOtp = TextEditingController();
   final _emailOtp = TextEditingController();
   final _aadhaar = TextEditingController();
+  final _companyField = TextEditingController();
+  final _cityField = TextEditingController();
+  final _budgetMinField = TextEditingController();
+  final _budgetMaxField = TextEditingController();
+  final _moveField = TextEditingController();
   late final TextInputFormatter _aadhaarFormatter = _AadhaarFormatter(this);
 
   final _errors = <String, String>{};
@@ -149,8 +165,6 @@ class _ProfileCreateScreenState extends ConsumerState<ProfileCreateScreen> {
   var _privacy = false;
   var _consent = false;
   String _about = '';
-  String _city = '';
-  String _company = '';
   var _tags = const <String>[];
   var _documents = const <String>[];
   int? _budgetMin;
@@ -164,6 +178,7 @@ class _ProfileCreateScreenState extends ConsumerState<ProfileCreateScreen> {
   void initState() {
     super.initState();
     _apply(ref.read(profileCreateStoreProvider).draft);
+    unawaited(_bootstrap());
     if (widget.registrationFinish && _step < profileStepBasic) {
       _step = profileStepBasic;
     }
@@ -250,8 +265,11 @@ class _ProfileCreateScreenState extends ConsumerState<ProfileCreateScreen> {
     _privacy = saved.privacyAccepted;
     _consent = saved.consentAccepted;
     _about = saved.about;
-    _city = saved.city;
-    _company = saved.companyName;
+    _companyField.text = saved.companyName;
+    _cityField.text = saved.city;
+    _budgetMinField.text = saved.budgetMin == null ? '' : '${saved.budgetMin}';
+    _budgetMaxField.text = saved.budgetMax == null ? '' : '${saved.budgetMax}';
+    _moveField.text = saved.moveInLabel;
     _tags = saved.tags;
     _documents = saved.documents;
     _budgetMin = saved.budgetMin;
@@ -278,7 +296,29 @@ class _ProfileCreateScreenState extends ConsumerState<ProfileCreateScreen> {
     _mobileOtp.dispose();
     _emailOtp.dispose();
     _aadhaar.dispose();
+    _companyField.dispose();
+    _cityField.dispose();
+    _budgetMinField.dispose();
+    _budgetMaxField.dispose();
+    _moveField.dispose();
     super.dispose();
+  }
+
+  Future<void> _bootstrap() async {
+    final startedAt = _step;
+    final store = ref.read(profileCreateStoreProvider);
+    await store.restoreDevice();
+    var draft = await store.hydrate(store.draft);
+    draft = await adoptSharedAnswers(ref, draft);
+    if (!mounted || _step != startedAt) {
+      return;
+    }
+    setState(() {
+      _apply(draft);
+      if (widget.registrationFinish) {
+        _step = _advancePastFilled(_step);
+      }
+    });
   }
 
   int? _parsePart(String raw) {
@@ -304,7 +344,7 @@ class _ProfileCreateScreenState extends ConsumerState<ProfileCreateScreen> {
       birthMonth: _parsePart(_month.text),
       birthYear: _parsePart(_year.text),
       gender: _gender,
-      companyName: _company,
+      companyName: _companyField.text.trim(),
       occupation: _occupation,
       mobile: _mobile.text.replaceAll(RegExp(r'\D'), ''),
       mobileOtpSent: _mobileOtpSent,
@@ -330,19 +370,23 @@ class _ProfileCreateScreenState extends ConsumerState<ProfileCreateScreen> {
       privacyAccepted: _privacy,
       consentAccepted: _consent,
       about: _about,
-      city: _city,
+      city: _cityField.text.trim(),
       tags: _tags,
       documents: _documents,
-      budgetMin: _budgetMin,
-      budgetMax: _budgetMax,
+      budgetMin: int.tryParse(_budgetMinField.text.trim()) ?? _budgetMin,
+      budgetMax: int.tryParse(_budgetMaxField.text.trim()) ?? _budgetMax,
       localities: _localities,
       lookingFor: _lookingFor,
-      moveInLabel: _moveIn,
+      moveInLabel: _moveField.text.trim().isEmpty
+          ? _moveIn
+          : _moveField.text.trim(),
     );
   }
 
   Future<void> _persist() async {
-    await ref.read(profileCreateStoreProvider).save(_draft());
+    final next = _draft();
+    await ref.read(profileCreateStoreProvider).save(next);
+    await publishSharedAnswers(ref, next);
   }
 
   void _put(String key, String? message) {
@@ -359,7 +403,7 @@ class _ProfileCreateScreenState extends ConsumerState<ProfileCreateScreen> {
       builder: (context) {
         return AlertDialog(
           key: const Key('profile-create-alert'),
-          backgroundColor: HomiziColors.cream,
+          backgroundColor: HomiziColors.white,
           title: Text(homiziText(context, title)),
           content: Text(homiziText(context, message)),
           actions: [
@@ -402,17 +446,36 @@ class _ProfileCreateScreenState extends ConsumerState<ProfileCreateScreen> {
       );
       _put('gender', _gender == null ? 'Choose a gender.' : null);
       _put('occupation', validateOccupation(_occupation));
+      _put(
+        'city',
+        _cityField.text.trim().length < 2 ? 'Enter your city.' : null,
+      );
     } else if (_step == profileStepLanguage) {
       _put(
         'languages',
         _languages.isEmpty ? 'Select your preferred languages.' : null,
       );
     } else if (_step == profileStepContact) {
-      _put('mobile', validateIndianMobile(_mobile.text));
-      _put('email', validateEmailAddress(_email.text));
-      _put('mobileOtp', _mobileVerified ? null : 'Verify your mobile number.');
-      _put('emailOtp', _emailVerified ? null : 'Verify your email address.');
+      if (ref.read(demoLoginActiveProvider)) {
+        _mobileVerified = true;
+        _emailVerified = true;
+        _put('mobile', null);
+        _put('email', null);
+        _put('mobileOtp', null);
+        _put('emailOtp', null);
+      } else {
+        _put('mobile', validateIndianMobile(_mobile.text));
+        _put('email', validateEmailAddress(_email.text));
+        _put(
+          'mobileOtp',
+          _mobileVerified ? null : 'Verify your mobile number.',
+        );
+        _put('emailOtp', _emailVerified ? null : 'Verify your email address.');
+      }
     } else if (_step == profileStepSelfie) {
+      if (ref.read(demoLoginActiveProvider)) {
+        _selfieVerified = true;
+      }
       _put(
         'selfie',
         _selfieVerified
@@ -444,6 +507,13 @@ class _ProfileCreateScreenState extends ConsumerState<ProfileCreateScreen> {
     if (_showDone) {
       await _explore();
       return;
+    }
+    if (ref.read(demoLoginActiveProvider)) {
+      _aadhaarVerified = true;
+      _aadhaarUnavailable = true;
+      _selfieVerified = true;
+      _mobileVerified = true;
+      _emailVerified = true;
     }
     if (_step == profileStepAadhaar &&
         !_aadhaarVerified &&
@@ -494,6 +564,7 @@ class _ProfileCreateScreenState extends ConsumerState<ProfileCreateScreen> {
       setState(() => _saving = false);
       return;
     }
+    _markStepAnswered();
     setState(() {
       _step = _advancePastFilled(_step + 1);
       _errors.clear();
@@ -502,7 +573,11 @@ class _ProfileCreateScreenState extends ConsumerState<ProfileCreateScreen> {
       _scroll.jumpTo(0);
     }
     setState(() => _saving = true);
-    await _persist();
+    try {
+      await _persist();
+    } on Object {
+      // The draft is already in memory. The step still advances.
+    }
     if (mounted) {
       setState(() => _saving = false);
     }
@@ -1252,10 +1327,10 @@ class _ProfileCreateScreenState extends ConsumerState<ProfileCreateScreen> {
     if (_showDone && !_reedit) {
       return Scaffold(
         key: const Key('profile-create-saved'),
-        backgroundColor: HomiziColors.cream,
+        backgroundColor: HomiziColors.white,
         appBar: AppBar(
           automaticallyImplyLeading: false,
-          backgroundColor: HomiziColors.cream,
+          backgroundColor: HomiziColors.white,
           leading: const HomiziBackButton(),
           title: Text(homiziText(context, 'Your profile')),
         ),
@@ -1279,7 +1354,7 @@ class _ProfileCreateScreenState extends ConsumerState<ProfileCreateScreen> {
         ),
       );
     }
-    final title = _showDone ? 'Profile complete' : _stepTitles[_step];
+    final title = _showDone ? 'Profile Completed!' : _stepTitles[_step];
     final detail = _showDone
         ? 'Your profile is verified and ready to use Homizi.'
         : _stepDetails[_step];
@@ -1294,10 +1369,10 @@ class _ProfileCreateScreenState extends ConsumerState<ProfileCreateScreen> {
           }
         },
         child: Scaffold(
-          backgroundColor: HomiziColors.cream,
+          backgroundColor: HomiziColors.white,
           appBar: AppBar(
             automaticallyImplyLeading: false,
-            backgroundColor: HomiziColors.cream,
+            backgroundColor: HomiziColors.white,
             surfaceTintColor: HomiziColors.white,
             elevation: 0,
             scrolledUnderElevation: 0,
@@ -1357,7 +1432,7 @@ class _ProfileCreateScreenState extends ConsumerState<ProfileCreateScreen> {
                             style: Theme.of(context).textTheme.titleMedium
                                 ?.copyWith(
                                   color: HomiziColors.ink,
-                                  fontWeight: FontWeight.w600,
+                                  fontWeight: FontWeight.w800,
                                 ),
                           ),
                           const SizedBox(height: 4),
@@ -1366,7 +1441,7 @@ class _ProfileCreateScreenState extends ConsumerState<ProfileCreateScreen> {
                             style: Theme.of(context).textTheme.labelLarge
                                 ?.copyWith(
                                   color: HomiziColors.logoOrange,
-                                  fontWeight: FontWeight.w600,
+                                  fontWeight: FontWeight.w700,
                                 ),
                           ),
                           const SizedBox(height: 8),
@@ -1386,7 +1461,7 @@ class _ProfileCreateScreenState extends ConsumerState<ProfileCreateScreen> {
                             style: Theme.of(context).textTheme.headlineSmall
                                 ?.copyWith(
                                   color: HomiziColors.ink,
-                                  fontWeight: FontWeight.w600,
+                                  fontWeight: FontWeight.w800,
                                 ),
                           ),
                           const SizedBox(height: 8),
@@ -1470,12 +1545,16 @@ class _ProfileCreateScreenState extends ConsumerState<ProfileCreateScreen> {
     return switch (_step) {
       profileStepRole => _roleStep(),
       profileStepBasic => _basicStep(),
+      profileStepOffice => _officeStep(),
       profileStepLanguage => _languageStep(),
       profileStepContact => _contactStep(),
       profileStepAadhaar => _aadhaarStep(),
       profileStepSelfie => _selfieStep(media),
       profileStepPhoto => _photoStep(media),
       profileStepLifestyle => _lifestyleStep(),
+      profileStepBudget => _budgetStep(),
+      profileStepRules => _rulesStep(),
+      profileStepListing => _listingStep(),
       _ => _termsStep(),
     };
   }
@@ -1531,7 +1610,7 @@ class _ProfileCreateScreenState extends ConsumerState<ProfileCreateScreen> {
           homiziText(context, 'Date of Birth'),
           style: Theme.of(context).textTheme.titleSmall?.copyWith(
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w700,
           ),
         ),
         const SizedBox(height: 8),
@@ -1571,7 +1650,7 @@ class _ProfileCreateScreenState extends ConsumerState<ProfileCreateScreen> {
           homiziText(context, 'Gender'),
           style: Theme.of(
             context,
-          ).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w600),
+          ).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w700),
         ),
         const SizedBox(height: 8),
         OptionGrid(
@@ -1594,7 +1673,23 @@ class _ProfileCreateScreenState extends ConsumerState<ProfileCreateScreen> {
           error: _errors['occupation'],
           onSelected: (value) => setState(() => _occupation = value),
         ),
-        const SavedOfficeField(),
+        KitTextField(
+          fieldKey: const Key('profile-create-company'),
+          label: 'Company',
+          controller: _companyField,
+          hint: 'Optional',
+          icon: RealLifeIcons.briefcase,
+          textCapitalization: TextCapitalization.words,
+        ),
+        KitTextField(
+          fieldKey: const Key('profile-create-city'),
+          label: 'Current City',
+          controller: _cityField,
+          hint: 'Ahmedabad',
+          error: _errors['city'],
+          icon: RealLifeIcons.pin,
+          textCapitalization: TextCapitalization.words,
+        ),
         const SizedBox(height: 16),
         const _InfoCard(
           title: 'Key Profile Fields',
@@ -1651,6 +1746,95 @@ class _ProfileCreateScreenState extends ConsumerState<ProfileCreateScreen> {
       _month.text = picked.month.toString().padLeft(2, '0');
       _year.text = picked.year.toString();
     });
+  }
+
+  Widget _officeStep() {
+    return const Column(
+      key: Key('profile-office-step'),
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [SavedOfficeField()],
+    );
+  }
+
+  Widget _budgetStep() {
+    return Column(
+      key: const Key('profile-budget-step'),
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        KitTextField(
+          fieldKey: const Key('profile-budget-min'),
+          label: 'Minimum budget (₹)',
+          controller: _budgetMinField,
+          hint: '8000',
+          keyboardType: TextInputType.number,
+          icon: RealLifeIcons.wallet,
+        ),
+        KitTextField(
+          fieldKey: const Key('profile-budget-max'),
+          label: 'Maximum budget (₹)',
+          controller: _budgetMaxField,
+          hint: '20000',
+          keyboardType: TextInputType.number,
+          icon: RealLifeIcons.wallet,
+        ),
+        KitTextField(
+          fieldKey: const Key('profile-move-in'),
+          label: 'Move-in',
+          controller: _moveField,
+          hint: 'Next month',
+          icon: Icons.event_outlined,
+          textCapitalization: TextCapitalization.sentences,
+        ),
+      ],
+    );
+  }
+
+  Widget _rulesStep() {
+    final selected = profileAllowRules(_tags).toSet();
+    return Column(
+      key: const Key('profile-rules-step'),
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        for (final rule in profileHouseRules)
+          CheckboxListTile(
+            key: Key('profile-rule-$rule'),
+            value: selected.contains(rule),
+            contentPadding: EdgeInsets.zero,
+            title: Text(homiziText(context, rule)),
+            onChanged: (value) {
+              setState(() {
+                final rules = profileAllowRules(_tags).toSet();
+                if (value ?? false) {
+                  rules.add(rule);
+                } else {
+                  rules.remove(rule);
+                }
+                final kept = [
+                  for (final tag in _tags)
+                    if (!tag.startsWith('allow:')) tag,
+                ];
+                _tags = [...kept, for (final item in rules) 'allow:$item'];
+              });
+            },
+          ),
+      ],
+    );
+  }
+
+  Widget _listingStep() {
+    return Column(
+      key: const Key('profile-listing-step'),
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          homiziText(
+            context,
+            'Your name, city, and lifestyle stay on this profile. Posting a room or a home uses them and does not ask again.',
+          ),
+          style: const TextStyle(color: HomiziColors.inkSoft, height: 1.35),
+        ),
+      ],
+    );
   }
 
   Widget _languageStep() {
@@ -2073,7 +2257,7 @@ class _ProfileCreateScreenState extends ConsumerState<ProfileCreateScreen> {
               key: const Key('profile-aadhaar-unavailable'),
               style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                 color: HomiziColors.ink,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w700,
               ),
             ),
             const SizedBox(height: 8),
@@ -2096,7 +2280,7 @@ class _ProfileCreateScreenState extends ConsumerState<ProfileCreateScreen> {
           homiziText(context, 'Selfie Verification (Mandatory)'),
           style: Theme.of(
             context,
-          ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w600),
+          ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w800),
         ),
         const SizedBox(height: 12),
         if (selfie != null)
@@ -2234,7 +2418,7 @@ class _ProfileCreateScreenState extends ConsumerState<ProfileCreateScreen> {
           homiziText(context, 'For Tenants & Home-Sharers'),
           style: Theme.of(context).textTheme.titleSmall?.copyWith(
             color: HomiziColors.logoOrange,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w700,
           ),
         ),
         const SizedBox(height: 12),
@@ -2261,6 +2445,16 @@ class _ProfileCreateScreenState extends ConsumerState<ProfileCreateScreen> {
         _choiceRow('Cleaning', profileCleaningOptions, _cleaning, (value) {
           setState(() => _cleaning = value);
         }, 'cleaning'),
+        _choiceRow('Pets', profilePetOptions, _pets, (value) {
+          setState(() => _pets = value);
+        }, 'pets'),
+        _tagChoice('Sleep', 'sleep', const ['early', 'flexible', 'night']),
+        _tagChoice('Guests', 'guests', const [
+          'rarely',
+          'occasionally',
+          'frequently',
+        ]),
+        _tagChoice('Work style', 'work', const ['office', 'hybrid', 'home']),
         const SizedBox(height: 8),
         const _InfoCard(
           title: 'Lifestyle & Preferences',
@@ -2273,6 +2467,42 @@ class _ProfileCreateScreenState extends ConsumerState<ProfileCreateScreen> {
           ],
         ),
       ],
+    );
+  }
+
+  Widget _tagChoice(String label, String prefix, List<String> options) {
+    final selected = profileTagged(_tags, prefix);
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 12),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            homiziText(context, label),
+            style: const TextStyle(
+              color: HomiziColors.ink,
+              fontWeight: FontWeight.w700,
+            ),
+          ),
+          const SizedBox(height: 8),
+          Wrap(
+            spacing: 8,
+            runSpacing: 8,
+            children: [
+              for (final option in options)
+                ChoiceChip(
+                  key: Key('profile-$prefix-$option'),
+                  label: Text(homiziText(context, option)),
+                  selected: selected == option,
+                  selectedColor: HomiziColors.logoOrange,
+                  onSelected: (_) => setState(() {
+                    _tags = profileWithTag(_tags, prefix, option);
+                  }),
+                ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 
@@ -2366,11 +2596,11 @@ class _ProfileCreateScreenState extends ConsumerState<ProfileCreateScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          homiziText(context, 'Also create your profile as a roommate seeker?'),
+          homiziText(context, 'List me as a roommate seeker?'),
           style: const TextStyle(
             fontFamily: 'PlusJakartaSans',
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w800,
             fontSize: 22,
             height: 1.2,
           ),
@@ -2379,7 +2609,7 @@ class _ProfileCreateScreenState extends ConsumerState<ProfileCreateScreen> {
         Text(
           homiziText(
             context,
-            'People looking for a flatmate can see the same profile. You can turn this on later from Find Roomie.',
+            'People looking for a flatmate can see the same profile. You can change this later in Profile.',
           ),
           style: const TextStyle(color: HomiziColors.inkSoft, height: 1.35),
         ),
@@ -2400,7 +2630,7 @@ class _ProfileCreateScreenState extends ConsumerState<ProfileCreateScreen> {
               child: FilledButton(
                 key: const Key('profile-roommate-seeker-yes'),
                 style: FilledButton.styleFrom(
-                  backgroundColor: HomiziColors.brandRedOrange,
+                  backgroundColor: HomiziColors.logoOrange,
                   foregroundColor: HomiziColors.white,
                 ),
                 onPressed: _saving
@@ -2415,6 +2645,20 @@ class _ProfileCreateScreenState extends ConsumerState<ProfileCreateScreen> {
     );
   }
 
+  void _markStepAnswered() {
+    final mark = switch (_step) {
+      profileStepOffice => 'office',
+      profileStepBudget => 'budget',
+      profileStepRules => 'rules',
+      profileStepListing => 'listing',
+      _ => null,
+    };
+    if (mark == null || _tags.contains('asked:$mark')) {
+      return;
+    }
+    _tags = [..._tags, 'asked:$mark'];
+  }
+
   /// Steps whose answers are already on the one profile are not asked again.
   bool _stepSatisfied(int step) {
     final draft = _draft();
@@ -2425,11 +2669,24 @@ class _ProfileCreateScreenState extends ConsumerState<ProfileCreateScreen> {
         return profilePublicName(draft).length >= 2 &&
             draft.city.trim().isNotEmpty &&
             (draft.occupation ?? '').trim().isNotEmpty;
+      case profileStepOffice:
+        return draft.tags.contains('asked:office') ||
+            ref.read(officeRepositoryProvider).primary != null;
       case profileStepLanguage:
         return draft.languages.isNotEmpty;
       case profileStepLifestyle:
         return (draft.smoking ?? '').isNotEmpty &&
-            (draft.food ?? '').isNotEmpty;
+            (draft.food ?? '').isNotEmpty &&
+            (draft.drinking ?? '').isNotEmpty;
+      case profileStepBudget:
+        return draft.tags.contains('asked:budget') ||
+            (draft.budgetMin != null && draft.budgetMax != null);
+      case profileStepRules:
+        return draft.tags.contains('asked:rules');
+      case profileStepListing:
+        final lists =
+            draft.roles.contains('host') || draft.roles.contains('sharer');
+        return !lists || draft.tags.contains('asked:listing');
       default:
         return false;
     }
@@ -2476,7 +2733,7 @@ class _ProfileCreateScreenState extends ConsumerState<ProfileCreateScreen> {
           key: const Key('profile-create-public-name'),
           style: Theme.of(
             context,
-          ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w600),
+          ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w800),
         ),
         const SizedBox(height: 12),
         if (draft.mobileVerified)
@@ -2542,7 +2799,7 @@ class _InfoCard extends StatelessWidget {
     return Container(
       width: double.infinity,
       margin: const EdgeInsets.only(top: 8),
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
         color: HomiziColors.soft,
         borderRadius: const BorderRadius.all(Radius.circular(16)),
@@ -2555,7 +2812,7 @@ class _InfoCard extends StatelessWidget {
             homiziText(context, title),
             style: Theme.of(
               context,
-            ).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w600),
+            ).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w800),
           ),
           const SizedBox(height: 8),
           for (final line in lines)

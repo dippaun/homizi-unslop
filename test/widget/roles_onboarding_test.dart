@@ -210,7 +210,7 @@ void main() {
       tester
           .widget<Scaffold>(find.byKey(const Key('role-onboarding-screen')))
           .backgroundColor,
-      HomiziColors.cream,
+      HomiziColors.white,
     );
     await tester.tap(find.byType(BackButton));
     await tester.pump();
@@ -557,7 +557,7 @@ void main() {
     await tester.pump();
     expect(
       tester.widget<Scaffold>(find.byType(Scaffold)).backgroundColor,
-      HomiziColors.cream,
+      HomiziColors.white,
     );
     expect(find.text('Interested Seekers'), findsOneWidget);
     expect(find.text('Ananya Iyer'), findsOneWidget);
@@ -626,7 +626,7 @@ void main() {
     expect(find.byKey(const Key('broker-chip')), findsOneWidget);
     expect(
       tester.widget<Scaffold>(find.byType(Scaffold)).backgroundColor,
-      HomiziColors.cream,
+      HomiziColors.white,
     );
 
     await tester.tap(find.byKey(const Key('broker-save')));

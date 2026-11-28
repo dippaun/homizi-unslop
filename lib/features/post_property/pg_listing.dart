@@ -204,7 +204,7 @@ class _PgListingFieldsState extends State<PgListingFields> {
           style: const TextStyle(
             fontFamily: 'PlusJakartaSans',
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w800,
             fontSize: 18,
           ),
         ),
@@ -340,7 +340,7 @@ class _PgAmenityLabel extends StatelessWidget {
       style: const TextStyle(
         fontFamily: 'PlusJakartaSans',
         color: HomiziColors.ink,
-        fontWeight: FontWeight.w600,
+        fontWeight: FontWeight.w800,
       ),
     );
   }

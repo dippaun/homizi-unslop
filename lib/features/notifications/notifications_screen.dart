@@ -170,7 +170,7 @@ class _NotificationsScreenState extends ConsumerState<NotificationsScreen> {
     final unread = _inbox.items.any((item) => item.unread);
     final empty = live.isEmpty && _inbox.items.isEmpty;
     return Scaffold(
-      backgroundColor: HomiziColors.cream,
+      backgroundColor: HomiziColors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: const HomiziBackButton(),
@@ -298,7 +298,7 @@ class _LiveTile extends StatelessWidget {
                 Expanded(
                   child: Text(
                     homiziText(context, notice.title),
-                    style: const TextStyle(fontWeight: FontWeight.w600),
+                    style: const TextStyle(fontWeight: FontWeight.w800),
                   ),
                 ),
                 if (notice.demo)

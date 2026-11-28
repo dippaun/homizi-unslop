@@ -35,7 +35,7 @@ class _VerificationPanelState extends State<VerificationPanel>
     _pulse = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 1400),
-    )..value = 1;
+    )..repeat(reverse: true);
   }
 
   @override
@@ -59,7 +59,7 @@ class _VerificationPanelState extends State<VerificationPanel>
         DecoratedBox(
           decoration: BoxDecoration(
             color: HomiziColors.soft,
-            borderRadius: BorderRadius.circular(16),
+            borderRadius: BorderRadius.circular(20),
           ),
           child: Padding(
             padding: const EdgeInsets.all(16),
@@ -107,7 +107,7 @@ class _VerificationPanelState extends State<VerificationPanel>
                         style: const TextStyle(
                           fontFamily: 'PlusJakartaSans',
                           color: HomiziColors.ink,
-                          fontWeight: FontWeight.w600,
+                          fontWeight: FontWeight.w800,
                           fontSize: 18,
                         ),
                       ),
@@ -150,7 +150,7 @@ class _VerificationPanelState extends State<VerificationPanel>
               key: const Key('verify-phone-prompt'),
               style: const TextStyle(
                 color: HomiziColors.inkSoft,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w700,
               ),
             ),
           ),
@@ -220,7 +220,7 @@ class _MethodCard extends StatelessWidget {
                       homiziText(context, title),
                       style: const TextStyle(
                         color: HomiziColors.ink,
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w800,
                       ),
                     ),
                     Text(
@@ -240,7 +240,7 @@ class _MethodCard extends StatelessWidget {
                     homiziText(context, action),
                     style: const TextStyle(
                       color: HomiziColors.logoOrange,
-                      fontWeight: FontWeight.w600,
+                      fontWeight: FontWeight.w800,
                     ),
                   ),
                 ),
@@ -291,7 +291,7 @@ class _TrustBenefits extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(14),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -300,7 +300,7 @@ class _TrustBenefits extends StatelessWidget {
               style: const TextStyle(
                 fontFamily: 'PlusJakartaSans',
                 color: HomiziColors.ink,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w800,
               ),
             ),
             const SizedBox(height: 8),

@@ -52,10 +52,10 @@ class FindRoomiePage extends StatelessWidget {
     return RepaintBoundary(
       key: shotKey,
       child: Scaffold(
-        backgroundColor: HomiziColors.cream,
+        backgroundColor: HomiziColors.white,
         appBar: AppBar(
           automaticallyImplyLeading: false,
-          backgroundColor: HomiziColors.cream,
+          backgroundColor: HomiziColors.white,
           surfaceTintColor: HomiziColors.white,
           foregroundColor: HomiziColors.ink,
           leading: const HomiziBackButton(),
@@ -84,14 +84,14 @@ class FindRoomiePercent extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
       decoration: BoxDecoration(
         color: HomiziColors.success,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(20),
       ),
       child: Text(
         homiziText(context, '$percent%'),
         key: Key('find-roomie-percent-$personId'),
         style: const TextStyle(
           color: HomiziColors.onSuccess,
-          fontWeight: FontWeight.w600,
+          fontWeight: FontWeight.w800,
           fontSize: 14,
         ),
       ),
@@ -112,13 +112,13 @@ class FindRoomieSampleChip extends StatelessWidget {
         border: Border.all(color: HomiziColors.line),
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
         child: Text(
           homiziText(context, 'Sample'),
           style: const TextStyle(
             color: HomiziColors.ink,
             fontSize: 12,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w700,
           ),
         ),
       ),
@@ -147,7 +147,7 @@ class FindRoomieVerified extends StatelessWidget {
               homiziText(context, 'Verified'),
               style: const TextStyle(
                 color: HomiziColors.success,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w700,
                 fontSize: 12,
               ),
             ),
@@ -176,17 +176,21 @@ class FindRoomieButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return DecoratedBox(
       decoration: BoxDecoration(
-        gradient: onPressed == null ? null : HomiziGradients.action,
+        gradient: onPressed == null
+            ? null
+            : const LinearGradient(
+                colors: [HomiziColors.logoOrange, HomiziColors.brandRedOrange],
+              ),
         color: onPressed == null ? HomiziColors.line : null,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(28),
       ),
       child: Material(
         color: HomiziColors.clear,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(28),
         child: InkWell(
           key: buttonKey,
           onTap: onPressed,
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(28),
           child: ConstrainedBox(
             constraints: const BoxConstraints(minHeight: 48, minWidth: 48),
             child: Padding(
@@ -195,24 +199,16 @@ class FindRoomieButton extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   if (icon != null) ...[
-                    Icon(
-                      icon,
-                      color: onPressed == null
-                          ? HomiziColors.ink
-                          : HomiziColors.white,
-                      size: 20,
-                    ),
+                    Icon(icon, color: HomiziColors.ink, size: 20),
                     const SizedBox(width: 8),
                   ],
                   Flexible(
                     child: Text(
                       homiziText(context, label),
                       textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: onPressed == null
-                            ? HomiziColors.ink
-                            : HomiziColors.white,
-                        fontWeight: FontWeight.w600,
+                      style: const TextStyle(
+                        color: HomiziColors.ink,
+                        fontWeight: FontWeight.w800,
                         fontSize: 15,
                       ),
                     ),

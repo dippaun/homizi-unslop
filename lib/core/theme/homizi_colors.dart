@@ -22,42 +22,19 @@ abstract final class HomiziColors {
   /// White text is not used on this colour.
   static const Color logoOrange = Color(0xFFF75620);
 
-  /// Warm peach wash for selected cards, info panels and empty states.
-  /// Replaces the old Post Property lavender (unslop pass 2: no purple).
-  static const Color warmWash = Color(0xFFFDEBDC);
+  /// Post Property flow only. Blended with [logoOrange] on primary buttons
+  /// and heroes in that flow. The rest of the app does not use it.
+  static const Color homiziPurple = Color(0xFF6A3DE8);
+
+  /// Light lavender surface for selected cards and chips in Post Property.
+  static const Color homiziLavender = Color(0xFFF3EEFF);
 
   static const Color white = Color(0xFFFFFFFF);
-
-  /// v3 surfaces. [cream] is the neutral stone page (no pattern); white
-  /// cards sit on it; the role washes are light tints for chips and
-  /// selected states only.
-  static const Color cream = soft;
-  static const Color creamDeep = Color(0xFFEDE9E3);
-  static const Color haldiWash = Color(0xFFFFF3C4);
-  static const Color saffronWash = Color(0xFFFDEBDC);
-  static const Color terracottaWash = Color(0xFFFBE6DF);
-  static const Color maroonWash = Color(0xFFF6E4E1);
-  static const Color maroon = Color(0xFF5C1008);
-
-  /// Neutral hairline on stone.
-  static const Color creamLine = line;
   static const Color surface = white;
-
-  /// Stone page background (v3). Cards sit on it in white. Muted text
-  /// clears 5.1:1 here.
-  static const Color soft = Color(0xFFF5F3F0);
+  static const Color soft = Color(0xFFF7F8FA);
 
   /// Main text. About 16:1 on white.
   static const Color ink = Color(0xFF172033);
-
-  /// v3 dark sections: hero panels, the floating nav and the trust band.
-  static const Color inkDeep = Color(0xFF0E1524);
-
-  /// Raised tile on [ink] (chips and pills inside dark heroes).
-  static const Color inkRaised = Color(0xFF232E45);
-
-  /// Secondary text on [ink] (7.9:1).
-  static const Color onInkMuted = Color(0xFFB9C1D0);
 
   /// Body copy. About 9.4:1 on white.
   static const Color inkSoft = Color(0xFF3A4660);
@@ -65,12 +42,8 @@ abstract final class HomiziColors {
   /// Secondary text. About 5.7:1 on white and 5.4:1 on [soft].
   static const Color muted = Color(0xFF5C677A);
 
-  /// Warm sandstone hairline on cream (v2, was #EAE6E1).
-  static const Color line = Color(0xFFE6E1DA);
-
-  /// Quiet panel and input fill. Deeper cream (v2) so panels still read
-  /// on the cream page; muted text clears 5.0:1 here.
-  static const Color mist = creamDeep;
+  static const Color line = Color(0xFFE5E7EB);
+  static const Color mist = soft;
 
   /// Pale yellow for selected chips. Ink on this stays well above 4.5:1.
   static const Color accentWash = Color(0xFFFFF6D0);
@@ -87,20 +60,11 @@ abstract final class HomiziColors {
   static const Color onError = white;
   static const Color errorWash = Color(0xFFFDECEC);
 
-  /// Secondary information only (room-sharer tag, info notes). Never a
-  /// primary action and never decoration.
-  static const Color info = Color(0xFF1D4E9E);
-  static const Color infoWash = Color(0xFFE8F1FF);
-
   static const Color unread = error;
 
-  /// Neutral shadows only, soft and small (unslop pass 7).
-  static const Color shadow = Color(0x12172033);
-  static const Color shadowSoft = Color(0x0D172033);
-  static const Color shadowStrong = Color(0x1F172033);
-
-  /// Warm terracotta shadow for cards on cream (v2).
-  static const Color shadowWarm = Color(0x1A172033);
+  static const Color shadow = Color(0x1A172033);
+  static const Color shadowSoft = Color(0x14172033);
+  static const Color shadowStrong = Color(0x33172033);
   static const Color shadowNight = Color(0x66000000);
 
   static const Color accentDisabled = Color(0x7AF47B0B);
@@ -113,32 +77,6 @@ abstract final class HomiziColors {
   static const Color whiteClear = Color(0x00FFFFFF);
   static const Color clear = Color(0x00000000);
 
-  /// Photo scrim behind names on portrait cards.
-  static const Color inkScrim = Color(0xF0172033);
-
-  /// v4 "living city" backdrop: warm peach base under drifting orbs.
-  /// Ink on these clears 15:1, so body copy can sit straight on them.
-  static const Color livingBase = Color(0xFFFFF3EA);
-  static const Color livingBaseDeep = Color(0xFFFFE2CF);
-
-  /// Frosted veil for bars over the backdrop.
-  static const Color livingVeil = Color(0xB3FFF3EA);
-
-  /// v4 glass cards over the backdrop. Ink on 86% white over peach is
-  /// about 15:1.
-  static const Color glass = Color(0xDBFFFFFF);
-  static const Color glassStrong = Color(0xF2FFFFFF);
-  static const Color glassLine = Color(0xB3FFFFFF);
-
-  /// Ink glass for the dark live cards (white text 13:1+).
-  static const Color inkGlass = Color(0xE6172033);
-
-  /// Offline map drawing: land, paper roads and parks.
-  static const Color mapLand = Color(0xFFE7F0E4);
-  static const Color mapPaper = Color(0xFFF7F4EA);
-  static const Color mapPark = Color(0xFFD5E8C8);
-  static const Color mapBlank = Color(0xFFF4F1EA);
-
   static const Color night = Color(0xFF121212);
   static const Color nightRaised = Color(0xFF1E1E1E);
   static const Color nightHigh = Color(0xFF2A2A2A);
@@ -149,47 +87,7 @@ abstract final class HomiziColors {
   static const Color nightAccentContainer = brandDarkRed;
 }
 
-/// The one gradient in the app. Orange into red, only on the primary
-/// action of a screen (Continue, Verify, Message, Interested).
-abstract final class HomiziGradients {
-  /// Primary CTA (v2): red orange into deep red. White type clears
-  /// 5.2:1 at the light end.
-  static const LinearGradient action = LinearGradient(
-    begin: Alignment.topLeft,
-    end: Alignment.bottomRight,
-    colors: [HomiziColors.brandRedOrange, HomiziColors.brandDeepRed],
-  );
-
-  /// Haldi-to-saffron band. Ink type only (never white on yellow).
-  static const LinearGradient saffron = LinearGradient(
-    begin: Alignment.topLeft,
-    end: Alignment.bottomRight,
-    colors: [HomiziColors.brandYellow, HomiziColors.brandGolden],
-  );
-
-  /// Decorative sunrise strip for rules and rings, no text on it.
-  static const LinearGradient sunrise = LinearGradient(
-    colors: [
-      HomiziColors.brandYellow,
-      HomiziColors.brandGolden,
-      HomiziColors.brandOrange,
-      HomiziColors.brandDeepOrange,
-      HomiziColors.brandVermilion,
-      HomiziColors.brandRedOrange,
-    ],
-  );
-
-  /// Deep maroon section (testimonials, trust): white type 9.6:1+.
-  static const LinearGradient maroon = LinearGradient(
-    begin: Alignment.topLeft,
-    end: Alignment.bottomRight,
-    colors: [HomiziColors.brandDarkRed, HomiziColors.maroon],
-  );
-}
-
-/// Spacing scale. Every margin, padding, gap and fixed height sits on the
-/// 4px grid (unslop pass 1). A 2px step is fine for nudges inside small
-/// controls. Space inside a group is smaller than space between groups.
+/// Spacing and radii shared by buttons, cards, and the search flow.
 abstract final class HomiziSpace {
   static const double xxs = 4;
   static const double xs = 8;
@@ -197,53 +95,6 @@ abstract final class HomiziSpace {
   static const double md = 16;
   static const double lg = 20;
   static const double xl = 24;
-  static const double xxl = 32;
-  static const double xxxl = 40;
-  static const double section = 48;
-
-  /// Page edge on phones.
-  static const double page = 20;
-
-  /// Inside cards.
-  static const double card = 16;
-
-  /// Control radius (buttons, inputs). Kept for older call sites.
-  static const double radius = HomiziRadius.control;
-
-  /// Card radius. Kept for older call sites.
-  static const double cardRadius = HomiziRadius.card;
-}
-
-/// Radius scale. Nested radius: inner = outer minus padding, never below 4.
-/// Not everything is a pill: only avatars, dots and the round back button.
-abstract final class HomiziRadius {
-  /// Tags, keycaps, small badges.
-  static const double tag = 6;
-
-  /// Chips and segmented choices.
-  static const double chip = 8;
-
-  /// Buttons, inputs, rows.
-  static const double control = 12;
-
-  /// Cards and tiles.
-  static const double card = 16;
-
-  /// Sheets, panels, large hero blocks.
-  static const double panel = 20;
-}
-
-/// Two depths on the light theme. Small things get a 1px lift; things that
-/// float (sheets, decks, sticky bars) get one soft neutral shadow.
-abstract final class HomiziElevation {
-  static const List<BoxShadow> small = [
-    BoxShadow(
-      color: HomiziColors.shadowSoft,
-      blurRadius: 2,
-      offset: Offset(0, 1),
-    ),
-  ];
-  static const List<BoxShadow> floating = [
-    BoxShadow(color: HomiziColors.shadow, blurRadius: 24, offset: Offset(0, 8)),
-  ];
+  static const double radius = 14;
+  static const double cardRadius = 20;
 }

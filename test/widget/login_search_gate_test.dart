@@ -79,8 +79,7 @@ void main() {
     expect(find.byKey(const Key('auth-phone-prefix')), findsNothing);
     expect(find.text('Send code to email'), findsOneWidget);
     expect(find.text('+91'), findsNothing);
-    // v3: a real Mumbai photo panel replaced the drawn skyline.
-    expect(find.byKey(const Key('login-photo')), findsOneWidget);
+    expect(find.byKey(const Key('login-skyline')), findsOneWidget);
     await _shoot(tester, '04-email');
 
     await tester.enterText(find.byKey(const Key('contact-field')), 'dp@a.c');
@@ -105,8 +104,7 @@ void main() {
 
     tester.view.physicalSize = const Size(1280, 800);
     await tester.pumpAndSettle();
-    // v3: a real Mumbai photo panel replaced the drawn skyline.
-    expect(find.byKey(const Key('login-photo')), findsOneWidget);
+    expect(find.byKey(const Key('login-skyline')), findsOneWidget);
     await _shoot(tester, '07-desktop');
   });
 

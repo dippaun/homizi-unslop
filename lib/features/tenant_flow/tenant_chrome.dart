@@ -33,10 +33,10 @@ class TenantFlowScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       key: pageKey,
-      backgroundColor: HomiziColors.cream,
+      backgroundColor: HomiziColors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: HomiziColors.cream,
+        backgroundColor: HomiziColors.white,
         foregroundColor: HomiziColors.ink,
         elevation: 0,
         scrolledUnderElevation: 0,
@@ -81,7 +81,7 @@ class _TenantStepHeader extends StatelessWidget {
           label,
           style: const TextStyle(
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w800,
             fontFamily: 'PlusJakartaSans',
           ),
         ),
@@ -106,13 +106,13 @@ class TenantStepChip extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
       decoration: BoxDecoration(
         color: HomiziColors.accentWash,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(20),
       ),
       child: Text(
         label,
         style: const TextStyle(
           color: HomiziColors.ink,
-          fontWeight: FontWeight.w600,
+          fontWeight: FontWeight.w800,
           fontFamily: 'PlusJakartaSans',
         ),
       ),
@@ -158,7 +158,7 @@ class TenantSideToggle extends StatelessWidget {
       padding: const EdgeInsets.all(4),
       decoration: BoxDecoration(
         color: HomiziColors.mist,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(24),
       ),
       child: Row(
         children: [
@@ -201,11 +201,11 @@ class _SideChip extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       color: selected ? HomiziColors.accent : HomiziColors.clear,
-      borderRadius: BorderRadius.circular(16),
+      borderRadius: BorderRadius.circular(20),
       child: InkWell(
         key: chipKey,
         onTap: onTap,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(20),
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 10),
           child: Text(
@@ -213,7 +213,7 @@ class _SideChip extends StatelessWidget {
             textAlign: TextAlign.center,
             style: const TextStyle(
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
               fontFamily: 'PlusJakartaSans',
             ),
           ),
@@ -261,7 +261,7 @@ class TenantPoint extends StatelessWidget {
                   homiziText(context, label),
                   style: const TextStyle(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w800,
                     fontFamily: 'PlusJakartaSans',
                     fontSize: 15,
                   ),
@@ -301,7 +301,7 @@ class TenantNumberedStep extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 16),
+      padding: const EdgeInsets.only(bottom: 14),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -311,7 +311,7 @@ class TenantNumberedStep extends StatelessWidget {
             foregroundColor: HomiziColors.ink,
             child: Text(
               number,
-              style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 14),
+              style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 14),
             ),
           ),
           const SizedBox(width: 12),
@@ -330,7 +330,7 @@ class TenantNumberedStep extends StatelessWidget {
                         homiziText(context, title),
                         style: const TextStyle(
                           color: HomiziColors.ink,
-                          fontWeight: FontWeight.w600,
+                          fontWeight: FontWeight.w800,
                           fontFamily: 'PlusJakartaSans',
                         ),
                       ),
@@ -369,16 +369,16 @@ class TenantMatchBadge extends StatelessWidget {
   Widget build(BuildContext context) {
     final tone = matchFill(percent, importantMismatch: importantMismatch);
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
       decoration: BoxDecoration(
         color: tone.background,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(20),
       ),
       child: Text(
         homiziText(context, '$percent% Match'),
         style: TextStyle(
           color: tone.foreground,
-          fontWeight: FontWeight.w600,
+          fontWeight: FontWeight.w800,
           fontFamily: 'PlusJakartaSans',
           fontSize: 13,
         ),
@@ -395,10 +395,10 @@ class TenantVerifiedBadge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 5),
       decoration: BoxDecoration(
         color: HomiziColors.successWash,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(20),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
@@ -409,7 +409,7 @@ class TenantVerifiedBadge extends StatelessWidget {
             homiziText(context, label),
             style: const TextStyle(
               color: HomiziColors.success,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
               fontSize: 12,
               fontFamily: 'PlusJakartaSans',
             ),
@@ -450,7 +450,7 @@ class TenantScoreRing extends StatelessWidget {
             style: const TextStyle(
               color: HomiziColors.ink,
               fontSize: 28,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
               fontFamily: 'PlusJakartaSans',
             ),
           ),
@@ -492,7 +492,7 @@ class TenantStoryBox extends StatelessWidget {
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
         color: wash,
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(14),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -501,7 +501,7 @@ class TenantStoryBox extends StatelessWidget {
             homiziText(context, title),
             style: const TextStyle(
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
               fontFamily: 'PlusJakartaSans',
             ),
           ),

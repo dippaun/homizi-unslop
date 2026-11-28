@@ -10,26 +10,22 @@ abstract final class HomiziTheme {
 
   /// Plus Jakarta Sans for headings, Inter for body and labels.
   ///
-  /// Headings stay near-black at 600. Hierarchy comes from size and colour,
-  /// not from 800 or 900 weights (unslop pass 5). Body copy is a step softer. Captions
+  /// Headings stay near-black and heavy. Body copy is a step softer. Captions
   /// use the muted grey that still clears 4.5:1 on white.
   static TextTheme _type(TextTheme base) {
     final headings = GoogleFonts.plusJakartaSansTextTheme(base);
     final reading = GoogleFonts.interTextTheme(headings);
-    // v2: Poppins carries display and headline sizes (bundled, OFL).
     TextStyle? display(TextStyle? style) {
       return style?.copyWith(
-        fontFamily: 'Poppins',
         color: HomiziColors.ink,
-        fontWeight: FontWeight.w600,
-        letterSpacing: -0.4,
+        fontWeight: FontWeight.w800,
       );
     }
 
     TextStyle? title(TextStyle? style) {
       return style?.copyWith(
         color: HomiziColors.ink,
-        fontWeight: FontWeight.w600,
+        fontWeight: FontWeight.w700,
       );
     }
 
@@ -61,9 +57,7 @@ abstract final class HomiziTheme {
         );
   }
 
-  static const _radius = BorderRadius.all(
-    Radius.circular(HomiziRadius.control),
-  );
+  static const _radius = BorderRadius.all(Radius.circular(14));
 
   static final ButtonStyle _filled =
       FilledButton.styleFrom(
@@ -72,13 +66,13 @@ abstract final class HomiziTheme {
         disabledBackgroundColor: HomiziColors.accentDisabled,
         disabledForegroundColor: HomiziColors.ink,
         minimumSize: const Size(48, 48),
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
         elevation: 0,
         shape: const RoundedRectangleBorder(borderRadius: _radius),
         textStyle: const TextStyle(
-          fontFamily: 'Poppins',
+          fontFamily: 'PlusJakartaSans',
           fontSize: 16,
-          fontWeight: FontWeight.w600,
+          fontWeight: FontWeight.w800,
           color: HomiziColors.ink,
         ),
       ).copyWith(
@@ -104,13 +98,13 @@ abstract final class HomiziTheme {
         foregroundColor: HomiziColors.ink,
         backgroundColor: HomiziColors.white,
         minimumSize: const Size(48, 48),
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
         side: const BorderSide(color: HomiziColors.accent, width: 1.5),
         shape: const RoundedRectangleBorder(borderRadius: _radius),
         textStyle: const TextStyle(
-          fontFamily: 'Poppins',
+          fontFamily: 'PlusJakartaSans',
           fontSize: 16,
-          fontWeight: FontWeight.w600,
+          fontWeight: FontWeight.w700,
           color: HomiziColors.ink,
         ),
       ).copyWith(
@@ -136,9 +130,9 @@ abstract final class HomiziTheme {
         foregroundColor: HomiziColors.ink,
         minimumSize: const Size(48, 48),
         textStyle: const TextStyle(
-          fontFamily: 'Poppins',
+          fontFamily: 'PlusJakartaSans',
           fontSize: 15,
-          fontWeight: FontWeight.w600,
+          fontWeight: FontWeight.w700,
         ),
       ).copyWith(
         side: WidgetStateProperty.resolveWith((states) {
@@ -177,19 +171,15 @@ abstract final class HomiziTheme {
       onSecondaryContainer: HomiziColors.ink,
       outline: HomiziColors.line,
       outlineVariant: HomiziColors.line,
-      surface: HomiziColors.cream,
+      surface: HomiziColors.white,
       onSurface: HomiziColors.ink,
       onSurfaceVariant: HomiziColors.muted,
-      surfaceTint: HomiziColors.cream,
+      surfaceTint: HomiziColors.white,
       surfaceContainerLowest: HomiziColors.white,
-      surfaceContainerLow: HomiziColors.cream,
-      surfaceContainer: HomiziColors.cream,
-      surfaceContainerHigh: HomiziColors.creamDeep,
-      surfaceContainerHighest: HomiziColors.creamDeep,
-      secondary: HomiziColors.brandRedOrange,
-      onSecondary: HomiziColors.white,
-      tertiary: HomiziColors.brandDeepRed,
-      onTertiary: HomiziColors.white,
+      surfaceContainerLow: HomiziColors.white,
+      surfaceContainer: HomiziColors.white,
+      surfaceContainerHigh: HomiziColors.white,
+      surfaceContainerHighest: HomiziColors.mist,
       inverseSurface: HomiziColors.ink,
       onInverseSurface: HomiziColors.white,
     );
@@ -197,7 +187,7 @@ abstract final class HomiziTheme {
       useMaterial3: true,
       colorScheme: scheme,
       scaffoldBackgroundColor: HomiziColors.soft,
-      canvasColor: HomiziColors.cream,
+      canvasColor: HomiziColors.white,
     );
     final text = _type(base.textTheme);
     return base.copyWith(
@@ -205,27 +195,23 @@ abstract final class HomiziTheme {
       textTheme: text,
       primaryTextTheme: _type(base.primaryTextTheme),
       appBarTheme: AppBarTheme(
-        backgroundColor: HomiziColors.cream,
+        backgroundColor: HomiziColors.white,
         foregroundColor: HomiziColors.ink,
-        surfaceTintColor: HomiziColors.cream,
+        surfaceTintColor: HomiziColors.white,
         elevation: 0,
         scrolledUnderElevation: 3,
         centerTitle: false,
         toolbarHeight: 64,
-        titleTextStyle: text.titleLarge?.copyWith(
-          fontFamily: 'Poppins',
-          fontWeight: FontWeight.w600,
-          color: HomiziColors.ink,
-        ),
+        titleTextStyle: text.titleLarge?.copyWith(color: HomiziColors.ink),
       ),
       navigationBarTheme: const NavigationBarThemeData(
-        backgroundColor: HomiziColors.cream,
-        surfaceTintColor: HomiziColors.cream,
-        indicatorColor: HomiziColors.saffronWash,
+        backgroundColor: HomiziColors.white,
+        surfaceTintColor: HomiziColors.white,
+        indicatorColor: HomiziColors.accentWash,
         height: 80,
         elevation: 3,
       ),
-      dialogTheme: const DialogThemeData(backgroundColor: HomiziColors.cream),
+      dialogTheme: const DialogThemeData(backgroundColor: HomiziColors.white),
       snackBarTheme: const SnackBarThemeData(
         behavior: SnackBarBehavior.floating,
       ),
@@ -238,8 +224,6 @@ abstract final class HomiziTheme {
       ),
       splashFactory: InkRipple.splashFactory,
       hoverColor: HomiziColors.accentHover,
-      // v3: white cards lift off the stone page with a soft shadow and
-      // no outline.
       cardTheme: const CardThemeData(
         color: HomiziColors.white,
         surfaceTintColor: Colors.transparent,
@@ -247,7 +231,7 @@ abstract final class HomiziTheme {
         clipBehavior: Clip.antiAlias,
         elevation: 2,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(HomiziRadius.panel)),
+          borderRadius: BorderRadius.all(Radius.circular(20)),
         ),
       ),
       filledButtonTheme: FilledButtonThemeData(style: _filled),
@@ -257,7 +241,7 @@ abstract final class HomiziTheme {
       iconButtonTheme: IconButtonThemeData(style: _icon),
       inputDecorationTheme: const InputDecorationTheme(
         filled: true,
-        fillColor: HomiziColors.white,
+        fillColor: HomiziColors.mist,
         contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
         hintStyle: TextStyle(
           fontFamily: 'Inter',
@@ -272,24 +256,24 @@ abstract final class HomiziTheme {
         floatingLabelStyle: TextStyle(
           fontFamily: 'Inter',
           color: HomiziColors.ink,
-          fontWeight: FontWeight.w600,
+          fontWeight: FontWeight.w700,
         ),
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(HomiziRadius.control)),
-          borderSide: BorderSide(color: HomiziColors.creamLine),
+          borderRadius: BorderRadius.all(Radius.circular(16)),
+          borderSide: BorderSide.none,
         ),
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(HomiziRadius.control)),
-          borderSide: BorderSide(color: HomiziColors.creamLine),
+          borderRadius: BorderRadius.all(Radius.circular(16)),
+          borderSide: BorderSide.none,
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(HomiziRadius.control)),
+          borderRadius: BorderRadius.all(Radius.circular(16)),
           borderSide: BorderSide(color: HomiziColors.accent, width: 2),
         ),
       ),
       chipTheme: const ChipThemeData(
-        backgroundColor: HomiziColors.creamDeep,
-        selectedColor: HomiziColors.saffronWash,
+        backgroundColor: HomiziColors.mist,
+        selectedColor: HomiziColors.accentWash,
         disabledColor: HomiziColors.mist,
         labelStyle: TextStyle(
           fontFamily: 'Inter',
@@ -301,12 +285,12 @@ abstract final class HomiziTheme {
           fontFamily: 'Inter',
           color: HomiziColors.ink,
           fontSize: 13,
-          fontWeight: FontWeight.w600,
+          fontWeight: FontWeight.w700,
         ),
         padding: EdgeInsets.symmetric(horizontal: 8, vertical: 2),
         side: BorderSide.none,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(HomiziRadius.chip)),
+          borderRadius: BorderRadius.all(Radius.circular(20)),
         ),
       ),
       listTileTheme: const ListTileThemeData(
@@ -315,7 +299,7 @@ abstract final class HomiziTheme {
         contentPadding: EdgeInsets.symmetric(horizontal: 16),
       ),
       dividerTheme: const DividerThemeData(
-        color: HomiziColors.creamLine,
+        color: HomiziColors.line,
         space: 16,
         thickness: 1,
       ),
@@ -414,7 +398,7 @@ abstract final class HomiziTheme {
         clipBehavior: Clip.antiAlias,
         elevation: 2,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(HomiziRadius.card)),
+          borderRadius: BorderRadius.all(Radius.circular(20)),
         ),
       ),
       filledButtonTheme: FilledButtonThemeData(style: _filled),
@@ -433,52 +417,17 @@ abstract final class HomiziTheme {
   }
 }
 
-/// Type scale (unslop pass 5). Use these sizes; weights are 400, 500 and
-/// 600 only, except the HOMIZI wordmark and swipe stamps.
-abstract final class HomiziType {
-  /// Meta, counts, small labels. Nothing in the app goes below this.
-  static const double meta = 11;
-  static const double caption = 12;
-  static const double secondary = 13;
-  static const double body = 14;
-  static const double bodyLarge = 16;
-  static const double title = 18;
-  static const double titleLarge = 20;
-  static const double headline = 24;
-  static const double display = 28;
-  static const double hero = 32;
-
-  static const FontWeight regular = FontWeight.w400;
-  static const FontWeight medium = FontWeight.w500;
-  static const FontWeight strong = FontWeight.w600;
-}
-
-/// Motion tokens (unslop pass 9). One ease-out curve, no overshoot, no
-/// loops on things that are not live.
-abstract final class HomiziMotion {
-  static const Curve curve = Cubic(0.22, 1, 0.36, 1);
-
-  /// Hover, press, toggles.
-  static const Duration fast = Duration(milliseconds: 150);
-
-  /// Menus, popovers, chips.
-  static const Duration menu = Duration(milliseconds: 200);
-
-  /// Entrances, sheets, layout changes.
-  static const Duration enter = Duration(milliseconds: 360);
-}
-
 /// Menus stay a white surface with ink type. The selected row is a pale
 /// orange wash. A solid navy focus colour used to paint the dropdown header
 /// and hide the items.
 const _menuShape = RoundedRectangleBorder(
-  borderRadius: BorderRadius.all(Radius.circular(HomiziRadius.control)),
+  borderRadius: BorderRadius.all(Radius.circular(16)),
 );
 
 const _menuStyle = MenuStyle(
   backgroundColor: WidgetStatePropertyAll(HomiziColors.white),
   surfaceTintColor: WidgetStatePropertyAll(HomiziColors.clear),
-  elevation: WidgetStatePropertyAll(3),
+  elevation: WidgetStatePropertyAll(6),
   shape: WidgetStatePropertyAll(_menuShape),
 );
 

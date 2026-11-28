@@ -121,7 +121,7 @@ class _AreaFallback extends StatelessWidget {
   Widget build(BuildContext context) {
     return ColoredBox(
       key: const Key('listing-area-fallback'),
-      color: HomiziColors.mapBlank,
+      color: const Color(0xFFF4F1EA),
       child: LayoutBuilder(
         builder: (context, constraints) {
           final tight = constraints.maxHeight < 160;
@@ -165,7 +165,7 @@ class _AreaFallback extends StatelessWidget {
                       ),
                       decoration: BoxDecoration(
                         color: HomiziColors.white,
-                        borderRadius: BorderRadius.circular(16),
+                        borderRadius: BorderRadius.circular(20),
                         boxShadow: const [
                           BoxShadow(
                             color: HomiziColors.shadowSoft,
@@ -178,7 +178,7 @@ class _AreaFallback extends StatelessWidget {
                         label,
                         style: const TextStyle(
                           color: HomiziColors.ink,
-                          fontWeight: FontWeight.w600,
+                          fontWeight: FontWeight.w800,
                         ),
                       ),
                     ),

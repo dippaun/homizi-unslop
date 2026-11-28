@@ -184,7 +184,7 @@ class _TenantSetupScreenState extends ConsumerState<TenantSetupScreen> {
     if (phase != SessionPhase.ready) {
       return Scaffold(
         key: const Key('tenant-setup-screen'),
-        backgroundColor: HomiziColors.cream,
+        backgroundColor: HomiziColors.white,
         appBar: AppBar(
           automaticallyImplyLeading: false,
           leading: const HomiziBackButton(),
@@ -200,7 +200,7 @@ class _TenantSetupScreenState extends ConsumerState<TenantSetupScreen> {
     }
     return Scaffold(
       key: const Key('tenant-setup-screen'),
-      backgroundColor: HomiziColors.cream,
+      backgroundColor: HomiziColors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: HomiziBackButton(

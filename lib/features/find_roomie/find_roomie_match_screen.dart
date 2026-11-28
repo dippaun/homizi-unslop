@@ -73,7 +73,7 @@ class _Body extends ConsumerWidget {
       padding: const EdgeInsets.fromLTRB(16, 8, 16, 28),
       children: [
         ClipRRect(
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(24),
           child: Stack(
             children: [
               FindRoomiePhoto(reference: person.photoRef, height: 280),
@@ -88,7 +88,7 @@ class _Body extends ConsumerWidget {
             ],
           ),
         ),
-        const SizedBox(height: 16),
+        const SizedBox(height: 14),
         Row(
           children: [
             Expanded(
@@ -96,7 +96,7 @@ class _Body extends ConsumerWidget {
                 person.name,
                 style: text.headlineSmall?.copyWith(
                   color: HomiziColors.ink,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w800,
                 ),
               ),
             ),
@@ -120,7 +120,7 @@ class _Body extends ConsumerWidget {
           homiziText(context, 'Why you match'),
           style: text.titleMedium?.copyWith(
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w800,
           ),
         ),
         const SizedBox(height: 8),

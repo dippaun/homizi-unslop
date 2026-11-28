@@ -941,7 +941,7 @@ class _BrokerFlowScreenState extends ConsumerState<BrokerFlowScreen> {
           homiziText(context, 'Seekers matched to your listings'),
           style: const TextStyle(
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w800,
             fontSize: 18,
           ),
         ),
@@ -963,7 +963,7 @@ class _BrokerFlowScreenState extends ConsumerState<BrokerFlowScreen> {
           homiziText(context, 'Your listings'),
           style: const TextStyle(
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w800,
             fontSize: 18,
           ),
         ),
@@ -1145,7 +1145,7 @@ class _BrokerFlowScreenState extends ConsumerState<BrokerFlowScreen> {
 Widget _introTitle(BuildContext context) {
   final style = Theme.of(
     context,
-  ).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.w600, height: 1.1);
+  ).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.w800, height: 1.1);
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
@@ -1185,7 +1185,7 @@ class _ListingRow extends StatelessWidget {
                 homiziText(context, listing.title),
                 style: const TextStyle(
                   color: HomiziColors.ink,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w700,
                 ),
               ),
               Text(
@@ -1246,7 +1246,7 @@ class _SeekerRow extends StatelessWidget {
                       homiziText(context, seeker.displayName),
                       style: const TextStyle(
                         color: HomiziColors.ink,
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w700,
                       ),
                     ),
                     Text(
@@ -1275,7 +1275,7 @@ class _SeekerRow extends StatelessWidget {
                 key: Key('broker-match-${seeker.requirementId}'),
                 style: const TextStyle(
                   color: HomiziColors.ink,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w800,
                 ),
               ),
             ],

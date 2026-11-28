@@ -67,26 +67,40 @@ class _CompartmentTile extends StatelessWidget {
     final ink = selected ? HomiziColors.white : HomiziColors.ink;
     final muted = selected ? HomiziColors.white : HomiziColors.muted;
     return AnimatedScale(
-      scale: 1,
+      scale: selected ? 1.04 : 1,
       duration: const Duration(milliseconds: 220),
       curve: Curves.easeOutCubic,
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 220),
         curve: Curves.easeOutCubic,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16),
-
-          color: selected ? HomiziColors.logoOrange : HomiziColors.white,
+          borderRadius: BorderRadius.circular(18),
+          gradient: selected
+              ? const LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [Color(0xFFFF8A4C), HomiziColors.logoOrange],
+                )
+              : null,
+          color: selected ? null : HomiziColors.white,
           border: Border.all(
             color: selected ? HomiziColors.logoOrange : HomiziColors.line,
           ),
-          boxShadow: HomiziElevation.small,
+          boxShadow: [
+            BoxShadow(
+              color: selected
+                  ? HomiziColors.logoOrange.withValues(alpha: 0.28)
+                  : HomiziColors.shadow,
+              blurRadius: selected ? 16 : 10,
+              offset: const Offset(0, 6),
+            ),
+          ],
         ),
         child: Material(
           type: MaterialType.transparency,
           child: InkWell(
             key: spec.tileKey,
-            borderRadius: BorderRadius.circular(16),
+            borderRadius: BorderRadius.circular(18),
             onTap: onTap,
             child: Semantics(
               button: true,
@@ -113,7 +127,7 @@ class _CompartmentTile extends StatelessWidget {
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                           fontFamily: 'PlusJakartaSans',
-                          fontWeight: FontWeight.w600,
+                          fontWeight: FontWeight.w800,
                           fontSize: 12,
                           height: 1.15,
                           color: muted,
@@ -168,15 +182,15 @@ class _IconBadge extends StatelessWidget {
                 ),
                 child: Padding(
                   padding: const EdgeInsets.symmetric(
-                    horizontal: 4,
+                    horizontal: 5,
                     vertical: 1,
                   ),
                   child: Text(
                     shown,
                     style: TextStyle(
                       fontFamily: 'Inter',
-                      fontSize: 11,
-                      fontWeight: FontWeight.w600,
+                      fontSize: 10,
+                      fontWeight: FontWeight.w800,
                       color: selected
                           ? HomiziColors.logoOrange
                           : HomiziColors.white,

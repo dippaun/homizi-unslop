@@ -64,7 +64,7 @@ class RentCostBreakdown extends StatelessWidget {
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: HomiziColors.white,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(20),
         boxShadow: const [
           BoxShadow(
             color: HomiziColors.shadow,
@@ -81,7 +81,7 @@ class RentCostBreakdown extends StatelessWidget {
               homiziText(context, 'Cost of renting'),
               style: theme.textTheme.titleMedium?.copyWith(
                 color: HomiziColors.ink,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w700,
               ),
             ),
             const SizedBox(height: 4),
@@ -156,7 +156,7 @@ class RentCostBreakdown extends StatelessWidget {
             homiziText(context, label),
             style: Theme.of(context).textTheme.titleSmall?.copyWith(
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w700,
             ),
           ),
         ),
@@ -166,7 +166,7 @@ class RentCostBreakdown extends StatelessWidget {
                 valueKey: Key(totalKey),
                 style: Theme.of(context).textTheme.titleSmall?.copyWith(
                   color: HomiziColors.ink,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w700,
                 ),
               )
             : Text(
@@ -174,7 +174,7 @@ class RentCostBreakdown extends StatelessWidget {
                 key: Key(totalKey),
                 style: Theme.of(context).textTheme.titleSmall?.copyWith(
                   color: HomiziColors.ink,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w700,
                 ),
               ),
       ],
@@ -296,7 +296,9 @@ class _CalculatingLiveState extends State<_CalculatingLive>
               height: 10,
               decoration: const BoxDecoration(
                 shape: BoxShape.circle,
-                color: HomiziColors.logoOrange,
+                gradient: LinearGradient(
+                  colors: [HomiziColors.brandGolden, HomiziColors.logoOrange],
+                ),
               ),
             ),
           ),
@@ -306,7 +308,7 @@ class _CalculatingLiveState extends State<_CalculatingLive>
           homiziText(context, 'Calculating live'),
           style: const TextStyle(
             color: HomiziColors.inkSoft,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w700,
             fontSize: 13,
           ),
         ),
@@ -363,10 +365,17 @@ class _SweepBorderState extends State<_SweepBorder>
         final t = _sweep.value;
         return DecoratedBox(
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16),
-            color: t == 0
-                ? HomiziColors.line
-                : Color.lerp(HomiziColors.logoOrange, HomiziColors.line, t),
+            borderRadius: BorderRadius.circular(22),
+            gradient: LinearGradient(
+              begin: Alignment(-1.4 + (t * 2.8), -1),
+              end: Alignment(-0.2 + (t * 2.8), 1),
+              colors: const [
+                HomiziColors.line,
+                HomiziColors.brandGolden,
+                HomiziColors.logoOrange,
+                HomiziColors.line,
+              ],
+            ),
           ),
           child: Padding(padding: const EdgeInsets.all(1.5), child: child),
         );

@@ -222,7 +222,7 @@ class _DepositScreenState extends ConsumerState<DepositScreen> {
   Widget build(BuildContext context) {
     final open = _open;
     return Scaffold(
-      backgroundColor: HomiziColors.cream,
+      backgroundColor: HomiziColors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: const HomiziBackButton(),

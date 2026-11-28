@@ -44,7 +44,7 @@ class IndianPhoneField extends StatelessWidget {
               key: Key('phone-prefix'),
               style: TextStyle(
                 color: HomiziColors.ink,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w700,
                 fontSize: 16,
               ),
             ),

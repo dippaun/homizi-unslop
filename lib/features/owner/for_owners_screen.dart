@@ -21,7 +21,7 @@ class ForOwnersScreen extends ConsumerWidget {
     final scheme = Theme.of(context).colorScheme;
     return Scaffold(
       key: const Key('for-owners-screen'),
-      backgroundColor: HomiziColors.cream,
+      backgroundColor: HomiziColors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: const HomiziBackButton(),
@@ -148,7 +148,7 @@ class _OwnerStep extends StatelessWidget {
                 foregroundColor: HomiziColors.ink,
                 child: Text(index),
               ),
-              const SizedBox(width: 16),
+              const SizedBox(width: 14),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

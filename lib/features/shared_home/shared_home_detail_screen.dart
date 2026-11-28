@@ -96,7 +96,7 @@ class _Body extends ConsumerWidget {
         const SizedBox(height: 8),
         Text(
           home.listing.title,
-          style: text.titleLarge?.copyWith(fontWeight: FontWeight.w600),
+          style: text.titleLarge?.copyWith(fontWeight: FontWeight.w700),
         ),
         const SizedBox(height: 4),
         Text('${home.place} · ${home.priceLine}'),
@@ -123,7 +123,7 @@ class _Body extends ConsumerWidget {
             tableKey: const Key('shared-detail-occupancy'),
           ),
         ),
-        const SizedBox(height: 16),
+        const SizedBox(height: 14),
         ShSection(
           title: home.occupancy.housemates.length > 1
               ? 'Current housemates'
@@ -145,7 +145,7 @@ class _Body extends ConsumerWidget {
                   ],
                 ),
         ),
-        const SizedBox(height: 16),
+        const SizedBox(height: 14),
         Row(
           children: [
             Icon(
@@ -161,7 +161,7 @@ class _Body extends ConsumerWidget {
             ),
           ],
         ),
-        const SizedBox(height: 20),
+        const SizedBox(height: 18),
         if (open != null)
           ShGradientButton(
             buttonKey: const Key('shared-view-request'),
@@ -218,7 +218,7 @@ class _Housemate extends StatelessWidget {
                 Text(
                   '${mate.displayName} (${homiziText(context, 'Existing tenant')})',
                   style: const TextStyle(
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w700,
                     color: HomiziColors.ink,
                   ),
                 ),

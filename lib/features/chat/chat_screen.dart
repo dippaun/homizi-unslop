@@ -277,7 +277,7 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
         : null;
     return MinTouchScope(
       child: Scaffold(
-        backgroundColor: HomiziColors.cream,
+        backgroundColor: HomiziColors.white,
         appBar: AppBar(
           automaticallyImplyLeading: false,
           leading: const HomiziBackButton(),
@@ -420,15 +420,15 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
                                       vertical: 12,
                                     ),
                                     border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(20),
+                                      borderRadius: BorderRadius.circular(24),
                                       borderSide: BorderSide.none,
                                     ),
                                     enabledBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(20),
+                                      borderRadius: BorderRadius.circular(24),
                                       borderSide: BorderSide.none,
                                     ),
                                     focusedBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(20),
+                                      borderRadius: BorderRadius.circular(24),
                                       borderSide: const BorderSide(
                                         color: HomiziColors.accent,
                                         width: 1.5,
@@ -505,11 +505,11 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
               : Alignment.centerLeft,
           child: Container(
             margin: const EdgeInsets.only(bottom: 8),
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
             constraints: const BoxConstraints(maxWidth: 280),
             decoration: BoxDecoration(
               color: message.mine ? HomiziColors.accentWash : HomiziColors.mist,
-              borderRadius: BorderRadius.circular(16),
+              borderRadius: BorderRadius.circular(18),
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.end,
@@ -615,7 +615,7 @@ class _VisitPanel extends StatelessWidget {
     return Card.outlined(
       margin: EdgeInsets.zero,
       child: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(14),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

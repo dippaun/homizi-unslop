@@ -208,7 +208,7 @@ class _PaymentsScreenState extends ConsumerState<PaymentsScreen> {
     final matches = _matches();
     if (matches.isEmpty) {
       return Scaffold(
-        backgroundColor: HomiziColors.cream,
+        backgroundColor: HomiziColors.white,
         appBar: AppBar(
           automaticallyImplyLeading: false,
           leading: const HomiziBackButton(),
@@ -224,7 +224,7 @@ class _PaymentsScreenState extends ConsumerState<PaymentsScreen> {
     }
     final selected = _matchId ?? matches.first.matchId;
     return Scaffold(
-      backgroundColor: HomiziColors.cream,
+      backgroundColor: HomiziColors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: const HomiziBackButton(),
@@ -240,9 +240,9 @@ class _PaymentsScreenState extends ConsumerState<PaymentsScreen> {
               Material(
                 key: const Key('payments-test-banner'),
                 color: HomiziColors.accent,
-                borderRadius: BorderRadius.circular(16),
+                borderRadius: BorderRadius.circular(20),
                 child: Padding(
-                  padding: const EdgeInsets.all(16),
+                  padding: const EdgeInsets.all(14),
                   child: Text(
                     homiziText(
                       context,

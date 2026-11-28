@@ -52,7 +52,7 @@ class _RoommatePreviewScreenState extends ConsumerState<RoommatePreviewScreen> {
         appBar: AppBar(
           automaticallyImplyLeading: false,
           leading: const HomiziBackButton(),
-          backgroundColor: HomiziColors.cream,
+          backgroundColor: HomiziColors.white,
         ),
         body: const EmptyState(
           title: 'Roommate not found',
@@ -71,7 +71,7 @@ class _RoommatePreviewScreenState extends ConsumerState<RoommatePreviewScreen> {
     return MinTouchScope(
       child: Scaffold(
         key: const Key('roommate-preview'),
-        backgroundColor: HomiziColors.cream,
+        backgroundColor: HomiziColors.white,
         body: RepaintBoundary(
           key: const Key('roommate-preview-shot'),
           child: Material(
@@ -94,7 +94,7 @@ class _RoommatePreviewScreenState extends ConsumerState<RoommatePreviewScreen> {
                                 key: const Key('roommate-share'),
                                 tooltip: homiziText(context, 'Share'),
                                 style: IconButton.styleFrom(
-                                  backgroundColor: HomiziColors.cream,
+                                  backgroundColor: HomiziColors.white,
                                 ),
                                 onPressed: () => _share(person),
                                 icon: const Icon(
@@ -106,7 +106,7 @@ class _RoommatePreviewScreenState extends ConsumerState<RoommatePreviewScreen> {
                                 key: const Key('roommate-preview-heart'),
                                 tooltip: homiziText(context, 'Maybe'),
                                 style: IconButton.styleFrom(
-                                  backgroundColor: HomiziColors.cream,
+                                  backgroundColor: HomiziColors.white,
                                 ),
                                 onPressed: () {
                                   ref
@@ -141,7 +141,7 @@ class _RoommatePreviewScreenState extends ConsumerState<RoommatePreviewScreen> {
                         textAlign: TextAlign.center,
                         style: theme.textTheme.headlineSmall?.copyWith(
                           color: HomiziColors.ink,
-                          fontWeight: FontWeight.w600,
+                          fontWeight: FontWeight.w800,
                         ),
                       ),
                       Padding(
@@ -195,7 +195,7 @@ class _RoommatePreviewScreenState extends ConsumerState<RoommatePreviewScreen> {
                                   ),
                                   decoration: BoxDecoration(
                                     color: HomiziColors.successWash,
-                                    borderRadius: BorderRadius.circular(16),
+                                    borderRadius: BorderRadius.circular(20),
                                   ),
                                   child: Text(
                                     score.percent == null
@@ -206,7 +206,7 @@ class _RoommatePreviewScreenState extends ConsumerState<RoommatePreviewScreen> {
                                         : '${score.percent}% Match',
                                     style: const TextStyle(
                                       color: HomiziColors.success,
-                                      fontWeight: FontWeight.w600,
+                                      fontWeight: FontWeight.w800,
                                     ),
                                   ),
                                 ),
@@ -245,7 +245,7 @@ class _RoommatePreviewScreenState extends ConsumerState<RoommatePreviewScreen> {
                               ],
                             ),
                             if (person.about.trim().isNotEmpty) ...[
-                              const SizedBox(height: 20),
+                              const SizedBox(height: 18),
                               Text(
                                 homiziText(
                                   context,
@@ -253,7 +253,7 @@ class _RoommatePreviewScreenState extends ConsumerState<RoommatePreviewScreen> {
                                 ),
                                 style: theme.textTheme.titleMedium?.copyWith(
                                   color: HomiziColors.ink,
-                                  fontWeight: FontWeight.w600,
+                                  fontWeight: FontWeight.w800,
                                 ),
                               ),
                               const SizedBox(height: 6),
@@ -266,12 +266,12 @@ class _RoommatePreviewScreenState extends ConsumerState<RoommatePreviewScreen> {
                               ),
                             ],
                             if (finderHabitLabels(person).isNotEmpty) ...[
-                              const SizedBox(height: 20),
+                              const SizedBox(height: 18),
                               Text(
                                 homiziText(context, 'Lifestyle & Preferences'),
                                 style: theme.textTheme.titleMedium?.copyWith(
                                   color: HomiziColors.ink,
-                                  fontWeight: FontWeight.w600,
+                                  fontWeight: FontWeight.w800,
                                 ),
                               ),
                               const SizedBox(height: 8),
@@ -285,24 +285,24 @@ class _RoommatePreviewScreenState extends ConsumerState<RoommatePreviewScreen> {
                               ),
                             ],
                             if (person.traits.languages.isNotEmpty) ...[
-                              const SizedBox(height: 20),
+                              const SizedBox(height: 18),
                               Text(
                                 homiziText(context, 'Languages'),
                                 style: theme.textTheme.titleMedium?.copyWith(
                                   color: HomiziColors.ink,
-                                  fontWeight: FontWeight.w600,
+                                  fontWeight: FontWeight.w800,
                                 ),
                               ),
                               const SizedBox(height: 8),
                               Text(person.traits.languages.join(', ')),
                             ],
                             if (_placePhotos(person).isNotEmpty) ...[
-                              const SizedBox(height: 20),
+                              const SizedBox(height: 18),
                               Text(
                                 homiziText(context, 'Their place'),
                                 style: theme.textTheme.titleMedium?.copyWith(
                                   color: HomiziColors.ink,
-                                  fontWeight: FontWeight.w600,
+                                  fontWeight: FontWeight.w800,
                                 ),
                               ),
                               const SizedBox(height: 8),
@@ -329,7 +329,7 @@ class _RoommatePreviewScreenState extends ConsumerState<RoommatePreviewScreen> {
                                 ),
                               ),
                             ],
-                            const SizedBox(height: 20),
+                            const SizedBox(height: 18),
                             _compatibility(score),
                             const SizedBox(height: 16),
                           ],
@@ -431,7 +431,7 @@ class _RoommatePreviewScreenState extends ConsumerState<RoommatePreviewScreen> {
                 style: const TextStyle(
                   fontFamily: 'PlusJakartaSans',
                   color: HomiziColors.ink,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w800,
                   fontSize: 18,
                 ),
               ),
@@ -439,13 +439,13 @@ class _RoommatePreviewScreenState extends ConsumerState<RoommatePreviewScreen> {
           ],
         ),
         if (forward.isNotEmpty) ...[
-          const SizedBox(height: 16),
+          const SizedBox(height: 14),
           _fitLabel('How they fit what you want'),
           const SizedBox(height: 8),
           _fitIcons(forward),
         ],
         if (back.isNotEmpty) ...[
-          const SizedBox(height: 16),
+          const SizedBox(height: 14),
           _fitLabel('How you fit what they want'),
           const SizedBox(height: 8),
           _fitIcons(back),
@@ -459,7 +459,7 @@ class _RoommatePreviewScreenState extends ConsumerState<RoommatePreviewScreen> {
       homiziText(context, text),
       style: const TextStyle(
         color: HomiziColors.ink,
-        fontWeight: FontWeight.w600,
+        fontWeight: FontWeight.w800,
         fontSize: 14,
       ),
     );
@@ -517,7 +517,7 @@ class _RoommatePreviewScreenState extends ConsumerState<RoommatePreviewScreen> {
       builder: (context) {
         return AlertDialog(
           key: const Key('roommate-share-dialog'),
-          backgroundColor: HomiziColors.cream,
+          backgroundColor: HomiziColors.white,
           title: Text(
             homiziText(context, 'Share ${person.name}'),
             style: const TextStyle(color: HomiziColors.ink),
@@ -550,7 +550,7 @@ class _RoommatePreviewScreenState extends ConsumerState<RoommatePreviewScreen> {
       padding: const EdgeInsets.symmetric(horizontal: 10),
       decoration: BoxDecoration(
         color: HomiziColors.soft,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(20),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
@@ -592,7 +592,7 @@ class _RoommatePreviewScreenState extends ConsumerState<RoommatePreviewScreen> {
               style: const TextStyle(
                 color: HomiziColors.ink,
                 fontSize: 11,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w700,
               ),
             ),
           ],
@@ -646,7 +646,7 @@ class _FitIcon extends StatelessWidget {
         ? (Icons.add_circle, HomiziColors.brandGolden, HomiziColors.warningWash)
         : factor.matched
         ? (Icons.check_circle, HomiziColors.success, HomiziColors.successWash)
-        : (Icons.cancel, HomiziColors.logoOrange, HomiziColors.warmWash);
+        : (Icons.cancel, HomiziColors.logoOrange, const Color(0xFFFFF1E8));
     return Tooltip(
       message: factor.detail.isEmpty ? factor.label : factor.detail,
       child: SizedBox(
@@ -674,7 +674,7 @@ class _FitIcon extends StatelessWidget {
               style: const TextStyle(
                 color: HomiziColors.ink,
                 fontSize: 11,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w700,
               ),
             ),
           ],
@@ -700,5 +700,5 @@ IconData _habitIcon(String label) {
   if (label.contains('Work')) {
     return Icons.laptop_mac;
   }
-  return Icons.handshake_outlined;
+  return Icons.auto_awesome;
 }

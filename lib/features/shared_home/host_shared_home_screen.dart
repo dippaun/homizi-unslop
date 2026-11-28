@@ -7,7 +7,6 @@ import 'package:homizi/core/location/place_autocomplete_field.dart';
 import 'package:homizi/core/routing/route_paths.dart';
 import 'package:homizi/core/theme/flow_accent.dart';
 import 'package:homizi/core/theme/homizi_colors.dart';
-import 'package:homizi/core/theme/role_palette.dart';
 import 'package:homizi/core/widgets/homizi_back.dart';
 import 'package:homizi/core/widgets/state_views.dart';
 import 'package:homizi/features/owner/owner_dashboard_screen.dart';
@@ -21,9 +20,7 @@ import 'package:homizi/features/shared_home/shared_home_providers.dart';
 import 'package:homizi/features/shared_home/shared_home_repository.dart';
 import 'package:homizi/features/shared_home/shared_home_widgets.dart';
 import 'package:homizi/features/shared_home/tenant_home_intake.dart';
-import 'package:homizi/ui/kit/hero_band.dart';
 import 'package:homizi/ui/kit/kit.dart';
-import 'package:homizi/ui/kit/motion_kit.dart';
 
 const _propertyTypes = ['1 RK', '1 BHK', '2 BHK', '3 BHK', '4 BHK'];
 
@@ -145,7 +142,7 @@ class _HostSharedHomeScreenState extends ConsumerState<HostSharedHomeScreen> {
     final listings = ref.watch(ownerListingsProvider);
     final page = Scaffold(
       key: const Key('host-shared-screen'),
-      backgroundColor: HomiziColors.cream,
+      backgroundColor: HomiziColors.surface,
       appBar: widget.postChrome
           ? const PostPropertyBar()
           : AppBar(
@@ -219,6 +216,7 @@ class _HostSharedHomeScreenState extends ConsumerState<HostSharedHomeScreen> {
   }
 
   Widget _form(List<OwnerListing> rows) {
+    final text = Theme.of(context).textTheme;
     final selected = rows.any((row) => row.id == _listingId)
         ? _listingId!
         : rows.first.id;
@@ -226,16 +224,15 @@ class _HostSharedHomeScreenState extends ConsumerState<HostSharedHomeScreen> {
       key: const Key('host-shared-list'),
       padding: const EdgeInsets.fromLTRB(20, 8, 20, 32),
       children: [
-        HomiziStaggerIn(
-          child: HomiziRoleIntro(
-            palette: HomiziRolePalette.sharer,
-            eyebrow: homiziText(context, 'Room sharer'),
-            icon: Icons.bedroom_parent_outlined,
-            title: homiziText(context, 'Add complete details'),
-            body: homiziText(
-              context,
-              'Seekers match on the rooms that are actually free, not just BHK.',
-            ),
+        Text(
+          homiziText(context, 'Add complete details'),
+          style: text.headlineSmall?.copyWith(fontWeight: FontWeight.w700),
+        ),
+        const SizedBox(height: 4),
+        Text(
+          homiziText(
+            context,
+            'Seekers match on the rooms that are actually free, not just BHK.',
           ),
         ),
         const SizedBox(height: 16),
@@ -362,7 +359,7 @@ class _HostSharedHomeScreenState extends ConsumerState<HostSharedHomeScreen> {
             ],
           ),
         ),
-        const SizedBox(height: 16),
+        const SizedBox(height: 14),
         ShSection(
           title: 'Occupancy type',
           icon: Icons.bed_outlined,
@@ -387,7 +384,7 @@ class _HostSharedHomeScreenState extends ConsumerState<HostSharedHomeScreen> {
           ),
         ),
         if (_living > 0) ...[
-          const SizedBox(height: 16),
+          const SizedBox(height: 14),
           ShSection(
             title: 'Who lives there now',
             icon: Icons.person_outline,
@@ -519,7 +516,7 @@ class _HostSharedHomeScreenState extends ConsumerState<HostSharedHomeScreen> {
             ),
           ),
         ],
-        const SizedBox(height: 16),
+        const SizedBox(height: 14),
         _example(),
         if (_problem != null) ...[
           const SizedBox(height: 10),
@@ -599,7 +596,7 @@ class _HostSharedHomeScreenState extends ConsumerState<HostSharedHomeScreen> {
       padding: const EdgeInsets.fromLTRB(20, 24, 20, 32),
       children: [
         const ShDoneMark(),
-        const SizedBox(height: 16),
+        const SizedBox(height: 14),
         Text(
           homiziText(
             context,
@@ -611,7 +608,7 @@ class _HostSharedHomeScreenState extends ConsumerState<HostSharedHomeScreen> {
           textAlign: TextAlign.center,
           style: text.headlineSmall?.copyWith(
             color: HomiziColors.success,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w700,
           ),
         ),
         const SizedBox(height: 8),
@@ -659,7 +656,7 @@ class _HostSharedHomeScreenState extends ConsumerState<HostSharedHomeScreen> {
               homiziText(context, 'Back to Home'),
               style: const TextStyle(
                 color: HomiziColors.ink,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w700,
               ),
             ),
           ),
@@ -686,7 +683,7 @@ class _Pill extends StatelessWidget {
         ),
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 5),
         child: Text(
           homiziText(context, text),
           style: TextStyle(
@@ -817,7 +814,7 @@ class _HostJoinRequestsScreenState
                                 Text(
                                   row.firstName,
                                   style: const TextStyle(
-                                    fontWeight: FontWeight.w600,
+                                    fontWeight: FontWeight.w700,
                                   ),
                                 ),
                                 Text(
@@ -869,7 +866,7 @@ class _HostJoinRequestsScreenState
                           key: Key('host-status-${row.id}'),
                           style: const TextStyle(
                             color: HomiziColors.success,
-                            fontWeight: FontWeight.w600,
+                            fontWeight: FontWeight.w700,
                           ),
                         ),
                     ],

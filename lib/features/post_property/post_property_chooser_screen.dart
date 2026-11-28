@@ -74,7 +74,7 @@ class _PostPropertyChooserScreenState
                       style: const TextStyle(
                         fontFamily: 'PlusJakartaSans',
                         color: HomiziColors.ink,
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w800,
                         fontSize: 28,
                         height: 1.1,
                       ),
@@ -195,11 +195,11 @@ class _ChoiceCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: selected ? HomiziColors.warmWash : HomiziColors.white,
+      color: selected ? HomiziColors.homiziLavender : HomiziColors.white,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(20),
         side: BorderSide(
-          color: selected ? HomiziColors.brandDeepRed : HomiziColors.line,
+          color: selected ? HomiziColors.homiziPurple : HomiziColors.line,
           width: selected ? 1.5 : 1,
         ),
       ),
@@ -219,7 +219,7 @@ class _ChoiceCard extends StatelessWidget {
                   clipBehavior: Clip.none,
                   children: [
                     ClipRRect(
-                      borderRadius: BorderRadius.circular(12),
+                      borderRadius: BorderRadius.circular(14),
                       child: Image.asset(
                         asset,
                         width: 72,
@@ -258,7 +258,7 @@ class _ChoiceCard extends StatelessWidget {
                       style: const TextStyle(
                         fontFamily: 'PlusJakartaSans',
                         color: HomiziColors.ink,
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w800,
                         fontSize: 16,
                       ),
                     ),
@@ -285,7 +285,7 @@ class _ChoiceCard extends StatelessWidget {
               Icon(
                 selected ? Icons.radio_button_checked : Icons.radio_button_off,
                 color: selected
-                    ? HomiziColors.brandDeepRed
+                    ? HomiziColors.homiziPurple
                     : HomiziColors.muted,
               ),
             ],

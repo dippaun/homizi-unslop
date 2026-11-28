@@ -1,27 +1,26 @@
-Demo listing photos: real Indian flats, houses and rooms from Pexels, used under the
-Pexels License (free for commercial use, no attribution required; credited anyway).
-Bundled so demo mode does not fetch images at runtime. Cropped and compressed.
+Demo listing photos are from Unsplash and used under the Unsplash License.
+They are bundled so demo mode does not fetch images at runtime.
 
-- living_01.jpg / living_01.webp — Mumbai living room — https://www.pexels.com/photo/7148846/ — Souranshi Fashion and Lifestyle Magazine
-- living_02.jpg / living_02.webp — Kochi living room — https://www.pexels.com/photo/33452539/
-- living_03.jpg / living_03.webp — Bengaluru living room — https://www.pexels.com/photo/38084669/ — Vidit Goel
-- living_04.jpg / living_04.webp — Jodhpur living room — https://www.pexels.com/photo/14197309/
-- living_05.jpg / living_05.webp — Maharashtra duplex living room — https://www.pexels.com/photo/12205231/
-- bed_01.jpg / bed_01.webp — Noida bedroom — https://www.pexels.com/photo/19826090/ — Dhruv Garg
-- bed_02.jpg / bed_02.webp — Minimalist bedroom — https://www.pexels.com/photo/19836792/
-- bed_03.jpg / bed_03.webp — Minimalist bedroom — https://www.pexels.com/photo/35229096/
-- bed_04.jpg / bed_04.webp — Minimalist bedroom — https://www.pexels.com/photo/19836792/
-- kitchen_01.jpg / kitchen_01.webp — Bengaluru modular kitchen — https://www.pexels.com/photo/3926542/ — Houzlook.com
-- kitchen_02.jpg / kitchen_02.webp — Mumbai kitchen — https://www.pexels.com/photo/2089698/ — Saviesa Home
-- kitchen_03.jpg / kitchen_03.webp — North Goa kitchen — https://www.pexels.com/photo/36913230/ — Shelton Estibeiro
-- bath_01.jpg / bath_01.webp — Bathroom with health faucet — https://www.pexels.com/photo/6636244/
-- bath_02.jpg / bath_02.webp — Bathroom with health faucet — https://www.pexels.com/photo/6636244/
-- exterior_01.jpg / exterior_01.webp — Mumbai high-rise — https://www.pexels.com/photo/30381635/ — aksinfo7 universe
-- exterior_02.jpg / exterior_02.webp — Bengaluru residential building — https://www.pexels.com/photo/35114454/
-- exterior_03.jpg / exterior_03.webp — Bengaluru apartment balconies — https://www.pexels.com/photo/38689079/
-- balcony_01.jpg / balcony_01.webp — Balcony with plants — https://www.pexels.com/photo/17627570/
-- balcony_02.jpg / balcony_02.webp — Mumbai apartment building — https://www.pexels.com/photo/38179316/ — Vijil Vincent
-- dining_01.jpg / dining_01.webp — Ahmedabad kitchen — https://www.pexels.com/photo/31944364/ — Fahad Puthawala
-- workspace_01.jpg / workspace_01.webp — Minimalist bedroom — https://www.pexels.com/photo/19836792/
+- living_01.jpg — photo-1502672260266-1c1ef2d93688
+- living_02.jpg — photo-1560448204-e02f11c3d0e2
+- living_03.jpg — photo-1493809842364-78817add7ffb
+- living_04.jpg — photo-1560185007-cde436f6a4d0
+- living_05.jpg — photo-1618221195710-dd6b41faaea6
+- bed_01.jpg — photo-1616594039964-ae9021a400a0
+- bed_02.jpg — photo-1615874959474-d609969a20ed
+- bed_03.jpg — photo-1598928506311-c55ded91a20c
+- bed_04.jpg — photo-1560185127-6ed189bf02f4
+- kitchen_01.jpg — photo-1556912173-46c336c7fd55
+- kitchen_02.jpg — photo-1556909114-f6e7ad7d3136
+- kitchen_03.jpg — photo-1600566753190-17f0baa2a6c3
+- bath_01.jpg — photo-1552321554-5fefe8c9ef14
+- bath_02.jpg — photo-1620626011761-996317b8d101
+- exterior_01.jpg — photo-1545324418-cc1a3fa10c00
+- exterior_02.jpg — photo-1600585154340-be6161a56a0c
+- exterior_03.jpg — photo-1600596542815-ffad4c1539a9
+- balcony_01.jpg — photo-1600607687939-ce8a6c25118c
+- balcony_02.jpg — photo-1600585154526-990dced4db0d
+- dining_01.jpg — photo-1554995207-c18c203602cb
+- workspace_01.jpg — photo-1522708323590-d24dbb6b0267
 
-https://www.pexels.com/license/
+https://unsplash.com/license

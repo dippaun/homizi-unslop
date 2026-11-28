@@ -32,7 +32,9 @@ class ShGradientButton extends StatelessWidget {
       opacity: enabled || busy ? 1 : 0.5,
       child: DecoratedBox(
         decoration: BoxDecoration(
-          gradient: HomiziGradients.action,
+          gradient: const LinearGradient(
+            colors: [HomiziColors.logoOrange, HomiziColors.brandRedOrange],
+          ),
           borderRadius: BorderRadius.circular(16),
         ),
         child: Material(
@@ -66,7 +68,7 @@ class ShGradientButton extends StatelessWidget {
                               overflow: TextOverflow.ellipsis,
                               style: const TextStyle(
                                 color: HomiziColors.white,
-                                fontWeight: FontWeight.w600,
+                                fontWeight: FontWeight.w700,
                                 fontSize: 16,
                               ),
                             ),
@@ -115,7 +117,7 @@ class ShGreenButton extends StatelessWidget {
         icon: Icon(icon ?? Icons.check_circle_outline),
         label: Text(
           homiziText(context, label),
-          style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
+          style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 16),
         ),
       ),
     );
@@ -143,7 +145,7 @@ class ShSection extends StatelessWidget {
       color: color,
       shape: RoundedRectangleBorder(
         side: const BorderSide(color: HomiziColors.line),
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(18),
       ),
       child: Padding(
         padding: const EdgeInsets.all(16),
@@ -162,7 +164,7 @@ class ShSection extends StatelessWidget {
                       homiziText(context, title!),
                       style: Theme.of(context).textTheme.titleMedium?.copyWith(
                         color: HomiziColors.brandDeepRed,
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w700,
                       ),
                     ),
                   ),
@@ -194,10 +196,10 @@ class ShMatchPill extends StatelessWidget {
     final tone = matchTone(match.score);
     return Material(
       color: tone.background,
-      borderRadius: BorderRadius.circular(12),
+      borderRadius: BorderRadius.circular(14),
       child: InkWell(
         key: pillKey,
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(14),
         onTap: () => showMatchBreakdown(context, match: match),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
@@ -208,7 +210,7 @@ class ShMatchPill extends StatelessWidget {
                 '${match.score}%',
                 style: TextStyle(
                   color: tone.foreground,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w700,
                   fontSize: 18,
                   height: 1.1,
                 ),
@@ -239,12 +241,12 @@ class ShTag extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
         child: Text(
           homiziText(context, label),
           style: const TextStyle(
             color: HomiziColors.white,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w700,
           ),
         ),
       ),
@@ -264,7 +266,7 @@ class ShSampleChip extends StatelessWidget {
         border: Border.all(color: HomiziColors.warning),
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
         child: Text(
           homiziText(context, 'Sample home'),
           style: const TextStyle(
@@ -303,7 +305,7 @@ class ShHomePhoto extends StatelessWidget {
         fit: StackFit.expand,
         children: [
           ClipRRect(
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(14),
             child: ListingPhoto(
               asset: asset,
               fallbackAsset: homiziFallbackPhoto(asset ?? 'shared-home'),
@@ -387,7 +389,7 @@ class ShInfoRow extends StatelessWidget {
   Widget build(BuildContext context) {
     final text = Theme.of(context).textTheme;
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 4),
+      padding: const EdgeInsets.symmetric(vertical: 5),
       child: Row(
         children: [
           Icon(icon, size: 18, color: HomiziColors.brandOrange),
@@ -402,7 +404,7 @@ class ShInfoRow extends StatelessWidget {
               textAlign: TextAlign.right,
               style: text.bodyMedium?.copyWith(
                 color: HomiziColors.ink,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w700,
               ),
             ),
           ),
@@ -433,7 +435,7 @@ class ShAvatar extends StatelessWidget {
         initial,
         style: TextStyle(
           color: you ? HomiziColors.white : HomiziColors.brandDeepRed,
-          fontWeight: FontWeight.w600,
+          fontWeight: FontWeight.w700,
           fontSize: size * 0.4,
         ),
       ),
@@ -531,7 +533,7 @@ class ShHowItWorks extends StatelessWidget {
                         Text(
                           homiziText(context, steps[i].$2),
                           style: text.bodyMedium?.copyWith(
-                            fontWeight: FontWeight.w600,
+                            fontWeight: FontWeight.w700,
                             color: HomiziColors.ink,
                           ),
                         ),

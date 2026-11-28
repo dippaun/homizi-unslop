@@ -40,7 +40,7 @@ class MatchExplainedScreen extends ConsumerWidget {
             style: const TextStyle(
               color: HomiziColors.ink,
               fontSize: 22,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
             ),
           ),
           const SizedBox(height: 8),
@@ -67,7 +67,7 @@ class MatchExplainedScreen extends ConsumerWidget {
             homiziText(context, breakdown.headline),
             style: const TextStyle(
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
               fontSize: 18,
             ),
           ),
@@ -83,7 +83,7 @@ class MatchExplainedScreen extends ConsumerWidget {
             homiziText(context, 'Key match factors'),
             style: const TextStyle(
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
             ),
           ),
           const SizedBox(height: 8),
@@ -94,7 +94,7 @@ class MatchExplainedScreen extends ConsumerWidget {
             homiziText(context, 'Other boosters'),
             style: const TextStyle(
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
             ),
           ),
           const SizedBox(height: 4),
@@ -115,7 +115,7 @@ class MatchExplainedScreen extends ConsumerWidget {
             ),
             style: const TextStyle(
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
             ),
           ),
           if (card.roomiePercent != null) ...[
@@ -127,7 +127,7 @@ class MatchExplainedScreen extends ConsumerWidget {
               ),
               style: const TextStyle(
                 color: HomiziColors.ink,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w800,
                 fontSize: 18,
               ),
             ),
@@ -165,7 +165,7 @@ class _Lines extends StatelessWidget {
             homiziText(context, title),
             style: const TextStyle(
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
             ),
           ),
           if (lines.isEmpty)
@@ -235,7 +235,7 @@ class MatchCardScreen extends ConsumerWidget {
             homiziText(context, card.title),
             style: const TextStyle(
               fontSize: 22,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
               color: HomiziColors.ink,
             ),
           ),
@@ -247,7 +247,7 @@ class MatchCardScreen extends ConsumerWidget {
           Text(
             homiziText(context, 'Key details'),
             style: const TextStyle(
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
               color: HomiziColors.ink,
             ),
           ),
@@ -264,7 +264,7 @@ class MatchCardScreen extends ConsumerWidget {
           Text(
             homiziText(context, 'Why this is a great match (Top 5)'),
             style: const TextStyle(
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
               color: HomiziColors.ink,
             ),
           ),
@@ -274,7 +274,7 @@ class MatchCardScreen extends ConsumerWidget {
           Text(
             homiziText(context, card.personName),
             style: const TextStyle(
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
               color: HomiziColors.ink,
             ),
           ),
@@ -283,7 +283,7 @@ class MatchCardScreen extends ConsumerWidget {
           Text(
             homiziText(context, 'Nearby places'),
             style: const TextStyle(
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
               color: HomiziColors.ink,
             ),
           ),
@@ -292,7 +292,7 @@ class MatchCardScreen extends ConsumerWidget {
           Text(
             homiziText(context, card.commuteLabel),
             style: const TextStyle(
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
               color: HomiziColors.ink,
             ),
           ),
@@ -366,7 +366,7 @@ class ItsAMatchScreen extends ConsumerWidget {
             style: const TextStyle(
               color: HomiziColors.ink,
               fontSize: 28,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
             ),
           ),
           const SizedBox(height: 8),
@@ -694,7 +694,7 @@ class MatchCommuteScreen extends ConsumerWidget {
             style: const TextStyle(
               color: HomiziColors.ink,
               fontSize: 20,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
             ),
           ),
           const SizedBox(height: 8),
@@ -720,7 +720,7 @@ class MatchCommuteScreen extends ConsumerWidget {
             style: const TextStyle(
               color: HomiziColors.ink,
               fontSize: 22,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
             ),
           ),
           const SizedBox(height: 12),
@@ -740,7 +740,7 @@ class MatchCommuteScreen extends ConsumerWidget {
           Text(
             homiziText(context, 'Max commute'),
             style: const TextStyle(
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
               color: HomiziColors.ink,
             ),
           ),
@@ -760,7 +760,7 @@ class MatchCommuteScreen extends ConsumerWidget {
           Text(
             homiziText(context, 'Offices'),
             style: const TextStyle(
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
               color: HomiziColors.ink,
             ),
           ),

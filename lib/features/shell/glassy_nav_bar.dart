@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:homizi/core/theme/homizi_colors.dart';
+import 'package:homizi/features/auth/login_skyline.dart';
 import 'package:homizi/features/shell/min_touch.dart';
+
+/// How strongly the sign-in skyline shows through the bar.
+///
+/// The painter's near strokes are already about 0.92 orange. At 0.4 the
+/// lines land near 0.1 alpha once the white veil below is applied, so the
+/// art stays a watermark.
+const double _skylineOpacity = 0.4;
 
 /// White veil over the icon row. Glyphs are painted above this, and the
 /// veil keeps skyline strokes out of the letter counters.
@@ -13,9 +21,9 @@ const double _insetVeil = 0.42;
 /// Full-width bar docked to the bottom edge of the phone frame.
 ///
 /// The surface runs into the bottom safe area. Icons and labels stay in
-/// the band above that inset. v3: the bar is dark ink with rounded top
-/// corners. The active tab is an ink icon on an orange pill with a white
-/// label; idle tabs use [HomiziColors.onInkMuted].
+/// the band above that inset. Active tabs use a filled icon and a bold
+/// label in [HomiziColors.logoOrange]. Inactive tabs use [HomiziColors.ink]
+/// at [GlassyNavigationBar.inactiveOpacity].
 class GlassyNavigationBar extends StatelessWidget {
   const GlassyNavigationBar({
     required this.destinations,
@@ -74,13 +82,13 @@ class GlassyNavigationBar extends StatelessWidget {
       key: const Key('glassy-nav'),
       child: DecoratedBox(
         decoration: const BoxDecoration(
-          color: HomiziColors.ink,
-          borderRadius: BorderRadius.vertical(top: Radius.circular(22)),
+          color: HomiziColors.white,
+          border: Border(top: BorderSide(color: HomiziColors.line)),
           boxShadow: [
             BoxShadow(
-              color: HomiziColors.shadowStrong,
-              blurRadius: 18,
-              offset: Offset(0, -4),
+              color: HomiziColors.shadowSoft,
+              blurRadius: 8,
+              offset: Offset(0, -2),
             ),
           ],
         ),
@@ -90,6 +98,7 @@ class GlassyNavigationBar extends StatelessWidget {
           child: Stack(
             fit: StackFit.expand,
             children: [
+              const IgnorePointer(child: SizedBox.expand(child: _NavSkyline())),
               IgnorePointer(child: _NavVeil(inset: inset)),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -113,6 +122,28 @@ class GlassyNavigationBar extends StatelessWidget {
   }
 }
 
+class _NavSkyline extends StatelessWidget {
+  const _NavSkyline();
+
+  @override
+  Widget build(BuildContext context) {
+    return const ClipRect(
+      child: Opacity(
+        key: Key('nav-skyline'),
+        opacity: _skylineOpacity,
+        child: Align(
+          alignment: Alignment.bottomCenter,
+          child: SizedBox(
+            height: LoginSkyline.artHeight,
+            width: double.infinity,
+            child: CustomPaint(painter: CitySkylinePainter(reveal: 1)),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 class _NavVeil extends StatelessWidget {
   const _NavVeil({required this.inset});
 
@@ -120,8 +151,8 @@ class _NavVeil extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final row = HomiziColors.ink.withValues(alpha: _rowVeil);
-    final chin = HomiziColors.ink.withValues(alpha: _insetVeil);
+    final row = HomiziColors.white.withValues(alpha: _rowVeil);
+    final chin = HomiziColors.white.withValues(alpha: _insetVeil);
     final gradient = inset <= 0
         ? LinearGradient(colors: [row, row], stops: const [0, 1])
         : LinearGradient(
@@ -166,12 +197,11 @@ class _NavItemState extends State<_NavItem> {
 
   @override
   Widget build(BuildContext context) {
-    // v3 dark bar: the active icon is ink on an orange pill (5.95:1) with
-    // a white label; idle tabs are muted on ink (9:1).
     final color = widget.selected
-        ? HomiziColors.white
-        : HomiziColors.onInkMuted;
-    final iconColor = widget.selected ? HomiziColors.ink : color;
+        ? HomiziColors.logoOrange
+        : HomiziColors.ink.withValues(
+            alpha: GlassyNavigationBar.inactiveOpacity,
+          );
     final iconWidget = widget.selected
         ? (widget.destination.selectedIcon ?? widget.destination.icon)
         : widget.destination.icon;
@@ -183,7 +213,7 @@ class _NavItemState extends State<_NavItem> {
         (Theme.of(context).textTheme.labelSmall ?? const TextStyle()).copyWith(
           fontSize: 11,
           height: 1.1,
-          fontWeight: widget.selected ? FontWeight.w600 : FontWeight.w500,
+          fontWeight: widget.selected ? FontWeight.w700 : FontWeight.w500,
           color: color,
         );
     return Semantics(
@@ -220,8 +250,8 @@ class _NavItemState extends State<_NavItem> {
                   opacity: _hovered && !widget.selected ? 1 : 0,
                   child: DecoratedBox(
                     key: _hovered ? const Key('glassy-nav-hover') : null,
-                    decoration: BoxDecoration(
-                      color: HomiziColors.white.withValues(alpha: 0.06),
+                    decoration: const BoxDecoration(
+                      color: HomiziColors.inkHover,
                     ),
                     child: const SizedBox.expand(),
                   ),
@@ -230,7 +260,7 @@ class _NavItemState extends State<_NavItem> {
                   const DecoratedBox(
                     decoration: BoxDecoration(
                       border: Border.fromBorderSide(
-                        BorderSide(color: HomiziColors.brandYellow, width: 2),
+                        BorderSide(color: HomiziColors.logoOrange, width: 2),
                       ),
                     ),
                     child: SizedBox.expand(),
@@ -244,29 +274,15 @@ class _NavItemState extends State<_NavItem> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Center(
-                            child: AnimatedContainer(
-                              duration: hoverDuration,
-                              curve: Curves.easeOutCubic,
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 12,
-                                vertical: 2,
-                              ),
-                              decoration: BoxDecoration(
-                                color: widget.selected
-                                    ? HomiziColors.brandOrange
-                                    : HomiziColors.clear,
-                                borderRadius: BorderRadius.circular(999),
-                              ),
-                              child: SizedBox(
-                                width: GlassyNavigationBar.iconSize,
-                                height: GlassyNavigationBar.iconSize,
-                                child: IconTheme(
-                                  data: IconThemeData(
-                                    color: iconColor,
-                                    size: GlassyNavigationBar.iconSize,
-                                  ),
-                                  child: iconWidget,
+                            child: SizedBox(
+                              width: GlassyNavigationBar.iconSize,
+                              height: GlassyNavigationBar.iconSize,
+                              child: IconTheme(
+                                data: IconThemeData(
+                                  color: color,
+                                  size: GlassyNavigationBar.iconSize,
                                 ),
+                                child: iconWidget,
                               ),
                             ),
                           ),

@@ -77,7 +77,7 @@ class _Body extends ConsumerWidget {
               shape: BoxShape.circle,
             ),
             child: Padding(
-              padding: EdgeInsets.all(20),
+              padding: EdgeInsets.all(18),
               child: Icon(
                 Icons.check_rounded,
                 color: HomiziColors.success,
@@ -92,7 +92,7 @@ class _Body extends ConsumerWidget {
           textAlign: TextAlign.center,
           style: text.headlineSmall?.copyWith(
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w800,
           ),
         ),
         const SizedBox(height: 8),
@@ -109,7 +109,7 @@ class _Body extends ConsumerWidget {
         const SizedBox(height: 16),
         Text(
           home.title,
-          style: text.titleMedium?.copyWith(fontWeight: FontWeight.w600),
+          style: text.titleMedium?.copyWith(fontWeight: FontWeight.w800),
         ),
         const SizedBox(height: 4),
         Text('${home.locality}, ${home.city}'),

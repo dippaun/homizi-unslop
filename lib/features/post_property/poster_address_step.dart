@@ -171,7 +171,7 @@ class _PosterAddressStepState extends ConsumerState<PosterAddressStep> {
           style: const TextStyle(
             fontFamily: 'PlusJakartaSans',
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w800,
             fontSize: 22,
           ),
         ),
@@ -279,13 +279,13 @@ class _PosterAddressStepState extends ConsumerState<PosterAddressStep> {
           key: const Key('poster-flat-private'),
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
           decoration: BoxDecoration(
-            color: HomiziColors.warmWash,
-            borderRadius: BorderRadius.circular(12),
-            border: Border.all(color: HomiziColors.brandDeepRed),
+            color: const Color(0xFFF3ECFF),
+            borderRadius: BorderRadius.circular(14),
+            border: Border.all(color: HomiziColors.homiziPurple),
           ),
           child: Row(
             children: [
-              const Icon(Icons.lock_outline, color: HomiziColors.brandDeepRed),
+              const Icon(Icons.lock_outline, color: HomiziColors.homiziPurple),
               const SizedBox(width: 8),
               Expanded(
                 child: Text(
@@ -295,7 +295,7 @@ class _PosterAddressStepState extends ConsumerState<PosterAddressStep> {
                   ),
                   style: const TextStyle(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w700,
                   ),
                 ),
               ),
@@ -303,13 +303,13 @@ class _PosterAddressStepState extends ConsumerState<PosterAddressStep> {
           ),
         ),
         if (widget.rooms) ...[
-          const SizedBox(height: 20),
+          const SizedBox(height: 18),
           Text(
             homiziText(context, 'Rooms available'),
             style: const TextStyle(
               fontFamily: 'PlusJakartaSans',
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
               fontSize: 18,
             ),
           ),

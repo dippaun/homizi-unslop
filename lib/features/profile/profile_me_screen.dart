@@ -13,7 +13,6 @@ import 'package:homizi/core/location/place_autocomplete_field.dart';
 import 'package:homizi/core/routing/route_paths.dart';
 import 'package:homizi/core/storage/device_string_store.dart';
 import 'package:homizi/core/theme/homizi_colors.dart';
-import 'package:homizi/core/theme/role_palette.dart';
 import 'package:homizi/core/widgets/engagement_row.dart';
 import 'package:homizi/core/widgets/homizi_date_field.dart';
 import 'package:homizi/core/widgets/homizi_home_bar.dart';
@@ -22,6 +21,7 @@ import 'package:homizi/features/account/account_gateway.dart';
 import 'package:homizi/features/account/account_providers.dart';
 import 'package:homizi/features/account/live_account_sync.dart';
 import 'package:homizi/features/account/profile_records.dart';
+import 'package:homizi/features/auth/demo_login.dart';
 import 'package:homizi/features/discovery/discovery_controller.dart';
 import 'package:homizi/features/discovery/domain/listing.dart';
 import 'package:homizi/features/discovery/listing_match_providers.dart';
@@ -46,6 +46,7 @@ import 'package:homizi/features/profile/profile_hub_gateway.dart';
 import 'package:homizi/features/profile/profile_hub_providers.dart';
 import 'package:homizi/features/profile/profile_photo_viewer.dart';
 import 'package:homizi/features/profile/profile_section_page.dart';
+import 'package:homizi/features/profile/shared_answers.dart';
 import 'package:homizi/features/profile/verification_panel.dart';
 import 'package:homizi/features/profile_create/profile_create_draft.dart';
 import 'package:homizi/features/profile_create/profile_create_store.dart';
@@ -62,12 +63,7 @@ import 'package:homizi/features/session/log_out.dart';
 import 'package:homizi/features/session/session_controller.dart';
 import 'package:homizi/features/verification/domain/kyc_rules.dart';
 import 'package:homizi/features/verification/kyc_providers.dart';
-import 'package:homizi/ui/kit/hero_band.dart';
 import 'package:homizi/ui/kit/kit.dart';
-import 'package:homizi/ui/kit/motion_kit.dart';
-
-/// Shared label column for profile detail rows, so values line up.
-const double _labelColumn = 110;
 
 /// Signed-in profile dashboard. The Profile tab and `/profile/me`.
 class ProfileMeScreen extends ConsumerStatefulWidget {
@@ -98,6 +94,7 @@ class _ProfileMeScreenState extends ConsumerState<ProfileMeScreen> {
   Future<void> _load() async {
     setState(() => _error = null);
     final store = ref.read(profileCreateStoreProvider);
+    await store.restoreDevice();
     _draft = await store.hydrate(store.draft);
     try {
       final profile = await ref
@@ -154,10 +151,22 @@ class _ProfileMeScreenState extends ConsumerState<ProfileMeScreen> {
           .read(accountGatewayProvider)
           .loadHostProfile();
       if (mounted) {
+        _draft = await adoptSharedAnswers(
+          ref,
+          _draft,
+          hostCompany: hostProfile.companyName,
+        );
+        if (!mounted) {
+          return;
+        }
         setState(() => _hostCreated = hostProfile.created);
       }
     } on Object {
       if (mounted) {
+        _draft = await adoptSharedAnswers(ref, _draft);
+        if (!mounted) {
+          return;
+        }
         setState(() => _hostCreated = false);
       }
     }
@@ -416,7 +425,7 @@ class _ProfileMeScreenState extends ConsumerState<ProfileMeScreen> {
       key: const Key('profile-me-shot'),
       child: Scaffold(
         key: const Key('profile-me-screen'),
-        backgroundColor: HomiziColors.cream,
+        backgroundColor: HomiziColors.white,
         appBar: HomiziHomeBar(
           actions: [
             IconButton(
@@ -571,120 +580,61 @@ class _ProfileMeScreenState extends ConsumerState<ProfileMeScreen> {
     final roleLabel = createHost
         ? 'Create profile as host'
         : (_switching ? 'Switching…' : 'Switch to $nextRole');
-    // v3: the person sits on their role's dark photo hero (photo, name,
-    // role); the activity stats follow as white tiles on the stone page.
-    final palette = HomiziRolePalette.forWire(pgOwner ? 'pg' : wire);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        HomiziStaggerIn(
-          child: HomiziHeroBand(
-            palette: palette,
-            padding: const EdgeInsets.fromLTRB(18, 20, 18, 20),
-            child: Row(
-              children: [
-                DecoratedBox(
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(color: palette.glow, width: 2),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(3),
-                    child: AnimatedProfilePhoto(
-                      key: const Key('profile-photo'),
-                      name: name,
-                      bytes: photo,
-                      photoRef: _photoRef,
-                      heroTag: ownProfilePhotoHero,
-                      onTap: _openOwnPhoto,
-                    ),
-                  ),
-                ),
-                const SizedBox(width: 14),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          Flexible(
-                            child: Text(
-                              name,
-                              key: const Key('profile-name'),
-                              style: const TextStyle(
-                                fontFamily: 'Poppins',
-                                fontSize: 22,
-                                height: 1.15,
-                                letterSpacing: -0.3,
-                                fontWeight: FontWeight.w600,
-                                color: HomiziColors.white,
-                              ),
-                            ),
-                          ),
-                          if (_aadhaarVerified) ...[
-                            const SizedBox(width: 6),
-                            const Icon(
-                              Icons.verified,
-                              key: Key('profile-me-verified'),
-                              color: HomiziColors.brandYellow,
-                              size: 20,
-                            ),
-                          ],
-                        ],
-                      ),
-                      const SizedBox(height: 8),
-                      Container(
-                        key: const Key('profile-me-role'),
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 10,
-                          vertical: 4,
-                        ),
-                        decoration: BoxDecoration(
-                          color: HomiziColors.white.withValues(alpha: 0.12),
-                          borderRadius: const BorderRadius.all(
-                            Radius.circular(16),
-                          ),
-                          border: Border.all(
-                            color: palette.glow.withValues(alpha: 0.6),
-                          ),
-                        ),
-                        child: Text(
-                          homiziText(
-                            context,
-                            pgOwner ? 'PG owner' : profileRoleChip(wire),
-                          ),
-                          style: TextStyle(
-                            color: palette.glow,
-                            fontWeight: FontWeight.w600,
-                            fontSize: 12,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
+        Row(
+          children: [
+            AnimatedProfilePhoto(
+              key: const Key('profile-photo'),
+              name: name,
+              bytes: photo,
+              photoRef: _photoRef,
+              heroTag: ownProfilePhotoHero,
+              onTap: _openOwnPhoto,
             ),
-          ),
+            const SizedBox(width: 12),
+            Expanded(child: _stats(stats)),
+          ],
         ),
         const SizedBox(height: 12),
-        DecoratedBox(
-          decoration: BoxDecoration(
-            color: HomiziColors.white,
-            borderRadius: BorderRadius.circular(20),
-            boxShadow: const [
-              BoxShadow(
-                color: HomiziColors.shadow,
-                blurRadius: 16,
-                offset: Offset(0, 6),
+        Row(
+          children: [
+            Flexible(
+              child: Text(
+                name,
+                key: const Key('profile-name'),
+                style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                  color: HomiziColors.ink,
+                  fontWeight: FontWeight.w800,
+                ),
+              ),
+            ),
+            if (_aadhaarVerified) ...[
+              const SizedBox(width: 6),
+              const Icon(
+                Icons.verified,
+                key: Key('profile-me-verified'),
+                color: HomiziColors.success,
+                size: 20,
               ),
             ],
+          ],
+        ),
+        const SizedBox(height: 6),
+        Container(
+          key: const Key('profile-me-role'),
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+          decoration: const BoxDecoration(
+            color: HomiziColors.accentWash,
+            borderRadius: BorderRadius.all(Radius.circular(20)),
           ),
-          child: SizedBox(
-            width: double.infinity,
-            child: Padding(
-              padding: const EdgeInsets.all(12),
-              child: _stats(stats),
+          child: Text(
+            homiziText(context, pgOwner ? 'PG owner' : profileRoleChip(wire)),
+            style: const TextStyle(
+              color: HomiziColors.ink,
+              fontWeight: FontWeight.w700,
+              fontSize: 12,
             ),
           ),
         ),
@@ -701,14 +651,14 @@ class _ProfileMeScreenState extends ConsumerState<ProfileMeScreen> {
               onPressed: () => unawaited(_editAbout()),
               icon: const Icon(
                 Icons.edit_outlined,
-                color: HomiziColors.brandRedOrange,
+                color: HomiziColors.logoOrange,
               ),
               label: Text(
                 homiziText(context, 'Add a bio'),
                 style: const TextStyle(
-                  fontFamily: 'Poppins',
-                  color: HomiziColors.brandRedOrange,
-                  fontWeight: FontWeight.w600,
+                  fontFamily: 'PlusJakartaSans',
+                  color: HomiziColors.logoOrange,
+                  fontWeight: FontWeight.w800,
                 ),
               ),
             ),
@@ -742,7 +692,7 @@ class _ProfileMeScreenState extends ConsumerState<ProfileMeScreen> {
                   homiziText(context, 'Edit profile'),
                   style: const TextStyle(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w700,
                   ),
                 ),
               ),
@@ -774,7 +724,7 @@ class _ProfileMeScreenState extends ConsumerState<ProfileMeScreen> {
                   overflow: TextOverflow.ellipsis,
                   style: const TextStyle(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w700,
                     fontSize: 13,
                   ),
                 ),
@@ -805,8 +755,8 @@ class _ProfileMeScreenState extends ConsumerState<ProfileMeScreen> {
         value: stats.matches,
         statKey: 'profile-stat-matches',
         icon: Icons.favorite,
-        tint: HomiziColors.warmWash,
-        accent: HomiziColors.brandDeepRed,
+        tint: HomiziColors.homiziLavender,
+        accent: HomiziColors.homiziPurple,
         onTap: () => context.push(RoutePaths.matches),
       ),
       _StatTile(
@@ -833,12 +783,12 @@ class _ProfileMeScreenState extends ConsumerState<ProfileMeScreen> {
         value: stats.inquiries,
         statKey: 'profile-stat-inquiries',
         icon: Icons.forum_outlined,
-        tint: HomiziColors.warmWash,
+        tint: const Color(0xFFFFF1E8),
         accent: HomiziColors.brandDeepOrange,
         onTap: () => context.push(RoutePaths.profileInquiries),
       ),
     ];
-    return Wrap(spacing: 8, runSpacing: 8, children: tiles);
+    return Wrap(spacing: 6, runSpacing: 6, children: tiles);
   }
 
   Widget _completeness(ProfileCompleteness score) {
@@ -866,7 +816,7 @@ class _ProfileMeScreenState extends ConsumerState<ProfileMeScreen> {
               key: const Key('profile-completeness'),
               style: TextStyle(
                 color: color,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w800,
                 fontSize: 13,
               ),
             ),
@@ -879,7 +829,7 @@ class _ProfileMeScreenState extends ConsumerState<ProfileMeScreen> {
                 overflow: TextOverflow.ellipsis,
                 style: TextStyle(
                   color: done ? HomiziColors.success : HomiziColors.muted,
-                  fontWeight: done ? FontWeight.w600 : FontWeight.w500,
+                  fontWeight: done ? FontWeight.w700 : FontWeight.w500,
                   fontSize: 13,
                 ),
               ),
@@ -903,7 +853,7 @@ class _ProfileMeScreenState extends ConsumerState<ProfileMeScreen> {
                   homiziText(context, 'Complete Now'),
                   style: const TextStyle(
                     color: HomiziColors.logoOrange,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w800,
                   ),
                 ),
               ),
@@ -1013,12 +963,24 @@ class _ProfileMeScreenState extends ConsumerState<ProfileMeScreen> {
                 )
               : Text(about),
         ),
-        if (_draft.tags.isNotEmpty)
+        if (_draft.tags.any(
+          (tag) => !profileTagIsInternal(tag) || profileGoalLabel(tag) != null,
+        ))
           Padding(
             padding: const EdgeInsets.only(bottom: 12),
             child: Wrap(
               spacing: 8,
-              children: [for (final tag in _draft.tags) Chip(label: Text(tag))],
+              runSpacing: 8,
+              children: [
+                for (final tag in _draft.tags)
+                  if (profileGoalLabel(tag) != null)
+                    Chip(
+                      avatar: Icon(_goalIcon(tag), size: 18),
+                      label: Text(homiziText(context, profileGoalLabel(tag)!)),
+                    )
+                  else if (!profileTagIsInternal(tag))
+                    Chip(label: Text(tag)),
+              ],
             ),
           ),
         _lifestyleCard(),
@@ -1092,7 +1054,7 @@ class _ProfileMeScreenState extends ConsumerState<ProfileMeScreen> {
                 homiziText(context, 'Add a listing'),
                 style: const TextStyle(
                   color: HomiziColors.logoOrange,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w700,
                 ),
               ),
             ),
@@ -1112,7 +1074,7 @@ class _ProfileMeScreenState extends ConsumerState<ProfileMeScreen> {
               homiziText(context, 'Add a listing'),
               style: const TextStyle(
                 color: HomiziColors.logoOrange,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w700,
               ),
             ),
           ),
@@ -1176,8 +1138,8 @@ class _ProfileMeScreenState extends ConsumerState<ProfileMeScreen> {
               value: _activity.matchCount,
               statKey: 'profile-activity-matches',
               icon: Icons.favorite,
-              tint: HomiziColors.warmWash,
-              accent: HomiziColors.brandDeepRed,
+              tint: HomiziColors.homiziLavender,
+              accent: HomiziColors.homiziPurple,
               onTap: () => context.push(RoutePaths.matches),
             ),
             for (final match in _activity.matches)
@@ -1187,7 +1149,7 @@ class _ProfileMeScreenState extends ConsumerState<ProfileMeScreen> {
                   match.name,
                   style: const TextStyle(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w700,
                   ),
                 ),
               ),
@@ -1223,7 +1185,7 @@ class _ProfileMeScreenState extends ConsumerState<ProfileMeScreen> {
               value: _activity.requestCount,
               statKey: 'profile-activity-inquiries',
               icon: Icons.forum_outlined,
-              tint: HomiziColors.warmWash,
+              tint: const Color(0xFFFFF1E8),
               accent: HomiziColors.brandDeepOrange,
               onTap: () => context.push(RoutePaths.profileInquiries),
             ),
@@ -1354,7 +1316,7 @@ class _ProfileMeScreenState extends ConsumerState<ProfileMeScreen> {
             child: SwitchListTile(
               key: const Key('profile-roommate-post'),
               contentPadding: EdgeInsets.zero,
-              title: Text(homiziText(context, 'Post as a roommate finder')),
+              title: Text(homiziText(context, 'List me as a roommate seeker')),
               value: ref.watch(finderProvider).ask.profilePosted,
               onChanged: (value) {
                 unawaited(
@@ -1419,7 +1381,7 @@ class _ProfileMeScreenState extends ConsumerState<ProfileMeScreen> {
             homiziText(context, 'My Priorities'),
             style: Theme.of(
               context,
-            ).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w600),
+            ).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w800),
           ),
           subtitle: Text(
             homiziText(context, 'Set the order that decides your matches.'),
@@ -1489,11 +1451,35 @@ class _ProfileMeScreenState extends ConsumerState<ProfileMeScreen> {
     );
   }
 
+  IconData _goalIcon(String tag) {
+    return switch (tag) {
+      tenantGoalTag => Icons.search,
+      sharerGoalTag => Icons.door_front_door_outlined,
+      roommateGoalTag => Icons.people_outline,
+      hostGoalTag => Icons.home_outlined,
+      _ => Icons.label_outline,
+    };
+  }
+
+  String _shownEmail(String sessionContact) {
+    final raw = sessionContact.contains('@')
+        ? sessionContact.trim()
+        : _draft.email.trim();
+    final alias = RegExp(r'^qa\+d\d+@homizi\.in$').hasMatch(raw.toLowerCase());
+    final demo = ref.watch(demoLoginActiveProvider);
+    if (!demo && !alias) {
+      return raw;
+    }
+    final typed = ref.watch(demoEnteredContactProvider).trim();
+    if (typed.isNotEmpty) {
+      return typed;
+    }
+    return demoLoginEmail;
+  }
+
   Widget _accountCard() {
     final session = ref.watch(sessionProvider);
-    final email = session.contact.contains('@')
-        ? session.contact.trim()
-        : _draft.email.trim();
+    final email = _shownEmail(session.contact);
     final phone = session.phoneE164.trim().isNotEmpty
         ? session.phoneE164.trim()
         : _draft.mobile.trim();
@@ -1515,19 +1501,20 @@ class _ProfileMeScreenState extends ConsumerState<ProfileMeScreen> {
     );
   }
 
-  /// Nickname sits on the same 110px label column and value type as the
-  /// locked rows above it, so the column lines up. Empty shows an inline
-  /// "Add a nickname" link that opens the editor.
+  /// Same 110px label column and value style as the locked rows above,
+  /// so Nickname lines up with them. Empty shows a tappable
+  /// "Add a nickname" link that opens the nickname editor.
   Widget _nicknameRow() {
     final nickname = _draft.nickname.trim();
     final empty = nickname.isEmpty;
+    final color = empty ? HomiziColors.brandRedOrange : HomiziColors.ink;
     return Padding(
       key: const Key('profile-nickname-row'),
       padding: const EdgeInsets.only(bottom: 8),
       child: Row(
         children: [
           SizedBox(
-            width: _labelColumn,
+            width: 110,
             child: Text(
               homiziText(context, 'Nickname'),
               style: const TextStyle(color: HomiziColors.muted),
@@ -1537,6 +1524,7 @@ class _ProfileMeScreenState extends ConsumerState<ProfileMeScreen> {
             child: Align(
               alignment: Alignment.centerLeft,
               child: InkWell(
+                key: const Key('profile-nickname-value'),
                 borderRadius: BorderRadius.circular(6),
                 onTap: () => unawaited(_editNickname()),
                 child: Row(
@@ -1551,20 +1539,14 @@ class _ProfileMeScreenState extends ConsumerState<ProfileMeScreen> {
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                           fontFamily: 'PlusJakartaSans',
-                          fontWeight: FontWeight.w600,
-                          color: empty
-                              ? HomiziColors.brandRedOrange
-                              : HomiziColors.ink,
+                          color: color,
+                          fontWeight: FontWeight.w700,
                         ),
                       ),
                     ),
                     if (empty) ...[
                       const SizedBox(width: 4),
-                      const Icon(
-                        Icons.add_circle_outline,
-                        size: 16,
-                        color: HomiziColors.brandRedOrange,
-                      ),
+                      Icon(Icons.add_circle_outline, size: 16, color: color),
                     ],
                   ],
                 ),
@@ -1583,7 +1565,7 @@ class _ProfileMeScreenState extends ConsumerState<ProfileMeScreen> {
       child: Row(
         children: [
           SizedBox(
-            width: _labelColumn,
+            width: 110,
             child: Text(
               homiziText(context, label),
               style: const TextStyle(color: HomiziColors.muted),
@@ -1595,7 +1577,7 @@ class _ProfileMeScreenState extends ConsumerState<ProfileMeScreen> {
               style: const TextStyle(
                 fontFamily: 'PlusJakartaSans',
                 color: HomiziColors.ink,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w700,
               ),
             ),
           ),
@@ -2133,7 +2115,7 @@ class _ProfileMeScreenState extends ConsumerState<ProfileMeScreen> {
                   child: Text(
                     homiziText(context, title),
                     style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                      fontWeight: FontWeight.w600,
+                      fontWeight: FontWeight.w800,
                     ),
                   ),
                 ),
@@ -2163,7 +2145,7 @@ class _ProfileMeScreenState extends ConsumerState<ProfileMeScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(
-            width: _labelColumn,
+            width: 120,
             child: Text(
               homiziText(context, label),
               style: Theme.of(
@@ -2190,7 +2172,7 @@ class _HabitTile extends StatelessWidget {
     return DecoratedBox(
       decoration: BoxDecoration(
         color: HomiziColors.accentWash,
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(14),
       ),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
@@ -2207,14 +2189,14 @@ class _HabitTile extends StatelessWidget {
                   style: const TextStyle(
                     color: HomiziColors.muted,
                     fontSize: 11,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w700,
                   ),
                 ),
                 Text(
                   value,
                   style: const TextStyle(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w800,
                   ),
                 ),
               ],
@@ -2250,31 +2232,27 @@ class _StatTile extends StatelessWidget {
     return InkWell(
       key: Key('$statKey-open'),
       onTap: onTap,
-      borderRadius: BorderRadius.circular(12),
+      borderRadius: BorderRadius.circular(14),
       child: DecoratedBox(
-        // One quiet surface for every stat. The figure carries the
-        // meaning; the icon stays muted (unslop pass 6).
         decoration: BoxDecoration(
-          color: HomiziColors.white,
-          borderRadius: BorderRadius.circular(12),
-          border: Border.all(color: HomiziColors.line),
+          color: tint,
+          borderRadius: BorderRadius.circular(14),
         ),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Icon(icon, size: 16, color: HomiziColors.muted),
+              Icon(icon, size: 16, color: accent),
               const SizedBox(width: 4),
               value == 0
                   ? Text(
                       '0',
                       key: Key(statKey),
-                      style: const TextStyle(
-                        color: HomiziColors.ink,
-                        fontWeight: FontWeight.w600,
+                      style: TextStyle(
+                        color: accent,
+                        fontWeight: FontWeight.w800,
                         fontSize: 16,
-                        fontFeatures: [FontFeature.tabularFigures()],
                       ),
                     )
                   : TweenAnimationBuilder<double>(
@@ -2284,11 +2262,10 @@ class _StatTile extends StatelessWidget {
                         return Text(
                           '${shown.round()}',
                           key: Key(statKey),
-                          style: const TextStyle(
-                            color: HomiziColors.ink,
-                            fontWeight: FontWeight.w600,
+                          style: TextStyle(
+                            color: accent,
+                            fontWeight: FontWeight.w800,
                             fontSize: 16,
-                            fontFeatures: [FontFeature.tabularFigures()],
                           ),
                         );
                       },
@@ -2297,9 +2274,9 @@ class _StatTile extends StatelessWidget {
               Text(
                 homiziText(context, label),
                 style: const TextStyle(
-                  color: HomiziColors.muted,
-                  fontSize: 12,
-                  fontWeight: FontWeight.w500,
+                  color: HomiziColors.ink,
+                  fontSize: 11,
+                  fontWeight: FontWeight.w700,
                 ),
               ),
             ],
@@ -2355,7 +2332,7 @@ class _SavedMiniCard extends StatelessWidget {
                       style: const TextStyle(
                         fontFamily: 'PlusJakartaSans',
                         color: HomiziColors.ink,
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w800,
                       ),
                     ),
                     Text(

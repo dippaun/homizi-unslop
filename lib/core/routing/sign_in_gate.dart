@@ -160,11 +160,11 @@ class SignInContinuePage extends ConsumerWidget {
     return MinTouchScope(
       child: Scaffold(
         key: const Key('sign-in-gate'),
-        backgroundColor: HomiziColors.cream,
+        backgroundColor: HomiziColors.white,
         appBar: AppBar(
           automaticallyImplyLeading: false,
           leading: const HomiziBackButton(),
-          backgroundColor: HomiziColors.cream,
+          backgroundColor: HomiziColors.white,
           surfaceTintColor: HomiziColors.white,
           elevation: 0,
         ),
@@ -184,7 +184,7 @@ class SignInContinuePage extends ConsumerWidget {
                   textAlign: TextAlign.center,
                   style: text.headlineSmall?.copyWith(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w800,
                   ),
                 ),
                 const SizedBox(height: 10),
@@ -223,7 +223,7 @@ class SignInContinuePage extends ConsumerWidget {
                   child: Text(
                     homiziText(context, 'Signup'),
                     style: const TextStyle(
-                      fontWeight: FontWeight.w600,
+                      fontWeight: FontWeight.w800,
                       fontSize: 16,
                     ),
                   ),
@@ -249,7 +249,11 @@ class _GateMark extends StatelessWidget {
         height: 88,
         alignment: Alignment.center,
         decoration: const BoxDecoration(
-          color: HomiziColors.accentWash,
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [HomiziColors.logoOrange, HomiziColors.brandRedOrange],
+          ),
           shape: BoxShape.circle,
         ),
         child: const Icon(
@@ -277,7 +281,9 @@ class _GradientCta extends StatelessWidget {
   Widget build(BuildContext context) {
     return DecoratedBox(
       decoration: const BoxDecoration(
-        gradient: HomiziGradients.action,
+        gradient: LinearGradient(
+          colors: [HomiziColors.logoOrange, HomiziColors.brandRedOrange],
+        ),
         borderRadius: BorderRadius.all(Radius.circular(16)),
       ),
       child: Material(
@@ -292,8 +298,8 @@ class _GradientCta extends StatelessWidget {
               child: Text(
                 label,
                 style: const TextStyle(
-                  color: HomiziColors.white,
-                  fontWeight: FontWeight.w600,
+                  color: HomiziColors.ink,
+                  fontWeight: FontWeight.w800,
                   fontSize: 16,
                 ),
               ),

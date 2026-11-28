@@ -4,6 +4,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:homizi/core/theme/homizi_colors.dart';
+import 'package:homizi/features/auth/login_skyline.dart';
 import 'package:homizi/features/shell/glassy_nav_bar.dart';
 
 List<NavigationDestination> _dests() => const [
@@ -235,7 +236,7 @@ void main() {
     expect(find.byType(InkResponse), findsNothing);
   });
 
-  testWidgets('active tab is an orange pill and idle tabs are muted on ink', (
+  testWidgets('active tab is filled logo orange and idle ink is quieter', (
     tester,
   ) async {
     await _pump(tester, selected: 0, accent: true, onSelect: (_) {});
@@ -245,20 +246,25 @@ void main() {
     expect(bar.accentSelected, isTrue);
 
     final active = tester.widget<Text>(find.text('Home').first);
-    // v3 dark bar: white active label, ink icon on an orange pill.
-    expect(active.style?.color, HomiziColors.white);
-    expect(active.style?.fontWeight, FontWeight.w600);
+    expect(active.style?.color, HomiziColors.logoOrange);
+    expect(active.style?.fontWeight, FontWeight.w700);
 
     final idle = tester.widget<Text>(find.text('Explore').first);
-    expect(idle.style?.color, HomiziColors.onInkMuted);
+    expect(
+      idle.style?.color,
+      HomiziColors.ink.withValues(alpha: GlassyNavigationBar.inactiveOpacity),
+    );
     expect(idle.style?.fontWeight, FontWeight.w500);
 
     final activeIcon = IconTheme.of(tester.element(find.byIcon(Icons.home)));
     final idleIcon = IconTheme.of(tester.element(find.byIcon(Icons.search)));
-    expect(activeIcon.color, HomiziColors.ink);
+    expect(activeIcon.color, HomiziColors.logoOrange);
     expect(activeIcon.size, GlassyNavigationBar.iconSize);
     expect(idleIcon.size, activeIcon.size);
-    expect(idleIcon.color, HomiziColors.onInkMuted);
+    expect(
+      idleIcon.color,
+      HomiziColors.ink.withValues(alpha: GlassyNavigationBar.inactiveOpacity),
+    );
 
     final item = tester.getRect(find.byKey(const Key('glassy-nav-item-0')));
     expect(
@@ -283,10 +289,22 @@ void main() {
     expect(item.bottom, closeTo(844, 0.5));
   });
 
-  testWidgets('keeps the bar quiet: no skyline under the tabs', (tester) async {
+  testWidgets('paints the sign-in skyline under the tabs', (tester) async {
     await _pump(tester, selected: 0, onSelect: (_) {});
-    // unslop pass 8: the skyline stays on sign-in only.
-    expect(find.byKey(const Key('nav-skyline')), findsNothing);
+    final skyline = find.byKey(const Key('nav-skyline'));
+    expect(skyline, findsOneWidget);
+    final opacity = tester.widget<Opacity>(skyline);
+    expect(opacity.opacity, lessThanOrEqualTo(0.45));
+    expect(opacity.opacity, greaterThan(0));
+    expect(
+      find.ancestor(of: skyline, matching: find.byType(IgnorePointer)),
+      findsWidgets,
+    );
+    final paint = tester.widget<CustomPaint>(
+      find.descendant(of: skyline, matching: find.byType(CustomPaint)),
+    );
+    expect(paint.painter, isA<CitySkylinePainter>());
+    expect((paint.painter! as CitySkylinePainter).reveal, 1);
 
     final scrim = tester.widget<DecoratedBox>(
       find.byKey(const Key('nav-skyline-scrim')),
@@ -296,7 +314,7 @@ void main() {
     expect(gradient.colors.first.a, greaterThanOrEqualTo(0.7));
 
     final label = tester.widget<Text>(find.text('Home').first);
-    expect(label.style?.color, HomiziColors.white);
+    expect(label.style?.color, HomiziColors.logoOrange);
   });
 
   testWidgets('six tabs stay tappable on a 320-wide phone', (tester) async {
@@ -314,8 +332,8 @@ void main() {
       expect(item.height, greaterThanOrEqualTo(48));
     }
     final active = tester.widget<Text>(find.text('Priorities').first);
-    expect(active.style?.color, HomiziColors.white);
-    expect(active.style?.fontWeight, FontWeight.w600);
+    expect(active.style?.color, HomiziColors.logoOrange);
+    expect(active.style?.fontWeight, FontWeight.w700);
   });
 
   testWidgets('hover washes the item without shifting its icon', (

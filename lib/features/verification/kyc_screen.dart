@@ -275,7 +275,7 @@ class _KycScreenState extends ConsumerState<KycScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: HomiziColors.cream,
+      backgroundColor: HomiziColors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: HomiziBackButton(onPressed: _back),
@@ -341,7 +341,7 @@ class _KycScreenState extends ConsumerState<KycScreen>
             key: const Key('kyc-coming-soon'),
             textAlign: TextAlign.center,
             style: text.headlineSmall?.copyWith(
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
               color: HomiziColors.ink,
             ),
           ),
@@ -381,7 +381,7 @@ class _KycScreenState extends ConsumerState<KycScreen>
             key: const Key('kyc-intro'),
             textAlign: TextAlign.center,
             style: text.headlineSmall?.copyWith(
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
               color: HomiziColors.ink,
             ),
           ),
@@ -431,7 +431,7 @@ class _KycScreenState extends ConsumerState<KycScreen>
           Text(
             homiziText(context, 'Choose how to share Aadhaar'),
             style: text.titleLarge?.copyWith(
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
               color: HomiziColors.ink,
             ),
           ),
@@ -466,7 +466,7 @@ class _KycScreenState extends ConsumerState<KycScreen>
           Text(
             homiziText(context, 'Your consent'),
             style: text.titleLarge?.copyWith(
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
               color: HomiziColors.ink,
             ),
           ),
@@ -508,7 +508,7 @@ class _KycScreenState extends ConsumerState<KycScreen>
           Text(
             homiziText(context, 'Next: Aadhaar, then a selfie'),
             style: text.titleLarge?.copyWith(
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
               color: HomiziColors.ink,
             ),
           ),
@@ -568,7 +568,7 @@ class _KycScreenState extends ConsumerState<KycScreen>
             key: const Key('kyc-pending'),
             textAlign: TextAlign.center,
             style: text.headlineSmall?.copyWith(
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
               color: HomiziColors.ink,
             ),
           ),
@@ -617,7 +617,7 @@ class _KycScreenState extends ConsumerState<KycScreen>
             key: Key(expired ? 'kyc-expired' : 'kyc-failed'),
             textAlign: TextAlign.center,
             style: text.headlineSmall?.copyWith(
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
               color: HomiziColors.ink,
             ),
           ),
@@ -658,7 +658,7 @@ class _KycScreenState extends ConsumerState<KycScreen>
             key: const Key('kyc-success'),
             textAlign: TextAlign.center,
             style: text.headlineSmall?.copyWith(
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
               color: HomiziColors.success,
             ),
           ),
@@ -772,40 +772,12 @@ class _Hero extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // v3: the state icon sits in a ring of its own colour.
     return Center(
-      child: SizedBox(
-        width: 168,
-        height: 140,
-        child: Stack(
-          alignment: Alignment.center,
-          children: [
-            Container(
-              width: 100,
-              height: 100,
-              padding: const EdgeInsets.all(3),
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: [color, color.withValues(alpha: 0.35)],
-                ),
-                boxShadow: [
-                  BoxShadow(
-                    color: color.withValues(alpha: 0.25),
-                    blurRadius: 18,
-                    offset: const Offset(0, 8),
-                  ),
-                ],
-              ),
-              child: DecoratedBox(
-                decoration: BoxDecoration(color: wash, shape: BoxShape.circle),
-                child: Icon(icon, size: 46, color: color),
-              ),
-            ),
-          ],
-        ),
+      child: Container(
+        width: 88,
+        height: 88,
+        decoration: BoxDecoration(color: wash, shape: BoxShape.circle),
+        child: Icon(icon, size: 46, color: color),
       ),
     );
   }
@@ -824,7 +796,7 @@ class _Card extends StatelessWidget {
       decoration: BoxDecoration(
         color: HomiziColors.white,
         border: Border.all(color: HomiziColors.line),
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(18),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -833,7 +805,7 @@ class _Card extends StatelessWidget {
             Text(
               homiziText(context, title!),
               style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w800,
                 color: HomiziColors.ink,
               ),
             ),
@@ -866,7 +838,9 @@ class _GradientCta extends StatelessWidget {
       opacity: enabled || busy ? 1 : 0.45,
       child: DecoratedBox(
         decoration: BoxDecoration(
-          gradient: HomiziGradients.action,
+          gradient: const LinearGradient(
+            colors: [HomiziColors.logoOrange, HomiziColors.brandRedOrange],
+          ),
           borderRadius: BorderRadius.circular(16),
         ),
         child: Material(
@@ -891,7 +865,7 @@ class _GradientCta extends StatelessWidget {
                         homiziText(context, label),
                         style: const TextStyle(
                           color: HomiziColors.white,
-                          fontWeight: FontWeight.w600,
+                          fontWeight: FontWeight.w800,
                           fontSize: 16,
                         ),
                       ),
@@ -931,7 +905,7 @@ class _MethodTile extends StatelessWidget {
       button: true,
       child: InkWell(
         key: tileKey,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(18),
         onTap: onTap,
         child: Container(
           padding: const EdgeInsets.all(16),
@@ -941,7 +915,7 @@ class _MethodTile extends StatelessWidget {
               color: selected ? HomiziColors.logoOrange : HomiziColors.line,
               width: selected ? 2 : 1,
             ),
-            borderRadius: BorderRadius.circular(16),
+            borderRadius: BorderRadius.circular(18),
           ),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -959,7 +933,7 @@ class _MethodTile extends StatelessWidget {
                         Text(
                           homiziText(context, title),
                           style: text.titleMedium?.copyWith(
-                            fontWeight: FontWeight.w600,
+                            fontWeight: FontWeight.w800,
                             color: HomiziColors.ink,
                           ),
                         ),
@@ -977,7 +951,7 @@ class _MethodTile extends StatelessWidget {
                               homiziText(context, badge!),
                               style: text.labelSmall?.copyWith(
                                 color: HomiziColors.success,
-                                fontWeight: FontWeight.w600,
+                                fontWeight: FontWeight.w700,
                               ),
                             ),
                           ),
@@ -1025,7 +999,7 @@ class _StepLine extends StatelessWidget {
               number,
               style: const TextStyle(
                 color: HomiziColors.ink,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w800,
                 fontSize: 12,
               ),
             ),
@@ -1101,7 +1075,7 @@ class _Notice extends StatelessWidget {
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
         color: wash,
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(14),
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,

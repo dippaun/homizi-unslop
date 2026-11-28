@@ -289,7 +289,7 @@ class _ListingDetailScreenState extends ConsumerState<ListingDetailScreen> {
         _galleryLabels ?? galleryLabelsForAssets(listing.photoAssets);
     final cost = publishedHome?.cost ?? rentingCostForListing(listing);
     return Scaffold(
-      backgroundColor: HomiziColors.cream,
+      backgroundColor: HomiziColors.white,
       bottomNavigationBar: ListingActionBar(
         saved: saved,
         busy: discovery.busy,
@@ -335,157 +335,136 @@ class _ListingDetailScreenState extends ConsumerState<ListingDetailScreen> {
                   ),
                 ),
               ),
-            // v3: the facts sit on a white sheet with rounded top corners
-            // under the photo strip, Airbnb-style, on the stone page.
-            DecoratedBox(
-              decoration: const BoxDecoration(
-                color: HomiziColors.white,
-                borderRadius: BorderRadius.vertical(top: Radius.circular(28)),
-                boxShadow: [
-                  BoxShadow(
-                    color: HomiziColors.shadowSoft,
-                    blurRadius: 16,
-                    offset: Offset(0, -4),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(20, 16, 20, 24),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  ListingTitleBlock(listing: listing, match: matchScore),
+                  const SizedBox(height: 8),
+                  ListingPlaceRow(listing: listing),
+                  const SizedBox(height: 12),
+                  ListingPriceBlock(listing: listing),
+                  const SizedBox(height: 16),
+                  ListingSpecRow(listing: listing),
+                  const SizedBox(height: 20),
+                  ListingAmenityGrid(listing: listing),
+                  const SizedBox(height: 16),
+                  ListingPlaceCards(
+                    listing: listing,
+                    point: areaPoint,
+                    onCommute: _onCommute,
                   ),
-                ],
-              ),
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(20, 22, 20, 24),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    ListingTitleBlock(listing: listing, match: matchScore),
-                    const SizedBox(height: 8),
-                    ListingPlaceRow(listing: listing),
-                    const SizedBox(height: 12),
-                    ListingPriceBlock(listing: listing),
-                    const SizedBox(height: 16),
-                    ListingSpecRow(listing: listing),
-                    const SizedBox(height: 20),
-                    ListingAmenityGrid(listing: listing),
-                    const SizedBox(height: 16),
-                    ListingPlaceCards(
-                      listing: listing,
-                      point: areaPoint,
-                      onCommute: _onCommute,
+                  const SizedBox(height: 8),
+                  Text(
+                    homiziText(
+                      context,
+                      'The circle is the locality, not the building. The exact point stays hidden until a visit is agreed.',
                     ),
+                    style: Theme.of(
+                      context,
+                    ).textTheme.bodySmall?.copyWith(color: HomiziColors.muted),
+                  ),
+                  const SizedBox(height: 20),
+                  ListingHostRow(
+                    listing: listing,
+                    verifiedHost: badges.hostVerified || badges.verified,
+                    replyLabel: hours == null ? null : replyWithinLabel(hours),
+                  ),
+                  const SizedBox(height: 10),
+                  Wrap(
+                    spacing: 8,
+                    runSpacing: 8,
+                    children: [
+                      if (badges.verified)
+                        VerifiedBadge(
+                          label: homiziText(context, 'Verified'),
+                          showCheck: true,
+                        ),
+                      if (badges.verifiedListing)
+                        const VerifiedBadge(
+                          label: 'Verified listing',
+                          showCheck: true,
+                        ),
+                      VerifiedBadge(
+                        label: badges.photosVerified
+                            ? 'Photos verified'
+                            : 'Photos declared',
+                        showCheck: badges.photosVerified,
+                      ),
+                      VerifiedBadge(label: listing.hostKind),
+                    ],
+                  ),
+                  if (listing.trust.any) ...[
+                    const SizedBox(height: 8),
+                    TrustBadgeRow(badges: listing.trust),
+                  ],
+                  if (!listing.trust.anyIdentity) ...[
                     const SizedBox(height: 8),
                     Text(
                       homiziText(
                         context,
-                        'The circle is the locality, not the building. The exact point stays hidden until a visit is agreed.',
+                        'Aadhaar and face badges appear only after Digio confirms them.',
                       ),
-                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                        color: HomiziColors.muted,
-                      ),
+                      key: const Key('listing-identity-note'),
+                      style: Theme.of(context).textTheme.bodySmall,
                     ),
-                    const SizedBox(height: 20),
-                    ListingHostRow(
-                      listing: listing,
-                      verifiedHost: badges.hostVerified || badges.verified,
-                      replyLabel: hours == null
-                          ? null
-                          : replyWithinLabel(hours),
-                    ),
-                    const SizedBox(height: 10),
+                  ],
+                  const SizedBox(height: 20),
+                  ListingWhyMatch(listing: listing, match: matchScore),
+                  const SizedBox(height: 8),
+                  if (!_summaryIsBoilerplate(listing.summary)) ...[
+                    Text(homiziText(context, listing.summary)),
+                    const SizedBox(height: 12),
+                  ],
+                  if (listing.friendlyTags.isNotEmpty) ...[
                     Wrap(
                       spacing: 8,
                       runSpacing: 8,
                       children: [
-                        if (badges.verified)
-                          VerifiedBadge(
-                            label: homiziText(context, 'Verified'),
-                            showCheck: true,
+                        for (final tag in listing.friendlyTags)
+                          Chip(
+                            key: Key('detail-tag-$tag'),
+                            label: Text(
+                              homiziText(context, listingFriendlyTagLabel(tag)),
+                            ),
+                            side: BorderSide.none,
+                            backgroundColor: HomiziColors.accentWash,
                           ),
-                        if (badges.verifiedListing)
-                          const VerifiedBadge(
-                            label: 'Verified listing',
-                            showCheck: true,
-                          ),
-                        VerifiedBadge(
-                          label: badges.photosVerified
-                              ? 'Photos verified'
-                              : 'Photos declared',
-                          showCheck: badges.photosVerified,
-                        ),
-                        VerifiedBadge(label: listing.hostKind),
                       ],
                     ),
-                    if (listing.trust.any) ...[
-                      const SizedBox(height: 8),
-                      TrustBadgeRow(badges: listing.trust),
-                    ],
-                    if (!listing.trust.anyIdentity) ...[
-                      const SizedBox(height: 8),
-                      Text(
-                        homiziText(
-                          context,
-                          'Aadhaar and face badges appear only after Digio confirms them.',
-                        ),
-                        key: const Key('listing-identity-note'),
-                        style: Theme.of(context).textTheme.bodySmall,
-                      ),
-                    ],
-                    const SizedBox(height: 20),
-                    ListingWhyMatch(listing: listing, match: matchScore),
-                    const SizedBox(height: 8),
-                    if (!_summaryIsBoilerplate(listing.summary)) ...[
-                      Text(homiziText(context, listing.summary)),
-                      const SizedBox(height: 12),
-                    ],
-                    if (listing.friendlyTags.isNotEmpty) ...[
-                      Wrap(
-                        spacing: 8,
-                        runSpacing: 8,
-                        children: [
-                          for (final tag in listing.friendlyTags)
-                            Chip(
-                              key: Key('detail-tag-$tag'),
-                              label: Text(
-                                homiziText(
-                                  context,
-                                  listingFriendlyTagLabel(tag),
-                                ),
-                              ),
-                              side: BorderSide.none,
-                              backgroundColor: HomiziColors.accentWash,
-                            ),
-                        ],
-                      ),
-                      const SizedBox(height: 12),
-                    ],
-                    ListingLowerSection(
-                      listing: listing,
-                      cost: cost,
-                      detailed: publishedHome != null,
-                      addressShown: _address.showsLine,
-                      addressLine: _address.line,
-                      landmark: _address.landmark,
-                      gate: gate,
-                      matchId: match?.matchId,
-                      onMessage: () => unawaited(
-                        openProfileChat(
-                          context,
-                          ref,
-                          otherUserId: listing.hostUserId,
-                          name:
-                              match?.otherDisplayName ??
-                              listing.hostDisplayName,
-                          avatarUrl: listing.hostAvatarUrl,
-                          listingId: listing.id,
-                          listingTitle: listing.title,
-                        ),
+                    const SizedBox(height: 12),
+                  ],
+                  ListingLowerSection(
+                    listing: listing,
+                    cost: cost,
+                    detailed: publishedHome != null,
+                    addressShown: _address.showsLine,
+                    addressLine: _address.line,
+                    landmark: _address.landmark,
+                    gate: gate,
+                    matchId: match?.matchId,
+                    onMessage: () => unawaited(
+                      openProfileChat(
+                        context,
+                        ref,
+                        otherUserId: listing.hostUserId,
+                        name:
+                            match?.otherDisplayName ?? listing.hostDisplayName,
+                        avatarUrl: listing.hostAvatarUrl,
+                        listingId: listing.id,
+                        listingTitle: listing.title,
                       ),
                     ),
-                    if (match != null)
-                      OwnContactShare(
-                        match: match,
-                        onDeviceOnly:
-                            !ref.watch(appConfigProvider).connectsToSupabase ||
-                            ref.watch(forceDemoModeProvider),
-                      ),
-                  ],
-                ),
+                  ),
+                  if (match != null)
+                    OwnContactShare(
+                      match: match,
+                      onDeviceOnly:
+                          !ref.watch(appConfigProvider).connectsToSupabase ||
+                          ref.watch(forceDemoModeProvider),
+                    ),
+                ],
               ),
             ),
           ],

@@ -54,81 +54,68 @@ Finder _asset(String name) {
 }
 
 void main() {
-  testWidgets('the v4 living-city home: kinetic hero, live sections, bento', (
+  testWidgets('the home hero, tiles, and rentals stay borderless', (
     tester,
   ) async {
     await _pump(tester, const Size(390, 1400));
 
-    expect(find.byKey(const Key('live-backdrop')), findsOneWidget);
     expect(find.text('Find a place.'), findsOneWidget);
-    // Motion is off in tests, so the kinetic line rests on its first word.
-    expect(find.byKey(const Key('home-kinetic-headline')), findsOneWidget);
     expect(find.text('Find your people.'), findsOneWidget);
     expect(find.text('Rent smarter, live better.'), findsOneWidget);
-    expect(find.byKey(const Key('home-live-pill')), findsOneWidget);
-    expect(find.byKey(const Key('home-search-pill')), findsOneWidget);
-    expect(find.byKey(const Key('home-photo-stack')), findsOneWidget);
-    expect(find.byKey(const Key('home-live-stats')), findsOneWidget);
-    expect(find.byKey(const Key('home-city-stories')), findsOneWidget);
-    expect(find.byKey(const Key('home-live-activity')), findsOneWidget);
     expect(find.text('Explore rentals'), findsOneWidget);
-    expect(find.text('See all'), findsOneWidget);
+    expect(find.text('See all >'), findsOneWidget);
     expect(find.text('Why Homizi'), findsNothing);
     expect(find.byKey(const Key('home-swipe-card')), findsNothing);
-    expect(_asset('assets/images/real/living.webp'), findsOneWidget);
-    expect(_asset('assets/images/real/exterior.webp'), findsWidgets);
-    expect(_asset('assets/images/real/bedroom.webp'), findsWidgets);
+    expect(
+      find.byWidgetPredicate((widget) {
+        return widget is Image &&
+            _assetName(widget.image) == 'assets/images/real/living_b.webp' &&
+            widget.alignment == const Alignment(0.35, 0);
+      }),
+      findsOneWidget,
+    );
+    expect(_asset('assets/images/real/apartment.webp'), findsWidgets);
+    expect(_asset('assets/images/real/exterior.webp'), findsOneWidget);
+    expect(_asset('assets/images/real/bedroom.webp'), findsOneWidget);
     expect(_asset('assets/images/real/people.webp'), findsOneWidget);
 
     expect(find.byKey(const Key('home-card-profile')), findsNothing);
     expect(find.byKey(const Key('home-custom-section')), findsOneWidget);
-
-    Material materialOf(String key) => tester.widget<Material>(
-      find
-          .ancestor(of: find.byKey(Key(key)), matching: find.byType(Material))
-          .first,
-    );
-
-    // Bento: the first action is a wide ink photo feature.
-    final feature = materialOf('home-card-post');
-    expect(feature.color, HomiziColors.ink);
-    expect(feature.elevation, 0);
-    final screenWidth = tester
-        .getSize(find.byKey(const Key('home-screen')))
-        .width;
-    expect(
-      tester.getSize(find.byKey(const Key('home-card-post'))).width,
-      closeTo(screenWidth - 32, 0.5),
-    );
-
-    // The rest are glass tiles with a light rim; pairs share a row.
-    for (final key in [
+    const keys = [
+      'home-card-post',
       'home-card-post-room',
       'home-card-roomie',
       'home-card-search',
-    ]) {
-      final m = materialOf(key);
-      expect(m.color, HomiziColors.glassStrong);
-      expect(m.elevation, 0);
-      final shape = m.shape! as RoundedRectangleBorder;
-      expect(shape.side.color, HomiziColors.glassLine);
+    ];
+    Size? tile;
+    for (final key in keys) {
+      final material = tester.widget<Material>(
+        find
+            .ancestor(of: find.byKey(Key(key)), matching: find.byType(Material))
+            .first,
+      );
+      final shape = material.shape! as RoundedRectangleBorder;
+      expect(shape.side, BorderSide.none);
+      expect(material.elevation, 0);
+      expect(material.color, HomiziColors.white);
+      final size = tester.getSize(find.byKey(Key(key)));
+      tile ??= size;
+      expect(size.width, closeTo(tile.width, 0.5));
+      expect(size.height, closeTo(tile.height, 0.5));
     }
+
     final post = tester.getTopLeft(find.byKey(const Key('home-card-post')));
     final room = tester.getTopLeft(
       find.byKey(const Key('home-card-post-room')),
     );
     final roomie = tester.getTopLeft(find.byKey(const Key('home-card-roomie')));
     final search = tester.getTopLeft(find.byKey(const Key('home-card-search')));
-    expect(room.dy, greaterThan(post.dy + 100));
-    expect(roomie.dy, closeTo(room.dy, 0.5));
-    expect(roomie.dx, greaterThan(room.dx + 80));
-    // A lone last tile spans the row.
-    expect(search.dy, greaterThan(room.dy + 40));
+    expect(room.dy, closeTo(post.dy, 0.5));
+    expect(room.dx, greaterThan(post.dx + 80));
+    expect(roomie.dy, greaterThan(post.dy + 40));
+    expect(roomie.dx, closeTo(post.dx, 0.5));
+    expect(search.dy, closeTo(roomie.dy, 0.5));
     expect(search.dx, closeTo(room.dx, 0.5));
-    expect(
-      tester.getSize(find.byKey(const Key('home-card-search'))).width,
-      closeTo(screenWidth - 32, 0.5),
-    );
     expect(tester.takeException(), isNull);
   });
 

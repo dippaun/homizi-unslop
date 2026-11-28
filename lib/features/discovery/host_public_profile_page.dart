@@ -110,10 +110,10 @@ class _HostProfileViewState extends ConsumerState<_HostProfileView> {
     final story = widget.story;
     return Scaffold(
       key: const Key('listing-host-page'),
-      backgroundColor: HomiziColors.cream,
+      backgroundColor: HomiziColors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: HomiziColors.cream,
+        backgroundColor: HomiziColors.white,
         surfaceTintColor: HomiziColors.white,
         elevation: 0,
         scrolledUnderElevation: 0,
@@ -125,7 +125,7 @@ class _HostProfileViewState extends ConsumerState<_HostProfileView> {
           overflow: TextOverflow.ellipsis,
           style: const TextStyle(
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w800,
             fontSize: 18,
           ),
         ),
@@ -150,7 +150,7 @@ class _HostProfileViewState extends ConsumerState<_HostProfileView> {
                   homiziText(context, 'Report'),
                   style: const TextStyle(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w700,
                   ),
                 ),
               ),
@@ -161,7 +161,7 @@ class _HostProfileViewState extends ConsumerState<_HostProfileView> {
                   homiziText(context, 'Share'),
                   style: const TextStyle(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w700,
                   ),
                 ),
               ),
@@ -239,12 +239,12 @@ class _HostProfileViewState extends ConsumerState<_HostProfileView> {
       builder: (context) {
         return AlertDialog(
           key: const Key('host-profile-share-dialog'),
-          backgroundColor: HomiziColors.cream,
+          backgroundColor: HomiziColors.white,
           title: Text(
             homiziText(context, 'Share profile'),
             style: const TextStyle(
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
             ),
           ),
           content: Text(
@@ -261,7 +261,7 @@ class _HostProfileViewState extends ConsumerState<_HostProfileView> {
                 homiziText(context, 'Close'),
                 style: const TextStyle(
                   color: HomiziColors.ink,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w700,
                 ),
               ),
             ),
@@ -353,13 +353,21 @@ class _Avatar extends StatelessWidget {
             Container(
               width: 92,
               height: 92,
-              padding: const EdgeInsets.all(4),
+              padding: const EdgeInsets.all(3),
               decoration: const BoxDecoration(
                 shape: BoxShape.circle,
-                color: HomiziColors.logoOrange,
+                gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [
+                    HomiziColors.brandYellow,
+                    HomiziColors.logoOrange,
+                    HomiziColors.brandDeepOrange,
+                  ],
+                ),
               ),
               child: Container(
-                padding: const EdgeInsets.all(4),
+                padding: const EdgeInsets.all(3),
                 decoration: const BoxDecoration(
                   shape: BoxShape.circle,
                   color: HomiziColors.white,
@@ -438,7 +446,7 @@ class _Stat extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                   style: const TextStyle(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w800,
                     fontSize: 18,
                   ),
                 ),
@@ -470,7 +478,7 @@ class _NameBlock extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
+      padding: const EdgeInsets.fromLTRB(16, 14, 16, 0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -483,7 +491,7 @@ class _NameBlock extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                   style: const TextStyle(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w800,
                     fontSize: 18,
                   ),
                 ),
@@ -491,16 +499,16 @@ class _NameBlock extends StatelessWidget {
               const SizedBox(width: 8),
               Container(
                 key: const Key('host-profile-role'),
-                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
                 decoration: BoxDecoration(
                   color: HomiziColors.accentWash,
-                  borderRadius: BorderRadius.circular(16),
+                  borderRadius: BorderRadius.circular(20),
                 ),
                 child: Text(
                   homiziText(context, story.roleLabel),
                   style: const TextStyle(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w700,
                     fontSize: 12,
                   ),
                 ),
@@ -584,7 +592,7 @@ class _Actions extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
+      padding: const EdgeInsets.fromLTRB(16, 14, 16, 0),
       child: Row(
         children: [
           Expanded(
@@ -593,12 +601,17 @@ class _Actions extends StatelessWidget {
               color: HomiziColors.clear,
               child: Ink(
                 decoration: BoxDecoration(
-                  gradient: HomiziGradients.action,
-                  borderRadius: BorderRadius.circular(12),
+                  gradient: const LinearGradient(
+                    colors: [
+                      HomiziColors.logoOrange,
+                      HomiziColors.brandDeepOrange,
+                    ],
+                  ),
+                  borderRadius: BorderRadius.circular(14),
                 ),
                 child: InkWell(
                   key: const Key('host-profile-message'),
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: BorderRadius.circular(14),
                   onTap: onMessage,
                   child: SizedBox(
                     height: 44,
@@ -608,14 +621,14 @@ class _Actions extends StatelessWidget {
                         const Icon(
                           Icons.chat_bubble_rounded,
                           size: 18,
-                          color: HomiziColors.white,
+                          color: HomiziColors.ink,
                         ),
                         const SizedBox(width: 8),
                         Text(
                           homiziText(context, 'Message'),
                           style: const TextStyle(
-                            color: HomiziColors.white,
-                            fontWeight: FontWeight.w600,
+                            color: HomiziColors.ink,
+                            fontWeight: FontWeight.w800,
                             fontSize: 15,
                           ),
                         ),
@@ -631,10 +644,10 @@ class _Actions extends StatelessWidget {
             flex: 2,
             child: Material(
               color: HomiziColors.soft,
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(14),
               child: InkWell(
                 key: const Key('host-profile-share'),
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: BorderRadius.circular(14),
                 onTap: onShare,
                 child: SizedBox(
                   height: 44,
@@ -645,7 +658,7 @@ class _Actions extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                       style: const TextStyle(
                         color: HomiziColors.ink,
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w800,
                         fontSize: 13,
                       ),
                     ),
@@ -728,7 +741,7 @@ class _Highlight extends StatelessWidget {
           Container(
             width: 64,
             height: 64,
-            padding: const EdgeInsets.all(2),
+            padding: const EdgeInsets.all(2.5),
             decoration: const BoxDecoration(
               shape: BoxShape.circle,
               color: HomiziColors.success,
@@ -752,7 +765,7 @@ class _Highlight extends StatelessWidget {
                         homiziText(context, value!),
                         style: const TextStyle(
                           color: HomiziColors.success,
-                          fontWeight: FontWeight.w600,
+                          fontWeight: FontWeight.w800,
                           fontSize: 15,
                         ),
                       ),
@@ -1013,7 +1026,7 @@ class _GridTile extends StatelessWidget {
                           price,
                           style: const TextStyle(
                             color: HomiziColors.ink,
-                            fontWeight: FontWeight.w600,
+                            fontWeight: FontWeight.w800,
                             fontSize: 11,
                           ),
                         ),
@@ -1081,7 +1094,7 @@ class _AboutTab extends StatelessWidget {
           if (story.replyLabel != null)
             _DetailLine(label: 'Usually replies', value: story.replyLabel!),
           if (story.languages.isNotEmpty) ...[
-            const SizedBox(height: 20),
+            const SizedBox(height: 18),
             const _SectionTitle('Languages'),
             const SizedBox(height: 8),
             Wrap(
@@ -1097,25 +1110,25 @@ class _AboutTab extends StatelessWidget {
                     ),
                     decoration: BoxDecoration(
                       color: HomiziColors.soft,
-                      borderRadius: BorderRadius.circular(16),
+                      borderRadius: BorderRadius.circular(20),
                     ),
                     child: Text(
                       homiziText(context, language),
                       style: const TextStyle(
                         color: HomiziColors.ink,
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w700,
                       ),
                     ),
                   ),
               ],
             ),
           ],
-          const SizedBox(height: 20),
+          const SizedBox(height: 18),
           const _SectionTitle('Verification'),
           const SizedBox(height: 8),
           _Verification(anchorId: anchorId, verified: story.verified),
           if (story.reviews.isNotEmpty) ...[
-            const SizedBox(height: 20),
+            const SizedBox(height: 18),
             const _SectionTitle('Reviews'),
             const SizedBox(height: 8),
             for (final review in story.reviews) ...[
@@ -1169,7 +1182,7 @@ class _SectionTitle extends StatelessWidget {
       homiziText(context, text),
       style: const TextStyle(
         color: HomiziColors.ink,
-        fontWeight: FontWeight.w600,
+        fontWeight: FontWeight.w800,
         fontSize: 16,
       ),
     );
@@ -1204,7 +1217,7 @@ class _DetailLine extends StatelessWidget {
               homiziText(context, value),
               style: const TextStyle(
                 color: HomiziColors.ink,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w700,
               ),
             ),
           ),
@@ -1253,7 +1266,7 @@ class _Verification extends ConsumerWidget {
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
             decoration: BoxDecoration(
               color: HomiziColors.successWash,
-              borderRadius: BorderRadius.circular(16),
+              borderRadius: BorderRadius.circular(20),
             ),
             child: Row(
               mainAxisSize: MainAxisSize.min,
@@ -1268,7 +1281,7 @@ class _Verification extends ConsumerWidget {
                   homiziText(context, chip),
                   style: const TextStyle(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w700,
                     fontSize: 12,
                   ),
                 ),

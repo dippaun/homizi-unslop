@@ -38,10 +38,10 @@ class FlatsSwipeScreen extends ConsumerWidget {
     final listings = homeSwipeListings(source, limit: source.length);
     return Scaffold(
       key: const Key('flats-swipe-screen'),
-      backgroundColor: HomiziColors.cream,
+      backgroundColor: HomiziColors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: HomiziColors.cream,
+        backgroundColor: HomiziColors.white,
         surfaceTintColor: HomiziColors.white,
         leading: const HomiziBackButton(),
         title: Text(homiziText(context, 'Explore rentals')),
@@ -233,12 +233,6 @@ class _FlatsSwipeDeckState extends ConsumerState<FlatsSwipeDeck>
   }
 
   Future<void> _commit(BestMatchSwipe decision) async {
-    // v2: a firm tap for interest, a light tick for skip or later.
-    if (decision == BestMatchSwipe.interested) {
-      unawaited(HapticFeedback.mediumImpact());
-    } else {
-      unawaited(HapticFeedback.selectionClick());
-    }
     final listing = _current;
     if (_busy || listing == null) {
       return;
@@ -472,7 +466,7 @@ class _FlatsSwipeDeckState extends ConsumerState<FlatsSwipeDeck>
               child: DecoratedBox(
                 decoration: BoxDecoration(
                   color: HomiziColors.white,
-                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                  borderRadius: BorderRadius.all(Radius.circular(24)),
                   border: Border.fromBorderSide(
                     BorderSide(color: HomiziColors.line),
                   ),
@@ -571,7 +565,7 @@ class _Hint extends StatelessWidget {
         style: const TextStyle(
           color: HomiziColors.inkSoft,
           fontSize: 13,
-          fontWeight: FontWeight.w600,
+          fontWeight: FontWeight.w700,
         ),
       ),
     );
@@ -601,7 +595,7 @@ class _Done extends StatelessWidget {
               textAlign: TextAlign.center,
               style: const TextStyle(
                 color: HomiziColors.ink,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w800,
                 fontSize: 18,
               ),
             ),
@@ -646,14 +640,14 @@ class _Stamp extends StatelessWidget {
               ),
               child: Padding(
                 padding: const EdgeInsets.symmetric(
-                  horizontal: 16,
+                  horizontal: 14,
                   vertical: 8,
                 ),
                 child: Text(
                   label,
                   style: TextStyle(
                     color: foreground,
-                    fontWeight: FontWeight.w700,
+                    fontWeight: FontWeight.w800,
                     fontSize: 22,
                     letterSpacing: 1.1,
                   ),

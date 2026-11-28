@@ -69,7 +69,7 @@ class _BarsPainter extends CustomPainter {
       final left = chart.left + slot * index + (slot - barWidth) / 2;
       final rect = RRect.fromRectAndRadius(
         Rect.fromLTWH(left, chart.bottom - height, barWidth, height),
-        const Radius.circular(4),
+        const Radius.circular(3),
       );
       canvas.drawRRect(rect, fill);
     }

@@ -39,7 +39,7 @@ class RoomShareOffer extends StatelessWidget {
           style: const TextStyle(
             fontFamily: 'PlusJakartaSans',
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w800,
             fontSize: 18,
           ),
         ),
@@ -66,13 +66,13 @@ class RoomShareOffer extends StatelessWidget {
               ),
           ],
         ),
-        const SizedBox(height: 16),
+        const SizedBox(height: 14),
         for (var index = 0; index < plan.roomsForRent; index++) ...[
           Text(
             homiziText(context, 'Room ${index + 1} occupancy'),
             style: const TextStyle(
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
             ),
           ),
           const SizedBox(height: 8),
@@ -102,7 +102,7 @@ class RoomShareOffer extends StatelessWidget {
           style: const TextStyle(
             fontFamily: 'PlusJakartaSans',
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w800,
             fontSize: 18,
           ),
         ),
@@ -110,7 +110,7 @@ class RoomShareOffer extends StatelessWidget {
         DecoratedBox(
           key: const Key('share-occupant-profile'),
           decoration: BoxDecoration(
-            color: HomiziColors.warmWash,
+            color: const Color(0xFFFFF6EE),
             borderRadius: BorderRadius.circular(16),
           ),
           child: Padding(
@@ -140,7 +140,7 @@ class RoomShareOffer extends StatelessWidget {
           amount: plan.perPersonRent,
           onChanged: (value) => _emit(plan.copyWith(perPersonRent: value)),
         ),
-        const SizedBox(height: 16),
+        const SizedBox(height: 14),
         _EstimateCard(one: one, two: two),
       ],
     );
@@ -212,10 +212,14 @@ class _EstimateCard extends StatelessWidget {
     return AnimatedContainer(
       duration: const Duration(milliseconds: 320),
       curve: Curves.easeOut,
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(16),
-        color: HomiziColors.white,
+        borderRadius: BorderRadius.circular(18),
+        gradient: const LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [Color(0xFFFFF1E4), Color(0xFFF3ECFF)],
+        ),
         border: Border.all(color: HomiziColors.logoOrange),
       ),
       child: Column(
@@ -224,17 +228,14 @@ class _EstimateCard extends StatelessWidget {
         children: [
           Row(
             children: [
-              const Icon(
-                Icons.calculate_outlined,
-                color: HomiziColors.logoOrange,
-              ),
+              const Icon(Icons.auto_awesome, color: HomiziColors.logoOrange),
               const SizedBox(width: 8),
               Expanded(
                 child: Text(
                   homiziText(context, 'Rent for the room on offer'),
                   style: const TextStyle(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w800,
                     fontSize: 16,
                   ),
                 ),
@@ -275,8 +276,8 @@ class _Quote extends StatelessWidget {
       children: [
         CircleAvatar(
           radius: 16,
-          backgroundColor: HomiziColors.cream,
-          child: Icon(icon, size: 18, color: HomiziColors.brandDeepRed),
+          backgroundColor: HomiziColors.white,
+          child: Icon(icon, size: 18, color: HomiziColors.homiziPurple),
         ),
         const SizedBox(width: 10),
         Expanded(
@@ -292,7 +293,7 @@ class _Quote extends StatelessWidget {
             key: ValueKey(shown),
             style: const TextStyle(
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
             ),
           ),
         ),

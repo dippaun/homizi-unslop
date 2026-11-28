@@ -35,12 +35,12 @@ class PriorityRankRow extends StatelessWidget {
       child: Material(
         color: HomiziColors.white,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(14),
           side: const BorderSide(color: HomiziColors.line),
         ),
         child: InkWell(
           key: Key('priority-row-$wire'),
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(14),
           onTap: onEdit,
           child: Padding(
             padding: const EdgeInsets.fromLTRB(10, 10, 2, 10),
@@ -61,7 +61,7 @@ class PriorityRankRow extends StatelessWidget {
                         homiziText(context, title),
                         style: const TextStyle(
                           color: HomiziColors.ink,
-                          fontWeight: FontWeight.w600,
+                          fontWeight: FontWeight.w700,
                         ),
                       ),
                       Text(
@@ -124,14 +124,16 @@ class PriorityBadge extends StatelessWidget {
       height: 28,
       alignment: Alignment.center,
       decoration: BoxDecoration(
-        color: HomiziColors.ink,
+        gradient: const LinearGradient(
+          colors: [HomiziColors.logoOrange, HomiziColors.brandRedOrange],
+        ),
         borderRadius: BorderRadius.circular(8),
       ),
       child: Text(
         'P$rank',
         style: const TextStyle(
           color: HomiziColors.white,
-          fontWeight: FontWeight.w600,
+          fontWeight: FontWeight.w700,
           fontSize: 13,
         ),
       ),
@@ -166,12 +168,12 @@ class PriorityTypeChip extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
           onTap: onTap,
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 5),
             child: Text(
               homiziText(context, label),
               style: TextStyle(
                 color: mustHave ? HomiziColors.error : HomiziColors.success,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w700,
                 fontSize: 11,
               ),
             ),
@@ -241,7 +243,7 @@ class _TypeCard extends StatelessWidget {
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
         color: mustHave ? HomiziColors.errorWash : HomiziColors.successWash,
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(14),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -250,7 +252,7 @@ class _TypeCard extends StatelessWidget {
           const SizedBox(height: 4),
           Text(
             homiziText(context, title),
-            style: TextStyle(color: tone, fontWeight: FontWeight.w600),
+            style: TextStyle(color: tone, fontWeight: FontWeight.w700),
           ),
           Text(
             homiziText(context, subtitle),
@@ -305,17 +307,22 @@ class PriorityTabs extends StatelessWidget {
           Expanded(
             child: Material(
               color: i == index ? null : HomiziColors.soft,
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(14),
               child: Ink(
                 decoration: i == index
                     ? BoxDecoration(
-                        color: HomiziColors.ink,
-                        borderRadius: BorderRadius.circular(12),
+                        gradient: const LinearGradient(
+                          colors: [
+                            HomiziColors.logoOrange,
+                            HomiziColors.brandRedOrange,
+                          ],
+                        ),
+                        borderRadius: BorderRadius.circular(14),
                       )
                     : null,
                 child: InkWell(
                   key: Key(labels[i].$3),
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: BorderRadius.circular(14),
                   onTap: () => onChanged(i),
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
@@ -340,7 +347,7 @@ class PriorityTabs extends StatelessWidget {
                               color: i == index
                                   ? HomiziColors.white
                                   : HomiziColors.ink,
-                              fontWeight: FontWeight.w600,
+                              fontWeight: FontWeight.w700,
                               fontSize: 13,
                             ),
                           ),
@@ -368,7 +375,7 @@ class PriorityHowItWorks extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       key: const Key('how-it-works'),
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
@@ -381,14 +388,16 @@ class PriorityHowItWorks extends StatelessWidget {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
             decoration: BoxDecoration(
-              color: HomiziColors.ink,
-              borderRadius: BorderRadius.circular(16),
+              gradient: const LinearGradient(
+                colors: [HomiziColors.logoOrange, HomiziColors.brandRedOrange],
+              ),
+              borderRadius: BorderRadius.circular(20),
             ),
             child: Text(
-              homiziText(context, 'How it works'),
+              homiziText(context, 'How It Works'),
               style: const TextStyle(
                 color: HomiziColors.white,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w700,
               ),
             ),
           ),

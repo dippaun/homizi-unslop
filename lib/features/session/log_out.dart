@@ -27,12 +27,12 @@ Future<void> confirmLogOut(BuildContext context, WidgetRef ref) async {
     builder: (context) {
       return AlertDialog(
         key: const Key('log-out-confirm'),
-        backgroundColor: HomiziColors.cream,
+        backgroundColor: HomiziColors.white,
         title: Text(
           homiziText(context, 'Log out?'),
           style: const TextStyle(
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w800,
           ),
         ),
         content: Text(
@@ -57,7 +57,7 @@ Future<void> confirmLogOut(BuildContext context, WidgetRef ref) async {
               homiziText(context, 'Log out'),
               style: const TextStyle(
                 color: HomiziColors.error,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w800,
               ),
             ),
           ),
@@ -117,7 +117,7 @@ class LogOutButton extends ConsumerWidget {
             homiziText(context, 'Log out'),
             style: const TextStyle(
               color: HomiziColors.error,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
               fontSize: 16,
             ),
           ),

@@ -149,7 +149,7 @@ Future<DateTime?> pickHomiziDate(
             onSurface: HomiziColors.ink,
           ),
           datePickerTheme: DatePickerThemeData(
-            backgroundColor: HomiziColors.cream,
+            backgroundColor: HomiziColors.white,
             headerBackgroundColor: HomiziColors.white,
             headerForegroundColor: HomiziColors.ink,
             surfaceTintColor: HomiziColors.clear,
@@ -167,11 +167,11 @@ Future<DateTime?> pickHomiziDate(
               return null;
             }),
             shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(16)),
+              borderRadius: BorderRadius.all(Radius.circular(20)),
             ),
           ),
           dialogTheme: const DialogThemeData(
-            backgroundColor: HomiziColors.cream,
+            backgroundColor: HomiziColors.white,
           ),
         ),
         child: child ?? const SizedBox.shrink(),

@@ -122,7 +122,7 @@ class _RoommateProfilePaneState extends ConsumerState<RoommateProfilePane> {
           textAlign: TextAlign.center,
           style: Theme.of(context).textTheme.titleLarge?.copyWith(
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w800,
           ),
         ),
         const SizedBox(height: 12),
@@ -192,7 +192,7 @@ class _RoommateProfilePaneState extends ConsumerState<RoommateProfilePane> {
                     homiziText(context, 'Edit in profile'),
                     style: const TextStyle(
                       color: HomiziColors.ink,
-                      fontWeight: FontWeight.w600,
+                      fontWeight: FontWeight.w800,
                     ),
                   ),
                 ),
@@ -229,7 +229,7 @@ class _RoommateProfilePaneState extends ConsumerState<RoommateProfilePane> {
                     homiziText(context, 'Edit in profile'),
                     style: const TextStyle(
                       color: HomiziColors.ink,
-                      fontWeight: FontWeight.w600,
+                      fontWeight: FontWeight.w800,
                     ),
                   ),
                 ),
@@ -272,7 +272,7 @@ class _RoommateProfilePaneState extends ConsumerState<RoommateProfilePane> {
                 homiziText(context, 'I want my roommate to be…'),
                 style: const TextStyle(
                   color: HomiziColors.ink,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w800,
                 ),
               ),
               const SizedBox(height: 8),
@@ -287,8 +287,8 @@ class _RoommateProfilePaneState extends ConsumerState<RoommateProfilePane> {
                         child: Text(
                           'P${i + 1}',
                           style: const TextStyle(
-                            fontSize: 11,
-                            fontWeight: FontWeight.w600,
+                            fontSize: 10,
+                            fontWeight: FontWeight.w800,
                             color: HomiziColors.ink,
                           ),
                         ),
@@ -314,7 +314,7 @@ class _RoommateProfilePaneState extends ConsumerState<RoommateProfilePane> {
                   homiziText(context, 'Rank what you want'),
                   style: const TextStyle(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w800,
                   ),
                 ),
               ),
@@ -345,10 +345,10 @@ class _Card extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
         color: HomiziColors.white,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(18),
         border: Border.all(color: HomiziColors.line),
       ),
       child: Column(
@@ -358,7 +358,7 @@ class _Card extends StatelessWidget {
             homiziText(context, title),
             style: const TextStyle(
               color: HomiziColors.ink,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w800,
               fontSize: 16,
             ),
           ),
@@ -396,7 +396,7 @@ class _Inherited extends StatelessWidget {
               homiziText(context, label),
               style: const TextStyle(
                 color: HomiziColors.inkSoft,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w700,
               ),
             ),
           ),

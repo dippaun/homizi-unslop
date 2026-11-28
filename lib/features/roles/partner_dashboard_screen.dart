@@ -4,12 +4,9 @@ import 'package:go_router/go_router.dart';
 import 'package:homizi/core/l10n/translate.dart';
 import 'package:homizi/core/routing/route_paths.dart';
 import 'package:homizi/core/theme/homizi_colors.dart';
-import 'package:homizi/core/theme/role_palette.dart';
 import 'package:homizi/core/widgets/homizi_home_bar.dart';
 import 'package:homizi/features/personalize/personalization.dart';
 import 'package:homizi/features/roles/role_onboarding_widgets.dart';
-import 'package:homizi/ui/kit/hero_band.dart';
-import 'package:homizi/ui/kit/motion_kit.dart';
 
 /// Seeker demand, listings, and leads. Not the old broker desk.
 class PartnerDashboardScreen extends ConsumerWidget {
@@ -21,7 +18,7 @@ class PartnerDashboardScreen extends ConsumerWidget {
     final place = city.isEmpty ? 'the cities you serve' : city;
     return Scaffold(
       key: const Key('partner-dashboard'),
-      backgroundColor: HomiziColors.cream,
+      backgroundColor: HomiziColors.white,
       appBar: HomiziHomeBar(title: Text(homiziText(context, 'Partner'))),
       body: Align(
         alignment: Alignment.topCenter,
@@ -30,18 +27,7 @@ class PartnerDashboardScreen extends ConsumerWidget {
           child: ListView(
             padding: const EdgeInsets.fromLTRB(20, 8, 20, 32),
             children: [
-              HomiziStaggerIn(
-                child: HomiziRoleIntro(
-                  palette: HomiziRolePalette.broker,
-                  eyebrow: homiziText(context, 'Property partner'),
-                  icon: Icons.handshake_outlined,
-                  title: homiziText(context, 'Your partner desk'),
-                  body: homiziText(
-                    context,
-                    'Briefs, listings, and leads for $place.',
-                  ),
-                ),
-              ),
+              RoleFlowIntro('Briefs, listings, and leads for $place.'),
               const SizedBox(height: 16),
               _Card(
                 cardKey: const Key('broker-tile-briefs'),
@@ -80,7 +66,7 @@ class PartnerDashboardScreen extends ConsumerWidget {
                   homiziText(context, 'Edit partner details'),
                   style: const TextStyle(
                     color: HomiziColors.ink,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w700,
                   ),
                 ),
               ),
@@ -109,57 +95,47 @@ class _Card extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return HomiziPressable(
-      child: Material(
-        color: HomiziColors.white,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16),
-          side: const BorderSide(color: HomiziColors.line),
-        ),
-        child: InkWell(
-          key: cardKey,
-          borderRadius: BorderRadius.circular(16),
-          onTap: onTap,
-          child: Padding(
-            padding: const EdgeInsets.all(16),
-            child: Row(
-              children: [
-                HomiziRoleIcon(
-                  icon,
-                  palette: HomiziRolePalette.broker,
-                  size: 40,
-                ),
-                const SizedBox(width: 12),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        homiziText(context, title),
-                        style: const TextStyle(
-                          fontFamily: 'PlusJakartaSans',
-                          fontWeight: FontWeight.w600,
-                          fontSize: 16,
-                          color: HomiziColors.ink,
-                        ),
+    return Material(
+      color: HomiziColors.white,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20),
+        side: const BorderSide(color: HomiziColors.line),
+      ),
+      child: InkWell(
+        key: cardKey,
+        borderRadius: BorderRadius.circular(20),
+        onTap: onTap,
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Row(
+            children: [
+              Icon(icon, color: HomiziColors.logoOrange),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      homiziText(context, title),
+                      style: const TextStyle(
+                        fontFamily: 'PlusJakartaSans',
+                        fontWeight: FontWeight.w800,
+                        fontSize: 16,
+                        color: HomiziColors.ink,
                       ),
-                      const SizedBox(height: 4),
-                      Text(
-                        homiziText(context, detail),
-                        style: const TextStyle(
-                          color: HomiziColors.inkSoft,
-                          height: 1.3,
-                        ),
+                    ),
+                    const SizedBox(height: 4),
+                    Text(
+                      homiziText(context, detail),
+                      style: const TextStyle(
+                        color: HomiziColors.inkSoft,
+                        height: 1.3,
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-                const Icon(
-                  Icons.chevron_right,
-                  color: HomiziColors.brandDarkRed,
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

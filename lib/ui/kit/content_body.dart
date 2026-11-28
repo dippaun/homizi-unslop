@@ -76,10 +76,10 @@ class ContentScaffold extends StatelessWidget {
     final label = primaryLabel;
     final page = Scaffold(
       key: scaffoldKey,
-      backgroundColor: HomiziColors.cream,
+      backgroundColor: HomiziColors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: HomiziColors.cream,
+        backgroundColor: HomiziColors.white,
         surfaceTintColor: HomiziColors.white,
         elevation: 0,
         scrolledUnderElevation: 0,
@@ -88,7 +88,7 @@ class ContentScaffold extends StatelessWidget {
           homiziText(context, title),
           style: const TextStyle(
             color: HomiziColors.ink,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w800,
           ),
         ),
         actions: actions,
@@ -116,7 +116,7 @@ class ContentScaffold extends StatelessWidget {
                     homiziText(context, label),
                     style: const TextStyle(
                       color: HomiziColors.ink,
-                      fontWeight: FontWeight.w600,
+                      fontWeight: FontWeight.w800,
                     ),
                   ),
                 ),

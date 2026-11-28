@@ -126,7 +126,7 @@ class _ServiceRequestScreenState extends ConsumerState<ServiceRequestScreen> {
     final day =
         '${_date.day.toString().padLeft(2, '0')} ${_month(_date.month)} ${_date.year}';
     return Scaffold(
-      backgroundColor: HomiziColors.cream,
+      backgroundColor: HomiziColors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: const HomiziBackButton(),

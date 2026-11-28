@@ -59,7 +59,7 @@ Future<Uint8List> buildReceiptPdf(RentReceipt receipt) async {
             pw.Spacer(),
             pw.Text(
               'Generated in HOMIZI for your records. HOMIZI did not collect this payment.',
-              style: const pw.TextStyle(fontSize: 11, color: PdfColors.grey700),
+              style: const pw.TextStyle(fontSize: 10, color: PdfColors.grey700),
             ),
           ],
         );
@@ -133,7 +133,7 @@ Future<Uint8List> buildAgreementPdf(AgreementDraft draft) async {
                 pw.Text(
                   agreementWatermark,
                   style: const pw.TextStyle(
-                    fontSize: 11,
+                    fontSize: 10,
                     color: PdfColors.grey700,
                   ),
                 ),

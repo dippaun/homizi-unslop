@@ -79,7 +79,7 @@ class _Shortcut extends StatelessWidget {
         foregroundColor: HomiziColors.ink,
         iconColor: HomiziColors.accent,
         side: const BorderSide(color: HomiziColors.line),
-        backgroundColor: HomiziColors.cream,
+        backgroundColor: HomiziColors.white,
         minimumSize: const Size(48, 48),
         maximumSize: const Size(double.infinity, 48),
         padding: const EdgeInsets.symmetric(horizontal: 8),
@@ -88,7 +88,7 @@ class _Shortcut extends StatelessWidget {
         textStyle: const TextStyle(
           fontFamily: 'PlusJakartaSans',
           fontSize: 13,
-          fontWeight: FontWeight.w600,
+          fontWeight: FontWeight.w700,
         ),
       ),
       onPressed: onTap,
